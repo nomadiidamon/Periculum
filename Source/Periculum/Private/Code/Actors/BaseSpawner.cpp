@@ -10,7 +10,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "EngineUtils.h"
 
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 ABaseSpawner::ABaseSpawner()
 {
@@ -71,7 +71,7 @@ void ABaseSpawner::SpawnActor()
 	if (SpawnedActors.Num() >= MaxSpawnCount)
 	{
 		bCanSpawn = false;
-		UE_LOG(GAME, Warning, TEXT("Max spawn count reached in BaseSpawner. No more actors will be spawned until some are removed."));
+		PERICULUM_LOG(Periculum_Game, Warning, "Max spawn count reached in BaseSpawner. No more actors will be spawned until some are removed.");
 		GetWorldTimerManager().ClearTimer(SpawnTimerHandle);
 		return;
 	}
@@ -100,7 +100,7 @@ void ABaseSpawner::SpawnActor()
 		break;
 
 	default:
-		UE_LOG(GAME, Warning, TEXT("Invalid SpawnMode in BaseSpawner. Please select a valid spawn mode."));
+		PERICULUM_LOG(Periculum_Game, Warning, "Invalid SpawnMode in BaseSpawner. Please select a valid spawn mode.");
 		break;
 	}
 
@@ -110,11 +110,11 @@ void ABaseSpawner::SpawnActor()
 AActor* ABaseSpawner::SpawnActor_Sphere()
 {
 	if (!ActorToSpawn) {
-		UE_LOG(GAME, Warning, TEXT("ActorToSpawn is not assigned in BaseSpawner. Please assign an actor class to spawn."));
+		PERICULUM_LOG(Periculum_Game, Warning, "ActorToSpawn is not assigned in BaseSpawner. Please assign an actor class to spawn.");
 		return nullptr;
 	}
 	if (!SphereSpawnerComponent || !SphereSpawnerComponent->SphereComponent) {
-		UE_LOG(GAME, Warning, TEXT("SphereSpawnerComponent or its SphereComponent is not assigned in BaseSpawner. Please ensure SphereSpawnerComponent and its SphereComponent are properly set up."));
+		PERICULUM_LOG(Periculum_Game, Warning, "SphereSpawnerComponent or its SphereComponent is not assigned in BaseSpawner. Please ensure SphereSpawnerComponent and its SphereComponent are properly set up.");
 		return nullptr;
 	}
 	SwitchMode();
@@ -144,11 +144,11 @@ AActor* ABaseSpawner::SpawnActor_Sphere()
 AActor* ABaseSpawner::SpawnActor_Box()
 {
 	if (!ActorToSpawn) {
-		UE_LOG(GAME, Warning, TEXT("ActorToSpawn is not assigned in BaseSpawner. Please assign an actor class to spawn."));
+		PERICULUM_LOG(Periculum_Game, Warning, "ActorToSpawn is not assigned in BaseSpawner. Please assign an actor class to spawn.");
 		return nullptr;
 	}
 	if (!BoxSpawnerComponent || !BoxSpawnerComponent->BoxComponent) {
-		UE_LOG(GAME, Warning, TEXT("BoxSpawnerComponent or its BoxComponent is not assigned in BaseSpawner. Please ensure BoxSpawnerComponent and its BoxComponent are properly set up."));
+		PERICULUM_LOG(Periculum_Game, Warning, "BoxSpawnerComponent or its BoxComponent is not assigned in BaseSpawner. Please ensure BoxSpawnerComponent and its BoxComponent are properly set up.");
 		return nullptr;
 	}
 	SwitchMode();
@@ -164,11 +164,11 @@ AActor* ABaseSpawner::SpawnActor_Box()
 AActor* ABaseSpawner::SpawnActor_Capsule()
 {
 	if (!ActorToSpawn) {
-		UE_LOG(GAME, Warning, TEXT("ActorToSpawn is not assigned in BaseSpawner. Please assign an actor class to spawn."));
+		PERICULUM_LOG(Periculum_Game, Warning, "ActorToSpawn is not assigned in BaseSpawner. Please assign an actor class to spawn.");
 		return nullptr;
 	}
 	if (!CapsuleSpawnerComponent || !CapsuleSpawnerComponent->CapsuleComponent) {
-		UE_LOG(GAME, Warning, TEXT("CapsuleSpawnerComponent or its CapsuleComponent is not assigned in BaseSpawner. Please ensure CapsuleSpawnerComponent and its CapsuleComponent are properly set up."));
+		PERICULUM_LOG(Periculum_Game, Warning, "CapsuleSpawnerComponent or its CapsuleComponent is not assigned in BaseSpawner. Please ensure CapsuleSpawnerComponent and its CapsuleComponent are properly set up.");
 		return nullptr;
 	}
 	SwitchMode();
@@ -200,7 +200,7 @@ AActor* ABaseSpawner::SpawnActor_Random()
 		break;
 
 	default:
-		UE_LOG(GAME, Warning, TEXT("Invalid random value generated in SpawnActor_Random. This should never happen."));
+		PERICULUM_LOG(Periculum_Game, Warning, "Invalid random value generated in SpawnActor_Random. This should never happen.");
 		break;
 	}
 	return spawnedActor;

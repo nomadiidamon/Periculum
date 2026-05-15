@@ -1,6 +1,6 @@
 #include "Code/Components/CapsuleSpawnerComponent.h"
 #include "Components/CapsuleComponent.h"
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 UCapsuleSpawnerComponent::UCapsuleSpawnerComponent()
 {
@@ -35,7 +35,7 @@ void UCapsuleSpawnerComponent::OnRegister()
 	Super::OnRegister();
 	if (!CapsuleComponent)
 	{
-		UE_LOG(GAME, Warning, TEXT("CapsuleComponent is not assigned in CapsuleSpawnerComponent. Please assign a CapsuleComponent to define the spawn area."));
+		PERICULUM_LOG(Periculum_Game, Warning, "CapsuleComponent is not assigned in CapsuleSpawnerComponent. Please assign a CapsuleComponent to define the spawn area.");
 	}
 	SetRandomSeed(RandomSeed);
 }
@@ -67,7 +67,7 @@ FCapsuleSpawnData UCapsuleSpawnerComponent::GenerateSpawnData()
 {
 	if (!ensure(CapsuleComponent))
 	{
-		UE_LOG(GAME, Warning, TEXT("Cannot generate spawn data because CapsuleComponent is not assigned in CapsuleSpawnerComponent."));
+		PERICULUM_LOG(Periculum_Game, Warning, "Cannot generate spawn data because CapsuleComponent is not assigned in CapsuleSpawnerComponent.");
 		return FCapsuleSpawnData();
 	}
 

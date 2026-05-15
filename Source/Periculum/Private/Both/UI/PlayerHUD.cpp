@@ -5,7 +5,7 @@
 
 #include "Slate/SGameLayerManager.h"
 
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 
 void UPlayerHUD::NativeConstruct()
@@ -13,21 +13,21 @@ void UPlayerHUD::NativeConstruct()
 	Super::NativeConstruct();
 	if (!PlayerHealthBar)
 	{
-		UE_LOG(HUD, Warning, TEXT("PlayerHealthBar is not bound in PlayerHUD"));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("PlayerHealthBar is not bound in PlayerHUD"));
 	}
 	if (!Crosshair)
 	{
-		UE_LOG(HUD, Warning, TEXT("Crosshair is not bound in PlayerHUD"));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Crosshair is not bound in PlayerHUD"));
 	}
 	if (bFadeInAndOut)
 	{
 		if (!FadeInAnimation)
 		{
-			UE_LOG(HUD, Warning, TEXT("FadeInAnimation is not set in PlayerHUD."));
+			PERICULUM_LOG(Periculum_UI, Warning, TEXT("FadeInAnimation is not set in PlayerHUD."));
 		}
 		if (!FadeOutAnimation)
 		{
-			UE_LOG(HUD, Warning, TEXT("FadeOutAnimation is not set in PlayerHUD."));
+			PERICULUM_LOG(Periculum_UI, Warning, TEXT("FadeOutAnimation is not set in PlayerHUD."));
 		}
 	}
 }
@@ -49,7 +49,7 @@ void UPlayerHUD::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 	Super::NativeTick(MyGeometry, InDeltaTime);
 	if (!Crosshair || !Crosshair->ValidCrosshair())
 	{
-		UE_LOG(HUD, Warning, TEXT("Crosshair is not valid in PlayerHUD. Please check the widget blueprint."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Crosshair is not valid in PlayerHUD. Please check the widget blueprint."));
 		return;
 	}
 
@@ -62,7 +62,7 @@ void UPlayerHUD::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 		PixelPosition + (TransformVector(Crosshair->GetCachedGeometry().GetAccumulatedRenderTransform(),
 			Crosshair->GetCachedGeometry().GetLocalSize()) * 0.5f), WorldPosition, WorldDirection))
 	{
-		UE_LOG(HUD, Warning, TEXT("Failed to deproject screen to world in PlayerHUD."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Failed to deproject screen to world in PlayerHUD."));
 	}
 
 	CrosshairWorldHitLocation = WorldPosition + WorldDirection * 100000.f;
@@ -77,12 +77,12 @@ void UPlayerHUD::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 			if (hit.GetActor()->Tags.Contains(FName(TEXT("Ally"))))
 			{
 				Crosshair->SetCrosshairState(ECrosshairState::Ally);
-				UE_LOG(HUD, Log, TEXT("Crosshair hit ally at location: %s"), *CrosshairWorldHitLocation.ToString());
+				PERICULUM_LOG(Periculum_UI, Log, TEXT("Crosshair hit ally at location: %s"), *CrosshairWorldHitLocation.ToString());
 			}
 			else if (hit.GetActor()->Tags.Contains(FName(TEXT("Enemy"))))
 			{
 				Crosshair->SetCrosshairState(ECrosshairState::Enemy);
-				UE_LOG(HUD, Log, TEXT("Crosshair hit enemy at location: %s"), *CrosshairWorldHitLocation.ToString());
+				PERICULUM_LOG(Periculum_UI, Log, TEXT("Crosshair hit enemy at location: %s"), *CrosshairWorldHitLocation.ToString());
 			}
 			else 
 			{
@@ -93,7 +93,7 @@ void UPlayerHUD::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 		else if (hit.Component->GetCollisionObjectType() == ECC_WorldStatic || hit.Component->GetCollisionObjectType() == ECC_WorldDynamic)
 		{
 			Crosshair->SetCrosshairState(ECrosshairState::Default);
-			UE_LOG(HUD, Log, TEXT("Crosshair hit world at location: %s"), *CrosshairWorldHitLocation.ToString());
+			PERICULUM_LOG(Periculum_UI, Log, TEXT("Crosshair hit world at location: %s"), *CrosshairWorldHitLocation.ToString());
 		}
 	}
 	else {
@@ -112,7 +112,7 @@ void UPlayerHUD::SetVisibility(ESlateVisibility InVisibility)
 		{
 			if (!FadeInAnimation)
 			{
-				UE_LOG(HUD, Warning, TEXT("FadeInAnimation is not set in PlayerHUD."));
+				PERICULUM_LOG(Periculum_UI, Warning, TEXT("FadeInAnimation is not set in PlayerHUD."));
 				return;
 			}
 			PlayAnimation(FadeInAnimation);
@@ -121,7 +121,7 @@ void UPlayerHUD::SetVisibility(ESlateVisibility InVisibility)
 		{
 			if (!FadeOutAnimation)
 			{
-				UE_LOG(HUD, Warning, TEXT("FadeOutAnimation is not set in PlayerHUD."));
+				PERICULUM_LOG(Periculum_UI, Warning, TEXT("FadeOutAnimation is not set in PlayerHUD."));
 				return;
 			}
 			PlayAnimation(FadeOutAnimation);

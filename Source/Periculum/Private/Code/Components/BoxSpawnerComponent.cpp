@@ -1,6 +1,6 @@
 #include "Code/Components/BoxSpawnerComponent.h"
 #include "Components/BoxComponent.h"
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 UBoxSpawnerComponent::UBoxSpawnerComponent()
 {
@@ -36,7 +36,7 @@ void UBoxSpawnerComponent::OnRegister()
 	Super::OnRegister();
 	if (!BoxComponent)
 	{
-		UE_LOG(GAME, Warning, TEXT("BoxComponent is not assigned in BoxSpawnerComponent. Please assign a BoxComponent to define the spawn area."));
+		PERICULUM_LOG(Periculum_Game, Warning, "BoxComponent is not assigned in BoxSpawnerComponent. Please assign a BoxComponent to define the spawn area.");
 	}
 	SetRandomSeed(RandomSeed);
 }
@@ -56,7 +56,7 @@ FBoxSpawnData UBoxSpawnerComponent::GenerateSpawnData()
 {
 	if (!ensure(BoxComponent))
 	{
-		UE_LOG(GAME, Warning, TEXT("BoxComponent is not assigned in BoxSpawnerComponent."));
+		PERICULUM_LOG(Periculum_Game, Warning, "BoxComponent is not assigned in BoxSpawnerComponent.");
 		return FBoxSpawnData();
 	}
 

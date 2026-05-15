@@ -1,6 +1,6 @@
 #include "Code/Components/SphereSpawnerComponent.h"
 #include "Components/SphereComponent.h"
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 USphereSpawnerComponent::USphereSpawnerComponent()
 {
@@ -37,7 +37,7 @@ void USphereSpawnerComponent::OnRegister()
 	Super::OnRegister();
 	if (!SphereComponent)
 	{
-		UE_LOG(GAME, Warning, TEXT("SphereComponent is not assigned in SphereSpawnerComponent. Please assign a SphereComponent to define the spawn area."));
+		PERICULUM_LOG(Periculum_Game, Warning, "SphereComponent is not assigned in SphereSpawnerComponent. Please assign a SphereComponent to define the spawn area.");
 	}
 	SetRandomSeed(RandomSeed);
 }
@@ -57,7 +57,7 @@ FSphereSpawnData USphereSpawnerComponent::GenerateSpawnData()
 {
 	if (!ensure(SphereComponent))
 	{
-		UE_LOG(GAME, Warning, TEXT("Cannot generate spawn data because SphereComponent is not assigned in SphereSpawnerComponent."));
+		PERICULUM_LOG(Periculum_Game, Warning, "Cannot generate spawn data because SphereComponent is not assigned in SphereSpawnerComponent.");
 		return FSphereSpawnData();
 	}
 

@@ -9,7 +9,7 @@
 #include "Code/Components/SphereSpawnerComponent.h"
 #include "Components/SphereComponent.h"
 
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 ABoidFlock::ABoidFlock()
 {
@@ -17,7 +17,7 @@ ABoidFlock::ABoidFlock()
 
 	if (BoidClass == nullptr)
 	{
-		UE_LOG(GAME, Warning, TEXT("BoidClass is not set in BoidFlock. Please set it to a valid Boid class to enable spawning."));
+		PERICULUM_LOG(Periculum_Game, Warning, "BoidClass is not set in BoidFlock. Please set it to a valid Boid class to enable spawning.");
 	}
 	else {
 		ActorToSpawn = BoidClass;
@@ -34,7 +34,7 @@ void ABoidFlock::BeginPlay()
 
 	if (ActorToSpawn == nullptr)
 	{
-		UE_LOG(GAME, Warning, TEXT("ActorToSpawn is not set in BoidFlock. Please set it to a valid Boid class to enable spawning."));
+		PERICULUM_LOG(Periculum_Game, Warning, "ActorToSpawn is not set in BoidFlock. Please set it to a valid Boid class to enable spawning.");
 	}
 	else {
 		GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &ABoidFlock::SpawnBoids, SpawnInterval, true);

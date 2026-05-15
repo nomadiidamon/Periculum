@@ -1,12 +1,12 @@
 #include "Code/Game/CodeGameInstance.h"
+#include "Code/Utility/PericulumLog.h"
 
-#include "Periculum/Periculum.h"
 
 void UCodeGameInstance::Init()
 {
 	if (GameLevels.Num() == 0)
 	{
-		UE_LOG(GAME, Warning, TEXT("GameLevels array is empty in CodeGameInstance. Please populate it with the level names in the editor."));
+		PERICULUM_LOG(Periculum_Game, Warning, "GameLevels array is empty in CodeGameInstance. Please populate it with the level names in the editor.");
 	}
 	else
 	{
@@ -19,7 +19,7 @@ void UCodeGameInstance::LoadLevelSafe(int LevelIndex)
 {
 	if (!GameLevels.IsValidIndex(LevelIndex))
 	{
-		UE_LOG(GAME, Warning, TEXT("Invalid level index %d in LoadLevelSafe. Please check the GameLevels array in CodeGameInstance."), LevelIndex);
+		PERICULUM_LOG(Periculum_Game, Warning, "Invalid level index %d in LoadLevelSafe. Please check the GameLevels array in CodeGameInstance.", LevelIndex);
 		return;
 	}
 	CurrentLevelIndex = LevelIndex;
@@ -34,7 +34,7 @@ void UCodeGameInstance::LoadLevelSafeDelayed(int LevelIndex, float Delay)
 
 void UCodeGameInstance::LoadMainMenu()
 {
-	UE_LOG(GAME, Log, TEXT("Loading Main Menu..."));
+	PERICULUM_LOG(Periculum_Game, Log, "Loading Main Menu...");
 }
 
 void UCodeGameInstance::LoadMainMenuDelayed(float Delay)
@@ -45,7 +45,7 @@ void UCodeGameInstance::LoadMainMenuDelayed(float Delay)
 
 void UCodeGameInstance::LoadFirstLevel()
 {
-	UE_LOG(GAME, Log, TEXT("Loading First Level..."));
+	PERICULUM_LOG(Periculum_Game, Log, "Loading First Level...");
 }
 
 void UCodeGameInstance::LoadFirstLevelDelayed(float Delay)
@@ -56,7 +56,7 @@ void UCodeGameInstance::LoadFirstLevelDelayed(float Delay)
 
 void UCodeGameInstance::LoadGymLevel()
 {
-	UE_LOG(GAME, Log, TEXT("Loading Gym Level..."));
+	PERICULUM_LOG(Periculum_Game, Log, "Loading Gym Level...");
 }
 
 void UCodeGameInstance::LoadGymLevelDelayed(float Delay)
@@ -67,7 +67,7 @@ void UCodeGameInstance::LoadGymLevelDelayed(float Delay)
 
 void UCodeGameInstance::LoadMuseumLevel()
 {
-	UE_LOG(GAME, Log, TEXT("Loading Museum Level..."));
+	PERICULUM_LOG(Periculum_Game, Log, "Loading Museum Level...");
 }
 
 void UCodeGameInstance::LoadMuseumLevelDelayed(float Delay)
@@ -96,7 +96,7 @@ void UCodeGameInstance::SetCurrentInputDeviceType(EInputDeviceType NewInputDevic
 	{
 		CurrentInputDeviceType = NewInputDeviceType;
 	}
-	UE_LOG(INPUT, Log, TEXT("Current input device type set to: %s"), *UEnum::GetValueAsString(CurrentInputDeviceType));
+	PERICULUM_LOG(Periculum_Input, Log, "Current input device type set to: %s", *UEnum::GetValueAsString(CurrentInputDeviceType));
 }
 
 

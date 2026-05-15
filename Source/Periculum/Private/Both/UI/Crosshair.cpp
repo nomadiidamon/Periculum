@@ -3,7 +3,7 @@
 
 #include "Both/UI/Crosshair.h"
 #include "Components/Image.h"
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 void UCrosshair::NativeConstruct()
 {
@@ -11,11 +11,11 @@ void UCrosshair::NativeConstruct()
 	SetCrosshairState(ECrosshairState::Default);
 	if (!CurrentCrosshair)
 	{
-		UE_LOG(HUD, Warning, TEXT("CurrentCrosshair is not bound. Please check the widget blueprint."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("CurrentCrosshair is not bound. Please check the widget blueprint."));
 	}
 	if (CrosshairStates.Num() < 4)
 	{
-		UE_LOG(HUD, Warning, TEXT("CrosshairStates array does not have enough elements. Please check the widget blueprint."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("CrosshairStates array does not have enough elements. Please check the widget blueprint."));
 	}
 	if (!OnCrosshairHit.IsAlreadyBound(this, &UCrosshair::HandleCrosshairHit))
 	{
@@ -119,7 +119,7 @@ FVector2D UCrosshair::GetAbsoluteCoordinates() const
 		//return Geometry.GetAbsolutePosition() + Geometry.GetLocalSize() / 2;
 		return Geometry.LocalToAbsolute(FVector2D(0.));
 	}
-	UE_LOG(HUD, Warning, TEXT("CurrentCrosshair is null. Cannot get absolute coordinates."));
+	PERICULUM_LOG(Periculum_UI, Warning, TEXT("CurrentCrosshair is null. Cannot get absolute coordinates."));
 	return FVector2D();
 }
 
@@ -132,7 +132,7 @@ void UCrosshair::SetVisibility(ESlateVisibility InVisibility)
 	}
 	else
 	{
-		UE_LOG(HUD, Warning, TEXT("CurrentCrosshair is null. Cannot set visibility."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("CurrentCrosshair is null. Cannot set visibility."));
 	}
 }
 

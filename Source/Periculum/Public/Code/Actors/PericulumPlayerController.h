@@ -1,19 +1,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Code/Actors/PericulumPlayerController.h"
-#include "GamePlayerController.generated.h"
+#include "GameFramework/PlayerController.h"
+#include "PericulumPlayerController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class PERICULUM_API AGamePlayerController : public APericulumPlayerController
+class PERICULUM_API APericulumPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
 public:
-	AGamePlayerController();
+	APericulumPlayerController();
 
 	virtual void PreInitializeComponents() override;
 

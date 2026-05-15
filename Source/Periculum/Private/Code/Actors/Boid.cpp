@@ -4,7 +4,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/SphereComponent.h"
 
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 ABoid::ABoid()
 {
@@ -28,7 +28,7 @@ void ABoid::BeginPlay()
 	
 	if (!FlockingComponent)
 	{
-		UE_LOG(GAME, Warning, TEXT("FlockingComponent is not set on %s"), *GetName());
+		PERICULUM_LOG(Periculum_Game, Warning, "FlockingComponent is not set on %s", *GetName());
 	}
 
 	if (FlockingComponent && FlockingComponent->FlockManager)

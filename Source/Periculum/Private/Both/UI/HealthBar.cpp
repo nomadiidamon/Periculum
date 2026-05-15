@@ -3,7 +3,7 @@
 
 #include "Both/UI/HealthBar.h"
 #include "Components/ProgressBar.h"
-#include "Periculum/Periculum.h"
+#include "Code/Utility/PericulumLog.h"
 
 void UHealthBar::NativeConstruct()
 {
@@ -51,7 +51,7 @@ void UHealthBar::SetMaxHealth(float NewMaxHealth)
 {
 	if (NewMaxHealth <= MinHealth)
 	{
-		UE_LOG(HUD, Warning, TEXT("MaxHealth must be greater than MinHealth. MaxHealth not updated."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("MaxHealth must be greater than MinHealth. MaxHealth not updated."));
 		return;
 	}
 	MaxHealth = NewMaxHealth;
@@ -62,12 +62,12 @@ void UHealthBar::SetCurrentHealth(float NewCurrentHealth)
 {
 	if (NewCurrentHealth < MinHealth)
 	{
-		UE_LOG(HUD, Warning, TEXT("CurrentHealth cannot be less than MinHealth. CurrentHealth not updated."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("CurrentHealth cannot be less than MinHealth. CurrentHealth not updated."));
 		return;
 	}
 	else if (NewCurrentHealth > MaxHealth)
 	{
-		UE_LOG(HUD, Warning, TEXT("CurrentHealth cannot be greater than MaxHealth. CurrentHealth not updated."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("CurrentHealth cannot be greater than MaxHealth. CurrentHealth not updated."));
 		return;
 	}
 	CurrentHealth = NewCurrentHealth;
@@ -78,7 +78,7 @@ void UHealthBar::SetMinHealth(float NewMinHealth)
 {
 	if (NewMinHealth >= MaxHealth)
 	{
-		UE_LOG(HUD, Warning, TEXT("MinHealth must be less than MaxHealth. MinHealth not updated."));
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("MinHealth must be less than MaxHealth. MinHealth not updated."));
 		return;
 	}
 	MinHealth = NewMinHealth;
