@@ -1,5 +1,6 @@
 #include "Code/Components/SphereSpawnerComponent.h"
 #include "Components/SphereComponent.h"
+#include "Code/Utility/SphereComponentUtilities.h"
 #include "Code/Utility/PericulumLog.h"
 
 USphereSpawnerComponent::USphereSpawnerComponent()
@@ -63,18 +64,18 @@ FSphereSpawnData USphereSpawnerComponent::GenerateSpawnData()
 
 	FSphereSpawnData SpawnData;
 
-	if (SpawnParams.LocationMode == ESpawnLocationMode::InsideSphere)
+	if (SpawnParams.LocationMode == ESpawnLocationMode::InsideShape)
 	{
-		SpawnData.SpawnTransform.SetLocation(GetRandomPointInSphere());
+		SpawnData.SpawnTransform.SetLocation(SphereComponentUtilities::GetRandomPointInSphere(SphereComponent, RandomStream));
 	}
-	else if (SpawnParams.LocationMode == ESpawnLocationMode::OnSphereSurface)
+	else if (SpawnParams.LocationMode == ESpawnLocationMode::OnShapeSurface)
 	{
-		SpawnData.SpawnTransform.SetLocation(GetRandomPointOnSphereSurface());
+		SpawnData.SpawnTransform.SetLocation(SphereComponentUtilities::GetRandomPointOnSphereSurface(SphereComponent, RandomStream));
 	}
 
 	if (SpawnParams.RotationMode == ESpawnRotationMode::RandomRotation)
 	{
-		SpawnData.SpawnTransform.SetRotation(GetRandomRotation().Quaternion());
+		SpawnData.SpawnTransform.SetRotation(SphereComponentUtilities::GetRandomRotation(RandomStream).Quaternion());
 		SpawnData.SpawnDirection = SpawnData.SpawnTransform.GetRotation().GetForwardVector();
 	}
 	else if (SpawnParams.RotationMode == ESpawnRotationMode::AlignToDirection)
@@ -92,11 +93,11 @@ FSphereSpawnData USphereSpawnerComponent::GenerateSpawnData()
 
 	if (SpawnParams.ScaleMode == ESpawnScaleMode::Uniform)
 	{
-		SpawnData.SpawnTransform.SetScale3D(GetRandomUniformScale());
+		SpawnData.SpawnTransform.SetScale3D(SphereComponentUtilities::GetRandomUniformScale(SpawnParams, RandomStream));
 	}
 	else if (SpawnParams.ScaleMode == ESpawnScaleMode::NonUniform)
 	{
-		SpawnData.SpawnTransform.SetScale3D(GetRandomNonUniformScale());
+		SpawnData.SpawnTransform.SetScale3D(SphereComponentUtilities::GetRandomNonUniformScale(SpawnParams, RandomStream));
 	}
 
 	LastSpawnLocation = SpawnData.SpawnTransform.GetLocation();
@@ -113,46 +114,4 @@ FSphereSpawnData USphereSpawnerComponent::GenerateAndStoreSpawnData()
 		SpawnHistory.RemoveAt(0);
 	}
 	return SpawnData;
-}
-
-FVector USphereSpawnerComponent::GetRandomPointInSphere() const
-{
-	float Radius = SphereComponent->GetScaledSphereRadius();
-	float ScaledRadius = Radius * FMath::Pow(RandomStream.FRand(), 1.0f / 3.0f);
-	FVector localPoint = RandomStream.VRand() * ScaledRadius;
-	return SphereComponent->GetComponentTransform().TransformPosition(localPoint);
-}
-
-FVector USphereSpawnerComponent::GetRandomPointOnSphereSurface() const
-{
-	float Radius = SphereComponent->GetScaledSphereRadius();
-	FVector localPoint = RandomStream.VRand() * Radius;
-	return SphereComponent->GetComponentTransform().TransformPosition(localPoint);
-}
-
-FVector USphereSpawnerComponent::GetRandomRadialDirection() const
-{
-	FVector localDirection = RandomStream.VRand();
-	return SphereComponent->GetComponentTransform().TransformVectorNoScale(localDirection).GetSafeNormal();
-}
-
-FRotator USphereSpawnerComponent::GetRandomRotation() const
-{
-	FRotator RandomRotation = FRotator(RandomStream.FRandRange(0.0f, 360.0f), RandomStream.FRandRange(0.0f, 360.0f), RandomStream.FRandRange(0.0f, 360.0f));
-	return RandomRotation;
-}
-
-FVector USphereSpawnerComponent::GetRandomUniformScale() const
-{
-	float UniformScale = RandomStream.FRandRange(SpawnParams.MinUniformScale, SpawnParams.MaxUniformScale);
-	return FVector(UniformScale);
-}
-
-FVector USphereSpawnerComponent::GetRandomNonUniformScale() const
-{
-	FVector NonUniformScale;
-	NonUniformScale.X = RandomStream.FRandRange(SpawnParams.MinNonUniformScale.X, SpawnParams.MaxNonUniformScale.X);
-	NonUniformScale.Y = RandomStream.FRandRange(SpawnParams.MinNonUniformScale.Y, SpawnParams.MaxNonUniformScale.Y);
-	NonUniformScale.Z = RandomStream.FRandRange(SpawnParams.MinNonUniformScale.Z, SpawnParams.MaxNonUniformScale.Z);
-	return NonUniformScale;
 }

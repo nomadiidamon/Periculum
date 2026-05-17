@@ -13,17 +13,19 @@ struct FFlockSettings
 public:
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
-	float CohesionWeight = 1.0f;
+	float CohesionWeight = 8.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
-	float SeparationWeight = 2.5f;
+	float SeparationWeight = 5.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
-	float AlignmentWeight = 1.0f;
+	float AlignmentWeight = 10.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "50.0", ClampMax = "2000.0"))
 	float SafeRadius = 500.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "2000.0"))
-	float MaxSpeed = 500.0f;
+	float MaxSpeed = 200.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "1000.0"))
-	float MinSpeed = 50.0f;
+	float MinSpeed = 200.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
+	bool bDrawDebug = false;
 
 	bool operator==(const FFlockSettings& Other) const
 	{
@@ -53,34 +55,22 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	TObjectPtr<USphereComponent> OverlappingComponent;
+	ABoidFlock* FlockManager;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	ABoidFlock* FlockManager;
+	USphereComponent* OverlappingComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	TArray<AActor*> OverlappingActors;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	FVector Velocity;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	float MaxSpeed = 500.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	float CurrentSpeed = 50.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	float MinSpeed = 50.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	float safeRadius = 500.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	float cohesionWeight = 1.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	float separationWeight = 2.5f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	float alignmentWeight = 1.f;
+	FFlockSettings FlockSettings;
 
 public:
 	void SetFlockManager(ABoidFlock* Manager) { FlockManager = Manager; }
@@ -94,4 +84,10 @@ public:
 
 	UFUNCTION()
 	void DrawOverlapComponentBounds();
+
+	UFUNCTION()
+	virtual void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	UFUNCTION()
+	virtual void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
 };

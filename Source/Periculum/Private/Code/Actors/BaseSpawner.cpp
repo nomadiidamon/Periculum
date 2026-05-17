@@ -1,14 +1,13 @@
 #include "Code/Actors/BaseSpawner.h"
-#include "Code/Components/SphereSpawnerComponent.h"
-#include "Code/Components/BoxSpawnerComponent.h"
-#include "Code/Components/CapsuleSpawnerComponent.h"
-#include "Periculum/PericulumCharacter.h"
 
+#include "Code/Components/SphereSpawnerComponent.h"
 #include "Components/SphereComponent.h"
+
+#include "Code/Components/BoxSpawnerComponent.h"
 #include "Components/BoxComponent.h"
+
+#include "Code/Components/CapsuleSpawnerComponent.h"
 #include "Components/CapsuleComponent.h"
-#include "GameFramework/ProjectileMovementComponent.h"
-#include "EngineUtils.h"
 
 #include "Code/Utility/PericulumLog.h"
 
@@ -16,16 +15,16 @@ ABaseSpawner::ABaseSpawner()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
+	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+
 	SphereSpawnerComponent = CreateDefaultSubobject<USphereSpawnerComponent>(TEXT("SphereSpawnerComponent"));
-	RootComponent = SphereSpawnerComponent->SphereComponent;
-	//SphereSpawnerComponent->SphereComponent->SetupAttachment(RootComponent);
+	SphereSpawnerComponent->SphereComponent->SetupAttachment(RootComponent);
 
 	BoxSpawnerComponent = CreateDefaultSubobject<UBoxSpawnerComponent>(TEXT("BoxSpawnerComponent"));
 	BoxSpawnerComponent->BoxComponent->SetupAttachment(RootComponent);
 
 	CapsuleSpawnerComponent = CreateDefaultSubobject<UCapsuleSpawnerComponent>(TEXT("CapsuleSpawnerComponent"));
 	CapsuleSpawnerComponent->CapsuleComponent->SetupAttachment(RootComponent);
-
 }
 
 void ABaseSpawner::BeginPlay()
@@ -33,18 +32,11 @@ void ABaseSpawner::BeginPlay()
 	Super::BeginPlay();
 
 	GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &ABaseSpawner::SpawnActor, SpawnInterval, true);
-
-	//for (TActorIterator<APericulumCharacter> It(GetWorld()); It; ++It)
-	//{
-	//	Player = Cast<APericulumCharacter>(*It);
-	//	break; // Assuming we only want the first player character found
-	//}
 }
 
 void ABaseSpawner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void ABaseSpawner::HandleSpawnModeChanged(ESpawnMode NewSpawnMode)
@@ -103,8 +95,10 @@ void ABaseSpawner::SpawnActor()
 		PERICULUM_LOG(Periculum_Game, Warning, "Invalid SpawnMode in BaseSpawner. Please select a valid spawn mode.");
 		break;
 	}
-
-	HandleActorSpawned(spawnedActor);
+	
+	if (spawnedActor) {
+		HandleActorSpawned(spawnedActor);
+	}
 }
 
 AActor* ABaseSpawner::SpawnActor_Sphere()
@@ -125,20 +119,7 @@ AActor* ABaseSpawner::SpawnActor_Sphere()
 		SpawnData.SpawnTransform.GetRotation().Rotator(), SpawnParams);
 	SpawnedActors.Add(ActorToSpawn);
 
-	//if (UProjectileMovementComponent* ProjectileMovement = spawnedActor->FindComponentByClass<UProjectileMovementComponent>())
-	//{
-	//	if (Player) {
-	//		ProjectileMovement->bIsHomingProjectile = true;
-	//		ProjectileMovement->HomingTargetComponent = Player->GetRootComponent();
-	//	}
-	//	else {
-	//		ProjectileMovement->bIsHomingProjectile = false;
-	//		ProjectileMovement->Velocity = SpawnData.SpawnDirection * ProjectileMovement->InitialSpeed;
-	//	}
-	//}
-
 	return spawnedActor;
-
 }
 
 AActor* ABaseSpawner::SpawnActor_Box()
@@ -217,21 +198,30 @@ void ABaseSpawner::SwitchMode()
 	{
 	case ESpawnMode::Sphere:
 		BoxSpawnerComponent->SetComponentTickEnabled(false);
+		BoxSpawnerComponent->bDebugDrawArea = !bDrawDebug;
 		CapsuleSpawnerComponent->SetComponentTickEnabled(false);
+		CapsuleSpawnerComponent->bDebugDrawArea = !bDrawDebug;
 		SphereSpawnerComponent->SetComponentTickEnabled(true);
 		SphereSpawnerComponent->SpawnParams.LocationMode = LocationMode;
+		SphereSpawnerComponent->bDebugDrawArea = bDrawDebug;
 		break;
 	case ESpawnMode::Box:
 		SphereSpawnerComponent->SetComponentTickEnabled(false);
+		SphereSpawnerComponent->bDebugDrawArea = !bDrawDebug;
 		CapsuleSpawnerComponent->SetComponentTickEnabled(false);
+		CapsuleSpawnerComponent->bDebugDrawArea = !bDrawDebug;
 		BoxSpawnerComponent->SetComponentTickEnabled(true);
 		BoxSpawnerComponent->SpawnParams.LocationMode = LocationMode;
+		BoxSpawnerComponent->bDebugDrawArea = bDrawDebug;
 		break;
 	case ESpawnMode::Capsule:
 		SphereSpawnerComponent->SetComponentTickEnabled(false);
+		SphereSpawnerComponent->bDebugDrawArea = !bDrawDebug;
 		BoxSpawnerComponent->SetComponentTickEnabled(false);
+		BoxSpawnerComponent->bDebugDrawArea = !bDrawDebug;
 		CapsuleSpawnerComponent->SetComponentTickEnabled(true);
 		CapsuleSpawnerComponent->SpawnParams.LocationMode = LocationMode;
+		CapsuleSpawnerComponent->bDebugDrawArea = bDrawDebug;
 		break;
 	default:
 		break;

@@ -13,14 +13,8 @@ enum class ESpawnScaleMode : uint8
 UENUM(BlueprintType)
 enum class ESpawnLocationMode : uint8
 {
-    InsideSphere,
-    OnSphereSurface,
-
-	InsideBox,
-	OnBoxSurface,
-
-	InsideCapsule,
-	OnCapsuleSurface
+    InsideShape,
+	OnShapeSurface
 };
 
 UENUM(BlueprintType)

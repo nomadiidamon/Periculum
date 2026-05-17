@@ -1,75 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Code/Utility/SpawnModes.h"
+#include "Code/Utility/BoxComponentUtilities.h"
 
 #include "BoxSpawnerComponent.generated.h"
-
-USTRUCT(BlueprintType)
-struct FBoxSpawnParams
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning")
-	ESpawnLocationMode LocationMode = ESpawnLocationMode::InsideBox;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning")
-	ESpawnRotationMode RotationMode = ESpawnRotationMode::RandomRotation;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning")
-	ESpawnScaleMode ScaleMode = ESpawnScaleMode::Uniform;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning", meta = (ClampMin = "0.0"))
-	float MinUniformScale = 0.5f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning", meta = (ClampMin = "0.0"))
-	float MaxUniformScale = 1.5f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning")
-	FVector MinNonUniformScale = FVector(0.5f, 0.5f, 0.5f);
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning")
-	FVector MaxNonUniformScale = FVector(1.5f, 1.5f, 1.5f);
-
-	FBoxSpawnParams() = default;
-
-};
-
-USTRUCT(BlueprintType)
-struct FBoxSpawnData
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning")
-	FTransform SpawnTransform;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Box Spawning")
-	FVector SpawnDirection;
-
-
-	FBoxSpawnData()
-		: SpawnTransform(FTransform::Identity)
-		, SpawnDirection(FVector::ForwardVector)
-
-	{
-	}
-
-	FBoxSpawnData(const FTransform& InTransform, const FVector& InDirection)
-		: SpawnTransform(InTransform)
-		, SpawnDirection(InDirection)
-
-	{
-	}
-
-	FBoxSpawnData(const FVector& InLocation, const FRotator& InRotation, const FVector& InScale, const FVector& InDirection)
-		: SpawnTransform(FTransform(InRotation, InLocation, InScale))
-		, SpawnDirection(InDirection)
-	{
-	}
-};
 
 class UBoxComponent;
 
@@ -133,19 +68,6 @@ public:
 	FBoxSpawnData GenerateSpawnData();
 	UFUNCTION(BlueprintCallable, Category = "Box Spawning")
 	FBoxSpawnData GenerateAndStoreSpawnData();
-
-	/// Location
-	FVector GetRandomPointInBox() const;
-	FVector GetRandomPointOnBoxSurface() const;
-	/// Direction
-	FVector GetRandomRadialDirection() const;
-
-	///Rotation
-	FRotator GetRandomRotation() const;
-
-	/// Scale
-	FVector GetRandomUniformScale() const;
-	FVector GetRandomNonUniformScale() const;
 
 private:
 	FVector LastSpawnLocation;

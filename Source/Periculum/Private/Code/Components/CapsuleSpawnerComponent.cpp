@@ -1,5 +1,6 @@
 #include "Code/Components/CapsuleSpawnerComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "Code/Utility/CapsuleComponentUtilities.h"
 #include "Code/Utility/PericulumLog.h"
 
 UCapsuleSpawnerComponent::UCapsuleSpawnerComponent()
@@ -73,18 +74,18 @@ FCapsuleSpawnData UCapsuleSpawnerComponent::GenerateSpawnData()
 
 	FCapsuleSpawnData SpawnData;
 
-	if (SpawnParams.LocationMode == ESpawnLocationMode::InsideCapsule)
+	if (SpawnParams.LocationMode == ESpawnLocationMode::InsideShape)
 	{
-		SpawnData.SpawnTransform.SetLocation(GetRandomPointInCapsule());
+		SpawnData.SpawnTransform.SetLocation(CapsuleComponentUtilities::GetRandomPointInCapsule(CapsuleComponent, RandomStream));
 	}
-	else if (SpawnParams.LocationMode == ESpawnLocationMode::OnCapsuleSurface)
+	else if (SpawnParams.LocationMode == ESpawnLocationMode::OnShapeSurface)
 	{
-		SpawnData.SpawnTransform.SetLocation(GetRandomPointOnCapsuleSurface());
+		SpawnData.SpawnTransform.SetLocation(CapsuleComponentUtilities::GetRandomPointOnCapsuleSurface(CapsuleComponent, RandomStream));
 	}
 
 	if (SpawnParams.RotationMode == ESpawnRotationMode::RandomRotation)
 	{
-		SpawnData.SpawnTransform.SetRotation(GetRandomRotation().Quaternion());
+		SpawnData.SpawnTransform.SetRotation(CapsuleComponentUtilities::GetRandomRotation(RandomStream).Quaternion());
 		SpawnData.SpawnDirection = SpawnData.SpawnTransform.GetRotation().GetForwardVector();
 	}
 	else if (SpawnParams.RotationMode == ESpawnRotationMode::AlignToDirection)
@@ -101,11 +102,11 @@ FCapsuleSpawnData UCapsuleSpawnerComponent::GenerateSpawnData()
 
 	if (SpawnParams.ScaleMode == ESpawnScaleMode::Uniform)
 	{
-		SpawnData.SpawnTransform.SetScale3D(GetRandomUniformScale());
+		SpawnData.SpawnTransform.SetScale3D(CapsuleComponentUtilities::GetRandomUniformScale(SpawnParams, RandomStream));
 	}
 	else if (SpawnParams.ScaleMode == ESpawnScaleMode::NonUniform)
 	{
-		SpawnData.SpawnTransform.SetScale3D(GetRandomNonUniformScale());
+		SpawnData.SpawnTransform.SetScale3D(CapsuleComponentUtilities::GetRandomNonUniformScale(SpawnParams, RandomStream));
 	}
 
 	LastSpawnLocation = SpawnData.SpawnTransform.GetLocation();
@@ -122,137 +123,4 @@ FCapsuleSpawnData UCapsuleSpawnerComponent::GenerateAndStoreSpawnData()
 		SpawnHistory.RemoveAt(0);
 	}
 	return SpawnData;
-}
-
-FVector UCapsuleSpawnerComponent::GetRandomPointInCapsule() const
-{
-	float HalfHeight = CapsuleComponent->GetScaledCapsuleHalfHeight();
-	float Radius = CapsuleComponent->GetScaledCapsuleRadius();
-
-	float CylinderHalfHeight = FMath::Max(0.f, HalfHeight - Radius);
-
-	float CylinderVolume = PI * Radius * Radius * (2.f * CylinderHalfHeight);
-	float SphereVolume = (4.f / 3.f) * PI * Radius * Radius * Radius;
-
-	float Pick = FMath::FRand() * (CylinderVolume + SphereVolume);
-
-	FVector LocalPoint;
-
-	if (Pick < CylinderVolume)
-	{
-		// ---------------- CYLINDER ----------------
-		float Z = FMath::FRandRange(-CylinderHalfHeight, CylinderHalfHeight);
-
-		float Angle = FMath::FRandRange(0.f, 2.f * PI);
-		float R = Radius * FMath::Sqrt(FMath::FRand());
-
-		LocalPoint = FVector(
-			R * FMath::Cos(Angle),
-			R * FMath::Sin(Angle),
-			Z
-		);
-	}
-	else
-	{
-		// ------------- CAPS (2 hemispheres) -------------
-
-		float Z = FMath::FRandRange(-1.f, 1.f);
-		float Theta = FMath::FRandRange(0.f, 2.f * PI);
-		float R = FMath::Sqrt(1.f - Z * Z);
-
-		FVector Dir(
-			R * FMath::Cos(Theta),
-			R * FMath::Sin(Theta),
-			Z
-		);
-
-		float Sign = (FMath::FRand() < 0.5f) ? 1.f : -1.f;
-
-		LocalPoint = FVector(
-			Dir.X * Radius,
-			Dir.Y * Radius,
-			Sign * CylinderHalfHeight + Dir.Z * Radius
-		);
-	}
-
-	return CapsuleComponent->GetComponentTransform().TransformPosition(LocalPoint);
-}
-
-FVector UCapsuleSpawnerComponent::GetRandomPointOnCapsuleSurface() const
-{
-	float HalfHeight = CapsuleComponent->GetScaledCapsuleHalfHeight();
-	float Radius = CapsuleComponent->GetScaledCapsuleRadius();
-
-	float CylinderHalfHeight = FMath::Max(0.f, HalfHeight - Radius);
-
-	float CylinderArea = 2.f * PI * Radius * (2.f * CylinderHalfHeight);
-	float SphereArea = 4.f * PI * Radius * Radius;
-
-	float Pick = FMath::FRand() * (CylinderArea + SphereArea);
-
-	FVector LocalPoint;
-
-	if (Pick < CylinderArea)
-	{
-		// ---------------- CYLINDER SIDE ----------------
-		float Angle = FMath::FRandRange(0.f, 2.f * PI);
-		float Z = FMath::FRandRange(-CylinderHalfHeight, CylinderHalfHeight);
-
-		LocalPoint = FVector(
-			Radius * FMath::Cos(Angle),
-			Radius * FMath::Sin(Angle),
-			Z
-		);
-	}
-	else
-	{
-		// ---------------- SPHERICAL CAPS ----------------
-
-		float Z = FMath::FRandRange(-1.f, 1.f);
-		float Theta = FMath::FRandRange(0.f, 2.f * PI);
-		float R = FMath::Sqrt(1.f - Z * Z);
-
-		FVector Dir(
-			R * FMath::Cos(Theta),
-			R * FMath::Sin(Theta),
-			Z
-		);
-
-		float Sign = (FMath::FRand() < 0.5f) ? 1.f : -1.f;
-
-		LocalPoint = FVector(
-			Dir.X * Radius,
-			Dir.Y * Radius,
-			Sign * CylinderHalfHeight + Dir.Z * Radius
-		);
-	}
-
-	return CapsuleComponent->GetComponentTransform().TransformPosition(LocalPoint);
-}
-
-FVector UCapsuleSpawnerComponent::GetRandomRadialDirection() const
-{
-	FVector LocalDirection = FMath::VRand();
-	return CapsuleComponent->GetComponentTransform().TransformVectorNoScale(LocalDirection).GetSafeNormal();
-}
-
-FRotator UCapsuleSpawnerComponent::GetRandomRotation() const
-{
-	FRotator RandomRotation = FRotator(FMath::FRandRange(0.0f, 360.0f), FMath::FRandRange(0.0f, 360.0f), FMath::FRandRange(0.0f, 360.0f));
-	return RandomRotation;
-}
-
-FVector UCapsuleSpawnerComponent::GetRandomUniformScale() const
-{
-	float UniformScale = FMath::FRandRange(SpawnParams.MinUniformScale, SpawnParams.MaxUniformScale);
-	return FVector(UniformScale);
-}
-
-FVector UCapsuleSpawnerComponent::GetRandomNonUniformScale() const
-{
-	FVector NonUniformScale;
-	NonUniformScale.X = FMath::FRandRange(SpawnParams.MinNonUniformScale.X, SpawnParams.MaxNonUniformScale.X);
-	NonUniformScale.Y = FMath::FRandRange(SpawnParams.MinNonUniformScale.Y, SpawnParams.MaxNonUniformScale.Y);
-	NonUniformScale.Z = FMath::FRandRange(SpawnParams.MinNonUniformScale.Z, SpawnParams.MaxNonUniformScale.Z);
-	return NonUniformScale;
 }

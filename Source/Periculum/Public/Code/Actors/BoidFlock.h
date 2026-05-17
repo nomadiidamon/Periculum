@@ -20,26 +20,14 @@ class PERICULUM_API ABoidFlock : public ABaseSpawner
 public:
 	ABoidFlock();
 
-protected:
 	virtual void BeginPlay() override;
+	
 	virtual void Tick(float DeltaTime) override;
 
 public:
-
 	FOnFlockSettingsChanged OnFlockSettingsChanged;
 
 public:
-	UFUNCTION()
-	void RegisterBoid(AActor* Boid);
-
-	UFUNCTION()
-	void SpawnBoids();
-
-public:
-
-	UFUNCTION()
-	TArray<AActor*> GetNeighboringBoids(AActor* Boid, float Radius) const;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock")
 	TSubclassOf<AActor> BoidClass;
 
@@ -49,9 +37,20 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
 	FFlockSettings LastFlockSettings;
 
+public:
+	UFUNCTION()
+	void RegisterBoid(AActor* Boid);
+
+	UFUNCTION()
+	void SpawnBoids();
+
+	UFUNCTION()
+	TArray<AActor*> GetNeighboringBoids(AActor* Boid, float Radius) const;
+
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock")
 	TArray<AActor*> Boids;
 
+	UFUNCTION()
 	void UpdateBoidSettings(const FFlockSettings& NewSettings);
 };

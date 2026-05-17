@@ -7,6 +7,7 @@
 class UFlockingComponent;
 class UStaticMeshComponent;
 class USkeletalMeshComponent;
+class USphereComponent;
 struct FFlockSettings;
 
 UCLASS()
@@ -28,6 +29,12 @@ public:
 public:	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	UFlockingComponent* FlockingComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	UStaticMeshComponent* StaticMeshComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	bool bDrawDebug = false;
 
 public:
 	void UpdateFlockSettings(const FFlockSettings& NewSettings);

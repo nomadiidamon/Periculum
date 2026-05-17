@@ -51,7 +51,7 @@ public:
 	ESpawnMode SpawnMode = ESpawnMode::Box;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
-	ESpawnLocationMode LocationMode = ESpawnLocationMode::InsideBox;
+	ESpawnLocationMode LocationMode = ESpawnLocationMode::InsideShape;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
 	USphereSpawnerComponent* SphereSpawnerComponent;
@@ -70,6 +70,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
 	bool bCanSpawn = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
+	bool bDrawDebug = false;
 
 	FTimerHandle SpawnTimerHandle;
 

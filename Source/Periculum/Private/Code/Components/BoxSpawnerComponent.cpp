@@ -1,5 +1,6 @@
 #include "Code/Components/BoxSpawnerComponent.h"
 #include "Components/BoxComponent.h"
+#include "Code/Utility/BoxComponentUtilities.h"
 #include "Code/Utility/PericulumLog.h"
 
 UBoxSpawnerComponent::UBoxSpawnerComponent()
@@ -63,19 +64,19 @@ FBoxSpawnData UBoxSpawnerComponent::GenerateSpawnData()
 	FBoxSpawnData SpawnData;
 
 	// ---------------- LOCATION ----------------
-	if (SpawnParams.LocationMode == ESpawnLocationMode::InsideBox)
+	if (SpawnParams.LocationMode == ESpawnLocationMode::InsideShape)
 	{
-		SpawnData.SpawnTransform.SetLocation(GetRandomPointInBox());
+		SpawnData.SpawnTransform.SetLocation(BoxComponentUtilities::GetRandomPointInBox(BoxComponent, RandomStream));
 	}
-	else if (SpawnParams.LocationMode == ESpawnLocationMode::OnBoxSurface)
+	else if (SpawnParams.LocationMode == ESpawnLocationMode::OnShapeSurface)
 	{
-		SpawnData.SpawnTransform.SetLocation(GetRandomPointOnBoxSurface());
+		SpawnData.SpawnTransform.SetLocation(BoxComponentUtilities::GetRandomPointOnBoxSurface(BoxComponent, RandomStream));
 	}
 
 	// ---------------- ROTATION ----------------
 	if (SpawnParams.RotationMode == ESpawnRotationMode::RandomRotation)
 	{
-		SpawnData.SpawnTransform.SetRotation(GetRandomRotation().Quaternion());
+		SpawnData.SpawnTransform.SetRotation(BoxComponentUtilities::GetRandomRotation(RandomStream).Quaternion());
 		SpawnData.SpawnDirection = SpawnData.SpawnTransform.GetRotation().GetForwardVector();
 	}
 	else if (SpawnParams.RotationMode == ESpawnRotationMode::AlignToDirection)
@@ -96,11 +97,11 @@ FBoxSpawnData UBoxSpawnerComponent::GenerateSpawnData()
 	// ---------------- SCALE ----------------
 	if (SpawnParams.ScaleMode == ESpawnScaleMode::Uniform)
 	{
-		SpawnData.SpawnTransform.SetScale3D(GetRandomUniformScale());
+		SpawnData.SpawnTransform.SetScale3D(BoxComponentUtilities::GetRandomUniformScale(SpawnParams, RandomStream));
 	}
 	else if (SpawnParams.ScaleMode == ESpawnScaleMode::NonUniform)
 	{
-		SpawnData.SpawnTransform.SetScale3D(GetRandomNonUniformScale());
+		SpawnData.SpawnTransform.SetScale3D(BoxComponentUtilities::GetRandomNonUniformScale(SpawnParams, RandomStream));
 	}
 
 	LastSpawnLocation = SpawnData.SpawnTransform.GetLocation();
@@ -120,94 +121,4 @@ FBoxSpawnData UBoxSpawnerComponent::GenerateAndStoreSpawnData()
 	}
 
 	return SpawnData;
-}
-
-FVector UBoxSpawnerComponent::GetRandomPointInBox() const
-{
-	FVector Extent = BoxComponent->GetScaledBoxExtent();
-
-	FVector LocalPoint;
-	LocalPoint.X = FMath::FRandRange(-Extent.X, Extent.X);
-	LocalPoint.Y = FMath::FRandRange(-Extent.Y, Extent.Y);
-	LocalPoint.Z = FMath::FRandRange(-Extent.Z, Extent.Z);
-
-	return BoxComponent->GetComponentTransform().TransformPosition(LocalPoint);
-}
-
-FVector UBoxSpawnerComponent::GetRandomPointOnBoxSurface() const
-{
-	FVector Extent = BoxComponent->GetScaledBoxExtent();
-
-	float XY = Extent.X * Extent.Y;
-	float XZ = Extent.X * Extent.Z;
-	float YZ = Extent.Y * Extent.Z;
-
-	float TotalArea = 2.f * (XY + XZ + YZ);
-	float Pick = FMath::FRand() * TotalArea;
-
-	FVector LocalPoint;
-
-	// ---------------- ±Z faces ----------------
-	if (Pick < XY * 2.f)
-	{
-		float X = FMath::FRandRange(-Extent.X, Extent.X);
-		float Y = FMath::FRandRange(-Extent.Y, Extent.Y);
-
-		float Sign = (Pick < XY) ? 1.f : -1.f;
-
-		LocalPoint = FVector(X, Y, Sign * Extent.Z);
-	}
-	// ---------------- ±Y faces ----------------
-	else if (Pick < XY * 2.f + XZ * 2.f)
-	{
-		float X = FMath::FRandRange(-Extent.X, Extent.X);
-		float Z = FMath::FRandRange(-Extent.Z, Extent.Z);
-
-		float Sign = ((Pick - XY * 2.f) < XZ) ? 1.f : -1.f;
-
-		LocalPoint = FVector(X, Sign * Extent.Y, Z);
-	}
-	// ---------------- ±X faces ----------------
-	else
-	{
-		float Y = FMath::FRandRange(-Extent.Y, Extent.Y);
-		float Z = FMath::FRandRange(-Extent.Z, Extent.Z);
-
-		float Sign = ((Pick - (XY * 2.f + XZ * 2.f)) < YZ) ? 1.f : -1.f;
-
-		LocalPoint = FVector(Sign * Extent.X, Y, Z);
-	}
-
-	return BoxComponent->GetComponentTransform().TransformPosition(LocalPoint);
-}
-
-FVector UBoxSpawnerComponent::GetRandomRadialDirection() const
-{
-	FVector Center = BoxComponent->GetComponentLocation();
-	FVector Point = GetRandomPointOnBoxSurface();
-
-	return (Point - Center).GetSafeNormal();
-}
-
-FRotator UBoxSpawnerComponent::GetRandomRotation() const
-{
-	return FRotator(
-		FMath::FRandRange(0.f, 360.f),
-		FMath::FRandRange(0.f, 360.f),
-		FMath::FRandRange(0.f, 360.f)
-	);
-}
-
-FVector UBoxSpawnerComponent::GetRandomUniformScale() const
-{
-	float S = FMath::FRandRange(SpawnParams.MinUniformScale, SpawnParams.MaxUniformScale);
-	return FVector(S);
-}
-
-FVector UBoxSpawnerComponent::GetRandomNonUniformScale() const
-{
-	float X = FMath::FRandRange(SpawnParams.MinNonUniformScale.X, SpawnParams.MaxNonUniformScale.X);
-	float Y = FMath::FRandRange(SpawnParams.MinNonUniformScale.Y, SpawnParams.MaxNonUniformScale.Y);
-	float Z = FMath::FRandRange(SpawnParams.MinNonUniformScale.Z, SpawnParams.MaxNonUniformScale.Z);
-	return FVector(X, Y, Z);
 }
