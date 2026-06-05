@@ -18,5 +18,5 @@ public:
 	UPROPERTY(EditAnywhere)
 	bool bRecursive = true;
 
-	virtual void Apply_Implementation(UObject* Target, bool& bEnable) override;
+	virtual void Apply_Implementation(UObject* Target, bool bEnable) override;
 };

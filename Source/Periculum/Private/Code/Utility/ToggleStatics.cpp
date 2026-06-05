@@ -12,7 +12,7 @@ void UToggleStatics::ToggleActor(AActor* Actor, bool bEnable)
     {
         return;
     }
-    if (Actor->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+    if (ActorIsToggleable(Actor))
     {
         IToggleableInterface::Execute_SetEnabled(Actor, bEnable);
     }
@@ -25,7 +25,7 @@ void UToggleStatics::EnableActor(AActor* Actor)
         return;
     }
 
-    if (Actor->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+    if (ActorIsToggleable(Actor))
     {
         IToggleableInterface::Execute_Enable(Actor);
     }
@@ -38,22 +38,35 @@ void UToggleStatics::DisableActor(AActor* Actor)
         return;
     }
 
-    if (Actor->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+    if (ActorIsToggleable(Actor))
     {
         IToggleableInterface::Execute_Disable(Actor);
     }
 }
 
- void UToggleStatics::AddPolicy(AActor* Target, UTogglePolicy* Policy) {
+UToggleProfile* UToggleStatics::GetToggleProfile(AActor* Target)
+{
+	if (!Target)
+	{
+		return nullptr;
+	}
+	if (UToggleableComponent* ToggleComp = Cast<UToggleableComponent>(Target->GetComponentByClass(UToggleableComponent::StaticClass())))
+	{
+		return ToggleComp->GetActiveProfile();
+	}
+	return nullptr;
+}
+
+void UToggleStatics::AddPolicy(AActor* Target, UTogglePolicy* Policy) {
 	if (!Target)
 	{
 		return;
 	}
-	if (Target->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+	if (ActorIsToggleable(Target))
 	{
-		if (UToggleableComponent* ToggleComp = Cast<UToggleableComponent>(Target->GetComponentByClass(UToggleableComponent::StaticClass())))
+		if (UToggleProfile* Profile = GetToggleProfile(Target))
 		{
-			ToggleComp->GetActiveProfile()->AddPolicy(Policy);
+			Profile->AddPolicy(Policy);
 		}
 	}
 }
@@ -63,11 +76,11 @@ void UToggleStatics::DisableActor(AActor* Actor)
 	{
 		return;
 	}
-	if (Target->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+	if (ActorIsToggleable(Target))
 	{
-		if (UToggleableComponent* ToggleComp = Cast<UToggleableComponent>(Target->GetComponentByClass(UToggleableComponent::StaticClass())))
+		if (UToggleProfile* Profile = GetToggleProfile(Target))
 		{
-			ToggleComp->GetActiveProfile()->AddUniquePolicy(Policy);
+			Profile->AddUniquePolicy(Policy);
 		}
 	}
 }
@@ -78,11 +91,11 @@ void UToggleStatics::DisableActor(AActor* Actor)
 	{
 		return;
 	}
-	if (Target->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+	if (ActorIsToggleable(Target))
 	{
-		if (UToggleableComponent* ToggleComp = Cast<UToggleableComponent>(Target->GetComponentByClass(UToggleableComponent::StaticClass())))
+		if (UToggleProfile* Profile = GetToggleProfile(Target))
 		{
-			ToggleComp->GetActiveProfile()->AddPolicies(Policies);
+			Profile->AddPolicies(Policies);
 		}
 	}
 }
@@ -93,11 +106,11 @@ void UToggleStatics::DisableActor(AActor* Actor)
 	{
 		return;
 	}
-	if (Target->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+	if (ActorIsToggleable(Target))
 	{
-		if (UToggleableComponent* ToggleComp = Cast<UToggleableComponent>(Target->GetComponentByClass(UToggleableComponent::StaticClass())))
+		if (UToggleProfile* Profile = GetToggleProfile(Target))
 		{
-			ToggleComp->GetActiveProfile()->RemovePolicy(Policy);
+			Profile->RemovePolicy(Policy);
 		}
 	}
 }
@@ -107,11 +120,11 @@ void UToggleStatics::DisableActor(AActor* Actor)
 	{
 		return;
 	}
-	if (Target->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+	if (ActorIsToggleable(Target))
 	{
-		if (UToggleableComponent* ToggleComp = Cast<UToggleableComponent>(Target->GetComponentByClass(UToggleableComponent::StaticClass())))
+		if (UToggleProfile* Profile = GetToggleProfile(Target))
 		{
-			ToggleComp->GetActiveProfile()->RemovePolicies(Policies);
+			Profile->RemovePolicies(Policies);
 		}
 	}
 }
@@ -121,11 +134,24 @@ void UToggleStatics::DisableActor(AActor* Actor)
 	{
 		return;
 	}
-	if (Target->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+	if (ActorIsToggleable(Target))
 	{
-		if (UToggleableComponent* ToggleComp = Cast<UToggleableComponent>(Target->GetComponentByClass(UToggleableComponent::StaticClass())))
+		if (UToggleProfile* Profile = GetToggleProfile(Target))
 		{
-			ToggleComp->GetActiveProfile()->ClearPolicies();
+			Profile->ClearPolicies();
 		}
 	}
 }
+
+ bool UToggleStatics::ActorIsToggleable(AActor* Target)
+ {
+	if (!Target)
+	{
+		return false;
+	}
+	if (Target->GetClass()->ImplementsInterface(UToggleableInterface::StaticClass()))
+	{
+		return true;
+	}
+	return false;
+ }

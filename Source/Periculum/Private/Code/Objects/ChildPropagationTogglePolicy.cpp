@@ -4,7 +4,7 @@
 #include "Code/Interfaces/ToggleableInterface.h"
 
 
-void UChildPropagationTogglePolicy::Apply_Implementation(UObject* Target, bool& bEnable)
+void UChildPropagationTogglePolicy::Apply_Implementation(UObject* Target, bool bEnable)
 {
     AActor* Actor = Cast<AActor>(Target);
 

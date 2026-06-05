@@ -38,21 +38,28 @@ public:
 	}
 
 	UFUNCTION(BlueprintCallable, Category = "Toggle")
-	void AddPolicy(AActor* Target, UTogglePolicy* Policy);
+	static UToggleProfile* GetToggleProfile(AActor* Target);
 
 	UFUNCTION(BlueprintCallable, Category = "Toggle")
-	void AddUniquePolicy(AActor* Target, UTogglePolicy* Policy);
+	static void AddPolicy(AActor* Target, UTogglePolicy* Policy);
 
 	UFUNCTION(BlueprintCallable, Category = "Toggle")
-	void AddPolicies(AActor* Target, const TArray<UTogglePolicy*>& Policies);
+	static void AddUniquePolicy(AActor* Target, UTogglePolicy* Policy);
 
 	UFUNCTION(BlueprintCallable, Category = "Toggle")
-	void RemovePolicy(AActor* Target, UTogglePolicy* Policy);
+	static void AddPolicies(AActor* Target, const TArray<UTogglePolicy*>& Policies);
 
 	UFUNCTION(BlueprintCallable, Category = "Toggle")
-	void RemovePolicies(AActor* Target, const TArray<UTogglePolicy*>& Policies);
+	static void RemovePolicy(AActor* Target, UTogglePolicy* Policy);
 
 	UFUNCTION(BlueprintCallable, Category = "Toggle")
-	void ClearPolicies(AActor* Target);
+	static void RemovePolicies(AActor* Target, const TArray<UTogglePolicy*>& Policies);
+
+	UFUNCTION(BlueprintCallable, Category = "Toggle")
+	static void ClearPolicies(AActor* Target);
+
+	UFUNCTION(BlueprintCallable, Category = "Toggle")
+	static bool ActorIsToggleable(AActor* Target);
+
 
 };

@@ -11,11 +11,6 @@ UToggleableComponent::UToggleableComponent()
 	PrimaryComponentTick.bCanEverTick = false;
 }
 
-void UToggleableComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-}
-
 void UToggleableComponent::Enable_Implementation()
 {
 	SetEnabled_Implementation(true);
@@ -72,7 +67,7 @@ void UToggleableComponent::ExecutePolicies(bool bNewState)
 
 	Policies.Sort([](const UTogglePolicy& A, const UTogglePolicy& B)
 	{
-		return A.PolicyStackPriority > B.PolicyStackPriority;
+		return A.GetEffectivePriority() > B.GetEffectivePriority();
 		});
 
 	UObject* OwnerObject = GetOwner();

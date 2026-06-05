@@ -15,6 +15,8 @@ class PERICULUM_API UVisibilityTogglePolicy : public UTogglePolicy
 	GENERATED_BODY()
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VisibilityTogglePolicy")
+	bool bPropagateToChildren = true;
 
-	virtual void Apply_Implementation(UObject* Target, bool& bEnable) override;	
+	virtual void Apply_Implementation(UObject* Target, bool bEnable) override;	
 };

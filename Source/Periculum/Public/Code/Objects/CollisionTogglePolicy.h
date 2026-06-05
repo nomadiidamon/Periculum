@@ -17,7 +17,6 @@ enum class ECollisionToggleMode : uint8
 	QueryOnly UMETA(DisplayName = "Query Only"),
 	PhysicsOnly UMETA(DisplayName = "Physics Only"),
 	QueryAndPhysics UMETA(DisplayName = "Query and Physics"),
-	CollisionEnabled UMETA(DisplayName = "Collision Enabled")
 };
 
 UCLASS(EditInlineNew)
@@ -29,5 +28,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CollisionTogglePolicy")
 	ECollisionToggleMode DisableMode = ECollisionToggleMode::NoCollision;
 
-	virtual void Apply_Implementation(UObject* Target, bool& bEnable) override;
+	virtual void Apply_Implementation(UObject* Target, bool bEnable) override;
+
+private:
+	UPROPERTY()
+	TMap<UPrimitiveComponent*, TEnumAsByte<ECollisionEnabled::Type>> OriginalCollisionSettings;
 };

@@ -15,5 +15,5 @@ class PERICULUM_API UTickTogglePolicy : public UTogglePolicy
 	GENERATED_BODY()
 	
 public:
-	virtual void Apply_Implementation(UObject* Target, bool& bEnable) override;
+	virtual void Apply_Implementation(UObject* Target, bool bEnable) override;
 };

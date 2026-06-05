@@ -15,6 +15,9 @@ class PERICULUM_API UConditionalTogglePolicy : public UTogglePolicy
 	GENERATED_BODY()
 
 public:
-	virtual bool CanApply_Implementation(UObject* Target, bool& bEnable) override;
+	UFUNCTION(BlueprintNativeEvent)
+	bool Evaluate(UObject* Target, bool bEnable) const;
+
+	virtual bool CanApply_Implementation(UObject* Target, bool bEnable) override;
 	
 };

@@ -3,10 +3,9 @@
 
 #include "Code/Objects/CollisionTogglePolicy.h"
 
-void UCollisionTogglePolicy::Apply_Implementation(UObject* Target, bool& bEnable)
+void UCollisionTogglePolicy::Apply_Implementation(UObject* Target, bool bEnable)
 {
 	AActor* Actor = Cast<AActor>(Target);
-
 	if (!Actor)
 	{
 		return;
@@ -15,57 +14,51 @@ void UCollisionTogglePolicy::Apply_Implementation(UObject* Target, bool& bEnable
 	TArray<UPrimitiveComponent*> Components;
 	Actor->GetComponents<UPrimitiveComponent>(Components);
 
-	for (UPrimitiveComponent* Primitive : Components)
-	{
-		if (!Primitive)
+	if (bEnable) {
+
+		for (UPrimitiveComponent* Primitive : Components)
 		{
-			continue;
+			if (!Primitive)
+			{
+				continue;
+			}
+			if (const TEnumAsByte<ECollisionEnabled::Type>* Saved = OriginalCollisionSettings.Find(Primitive))
+			{
+				Primitive->SetCollisionEnabled(Saved->GetValue());
+			}
+
+		}
+		OriginalCollisionSettings.Empty();
+	}
+	else {
+		ECollisionEnabled::Type TargetMode = ECollisionEnabled::NoCollision;
+		switch (DisableMode)
+		{
+		case ECollisionToggleMode::QueryOnly:
+			TargetMode = ECollisionEnabled::QueryOnly;
+			break;
+
+		case ECollisionToggleMode::PhysicsOnly:
+			TargetMode = ECollisionEnabled::PhysicsOnly;
+			break;
+
+		case ECollisionToggleMode::QueryAndPhysics:
+			TargetMode = ECollisionEnabled::QueryAndPhysics;
+			break;
+
+		default:
+			break;
+
 		}
 
-		if (bEnable)
+		for (UPrimitiveComponent* Primitive : Components)
 		{
-			Primitive->SetCollisionEnabled(
-				ECollisionEnabled::QueryAndPhysics);
-		}
-		else
-		{
-			switch (DisableMode)
+			if (!Primitive)
 			{
-			case ECollisionToggleMode::NoCollision:
-			{
-				Primitive->SetCollisionEnabled(
-					ECollisionEnabled::NoCollision);
-				break;
+				continue;
 			}
-
-			case ECollisionToggleMode::QueryOnly:
-			{
-				Primitive->SetCollisionEnabled(
-					ECollisionEnabled::QueryOnly);
-				break;
-			}
-
-			case ECollisionToggleMode::PhysicsOnly:
-			{
-				Primitive->SetCollisionEnabled(
-					ECollisionEnabled::PhysicsOnly);
-				break;
-			}
-
-			case ECollisionToggleMode::QueryAndPhysics:
-			{
-				Primitive->SetCollisionEnabled(
-					ECollisionEnabled::QueryAndPhysics);
-				break;
-			}
-
-			case ECollisionToggleMode::CollisionEnabled:
-			{
-				Primitive->SetCollisionEnabled(
-					ECollisionEnabled::QueryAndPhysics);
-				break;
-			}
-			}
+			OriginalCollisionSettings.Add(Primitive, Primitive->GetCollisionEnabled());
+			Primitive->SetCollisionEnabled(TargetMode);
 		}
 	}
 }

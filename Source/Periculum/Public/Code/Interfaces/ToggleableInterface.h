@@ -22,15 +22,19 @@ class PERICULUM_API IToggleableInterface
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
+	// Toggle the state of the object. If bEnabled is true, enable the object; if false, disable it.
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void Enable();
 
+	// Toggle the state of the object. If bEnabled is true, enable the object; if false, disable it.
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void Disable();
 
+	// Set the enabled state of the object. If bEnabled is true, enable the object; if false, disable it.
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void SetEnabled(bool bEnabled);
 
+	// Get the enabled state of the object. Returns true if the object is enabled, false otherwise.
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     bool IsEnabled() const;
 

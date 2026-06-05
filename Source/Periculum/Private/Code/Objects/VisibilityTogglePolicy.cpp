@@ -3,10 +3,15 @@
 
 #include "Code/Objects/VisibilityTogglePolicy.h"
 
-void UVisibilityTogglePolicy::Apply_Implementation(UObject* Target, bool& bEnable)
+void UVisibilityTogglePolicy::Apply_Implementation(UObject* Target, bool bEnable)
 {
     if (AActor* Actor = Cast<AActor>(Target))
     {
-        Actor->SetActorHiddenInGame(!bEnable);
+        if (!Actor)
+        {
+            return;
+		}
+        Actor->SetActorHiddenInGame(bEnable);
+
     }
 }

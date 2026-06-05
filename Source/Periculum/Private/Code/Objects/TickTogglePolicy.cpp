@@ -3,7 +3,7 @@
 
 #include "Code/Objects/TickTogglePolicy.h"
 
-void UTickTogglePolicy::Apply_Implementation(UObject* Target, bool& bEnable)
+void UTickTogglePolicy::Apply_Implementation(UObject* Target, bool bEnable)
 {
 	if (UActorComponent* Component = Cast<UActorComponent>(Target))
 	{

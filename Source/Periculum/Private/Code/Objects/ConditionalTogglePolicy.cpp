@@ -3,7 +3,12 @@
 
 #include "Code/Objects/ConditionalTogglePolicy.h"
 
-bool UConditionalTogglePolicy::CanApply_Implementation(UObject* Target, bool& bEnable)
+bool UConditionalTogglePolicy::Evaluate_Implementation(UObject* Target, bool bEnable) const
 {
-	return true;
+	return false;
+}
+
+bool UConditionalTogglePolicy::CanApply_Implementation(UObject* Target, bool bEnable)
+{
+	return Evaluate_Implementation(Target, bEnable);
 }

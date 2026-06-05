@@ -21,8 +21,6 @@ class PERICULUM_API UToggleableComponent : public UActorComponent, public IToggl
 public:	
 	UToggleableComponent();
 
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
     virtual void Enable_Implementation() override;
     virtual void Disable_Implementation() override;
     virtual void SetEnabled_Implementation(bool bNewState) override;

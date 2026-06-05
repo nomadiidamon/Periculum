@@ -35,37 +35,40 @@ public:
 	int32 PriorityScalar = 0;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "TogglePolicy")
-	bool CanApply(UObject* Target, bool& bEnable);
+	bool CanApply(UObject* Target, bool bEnable);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "TogglePolicy")
-	void Apply(UObject* Target, bool& bEnable);
+	void Apply(UObject* Target, bool bEnable);
 
 public:
+	int32 GetEffectivePriority() const
+	{
+		return static_cast<int32>(PolicyStackPriority) + PriorityScalar;
+	}
+
 	// Overload the less-than operator to compare policies based on their stack priority and scalar
 	bool operator<(const UTogglePolicy& Other) const
 	{
-		int32 ThisPriority = static_cast<int32>(PolicyStackPriority) + PriorityScalar;
-		int32 OtherPriority = static_cast<int32>(Other.PolicyStackPriority) + Other.PriorityScalar;
+		int32 ThisPriority = GetEffectivePriority();
+		int32 OtherPriority = Other.GetEffectivePriority();
 		return ThisPriority < OtherPriority;
 	}
 
 	// Overload the greater-than operator to compare policies based on their stack priority and scalar
 	bool operator>(const UTogglePolicy& Other) const
 	{
-		int32 ThisPriority = static_cast<int32>(PolicyStackPriority) + PriorityScalar;
-		int32 OtherPriority = static_cast<int32>(Other.PolicyStackPriority) + Other.PriorityScalar;
+		int32 ThisPriority = GetEffectivePriority();
+		int32 OtherPriority = Other.GetEffectivePriority();
 		return ThisPriority > OtherPriority;
 	}
 
-	// Overload the equality operator to compare policies based on their stack priority and scalar
+	// Overload the equality operator to compare policies 
 	bool operator==(const UTogglePolicy& Other) const
 	{
-		int32 ThisPriority = static_cast<int32>(PolicyStackPriority) + PriorityScalar;
-		int32 OtherPriority = static_cast<int32>(Other.PolicyStackPriority) + Other.PriorityScalar;
-		return ThisPriority == OtherPriority;
+		return this == &Other;
 	}
 
-	// Overload the inequality operator to compare policies based on their stack priority and scalar
+	// Overload the inequality operator to compare policies
 	bool operator!=(const UTogglePolicy& Other) const
 	{
 		return !(*this == Other);

@@ -42,7 +42,7 @@ void UToggleProfile::AddUniquePolicies(const TArray<UTogglePolicy*>& Policies)
 	{
 		if (Policy)
 		{
-			ValidPolicies.Add(Policy);
+			ValidPolicies.AddUnique(Policy);
 		}
 	}
 	TogglePolicies.Append(ValidPolicies);
@@ -60,7 +60,7 @@ void UToggleProfile::RemovePolicies(const TArray<UTogglePolicy*>& Policies)
 {
 	for (UTogglePolicy* Policy : Policies)
 	{
-		RemovePolicy(Policy);
+		TogglePolicies.Remove(Policy);
 	}
 	HandleProfileChanged();
 }

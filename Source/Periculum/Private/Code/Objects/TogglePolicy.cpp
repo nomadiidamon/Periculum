@@ -4,11 +4,11 @@
 #include "Code/Objects/TogglePolicy.h"
 
 
-bool UTogglePolicy::CanApply_Implementation(UObject* Target, bool& bEnable)
+bool UTogglePolicy::CanApply_Implementation(UObject* Target, bool bEnable)
 {
 	return true;
 }
 
-void UTogglePolicy::Apply_Implementation(UObject* Target, bool& bEnable)
+void UTogglePolicy::Apply_Implementation(UObject* Target, bool bEnable)
 {
 }
