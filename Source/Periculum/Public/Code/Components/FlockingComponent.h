@@ -10,31 +10,77 @@ class USphereComponent;
 USTRUCT(BlueprintType)
 struct FFlockSettings
 {
-public:
 	GENERATED_BODY()
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
-	float CohesionWeight = 8.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
-	float SeparationWeight = 5.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
-	float AlignmentWeight = 10.0f;
+public:
+	/// Cohesion, Separation, Alignment weights and radii, the higher the weight, the more influence that behavior has on the boid's movement
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "100.0"))
+	float CohesionWeight = 1.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "50.0", ClampMax = "2000.0"))
-	float SafeRadius = 500.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "2000.0"))
+	float CohesionRadius = 450.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "100.0"))
+	float SeparationWeight = 2.25f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "50.0", ClampMax = "2000.0"))
+	float SeparationRadius = 300.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "100.0"))
+	float AlignmentWeight = 1.0f;	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "50.0", ClampMax = "2000.0"))
+	float AlignmentRadius = 850.0f;
+
+	/// Speed, Wander strength, and other tuning settings for the boid's movement
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "200.0"))
 	float MaxSpeed = 200.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "1000.0"))
-	float MinSpeed = 200.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
+	float MinSpeed = 20.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
+	float MaxWanderStrength = 200.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "50.0"))
+	float MinWanderStrength = 20.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "200.0"))
+	float MaxForce = 75.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
+	float TurnSpeed = 2.0f;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
-	bool bDrawDebug = false;
+	FVector FlockCenter = FVector::ZeroVector;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
+	float FlockCenterStrength = 20.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
+	FVector FlockAttractionPoint = FVector::ZeroVector;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
+	float FlockAttractionPointStrength = 20.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
+	bool bDrawDebugRadiusAverage = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
+	bool bDrawDebugSightLine = false;
 
 	bool operator==(const FFlockSettings& Other) const
 	{
 		return FMath::IsNearlyEqual(CohesionWeight, Other.CohesionWeight) &&
 			FMath::IsNearlyEqual(SeparationWeight, Other.SeparationWeight) &&
 			FMath::IsNearlyEqual(AlignmentWeight, Other.AlignmentWeight) &&
-			FMath::IsNearlyEqual(SafeRadius, Other.SafeRadius) &&
+			FMath::IsNearlyEqual(CohesionRadius, Other.CohesionRadius) &&
+			FMath::IsNearlyEqual(SeparationRadius, Other.SeparationRadius) &&
+			FMath::IsNearlyEqual(AlignmentRadius, Other.AlignmentRadius) &&
 			FMath::IsNearlyEqual(MaxSpeed, Other.MaxSpeed) &&
-			FMath::IsNearlyEqual(MinSpeed, Other.MinSpeed);
+			FMath::IsNearlyEqual(MinSpeed, Other.MinSpeed) &&
+			FMath::IsNearlyEqual(MaxWanderStrength, Other.MaxWanderStrength)&&
+			FMath::IsNearlyEqual(MinWanderStrength, Other.MinWanderStrength)&&
+			FMath::IsNearlyEqual(MaxForce, Other.MaxForce)&&
+			FMath::IsNearlyEqual(TurnSpeed, Other.TurnSpeed)&&
+			FlockCenter.Equals(Other.FlockCenter)&&
+			FMath::IsNearlyEqual(FlockCenterStrength, Other.FlockCenterStrength)&&
+			FlockAttractionPoint.Equals(Other.FlockAttractionPoint)&&
+			FMath::IsNearlyEqual(FlockAttractionPointStrength, Other.FlockAttractionPointStrength)&&
+			bDrawDebugRadiusAverage == Other.bDrawDebugRadiusAverage&&
+			bDrawDebugSightLine == Other.bDrawDebugSightLine;
 	}
 
 };
@@ -55,13 +101,13 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	ABoidFlock* FlockManager;
+	TObjectPtr<ABoidFlock> FlockManager;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	USphereComponent* OverlappingComponent;
+	TObjectPtr<USphereComponent> OverlappingSphereComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	TArray<AActor*> OverlappingActors;
+	TArray<TObjectPtr<AActor>> OverlappingActors;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	FVector Velocity;
@@ -78,6 +124,14 @@ public:
 	FVector CalculateCohesion(TArray<AActor*> Neighbors);
 	FVector CalculateSeparation(TArray<AActor*> Neighbors);
 	FVector CalculateAlignment(TArray<AActor*> Neighbors);
+	FVector CalculateSteeringForce_Boid(FVector Cohesion, FVector Separation, FVector Alignment);
+
+	FVector CalculateWander();
+	FVector CalculateFlockCenterAttraction();
+	FVector CalculateFlockAttractionPoint();
+	FVector CalculateSteeringForce_Tuning(FVector Wander, FVector FlockCenter, FVector FlockAttraction);
+
+	void CalculateVelocity(FVector CurrentVelocity);
 
 	UFUNCTION()
 	void UpdateFlockSettings(const struct FFlockSettings& NewSettings);

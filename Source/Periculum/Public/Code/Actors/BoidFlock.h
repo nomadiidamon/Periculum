@@ -50,7 +50,6 @@ public:
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock")
 	TArray<AActor*> Boids;
-
 	UFUNCTION()
 	void UpdateBoidSettings(const FFlockSettings& NewSettings);
 };

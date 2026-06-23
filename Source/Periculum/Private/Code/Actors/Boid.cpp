@@ -16,8 +16,8 @@ ABoid::ABoid()
 
 	FlockingComponent = CreateDefaultSubobject<UFlockingComponent>(TEXT("FlockingComponent"));
 
-	USphereComponent* OverlapSphere = CreateDefaultSubobject<USphereComponent>(TEXT("OverlappingComponent"));
-	OverlapSphere->SetSphereRadius(FlockingComponent->FlockSettings.SafeRadius);
+	USphereComponent* OverlapSphere = CreateDefaultSubobject<USphereComponent>(TEXT("OverlappingSphereComponent"));
+	OverlapSphere->SetSphereRadius(FlockingComponent->FlockSettings.AlignmentRadius);
 	OverlapSphere->SetupAttachment(RootComponent);
 	OverlapSphere->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	OverlapSphere->SetCollisionObjectType(ECollisionChannel::ECC_Pawn);
@@ -25,7 +25,7 @@ ABoid::ABoid()
 	OverlapSphere->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
 	OverlapSphere->SetGenerateOverlapEvents(true);
 
-	FlockingComponent->OverlappingComponent = OverlapSphere;
+	FlockingComponent->OverlappingSphereComponent = OverlapSphere;
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	StaticMeshComponent->SetupAttachment(RootComponent);
@@ -41,9 +41,9 @@ void ABoid::BeginPlay()
 		return;
 	}
 
-	if (!FlockingComponent->OverlappingComponent)
+	if (!FlockingComponent->OverlappingSphereComponent)
 	{
-		PERICULUM_LOG(Periculum_Game, Warning, "OverlappingComponent is not set on %s", *GetName());
+		PERICULUM_LOG(Periculum_Game, Warning, "OverlappingSphereComponent is not set on %s", *GetName());
 		return;
 	}
 
@@ -52,15 +52,15 @@ void ABoid::BeginPlay()
 		FlockingComponent->Velocity = GetActorForwardVector() * FMath::RandRange(FlockingComponent->FlockSettings.MinSpeed, FlockingComponent->FlockSettings.MaxSpeed);
 	}
 
-	if (FlockingComponent && FlockingComponent->OverlappingComponent)
+	if (FlockingComponent && FlockingComponent->OverlappingSphereComponent)
 	{
-		if (!FlockingComponent->OverlappingComponent->OnComponentBeginOverlap.IsAlreadyBound(FlockingComponent, &UFlockingComponent::OnOverlapBegin))
+		if (!FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.IsAlreadyBound(FlockingComponent, &UFlockingComponent::OnOverlapBegin))
 		{
-			FlockingComponent->OverlappingComponent->OnComponentBeginOverlap.AddDynamic(FlockingComponent, &UFlockingComponent::OnOverlapBegin);
+			FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.AddDynamic(FlockingComponent, &UFlockingComponent::OnOverlapBegin);
 		}
-		if (!FlockingComponent->OverlappingComponent->OnComponentEndOverlap.IsAlreadyBound(FlockingComponent, &UFlockingComponent::OnOverlapEnd))
+		if (!FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.IsAlreadyBound(FlockingComponent, &UFlockingComponent::OnOverlapEnd))
 		{
-			FlockingComponent->OverlappingComponent->OnComponentEndOverlap.AddDynamic(FlockingComponent, &UFlockingComponent::OnOverlapEnd);
+			FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.AddDynamic(FlockingComponent, &UFlockingComponent::OnOverlapEnd);
 		}
 	}
 }
@@ -70,12 +70,17 @@ void ABoid::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	if (FlockingComponent) {
-		bDrawDebug = FlockingComponent->FlockSettings.bDrawDebug;
-	}
 
-	if (bDrawDebug && FlockingComponent)
-	{
-		FlockingComponent->DrawOverlapComponentBounds();
+		bDrawDebugRadius = FlockingComponent->FlockSettings.bDrawDebugRadiusAverage;
+		bDrawDebugSightLine = FlockingComponent->FlockSettings.bDrawDebugSightLine;
+
+		if (bDrawDebugRadius)
+		{
+			FlockingComponent->DrawOverlapComponentBounds();
+		}
+		if (bDrawDebugSightLine)
+		{
+			DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + FlockingComponent->Velocity.GetSafeNormal() * 500.f, FColor::Green, false, -1.f, 0, 2.f);
+		}
 	}
-	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + FlockingComponent->Velocity.GetSafeNormal() * 500.f, FColor::Green, false, -1.f, 0, 2.f);
 }

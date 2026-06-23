@@ -34,7 +34,10 @@ public:
 	UStaticMeshComponent* StaticMeshComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	bool bDrawDebug = false;
+	bool bDrawDebugRadius = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	bool bDrawDebugSightLine = false;
 
 public:
 	void UpdateFlockSettings(const FFlockSettings& NewSettings);

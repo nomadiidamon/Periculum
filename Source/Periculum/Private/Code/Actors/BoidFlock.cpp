@@ -60,6 +60,23 @@ void ABoidFlock::Tick(float DeltaTime)
 			OnFlockSettingsChanged.Broadcast(FlockSettings);
 		}
 	}
+
+	FVector AverageLocation = FVector::ZeroVector;
+
+	for (AActor* Boid : Boids)
+	{
+		if (Boid)
+		{
+			AverageLocation += Boid->GetActorLocation();
+		}
+	}
+
+	if (Boids.Num() > 0)
+	{
+		AverageLocation /= Boids.Num();
+	}
+
+	FlockSettings.FlockCenter = AverageLocation;
 }
 
 
@@ -87,7 +104,7 @@ TArray<AActor*> ABoidFlock::GetNeighboringBoids(AActor* Boid, float Radius) cons
 
 	FVector Location = Boid->GetActorLocation();
 
-	for (AActor* OtherBoid : Boids)
+	for (auto OtherBoid : Boids)
 	{
 		if (OtherBoid == Boid)
 		{
@@ -108,7 +125,8 @@ void ABoidFlock::UpdateBoidSettings(const FFlockSettings& NewSettings)
 	{
 		if (ABoid* BoidActor = Cast<ABoid>(Boid))
 		{
-			BoidActor->bDrawDebug = NewSettings.bDrawDebug;
+			BoidActor->bDrawDebugRadius = NewSettings.bDrawDebugRadiusAverage;
+			BoidActor->bDrawDebugSightLine = NewSettings.bDrawDebugSightLine;
 			if (UFlockingComponent* FlockingComp = BoidActor->GetFlockingComponent())
 			{
 				FlockingComp->UpdateFlockSettings(NewSettings);
