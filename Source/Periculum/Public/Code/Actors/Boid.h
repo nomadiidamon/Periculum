@@ -2,12 +2,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Code/Components/FlockingComponent.h"
 #include "Boid.generated.h"
 
-class UFlockingComponent;
+//class UFlockingComponent;
 class UStaticMeshComponent;
 class USkeletalMeshComponent;
 class USphereComponent;
+class UTraceComponent;
 struct FFlockSettings;
 
 UCLASS()
@@ -25,13 +27,21 @@ protected:
 public:
 	UFUNCTION()
 	UFlockingComponent* GetFlockingComponent() const { return FlockingComponent; }
+	UFUNCTION()
+	bool HasFlockingComponent() const { return FlockingComponent != nullptr; }
+	UFUNCTION()
+	void UpdateFlockSettings(const FFlockSettings& NewSettings);
+	FVector GetFlockingVelocity() const;
 
 public:	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	UFlockingComponent* FlockingComponent;
+	TObjectPtr<UFlockingComponent> FlockingComponent;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	//TObjectPtr<UTraceComponent> TraceComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	UStaticMeshComponent* StaticMeshComponent;
+	TObjectPtr<UStaticMeshComponent> StaticMeshComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	bool bDrawDebugRadius = false;
@@ -40,6 +50,4 @@ public:
 	bool bDrawDebugSightLine = false;
 
 public:
-	void UpdateFlockSettings(const FFlockSettings& NewSettings);
-
 };

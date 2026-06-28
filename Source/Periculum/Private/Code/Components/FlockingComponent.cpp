@@ -1,5 +1,6 @@
 #include "Code/Components/FlockingComponent.h"
 #include "Code/Actors/BoidFlock.h"
+#include "Code/Actors/Boid.h"
 
 #include "Components/SphereComponent.h" 
 
@@ -29,34 +30,26 @@ void UFlockingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 	{
 
 #if FLOCKING_DEBUG == 1
-		TArray<AActor*> Neighbors = FlockManager->GetNeighboringBoids(GetOwner(), FlockSettings.CohesionRadius);
+		TArray<AActor*> Neighbors = FlockManager->GetNeighboringBoids(GetOwner(), FlockSettings.CollisionDetectionRadius);
 #elif FLOCKING_DEBUG == 0
 		TArray<AActor*> Neighbors;
 		TArray<AActor*> CurrentOverlappingActors = OverlappingActors;
 
 		for (AActor* Actor : CurrentOverlappingActors)
 		{
-			if (Actor != GetOwner() && Actor->FindComponentByClass<UFlockingComponent>())
+			if (ABoid* boid = Cast<ABoid>(Actor))
 			{
-				Neighbors.Add(Actor);
+				if (boid->HasFlockingComponent())
+				{
+					Neighbors.Add(Actor);
+				}
 			}
 		}
 #endif
-
-		FVector Cohesion = CalculateCohesion(Neighbors) * FlockSettings.CohesionWeight;
-		FVector Separation = CalculateSeparation(Neighbors) * FlockSettings.SeparationWeight;
-		FVector Alignment = CalculateAlignment(Neighbors) * FlockSettings.AlignmentWeight;
-		FVector SteeringForceBoid = CalculateSteeringForce_Boid(Cohesion, Separation, Alignment) * DeltaTime;
-		Velocity += SteeringForceBoid;
-
-
-		FVector Wander = CalculateWander();
-		FVector FlockCenter = CalculateFlockCenterAttraction();
-		FVector FlockAttraction = CalculateFlockAttractionPoint();
-		FVector SteeringForceTuning = CalculateSteeringForce_Tuning(Wander, FlockCenter, FlockAttraction) * DeltaTime;
-		Velocity += SteeringForceTuning;
-		
-		Velocity = Velocity.GetClampedToMaxSize(FlockSettings.MaxSpeed);
+		FVector SteeringForce = FVector::ZeroVector;
+		SteeringForce += ExecuteBoidBehavior(Neighbors);
+		SteeringForce += ExecuteTuningBehavior();
+		Velocity = SteeringForce.GetClampedToMaxSize(FlockSettings.MaxSpeed);
 
 
 		CalculateVelocity(Velocity);
@@ -69,6 +62,16 @@ void UFlockingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 		const FRotator Smoothed = FMath::RInterpTo(GetOwner()->GetActorRotation(), DesiredRotation, DeltaTime, FlockSettings.TurnSpeed);
 		GetOwner()->SetActorRotation(Smoothed);
 	}
+
+}
+
+FVector UFlockingComponent::ExecuteBoidBehavior(TArray<AActor*> Neighbors)
+{
+	FVector Cohesion = CalculateCohesion(Neighbors) * FlockSettings.CohesionWeight;
+	FVector Separation = CalculateSeparation(Neighbors) * FlockSettings.SeparationWeight;
+	FVector Alignment = CalculateAlignment(Neighbors) * FlockSettings.AlignmentWeight;
+	FVector SteeringForceBoid = CalculateSteeringForce_Boid(Cohesion, Separation, Alignment);
+	return SteeringForceBoid;
 }
 
 FVector UFlockingComponent::CalculateCohesion(TArray<AActor*> Neighbors)
@@ -121,7 +124,7 @@ FVector UFlockingComponent::CalculateSeparation(TArray<AActor*> Neighbors)
 		if (Distance > 0.0f && Distance < FlockSettings.SeparationRadius)
 		{
 			// Weight by inverse distance - closer boids have more influence
-			float Strength = (FlockSettings.SeparationRadius / Distance);
+			float Strength = FMath::Square(1.0f - (Distance / FlockSettings.SeparationRadius));
 			Force += ToNeighbor.GetSafeNormal() * Strength;
 			Count++;
 		}
@@ -154,9 +157,10 @@ FVector UFlockingComponent::CalculateAlignment(TArray<AActor*> Neighbors)
 			continue; // Skip neighbors that are too far away
 		}
 
-		if (UFlockingComponent* NeighborFlocking = Neighbor->FindComponentByClass<UFlockingComponent>())
+		FVector velocity = Neighbor->GetVelocity();
+		if (velocity.SizeSquared() > 0.0f)
 		{
-			AverageVelocity += NeighborFlocking->Velocity;
+			AverageVelocity += velocity;
 			Count++;
 		}
 	}
@@ -172,17 +176,24 @@ FVector UFlockingComponent::CalculateAlignment(TArray<AActor*> Neighbors)
 FVector UFlockingComponent::CalculateSteeringForce_Boid(FVector Cohesion, FVector Separation, FVector Alignment)
 {
 	FVector SteeringForce = Cohesion + Separation + Alignment;
-	SteeringForce = SteeringForce.GetClampedToMaxSize(FlockSettings.MaxForce);
 	return SteeringForce;
+}
+
+FVector UFlockingComponent::ExecuteTuningBehavior()
+{
+	FVector Wander = CalculateWander();
+	FVector FlockCenter = CalculateFlockCenterAttraction();
+	FVector FlockAttraction = CalculateFlockAttractionPoint();
+	FVector SteeringForceTuning = CalculateSteeringForce_Tuning(Wander, FlockCenter, FlockAttraction);
+	return SteeringForceTuning;
 }
 
 FVector UFlockingComponent::CalculateWander()
 {
-	FVector WanderMax = FMath::VRand() * FlockSettings.MaxWanderStrength;
-	FVector WanderMin = FMath::VRand() * FlockSettings.MinWanderStrength;
-	
-	FVector WanderForce = (WanderMax + WanderMin) / 2.0f;
-	return WanderForce;
+	FVector WanderDirection = FMath::VRand().GetSafeNormal();
+	WanderVector += WanderDirection * FMath::RandRange(FlockSettings.MinWanderStrength, FlockSettings.MaxWanderStrength);
+	WanderVector.Normalize();
+	return WanderVector;
 }
 FVector UFlockingComponent::CalculateFlockCenterAttraction()
 {
@@ -209,8 +220,37 @@ FVector UFlockingComponent::CalculateFlockAttractionPoint()
 FVector UFlockingComponent::CalculateSteeringForce_Tuning(FVector Wander, FVector FlockCenter, FVector FlockAttraction)
 {
 	FVector SteeringForce = Wander + FlockCenter + FlockAttraction;
-	SteeringForce = SteeringForce.GetClampedToMaxSize(FlockSettings.MaxForce);
 	return SteeringForce;
+}
+
+FVector UFlockingComponent::PredictCollisions(TArray<AActor*> Actors, float DeltaTime)
+{
+	return FVector();
+}
+
+FVector UFlockingComponent::PredictFuturePosition(float DeltaTime)
+{
+	return FVector();
+}
+
+FVector UFlockingComponent::PredictNeighborPosition(ABoid* Neighbor, float DeltaTime)
+{
+	return FVector();
+}
+
+FVector UFlockingComponent::CalculateObstacleDistance(AActor* Obstacle, float DeltaTime)
+{
+	return FVector();
+}
+
+FVector UFlockingComponent::PredictObstacleCollision(AActor* Obstacle, float DeltaTime)
+{
+	return FVector();
+}
+
+FVector UFlockingComponent::AvoidObstaclesCollisions(TArray<AActor*> Obstacles, float DeltaTime)
+{
+	return FVector();
 }
 
 void UFlockingComponent::CalculateVelocity(FVector CurrentVelocity)
@@ -237,11 +277,9 @@ void UFlockingComponent::UpdateFlockSettings(const FFlockSettings& NewSettings)
 	FlockSettings.AlignmentWeight = NewSettings.AlignmentWeight;
 	FlockSettings.AlignmentRadius = NewSettings.AlignmentRadius;
 
-	float Radius = FlockSettings.SeparationRadius + FlockSettings.AlignmentRadius + FlockSettings.CohesionRadius;
-	Radius /= 3.f; // Average the radius for visualization
 	if (OverlappingSphereComponent)
 	{
-		OverlappingSphereComponent->SetSphereRadius(Radius);
+		OverlappingSphereComponent->SetSphereRadius(FlockSettings.CollisionDetectionRadius);
 	}
 
 	FlockSettings.MaxSpeed = NewSettings.MaxSpeed;
@@ -263,19 +301,18 @@ void UFlockingComponent::UpdateFlockSettings(const FFlockSettings& NewSettings)
 	FlockSettings.bDrawDebugSightLine = NewSettings.bDrawDebugSightLine;
 }
 
+
+
 void UFlockingComponent::DrawOverlapComponentBounds()
 {
 	if (FlockSettings.bDrawDebugRadiusAverage) {
 
 		if (OverlappingSphereComponent)
 		{
-			float Radius = FlockSettings.SeparationRadius + FlockSettings.AlignmentRadius + FlockSettings.CohesionRadius;
-			Radius /= 3.f; // Average the radius for visualization
-
 			DrawDebugSphere(
 				GetWorld(),
 				OverlappingSphereComponent->GetComponentLocation(),
-				Radius,
+				FlockSettings.CollisionDetectionRadius,
 				12,
 				FColor::Red,
 				false,
@@ -293,9 +330,8 @@ void UFlockingComponent::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AAc
 	if (OtherActor && OtherActor != GetOwner())
 	{
 		float distance = FVector::Dist(GetOwner()->GetActorLocation(), OtherActor->GetActorLocation());
-		float Radius = FlockSettings.SeparationRadius + FlockSettings.AlignmentRadius + FlockSettings.CohesionRadius;
 
-		if (distance <= Radius)
+		if (distance <= FlockSettings.CollisionDetectionRadius)
 		{
 			// Add the overlapping actor to the array
 			OverlappingActors.AddUnique(OtherActor);

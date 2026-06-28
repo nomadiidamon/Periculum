@@ -63,17 +63,19 @@ void ABoidFlock::Tick(float DeltaTime)
 
 	FVector AverageLocation = FVector::ZeroVector;
 
+	int32 ValidBoidCount = 0;
 	for (AActor* Boid : Boids)
 	{
 		if (Boid)
 		{
+			ValidBoidCount++;
 			AverageLocation += Boid->GetActorLocation();
 		}
 	}
 
 	if (Boids.Num() > 0)
 	{
-		AverageLocation /= Boids.Num();
+		AverageLocation /= ValidBoidCount;
 	}
 
 	FlockSettings.FlockCenter = AverageLocation;

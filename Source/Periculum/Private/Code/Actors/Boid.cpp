@@ -17,7 +17,7 @@ ABoid::ABoid()
 	FlockingComponent = CreateDefaultSubobject<UFlockingComponent>(TEXT("FlockingComponent"));
 
 	USphereComponent* OverlapSphere = CreateDefaultSubobject<USphereComponent>(TEXT("OverlappingSphereComponent"));
-	OverlapSphere->SetSphereRadius(FlockingComponent->FlockSettings.AlignmentRadius);
+	OverlapSphere->SetSphereRadius(FlockingComponent->FlockSettings.CollisionDetectionRadius);
 	OverlapSphere->SetupAttachment(RootComponent);
 	OverlapSphere->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	OverlapSphere->SetCollisionObjectType(ECollisionChannel::ECC_Pawn);
@@ -54,13 +54,13 @@ void ABoid::BeginPlay()
 
 	if (FlockingComponent && FlockingComponent->OverlappingSphereComponent)
 	{
-		if (!FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.IsAlreadyBound(FlockingComponent, &UFlockingComponent::OnOverlapBegin))
+		if (!FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.IsAlreadyBound(FlockingComponent.Get(), &UFlockingComponent::OnOverlapBegin))
 		{
-			FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.AddDynamic(FlockingComponent, &UFlockingComponent::OnOverlapBegin);
+			FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.AddDynamic(FlockingComponent.Get(), &UFlockingComponent::OnOverlapBegin);
 		}
-		if (!FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.IsAlreadyBound(FlockingComponent, &UFlockingComponent::OnOverlapEnd))
+		if (!FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.IsAlreadyBound(FlockingComponent.Get(), &UFlockingComponent::OnOverlapEnd))
 		{
-			FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.AddDynamic(FlockingComponent, &UFlockingComponent::OnOverlapEnd);
+			FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.AddDynamic(FlockingComponent.Get(), &UFlockingComponent::OnOverlapEnd);
 		}
 	}
 }
@@ -83,4 +83,45 @@ void ABoid::Tick(float DeltaTime)
 			DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + FlockingComponent->Velocity.GetSafeNormal() * 500.f, FColor::Green, false, -1.f, 0, 2.f);
 		}
 	}
+}
+
+
+void ABoid::UpdateFlockSettings(const FFlockSettings& NewSettings)
+{
+	FlockingComponent->FlockSettings.CohesionWeight = NewSettings.CohesionWeight;
+	FlockingComponent->FlockSettings.CohesionRadius = NewSettings.CohesionRadius;
+
+	FlockingComponent->FlockSettings.SeparationWeight = NewSettings.SeparationWeight;
+	FlockingComponent->FlockSettings.SeparationRadius = NewSettings.SeparationRadius;
+
+	FlockingComponent->FlockSettings.AlignmentWeight = NewSettings.AlignmentWeight;
+	FlockingComponent->FlockSettings.AlignmentRadius = NewSettings.AlignmentRadius;
+
+	if (FlockingComponent->OverlappingSphereComponent)
+	{
+		FlockingComponent->OverlappingSphereComponent->SetSphereRadius(FlockingComponent->FlockSettings.CollisionDetectionRadius);
+	}
+
+	FlockingComponent->FlockSettings.MaxSpeed = NewSettings.MaxSpeed;
+	FlockingComponent->FlockSettings.MinSpeed = NewSettings.MinSpeed;
+
+	FlockingComponent->FlockSettings.MaxWanderStrength = NewSettings.MaxWanderStrength;
+	FlockingComponent->FlockSettings.MinWanderStrength = NewSettings.MinWanderStrength;
+
+	FlockingComponent->FlockSettings.MaxForce = NewSettings.MaxForce;
+	FlockingComponent->FlockSettings.TurnSpeed = NewSettings.TurnSpeed;
+
+	FlockingComponent->FlockSettings.FlockCenter = NewSettings.FlockCenter;
+	FlockingComponent->FlockSettings.FlockCenterStrength = NewSettings.FlockCenterStrength;
+
+	FlockingComponent->FlockSettings.FlockAttractionPoint = NewSettings.FlockAttractionPoint;
+	FlockingComponent->FlockSettings.FlockAttractionPointStrength = NewSettings.FlockAttractionPointStrength;
+
+	FlockingComponent->FlockSettings.bDrawDebugRadiusAverage = NewSettings.bDrawDebugRadiusAverage;
+	FlockingComponent->FlockSettings.bDrawDebugSightLine = NewSettings.bDrawDebugSightLine;
+}
+
+FVector ABoid::GetFlockingVelocity() const
+{
+	return FlockingComponent ? FlockingComponent->Velocity : FVector::ZeroVector;
 }
