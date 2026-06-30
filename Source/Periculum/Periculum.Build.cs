@@ -18,7 +18,8 @@ public class Periculum : ModuleRules
 			"GameplayTags",
 			"GameplayAbilities",
 			"GameFeatures",
-			"ModularGameplay"
+			"ModularGameplay",
+			"GameplayMessageRuntime"
         });
 	}
 }

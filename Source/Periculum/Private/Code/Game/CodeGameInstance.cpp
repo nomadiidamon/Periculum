@@ -1,9 +1,18 @@
 #include "Code/Game/CodeGameInstance.h"
 #include "Code/Utility/PericulumLog.h"
-
+#include "GameFramework/GameplayMessageSubsystem.h"
 
 void UCodeGameInstance::Init()
 {
+	Super::Init();
+
+	if (UGameplayMessageSubsystem* MessageSubsystem = GetSubsystem<UGameplayMessageSubsystem>()) {
+		PERICULUM_LOG(Periculum_Game, Log, "GameplayMessageSubsystem initialized successfully.");
+	}
+	else {
+		PERICULUM_LOG(Periculum_Game, Error, "Failed to initialize GameplayMessageSubsystem.");
+	}
+
 	if (GameLevels.Num() == 0)
 	{
 		PERICULUM_LOG(Periculum_Game, Warning, "GameLevels array is empty in CodeGameInstance. Please populate it with the level names in the editor.");
@@ -86,6 +95,8 @@ void UCodeGameInstance::RestartCurrentLevelDelayed(float Delay)
 	GetWorld()->GetTimerManager().SetTimer(DelayedLevelLoadTimerHandle,
 		FTimerDelegate::CreateUObject(this, &UCodeGameInstance::RestartCurrentLevel), Delay, false);
 }
+
+
 
 void UCodeGameInstance::SetCurrentInputDeviceType(EInputDeviceType NewInputDeviceType)
 {
