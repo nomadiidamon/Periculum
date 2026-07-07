@@ -4,22 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Defines/PolicyDefines.h"
 #include "TogglePolicy.generated.h"
-
-/**
- * 
- */
-
-UENUM(BlueprintType)
-enum class EPolicyStackPriority : uint8
-{
-	Low = 0 UMETA(DisplayName = "Low"),
-	Standard = 25 UMETA(DisplayName = "Standard"),
-	Medium = 50 UMETA(DisplayName = "Medium"),
-	High = 75 UMETA(DisplayName = "High"),
-	Extreme = 100 UMETA(DisplayName = "Extreme")
-};
-
 
 
 UCLASS(Abstract, Blueprintable, EditInlineNew, DefaultToInstanced)
