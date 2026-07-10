@@ -61,4 +61,28 @@ void UCollisionTogglePolicy::Apply_Implementation(UObject* Target, bool bEnable)
 			Primitive->SetCollisionEnabled(TargetMode);
 		}
 	}
+
+#if WITH_EDITOR
+	FString CollisionModeString;
+	switch (DisableMode)
+	{
+		case ECollisionToggleMode::NoCollision:
+			CollisionModeString = TEXT("No Collision");
+			break;
+		case ECollisionToggleMode::QueryOnly:
+			CollisionModeString = TEXT("Query Only");
+			break;
+		case ECollisionToggleMode::PhysicsOnly:
+			CollisionModeString = TEXT("Physics Only");
+			break;
+		case ECollisionToggleMode::QueryAndPhysics:
+			CollisionModeString = TEXT("Query and Physics");
+			break;
+		default:
+			CollisionModeString = TEXT("Unknown");
+			break;
+	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Actor %s collision set to %s"), *Actor->GetName(), bEnable ? TEXT("Enabled") : TEXT("Disabled")));	
+#endif
+
 }
