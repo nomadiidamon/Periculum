@@ -1,0 +1,68 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "NativeGameplayTags.h"
+
+/**
+ * This file defines a variety of Gameplay Tags used in relation to crafting throughout the Periculum project. 
+ */
+
+
+
+/// Crafting Tags
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting);
+
+/// Crafting Station Tags
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Smith);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Chemist);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Mage);
+
+/// Crafting Recipe Tags
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Weapon);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Armor);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Ability);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Consumable);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_MetalAlloy);
+
+/// Crafting Resource Tags
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Wood);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Cloth);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Leather);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Clay);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Gem);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Herb);
+
+/// Crafting Resource Tags - Metal ores
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Iron);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Aluminum);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Copper);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Zinc);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Tin);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Lead);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Cobalt);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Silver);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Gold);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Platinum);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Mercury);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Palladium);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Neodymium);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Titanium);
+
+/// Crafting Resource Tags - Metal Alloys
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Bronze);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Brass);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_CastIron);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Steel);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Steel_Stainless);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Electrum);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_GunMetal);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_SterlingSilver);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_WhiteGold);
