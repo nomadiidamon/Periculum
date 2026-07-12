@@ -27,11 +27,6 @@ void UMessagingComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	Super::EndPlay(EndPlayReason);
 }
 
-FGameplayTag UMessagingComponent::GetActorChannel(FGameplayTag BaseTag, const AActor* Actor)
-{
-	return UMessagingController::GetActorChannel(BaseTag, Actor);
-}
-
 void UMessagingComponent::StopListening(UPARAM(ref)FGameplayMessageListenerHandle& ListenerHandle)
 {
 	if (Controller) 
@@ -48,3 +43,26 @@ void UMessagingComponent::StopListeningToAll()
 	}
 }
 
+FGameplayTag UMessagingComponent::GetActorChannel(FGameplayTag BaseTag, const AActor* Actor)
+{
+	return UMessagingController::GetActorChannel(BaseTag, Actor);
+}
+
+
+void UMessagingComponent::BroadcastTestMessage(FGameplayTag MessageChannel, FPericulumTestMessage Message)
+{
+	if (Controller)
+	{
+		Controller->BroadcastTestMessage(MessageChannel, Message);
+	}
+}
+
+FGameplayMessageListenerHandle UMessagingComponent::ListenForTestMessage(FGameplayTag MessageChannel, EGameplayMessageMatch MatchType, const FOnGameplayMessageReceived& Callback)
+{
+	if (Controller)
+	{
+		return Controller->ListenForTestMessage(MessageChannel, MatchType, Callback);
+	}
+	return FGameplayMessageListenerHandle();
+
+}

@@ -10,6 +10,11 @@
 #include "Defines/Messages/PericulumMessage.h"
 #include "MessagingController.generated.h"
 
+
+DECLARE_DYNAMIC_DELEGATE_TwoParams(FOnGameplayMessageReceived, FGameplayTag, MessageChannel, FPericulumTestMessage, Message);
+
+
+
 /**
  * A UObject controller that manages all gameplay message subscriptions and broadcasts for a given context object.
  * Owns all listener handles and cleans them up automatically when StopListeningToAll is called.
@@ -69,6 +74,24 @@ public:
     /// <param name="BaseTag">The base gameplay tag representing the message domain.</param>
     /// <param name="Actor">The actor whose identity is used to generate the instanced channel tag.</param>
     static FGameplayTag GetActorChannel(FGameplayTag BaseTag, const AActor* Actor);
+
+	/// <summary>
+	/// Broadcasts a simple test message on the provided channel. This is a Blueprint-friendly wrapper for testing the messaging system.
+	/// </summary>
+	/// <param name="MessageChannel">The channel to broadcast the message on.</param>
+	/// <param name="Message">The message to broadcast.</param>
+	UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
+	void BroadcastTestMessage(FGameplayTag MessageChannel, FPericulumTestMessage Message);
+
+	/// <summary>
+	/// Registers a listener for test messages on the provided channel. This is a Blueprint-friendly wrapper for testing the messaging system.
+	/// </summary>
+	/// <param name="MessageChannel">The channel to listen for messages on.</param>
+	/// <param name="MatchType">The matching rules to apply when filtering messages.</param>
+	/// <param name="Callback">The function to call when a matching message is received.</param>
+	/// <returns>A handle that can be used to unregister the listener.</returns>
+	UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
+	FGameplayMessageListenerHandle ListenForTestMessage(FGameplayTag MessageChannel, EGameplayMessageMatch MatchType, const FOnGameplayMessageReceived& Callback);
 
 
 	// --- Templated functions below cannot be UFUNCTIONs, but are the primary interface for sending and receiving messages. ---

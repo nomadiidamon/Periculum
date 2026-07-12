@@ -16,7 +16,6 @@
 * A basic message struct, FPericulumMessage, is provided as a parent struct to define custom messages in the Periculum messaging system. This struct includes information about the sender, the time the message was sent, and optional context tags.
 */
 
-
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class PERICULUM_API UMessagingComponent : public UActorComponent
 {
@@ -57,6 +56,16 @@ public:
 	/// <param name="BaseTag">The base gameplay tag representing the message domain.</param>
 	/// <param name="Actor">The actor whose identity is used to generate the instanced channel tag.</param>
 	static FGameplayTag GetActorChannel(FGameplayTag BaseTag, const AActor* Actor);
+
+
+	UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
+	void BroadcastTestMessage(FGameplayTag MessageChannel, FPericulumTestMessage Message);
+
+
+	UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
+	FGameplayMessageListenerHandle ListenForTestMessage(FGameplayTag MessageChannel, EGameplayMessageMatch MatchType, const FOnGameplayMessageReceived& Callback);
+
+	// --- Templated methods below are not exposed to Blueprints, but can be used in C++ code.
 
 	/// <summary>
     /// Broadcasts a message on the provided channel.

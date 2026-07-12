@@ -43,3 +43,13 @@ struct PERICULUM_API FPericulumMessage
 	UPROPERTY(BlueprintReadOnly, Category = "Periculum|Message")
 	FGameplayTagContainer ContextTags;
 };
+
+
+USTRUCT(BlueprintType)
+struct PERICULUM_API FPericulumTestMessage : public FPericulumMessage
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite, Category = "Periculum|Message")
+	FString TestString;
+};

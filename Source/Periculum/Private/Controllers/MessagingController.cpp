@@ -55,6 +55,42 @@ FGameplayTag UMessagingController::GetActorChannel(FGameplayTag BaseTag, const A
         TEXT("Auto-generated per-actor instance channel"));
 }
 
+void UMessagingController::BroadcastTestMessage(FGameplayTag MessageChannel, FPericulumTestMessage Message)
+{
+    if (UGameplayMessageSubsystem* MessageSubsystem = GetMessageSubsystem())
+    {
+        Message.MessageSender = ContextObject;
+        Message.WorldTimeSeconds = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.0;
+        MessageSubsystem->BroadcastMessage(MessageChannel, Message);
+	}
+
+}
+
+FGameplayMessageListenerHandle UMessagingController::ListenForTestMessage(FGameplayTag MessageChannel, EGameplayMessageMatch MatchType, const FOnGameplayMessageReceived& Callback)
+{
+    if (UGameplayMessageSubsystem* MessageSubsystem = GetMessageSubsystem())
+    {
+        FGameplayMessageListenerHandle Handle = MessageSubsystem->RegisterListener<FPericulumTestMessage>(
+            MessageChannel,
+            [Callback](FGameplayTag Tag, const FPericulumTestMessage& Message)
+            {
+                // Execute the dynamic delegate
+                if (Callback.IsBound())
+                {
+                    Callback.Execute(Tag, Message);
+                }
+            },
+            MatchType);
+        if (Handle.IsValid())
+        {
+            RegisteredListeners.Add(Handle);
+        }
+        return Handle;
+    }
+	return FGameplayMessageListenerHandle();
+    
+}
+
 UGameplayMessageSubsystem* UMessagingController::GetMessageSubsystem() const
 {
     if (UWorld* World = GetWorld())
