@@ -3,7 +3,7 @@
 
 #include "Utility/ToggleStatics.h"
 #include "Interfaces/ToggleableInterface.h"
-#include "Objects/DataAssets/ToggleProfile.h"
+#include "DataAssets/ToggleProfile.h"
 
 
 void UToggleStatics::ToggleActor(AActor* Actor, bool bEnable)

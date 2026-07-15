@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Objects/DataAssets/TraceProfile.h"
+#include "DataAssets/TraceProfile.h"
 #include "TraceStatics.generated.h"
 
 /**

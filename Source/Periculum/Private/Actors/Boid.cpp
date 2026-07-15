@@ -1,6 +1,6 @@
 #include "Actors/Boid.h"
 
-#include "Components/FlockingComponent.h"
+#include "ActorComponents/FlockingComponent.h"
 
 #include "Components/StaticMeshComponent.h"
 #include "Components/SkeletalMeshComponent.h"

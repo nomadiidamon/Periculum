@@ -2,7 +2,7 @@
 
 
 #include "Utility/TraceStatics.h"
-#include "Components/TraceComponent.h"
+#include "ActorComponents/TraceComponent.h"
 
 FTraceResult UTraceStatics::PerformTrace(AActor* Target)
 {

@@ -7,7 +7,7 @@
 #include "GameFramework/GameplayMessageSubsystem.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagsManager.h"
-#include "Defines/Messages/PericulumMessage.h"
+#include "Messages/PericulumMessage.h"
 #include "MessagingController.generated.h"
 
 
@@ -88,10 +88,13 @@ public:
 	/// </summary>
 	/// <param name="MessageChannel">The channel to listen for messages on.</param>
 	/// <param name="MatchType">The matching rules to apply when filtering messages.</param>
-	/// <param name="Callback">The function to call when a matching message is received.</param>
+	/// <param name="Callback">The function to call when a matching message is received. CANNOT be a Multicast delegate.</param>
 	/// <returns>A handle that can be used to unregister the listener.</returns>
 	UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
 	FGameplayMessageListenerHandle ListenForTestMessage(FGameplayTag MessageChannel, EGameplayMessageMatch MatchType, const FOnGameplayMessageReceived& Callback);
+
+
+
 
 
 	// --- Templated functions below cannot be UFUNCTIONs, but are the primary interface for sending and receiving messages. ---

@@ -1,10 +1,10 @@
 #include "Actors/BoidFlock.h"
 #include "Actors/Boid.h"
 
-#include "Components/FlockingComponent.h"
-#include "Components/BoxSpawnerComponent.h"
-#include "Components/CapsuleSpawnerComponent.h"
-#include "Components/SphereSpawnerComponent.h"
+#include "ActorComponents/FlockingComponent.h"
+#include "SceneComponents/BoxSpawnerComponent.h"
+#include "SceneComponents/CapsuleSpawnerComponent.h"
+#include "SceneComponents/SphereSpawnerComponent.h"
 
 #include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"

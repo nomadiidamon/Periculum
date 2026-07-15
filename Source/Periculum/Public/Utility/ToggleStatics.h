@@ -4,9 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Components/ToggleComponent.h"
-#include "Objects/TogglePolicies/TogglePolicy.h"
-#include "Objects/DataAssets/ToggleProfile.h"
+#include "ActorComponents/ToggleComponent.h"
+#include "TogglePolicies/TogglePolicy.h"
+#include "DataAssets/ToggleProfile.h"
 #include "ToggleStatics.generated.h"
 
 /**
