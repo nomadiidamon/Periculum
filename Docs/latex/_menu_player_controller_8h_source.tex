@@ -1,0 +1,51 @@
+\doxysection{Menu\+Player\+Controller.\+h}
+\hypertarget{_menu_player_controller_8h_source}{}\label{_menu_player_controller_8h_source}\index{Source/Periculum/Public/Actors/MenuPlayerController.h@{Source/Periculum/Public/Actors/MenuPlayerController.h}}
+\doxymbox{\hyperlink{_menu_player_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}BaseActors/PericulumPlayerController.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}MenuPlayerController.generated.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ MenuPlayerController\ is\ the\ player\ controller\ class\ for\ the\ menu\ system.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ UCLASS()}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_a_menu_player_controller}{AMenuPlayerController}}\ :\ \textcolor{keyword}{public}\ APericulumPlayerController}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ AMenuPlayerController();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{///\ Initializes\ the\ player\ controller\ before\ components\ are\ initialized.\ This\ is\ where\ you\ can\ set\ up\ any\ necessary\ variables\ or\ state\ before\ the\ game\ begins.}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ PreInitializeComponents()\ override;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ EndPlay(\textcolor{keyword}{const}\ EEndPlayReason::Type\ EndPlayReason)\ override;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ override;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{///\ Overrides\ the\ base\ implementation\ to\ initialize\ and\ bind\ input\ handlers\ on\ the\ object’s\ input\ component.\ Use\ this\ to\ register\ input\ actions\ and\ axis\ mappings.Sets\ up\ the\ input\ component\ for\ the\ player\ controller.\ This\ is\ where\ you\ can\ bind\ input\ actions\ and\ axes\ to\ functions\ that\ will\ handle\ them.}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetupInputComponent()\ override;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{///\ Behavior\ when\ the\ player\ controller\ possesses\ a\ pawn.\ This\ virtual\ method\ is\ called\ when\ the\ controller\ takes\ control\ of\ a\ pawn,\ allowing\ for\ custom\ logic\ to\ be\ executed\ upon\ possession.\ Override\ this\ method\ to\ implement\ specific\ behavior\ when\ possessing\ a\ pawn.}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{///\ <param\ name="{}InPawn"{}>The\ pawn\ being\ possessed.</param>}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnPossess(APawn*\ InPawn)\ override;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{///\ Behavior\ when\ the\ player\ controller\ unpossesses\ a\ pawn.\ This\ virtual\ method\ is\ called\ when\ the\ controller\ releases\ control\ of\ a\ pawn,\ allowing\ for\ custom\ logic\ to\ be\ executed\ upon\ unpossession.\ Override\ this\ method\ to\ implement\ specific\ behavior\ when\ unpossessing\ a\ pawn.}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnUnPossess()\ override;}
+\DoxyCodeLine{00045\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,309 @@
+\doxysection{UToggle\+Statics Class Reference}
+\hypertarget{class_u_toggle_statics}{}\label{class_u_toggle_statics}\index{UToggleStatics@{UToggleStatics}}
+
+
+{\ttfamily \+\#include $<$Toggle\+Statics.\+h$>$}
+
+Inheritance diagram for UToggle\+Statics:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_toggle_statics}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{Actor\+Is\+Toggleable}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_a7ce5f61c4592d66ba159ad295d568d5c}{Add\+Policies}} (AActor \texorpdfstring{$\ast$}{*}Target, const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Policies)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_a0b2fe52808c28f669bac52cd1b4472c5}{Add\+Policy}} (AActor \texorpdfstring{$\ast$}{*}Target, \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_adeb31f05191142f1621c4d9ae7515b7d}{Add\+Unique\+Policy}} (AActor \texorpdfstring{$\ast$}{*}Target, \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_a02722aa15457de34dedbc742db0ca2d0}{Clear\+Policies}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_a64e8024fbeed40c76fe8e38a13af7606}{Disable\+Actor}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_a479c80f7c3a8cba1ccaa73e5f0e4df75}{Enable\+Actor}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf}{Get\+Toggle\+Profile}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_a2e6884436533ed02afacdde660e1497c}{Remove\+Policies}} (AActor \texorpdfstring{$\ast$}{*}Target, const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Policies)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_a205e98a6d16d291446c5b9cb94cf36ce}{Remove\+Policy}} (AActor \texorpdfstring{$\ast$}{*}Target, \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\item 
+static void \doxymbox{\hyperlink{class_u_toggle_statics_ae442101af4058ffdb64acf686d4f9b49}{Toggle\+Actor}} (AActor \texorpdfstring{$\ast$}{*}Target, bool b\+Enable)
+\item 
+{\footnotesize template$<$typename T$>$ }\\static void \doxymbox{\hyperlink{class_u_toggle_statics_ae8c3a42dba948cc9c5bc8783f14a8f22}{Toggle\+Component}} (T \texorpdfstring{$\ast$}{*}Component, bool b\+Enable)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_u_toggle_statics_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}\index{UToggleStatics@{UToggleStatics}!ActorIsToggleable@{ActorIsToggleable}}
+\index{ActorIsToggleable@{ActorIsToggleable}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{ActorIsToggleable()}{ActorIsToggleable()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff} 
+bool UToggle\+Statics::\+\+Actor\+Is\+Toggleable (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147\ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00149\ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (Target-\/>GetClass()-\/>ImplementsInterface(UToggleableInterface::StaticClass()))}
+\DoxyCodeLine{00153\ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00157\ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_a7ce5f61c4592d66ba159ad295d568d5c}\index{UToggleStatics@{UToggleStatics}!AddPolicies@{AddPolicies}}
+\index{AddPolicies@{AddPolicies}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{AddPolicies()}{AddPolicies()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_a7ce5f61c4592d66ba159ad295d568d5c} 
+void UToggle\+Statics::\+\+Add\+Policies (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Policies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Target))}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UToggleProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf}{GetToggleProfile}}(Target))}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>AddPolicies(Policies);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_a0b2fe52808c28f669bac52cd1b4472c5}\index{UToggleStatics@{UToggleStatics}!AddPolicy@{AddPolicy}}
+\index{AddPolicy@{AddPolicy}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{AddPolicy()}{AddPolicy()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_a0b2fe52808c28f669bac52cd1b4472c5} 
+void UToggle\+Statics::\+\+Add\+Policy (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Target))}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UToggleProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf}{GetToggleProfile}}(Target))}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>AddPolicy(Policy);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_adeb31f05191142f1621c4d9ae7515b7d}\index{UToggleStatics@{UToggleStatics}!AddUniquePolicy@{AddUniquePolicy}}
+\index{AddUniquePolicy@{AddUniquePolicy}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{AddUniquePolicy()}{AddUniquePolicy()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_adeb31f05191142f1621c4d9ae7515b7d} 
+void UToggle\+Statics::\+\+Add\+Unique\+Policy (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Target))}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UToggleProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf}{GetToggleProfile}}(Target))}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>AddUniquePolicy(Policy);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_a02722aa15457de34dedbc742db0ca2d0}\index{UToggleStatics@{UToggleStatics}!ClearPolicies@{ClearPolicies}}
+\index{ClearPolicies@{ClearPolicies}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{ClearPolicies()}{ClearPolicies()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_a02722aa15457de34dedbc742db0ca2d0} 
+void UToggle\+Statics::\+\+Clear\+Policies (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00134\ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Target))}
+\DoxyCodeLine{00138\ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UToggleProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf}{GetToggleProfile}}(Target))}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>ClearPolicies();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_a64e8024fbeed40c76fe8e38a13af7606}\index{UToggleStatics@{UToggleStatics}!DisableActor@{DisableActor}}
+\index{DisableActor@{DisableActor}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{DisableActor()}{DisableActor()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_a64e8024fbeed40c76fe8e38a13af7606} 
+void UToggle\+Statics::\+\+Disable\+Actor (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Actor)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Actor))}
+\DoxyCodeLine{00042\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ IToggleableInterface::Execute\_Disable(Actor);}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_a479c80f7c3a8cba1ccaa73e5f0e4df75}\index{UToggleStatics@{UToggleStatics}!EnableActor@{EnableActor}}
+\index{EnableActor@{EnableActor}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{EnableActor()}{EnableActor()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_a479c80f7c3a8cba1ccaa73e5f0e4df75} 
+void UToggle\+Statics::\+\+Enable\+Actor (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Actor)}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Actor))}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ IToggleableInterface::Execute\_Enable(Actor);}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf}\index{UToggleStatics@{UToggleStatics}!GetToggleProfile@{GetToggleProfile}}
+\index{GetToggleProfile@{GetToggleProfile}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{GetToggleProfile()}{GetToggleProfile()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf} 
+\doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \texorpdfstring{$\ast$}{*} UToggle\+Statics::\+\+Get\+Toggle\+Profile (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (UToggleComponent*\ ToggleComp\ =\ Cast<UToggleComponent>(Target-\/>GetComponentByClass(UToggleComponent::StaticClass())))}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ToggleComp-\/>GetActiveProfile();}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_a2e6884436533ed02afacdde660e1497c}\index{UToggleStatics@{UToggleStatics}!RemovePolicies@{RemovePolicies}}
+\index{RemovePolicies@{RemovePolicies}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{RemovePolicies()}{RemovePolicies()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_a2e6884436533ed02afacdde660e1497c} 
+void UToggle\+Statics::\+\+Remove\+Policies (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Policies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00120\ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Target))}
+\DoxyCodeLine{00124\ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UToggleProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf}{GetToggleProfile}}(Target))}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>RemovePolicies(Policies);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_a205e98a6d16d291446c5b9cb94cf36ce}\index{UToggleStatics@{UToggleStatics}!RemovePolicy@{RemovePolicy}}
+\index{RemovePolicy@{RemovePolicy}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{RemovePolicy()}{RemovePolicy()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_a205e98a6d16d291446c5b9cb94cf36ce} 
+void UToggle\+Statics::\+\+Remove\+Policy (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Target))}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UToggleProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_toggle_statics_a6245a9eab994e4a4fd2016a4034d24cf}{GetToggleProfile}}(Target))}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>RemovePolicy(Policy);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_ae442101af4058ffdb64acf686d4f9b49}\index{UToggleStatics@{UToggleStatics}!ToggleActor@{ToggleActor}}
+\index{ToggleActor@{ToggleActor}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{ToggleActor()}{ToggleActor()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_ae442101af4058ffdb64acf686d4f9b49} 
+void UToggle\+Statics::\+\+Toggle\+Actor (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{bool}]{b\+Enable}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Actor)}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_statics_ab3f4a393d3b19ce6851c8288d6d5c2ff}{ActorIsToggleable}}(Actor))}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ IToggleableInterface::Execute\_SetEnabled(Actor,\ bEnable);}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_statics_ae8c3a42dba948cc9c5bc8783f14a8f22}\index{UToggleStatics@{UToggleStatics}!ToggleComponent@{ToggleComponent}}
+\index{ToggleComponent@{ToggleComponent}!UToggleStatics@{UToggleStatics}}
+\doxysubsubsection{\texorpdfstring{ToggleComponent()}{ToggleComponent()}}
+{\footnotesize\ttfamily \label{class_u_toggle_statics_ae8c3a42dba948cc9c5bc8783f14a8f22} 
+template$<$typename T$>$ \\
+void UToggle\+Statics::\+\+Toggle\+Component (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{Component}{, }\item[{bool}]{b\+Enable}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Component)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ Component-\/>SetActive(bEnable,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Utility/\+\doxymbox{\hyperlink{_toggle_statics_8h}{Toggle\+Statics.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Utility/\+\doxymbox{\hyperlink{_toggle_statics_8cpp}{Toggle\+Statics.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,219 @@
+\doxysection{FFlock\+Settings Struct Reference}
+\hypertarget{struct_f_flock_settings}{}\label{struct_f_flock_settings}\index{FFlockSettings@{FFlockSettings}}
+
+
+Struct to hold flocking settings for boids TODO:\+ Convert to a data asset for easier tweaking and sharing between different flocks.  
+
+
+
+
+{\ttfamily \+\#include $<$Flocking\+Component.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{struct_f_flock_settings_a42a58021779e445f04189f92102ea2d5}{operator==}} (const \doxymbox{\hyperlink{struct_f_flock_settings}{FFlock\+Settings}} \&Other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_af0e9ba6adf8a018fe267de4c79b96f8b}{Alignment\+Radius}} = 850.\+0f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_ae5c8c77bbf7b2e1264ae51a0a62bfb10}{Alignment\+Weight}} = 1.\+0f
+\item 
+bool \doxymbox{\hyperlink{struct_f_flock_settings_ad5236c0376af5b87cf71ffeb61b68e18}{b\+Draw\+Debug\+Radius\+Average}} = false
+\item 
+bool \doxymbox{\hyperlink{struct_f_flock_settings_a7acfa8464eb28338318eb2a145f8ea69}{b\+Draw\+Debug\+Sight\+Line}} = false
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_a6ecda587a7a027815ee6b9c33a48a76c}{Cohesion\+Radius}} = 450.\+0f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_a86b3e27ec57073340eb708e28cb20c59}{Cohesion\+Weight}} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em Cohesion, Separation, Alignment weights and radii, the higher the weight, the more influence that behavior has on the boid\textquotesingle{}s movement. \end{DoxyCompactList}\item 
+FVector \doxymbox{\hyperlink{struct_f_flock_settings_ade397305710a1c8a25eea1c2b507d821}{Flock\+Attraction\+Point}} = FVector::\+\+Zero\+Vector
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_a79b1955396b618dfeed9764b75e105cd}{Flock\+Attraction\+Point\+Strength}} = 20.\+0f
+\item 
+FVector \doxymbox{\hyperlink{struct_f_flock_settings_a4278743caad8ad096228c05c818120a9}{Flock\+Center}} = FVector::\+\+Zero\+Vector
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_ad48c32ad87f4c55a9bf78f86e27a1acd}{Flock\+Center\+Strength}} = 20.\+0f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_ad7978b666ad72b3494a7e8539deb1bf3}{Max\+Force}} = 75.\+0f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_a57681290f64b714cf87fd187ed70dd74}{Max\+Speed}} = 200.\+0f
+\begin{DoxyCompactList}\small\item\em Speed, Wander strength, and other tuning settings for the boid\textquotesingle{}s movement. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_aa61ec99862668ec7471db20f6a10e5b4}{Max\+Wander\+Strength}} = 200.\+0f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_a4c6aebcc921f0e686d86a09c9660c450}{Min\+Speed}} = 20.\+0f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_af37486b7505483c71d824e8a92ed6cfb}{Min\+Wander\+Strength}} = 20.\+0f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_a857da05f6cb187fa9017932c0ef379a8}{Separation\+Radius}} = 300.\+0f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_a90cf37e78cd9ad5bbdb4fdb0214569a7}{Separation\+Weight}} = 2.\+25f
+\item 
+float \doxymbox{\hyperlink{struct_f_flock_settings_a5c84741669f7a926a56ccdedb9363f20}{Turn\+Speed}} = 2.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct to hold flocking settings for boids TODO:\+ Convert to a data asset for easier tweaking and sharing between different flocks. 
+
+\label{doc-func-members}
+\Hypertarget{struct_f_flock_settings_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_f_flock_settings_a42a58021779e445f04189f92102ea2d5}\index{FFlockSettings@{FFlockSettings}!operator==@{operator==}}
+\index{operator==@{operator==}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a42a58021779e445f04189f92102ea2d5} 
+bool FFlock\+Settings::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_f_flock_settings}{FFlock\+Settings}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_a86b3e27ec57073340eb708e28cb20c59}{CohesionWeight}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a86b3e27ec57073340eb708e28cb20c59}{CohesionWeight}})\ \&\&}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_a90cf37e78cd9ad5bbdb4fdb0214569a7}{SeparationWeight}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a90cf37e78cd9ad5bbdb4fdb0214569a7}{SeparationWeight}})\ \&\&}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_ae5c8c77bbf7b2e1264ae51a0a62bfb10}{AlignmentWeight}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_ae5c8c77bbf7b2e1264ae51a0a62bfb10}{AlignmentWeight}})\ \&\&}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_a6ecda587a7a027815ee6b9c33a48a76c}{CohesionRadius}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a6ecda587a7a027815ee6b9c33a48a76c}{CohesionRadius}})\ \&\&}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_a857da05f6cb187fa9017932c0ef379a8}{SeparationRadius}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a857da05f6cb187fa9017932c0ef379a8}{SeparationRadius}})\ \&\&}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_af0e9ba6adf8a018fe267de4c79b96f8b}{AlignmentRadius}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_af0e9ba6adf8a018fe267de4c79b96f8b}{AlignmentRadius}})\ \&\&}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_a57681290f64b714cf87fd187ed70dd74}{MaxSpeed}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a57681290f64b714cf87fd187ed70dd74}{MaxSpeed}})\ \&\&}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_a4c6aebcc921f0e686d86a09c9660c450}{MinSpeed}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a4c6aebcc921f0e686d86a09c9660c450}{MinSpeed}})\ \&\&}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_aa61ec99862668ec7471db20f6a10e5b4}{MaxWanderStrength}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_aa61ec99862668ec7471db20f6a10e5b4}{MaxWanderStrength}})\&\&}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_af37486b7505483c71d824e8a92ed6cfb}{MinWanderStrength}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_af37486b7505483c71d824e8a92ed6cfb}{MinWanderStrength}})\&\&}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_ad7978b666ad72b3494a7e8539deb1bf3}{MaxForce}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_ad7978b666ad72b3494a7e8539deb1bf3}{MaxForce}})\&\&}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_a5c84741669f7a926a56ccdedb9363f20}{TurnSpeed}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a5c84741669f7a926a56ccdedb9363f20}{TurnSpeed}})\&\&}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_f_flock_settings_a4278743caad8ad096228c05c818120a9}{FlockCenter}}.Equals(Other.\doxymbox{\hyperlink{struct_f_flock_settings_a4278743caad8ad096228c05c818120a9}{FlockCenter}})\&\&}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_ad48c32ad87f4c55a9bf78f86e27a1acd}{FlockCenterStrength}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_ad48c32ad87f4c55a9bf78f86e27a1acd}{FlockCenterStrength}})\&\&}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_f_flock_settings_ade397305710a1c8a25eea1c2b507d821}{FlockAttractionPoint}}.Equals(Other.\doxymbox{\hyperlink{struct_f_flock_settings_ade397305710a1c8a25eea1c2b507d821}{FlockAttractionPoint}})\&\&}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ FMath::IsNearlyEqual(\doxymbox{\hyperlink{struct_f_flock_settings_a79b1955396b618dfeed9764b75e105cd}{FlockAttractionPointStrength}},\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a79b1955396b618dfeed9764b75e105cd}{FlockAttractionPointStrength}})\&\&}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_f_flock_settings_ad5236c0376af5b87cf71ffeb61b68e18}{bDrawDebugRadiusAverage}}\ ==\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_ad5236c0376af5b87cf71ffeb61b68e18}{bDrawDebugRadiusAverage}}\&\&}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_f_flock_settings_a7acfa8464eb28338318eb2a145f8ea69}{bDrawDebugSightLine}}\ ==\ Other.\doxymbox{\hyperlink{struct_f_flock_settings_a7acfa8464eb28338318eb2a145f8ea69}{bDrawDebugSightLine}};}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_f_flock_settings_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_f_flock_settings_af0e9ba6adf8a018fe267de4c79b96f8b}\index{FFlockSettings@{FFlockSettings}!AlignmentRadius@{AlignmentRadius}}
+\index{AlignmentRadius@{AlignmentRadius}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{AlignmentRadius}{AlignmentRadius}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_af0e9ba6adf8a018fe267de4c79b96f8b} 
+float FFlock\+Settings::\+\+Alignment\+Radius = 850.\+0f}
+
+\Hypertarget{struct_f_flock_settings_ae5c8c77bbf7b2e1264ae51a0a62bfb10}\index{FFlockSettings@{FFlockSettings}!AlignmentWeight@{AlignmentWeight}}
+\index{AlignmentWeight@{AlignmentWeight}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{AlignmentWeight}{AlignmentWeight}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_ae5c8c77bbf7b2e1264ae51a0a62bfb10} 
+float FFlock\+Settings::\+\+Alignment\+Weight = 1.\+0f}
+
+\Hypertarget{struct_f_flock_settings_ad5236c0376af5b87cf71ffeb61b68e18}\index{FFlockSettings@{FFlockSettings}!bDrawDebugRadiusAverage@{bDrawDebugRadiusAverage}}
+\index{bDrawDebugRadiusAverage@{bDrawDebugRadiusAverage}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{bDrawDebugRadiusAverage}{bDrawDebugRadiusAverage}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_ad5236c0376af5b87cf71ffeb61b68e18} 
+bool FFlock\+Settings::\+b\+Draw\+Debug\+Radius\+Average = false}
+
+\Hypertarget{struct_f_flock_settings_a7acfa8464eb28338318eb2a145f8ea69}\index{FFlockSettings@{FFlockSettings}!bDrawDebugSightLine@{bDrawDebugSightLine}}
+\index{bDrawDebugSightLine@{bDrawDebugSightLine}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{bDrawDebugSightLine}{bDrawDebugSightLine}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a7acfa8464eb28338318eb2a145f8ea69} 
+bool FFlock\+Settings::\+b\+Draw\+Debug\+Sight\+Line = false}
+
+\Hypertarget{struct_f_flock_settings_a6ecda587a7a027815ee6b9c33a48a76c}\index{FFlockSettings@{FFlockSettings}!CohesionRadius@{CohesionRadius}}
+\index{CohesionRadius@{CohesionRadius}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{CohesionRadius}{CohesionRadius}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a6ecda587a7a027815ee6b9c33a48a76c} 
+float FFlock\+Settings::\+\+Cohesion\+Radius = 450.\+0f}
+
+\Hypertarget{struct_f_flock_settings_a86b3e27ec57073340eb708e28cb20c59}\index{FFlockSettings@{FFlockSettings}!CohesionWeight@{CohesionWeight}}
+\index{CohesionWeight@{CohesionWeight}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{CohesionWeight}{CohesionWeight}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a86b3e27ec57073340eb708e28cb20c59} 
+float FFlock\+Settings::\+\+Cohesion\+Weight = 1.\+0f}
+
+
+
+Cohesion, Separation, Alignment weights and radii, the higher the weight, the more influence that behavior has on the boid\textquotesingle{}s movement. 
+
+\Hypertarget{struct_f_flock_settings_ade397305710a1c8a25eea1c2b507d821}\index{FFlockSettings@{FFlockSettings}!FlockAttractionPoint@{FlockAttractionPoint}}
+\index{FlockAttractionPoint@{FlockAttractionPoint}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{FlockAttractionPoint}{FlockAttractionPoint}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_ade397305710a1c8a25eea1c2b507d821} 
+FVector FFlock\+Settings::\+\+Flock\+Attraction\+Point = FVector::\+\+Zero\+Vector}
+
+\Hypertarget{struct_f_flock_settings_a79b1955396b618dfeed9764b75e105cd}\index{FFlockSettings@{FFlockSettings}!FlockAttractionPointStrength@{FlockAttractionPointStrength}}
+\index{FlockAttractionPointStrength@{FlockAttractionPointStrength}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{FlockAttractionPointStrength}{FlockAttractionPointStrength}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a79b1955396b618dfeed9764b75e105cd} 
+float FFlock\+Settings::\+\+Flock\+Attraction\+Point\+Strength = 20.\+0f}
+
+\Hypertarget{struct_f_flock_settings_a4278743caad8ad096228c05c818120a9}\index{FFlockSettings@{FFlockSettings}!FlockCenter@{FlockCenter}}
+\index{FlockCenter@{FlockCenter}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{FlockCenter}{FlockCenter}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a4278743caad8ad096228c05c818120a9} 
+FVector FFlock\+Settings::\+\+Flock\+Center = FVector::\+\+Zero\+Vector}
+
+\Hypertarget{struct_f_flock_settings_ad48c32ad87f4c55a9bf78f86e27a1acd}\index{FFlockSettings@{FFlockSettings}!FlockCenterStrength@{FlockCenterStrength}}
+\index{FlockCenterStrength@{FlockCenterStrength}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{FlockCenterStrength}{FlockCenterStrength}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_ad48c32ad87f4c55a9bf78f86e27a1acd} 
+float FFlock\+Settings::\+\+Flock\+Center\+Strength = 20.\+0f}
+
+\Hypertarget{struct_f_flock_settings_ad7978b666ad72b3494a7e8539deb1bf3}\index{FFlockSettings@{FFlockSettings}!MaxForce@{MaxForce}}
+\index{MaxForce@{MaxForce}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{MaxForce}{MaxForce}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_ad7978b666ad72b3494a7e8539deb1bf3} 
+float FFlock\+Settings::\+\+Max\+Force = 75.\+0f}
+
+\Hypertarget{struct_f_flock_settings_a57681290f64b714cf87fd187ed70dd74}\index{FFlockSettings@{FFlockSettings}!MaxSpeed@{MaxSpeed}}
+\index{MaxSpeed@{MaxSpeed}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{MaxSpeed}{MaxSpeed}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a57681290f64b714cf87fd187ed70dd74} 
+float FFlock\+Settings::\+\+Max\+Speed = 200.\+0f}
+
+
+
+Speed, Wander strength, and other tuning settings for the boid\textquotesingle{}s movement. 
+
+\Hypertarget{struct_f_flock_settings_aa61ec99862668ec7471db20f6a10e5b4}\index{FFlockSettings@{FFlockSettings}!MaxWanderStrength@{MaxWanderStrength}}
+\index{MaxWanderStrength@{MaxWanderStrength}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{MaxWanderStrength}{MaxWanderStrength}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_aa61ec99862668ec7471db20f6a10e5b4} 
+float FFlock\+Settings::\+\+Max\+Wander\+Strength = 200.\+0f}
+
+\Hypertarget{struct_f_flock_settings_a4c6aebcc921f0e686d86a09c9660c450}\index{FFlockSettings@{FFlockSettings}!MinSpeed@{MinSpeed}}
+\index{MinSpeed@{MinSpeed}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{MinSpeed}{MinSpeed}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a4c6aebcc921f0e686d86a09c9660c450} 
+float FFlock\+Settings::\+\+Min\+Speed = 20.\+0f}
+
+\Hypertarget{struct_f_flock_settings_af37486b7505483c71d824e8a92ed6cfb}\index{FFlockSettings@{FFlockSettings}!MinWanderStrength@{MinWanderStrength}}
+\index{MinWanderStrength@{MinWanderStrength}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{MinWanderStrength}{MinWanderStrength}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_af37486b7505483c71d824e8a92ed6cfb} 
+float FFlock\+Settings::\+\+Min\+Wander\+Strength = 20.\+0f}
+
+\Hypertarget{struct_f_flock_settings_a857da05f6cb187fa9017932c0ef379a8}\index{FFlockSettings@{FFlockSettings}!SeparationRadius@{SeparationRadius}}
+\index{SeparationRadius@{SeparationRadius}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{SeparationRadius}{SeparationRadius}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a857da05f6cb187fa9017932c0ef379a8} 
+float FFlock\+Settings::\+\+Separation\+Radius = 300.\+0f}
+
+\Hypertarget{struct_f_flock_settings_a90cf37e78cd9ad5bbdb4fdb0214569a7}\index{FFlockSettings@{FFlockSettings}!SeparationWeight@{SeparationWeight}}
+\index{SeparationWeight@{SeparationWeight}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{SeparationWeight}{SeparationWeight}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a90cf37e78cd9ad5bbdb4fdb0214569a7} 
+float FFlock\+Settings::\+\+Separation\+Weight = 2.\+25f}
+
+\Hypertarget{struct_f_flock_settings_a5c84741669f7a926a56ccdedb9363f20}\index{FFlockSettings@{FFlockSettings}!TurnSpeed@{TurnSpeed}}
+\index{TurnSpeed@{TurnSpeed}!FFlockSettings@{FFlockSettings}}
+\doxysubsubsection{\texorpdfstring{TurnSpeed}{TurnSpeed}}
+{\footnotesize\ttfamily \label{struct_f_flock_settings_a5c84741669f7a926a56ccdedb9363f20} 
+float FFlock\+Settings::\+\+Turn\+Speed = 2.\+0f}
+
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Actor\+Components/\+\doxymbox{\hyperlink{_flocking_component_8h}{Flocking\+Component.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,205 @@
+\doxysection{Base\+Spawner.\+h}
+\hypertarget{_base_spawner_8h_source}{}\label{_base_spawner_8h_source}\index{Source/Periculum/Public/BaseActors/BaseSpawner.h@{Source/Periculum/Public/BaseActors/BaseSpawner.h}}
+\doxymbox{\hyperlink{_base_spawner_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}GameFramework/Actor.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}Defines/SpawnModes.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}BaseSpawner.generated.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \doxymbox{\hyperlink{_base_spawner_8h_a73b6ab2d2b12c1651208a97e6ee03ebf}{DECLARE\_DYNAMIC\_MULTICAST\_DELEGATE\_OneParam}}(\doxymbox{\hyperlink{_base_spawner_8h_a73b6ab2d2b12c1651208a97e6ee03ebf}{FOnSpawnModeChanged}},\ \doxymbox{\hyperlink{_base_spawner_8h_a73b6ab2d2b12c1651208a97e6ee03ebf}{ESpawnMode}},\ \doxymbox{\hyperlink{_base_spawner_8h_a73b6ab2d2b12c1651208a97e6ee03ebf}{NewSpawnMode}});}
+\DoxyCodeLine{00009\ \doxymbox{\hyperlink{_base_spawner_8h_adc57eb73b48f1b2cb28d0bcae0cd38ca}{DECLARE\_DYNAMIC\_MULTICAST\_DELEGATE\_OneParam}}(\doxymbox{\hyperlink{_base_spawner_8h_adc57eb73b48f1b2cb28d0bcae0cd38ca}{FOnSpawnableActorSpawned}},\ \doxymbox{\hyperlink{_base_spawner_8h_adc57eb73b48f1b2cb28d0bcae0cd38ca}{AActor}}*,\ \doxymbox{\hyperlink{_base_spawner_8h_adc57eb73b48f1b2cb28d0bcae0cd38ca}{SpawnedActor}});}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class}\ USphereSpawnerComponent;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class}\ UBoxSpawnerComponent;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class}\ UCapsuleSpawnerComponent;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_a_periculum_character}{APericulumCharacter}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ ABaseSpawner\ is\ an\ actor\ that\ can\ spawn\ other\ actors\ based\ on\ different\ spawn\ modes\ and\ location\ modes.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ It\ supports\ spawning\ actors\ in\ a\ sphere,\ box,\ capsule,\ or\ random\ mode,\ and\ can\ be\ customized\ for\ specific\ spawn\ behavior.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ UCLASS()}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_a_base_spawner}{ABaseSpawner}}\ :\ \textcolor{keyword}{public}\ AActor}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ ABaseSpawner();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ override;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{///\ Dynamic\ multicast\ delegate\ that\ is\ called\ when\ the\ spawn\ mode\ changes.\ It\ broadcasts\ the\ new\ spawn\ mode\ to\ any\ bound\ listeners.}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00038\ \ \ \ \ UPROPERTY(BlueprintAssignable,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00039\ \ \ \ \ FOnSpawnModeChanged\ OnSpawnModeChanged;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{///\ Dynamic\ multicast\ delegate\ that\ is\ called\ when\ a\ spawnable\ actor\ is\ spawned.\ It\ broadcasts\ the\ spawned\ actor\ to\ any\ bound\ listeners.}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00044\ \ \ \ \ UPROPERTY(BlueprintAssignable,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00045\ \ \ \ \ FOnSpawnableActorSpawned\ OnSpawnableActorSpawned;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{///\ Handler\ function\ for\ when\ the\ spawn\ mode\ changes.\ It\ updates\ the\ spawn\ mode\ and\ switches\ to\ the\ appropriate\ spawning\ logic\ based\ on\ the\ new\ mode.}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{///\ <param\ name="{}NewSpawnMode"{}></param>}}
+\DoxyCodeLine{00051\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ HandleSpawnModeChanged(ESpawnMode\ NewSpawnMode);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{///\ Handler\ function\ for\ when\ an\ actor\ is\ spawned.\ It\ broadcasts\ the\ spawned\ actor\ to\ any\ bound\ listeners.}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{///\ <param\ name="{}SpawnedActor"{}></param>}}
+\DoxyCodeLine{00058\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ HandleActorSpawned(AActor*\ SpawnedActor);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{///\ The\ class\ of\ the\ actor\ to\ spawn.\ This\ can\ be\ set\ in\ the\ editor\ or\ at\ runtime\ to\ specify\ which\ actor\ type\ should\ be\ spawned\ by\ this\ spawner.}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00065\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00066\ \ \ \ \ TSubclassOf<AActor>\ ActorToSpawn;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{///\ The\ array\ of\ spawned\ actors.\ This\ keeps\ track\ of\ all\ actors\ that\ have\ been\ spawned\ by\ this\ spawner,\ allowing\ for\ management\ and\ cleanup\ of\ spawned\ actors.}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00071\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00072\ \ \ \ \ TArray<TSubclassOf<AActor>>\ SpawnedActors;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{///\ The\ spawn\ mode\ for\ this\ spawner.\ It\ determines\ the\ shape\ or\ method\ used\ for\ spawning\ actors\ (e.g.,\ sphere,\ box,\ capsule,\ random,\ or\ custom).}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00077\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00078\ \ \ \ \ ESpawnMode\ SpawnMode\ =\ ESpawnMode::Box;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{///\ The\ spawn\ location\ mode\ for\ this\ spawner.\ It\ determines\ whether\ actors\ are\ spawned\ inside\ or\ on\ the\ surface\ of\ the\ specified\ shape.}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00083\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00084\ \ \ \ \ ESpawnLocationMode\ LocationMode\ =\ ESpawnLocationMode::InsideShape;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{///\ The\ SphereSpawnerComponent\ is\ responsible\ for\ handling\ spawning\ logic\ when\ the\ spawn\ mode\ is\ set\ to\ Sphere.\ It\ provides\ functionality\ for\ generating\ spawn\ locations\ and\ parameters\ based\ on\ a\ sphere\ shape.}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00089\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00090\ \ \ \ \ USphereSpawnerComponent*\ SphereSpawnerComponent;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{///\ The\ BoxSpawnerComponent\ is\ responsible\ for\ handling\ spawning\ logic\ when\ the\ spawn\ mode\ is\ set\ to\ Box.\ It\ provides\ functionality\ for\ generating\ spawn\ locations\ and\ parameters\ based\ on\ a\ box\ shape.}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00095\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00096\ \ \ \ \ UBoxSpawnerComponent*\ BoxSpawnerComponent;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{///\ The\ CapsuleSpawnerComponent\ is\ responsible\ for\ handling\ spawning\ logic\ when\ the\ spawn\ mode\ is\ set\ to\ Capsule.\ It\ provides\ functionality\ for\ generating\ spawn\ locations\ and\ parameters\ based\ on\ a\ capsule\ shape.}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00101\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00102\ \ \ \ \ UCapsuleSpawnerComponent*\ CapsuleSpawnerComponent;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{///\ The\ interval\ at\ which\ actors\ are\ spawned,\ in\ seconds.\ This\ determines\ how\ frequently\ the\ spawner\ will\ attempt\ to\ spawn\ new\ actors\ based\ on\ the\ specified\ spawn\ mode\ and\ location\ mode.}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00107\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{float}\ SpawnInterval\ =\ 0.5f;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{///\ The\ maximum\ number\ of\ actors\ that\ can\ be\ spawned\ by\ this\ spawner.\ Once\ this\ limit\ is\ reached,\ the\ spawner\ will\ stop\ spawning\ new\ actors\ until\ some\ are\ removed\ or\ the\ limit\ is\ increased.}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00113\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00114\ \ \ \ \ int32\ MaxSpawnCount\ =\ 100;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{///\ The\ flag\ indicating\ whether\ the\ spawner\ is\ currently\ allowed\ to\ spawn\ actors.\ If\ set\ to\ false,\ the\ spawner\ will\ not\ spawn\ any\ new\ actors\ until\ this\ flag\ is\ set\ back\ to\ true.}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00119\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{bool}\ bCanSpawn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{///\ Whether\ to\ draw\ debug\ information\ for\ the\ spawner.\ If\ set\ to\ true,\ the\ spawner\ will\ visualize\ its\ spawn\ area\ and\ other\ relevant\ information\ in\ the\ editor\ or\ during\ gameplay\ for\ debugging\ purposes.}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00125\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{bool}\ bDrawDebug\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{///\ Timer\ handle\ to\ manage\ the\ spawning\ interval.\ It\ is\ used\ to\ schedule\ the\ SpawnActor\ function\ to\ be\ called\ at\ regular\ intervals\ based\ on\ the\ specified\ SpawnInterval.}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00131\ \ \ \ \ FTimerHandle\ SpawnTimerHandle;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{///\ The\ reference\ to\ the\ player\ character\ in\ the\ game.\ This\ can\ be\ used\ to\ interact\ with\ the\ player\ or\ to\ determine\ spawn\ behavior\ based\ on\ the\ player's\ location\ or\ state.}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00136\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Spawning"{}})}
+\DoxyCodeLine{00137\ \ \ \ \ APericulumCharacter*\ Player;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{///\ Spawns\ an\ actor\ based\ on\ the\ current\ spawn\ mode\ and\ location\ mode.}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{///\ This\ function\ is\ called\ at\ regular\ intervals\ defined\ by\ SpawnInterval\ and\ handles\ the\ logic\ for\ spawning\ actors\ in\ the\ appropriate\ shape\ or\ method.}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00144\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ SpawnActor();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{///\ Spawns\ an\ actor\ in\ a\ spherical\ area\ based\ on\ the\ SphereSpawnerComponent's\ parameters.}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{///\ This\ function\ is\ called\ when\ the\ spawn\ mode\ is\ set\ to\ Sphere\ and\ generates\ a\ spawn\ location\ within\ or\ on\ the\ surface\ of\ the\ sphere.}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{///\ <returns>The\ spawned\ actor,\ or\ nullptr\ if\ spawning\ failed.</returns>}}
+\DoxyCodeLine{00152\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00153\ \ \ \ \ AActor*\ SpawnActor\_Sphere();}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{///\ Spawns\ an\ actor\ in\ a\ box-\/shaped\ area\ based\ on\ the\ BoxSpawnerComponent's\ parameters.}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{///\ This\ function\ is\ called\ when\ the\ spawn\ mode\ is\ set\ to\ Box\ and\ generates\ a\ spawn\ location\ within\ or\ on\ the\ surface\ of\ the\ box.}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{///\ <returns>The\ spawned\ actor,\ or\ nullptr\ if\ spawning\ failed.</returns>}}
+\DoxyCodeLine{00160\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00161\ \ \ \ \ AActor*\ SpawnActor\_Box();}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{///\ Spawns\ an\ actor\ in\ a\ capsule-\/shaped\ area\ based\ on\ the\ CapsuleSpawnerComponent's\ parameters.}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{///\ This\ function\ is\ called\ when\ the\ spawn\ mode\ is\ set\ to\ Capsule\ and\ generates\ a\ spawn\ location\ within\ or\ on\ the\ surface\ of\ the\ capsule.\ \ \ }}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{///\ <returns>The\ spawned\ actor,\ or\ nullptr\ if\ spawning\ failed.</returns>}}
+\DoxyCodeLine{00168\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00169\ \ \ \ \ AActor*\ SpawnActor\_Capsule();}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{///\ Spawns\ an\ actor\ at\ a\ random\ location\ based\ on\ the\ current\ spawn\ mode\ and\ location\ mode.}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{///\ This\ function\ is\ called\ when\ the\ spawn\ mode\ is\ set\ to\ Random\ and\ generates\ a\ spawn\ location\ within\ the\ defined\ spawn\ area.}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{///\ <returns>The\ spawned\ actor,\ or\ nullptr\ if\ spawning\ failed.</returns>}}
+\DoxyCodeLine{00176\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00177\ \ \ \ \ AActor*\ SpawnActor\_Random();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{///\ Spawns\ an\ actor\ using\ custom\ logic\ defined\ by\ the\ user.}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{///\ This\ function\ is\ called\ when\ the\ spawn\ mode\ is\ set\ to\ Custom\ and\ allows\ for\ user-\/defined\ spawning\ behavior.}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{///\ <returns>The\ spawned\ actor,\ or\ nullptr\ if\ spawning\ failed.</returns>}}
+\DoxyCodeLine{00184\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{virtual}\ AActor*\ SpawnActor\_Custom();}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{comment}{///\ Called\ when\ the\ spawn\ mode\ changes.\ It\ switches\ the\ spawning\ logic\ to\ the\ appropriate\ method\ based\ on\ the\ new\ spawn\ mode.}}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00190\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SwitchMode();}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{///\ Handler\ function\ for\ when\ the\ bCanSpawn\ flag\ changes.\ It\ starts\ or\ stops\ the\ spawning\ timer\ based\ on\ the\ new\ value\ of\ bCanSpawn.}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00196\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{void}\ HandleCanSpawnChanged();}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \};}
+
+\end{DoxyCode}

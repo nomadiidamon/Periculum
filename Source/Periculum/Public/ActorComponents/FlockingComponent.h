@@ -95,7 +95,6 @@ public:
 /**
 * UFlockingComponent is an Actor Component that implements flocking behavior for boid actors.
 */
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PERICULUM_API UFlockingComponent : public UActorComponent
 {

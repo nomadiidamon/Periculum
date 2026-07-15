@@ -1,0 +1,200 @@
+\doxysection{APericulum\+Player\+Controller Class Reference}
+\hypertarget{class_a_periculum_player_controller}{}\label{class_a_periculum_player_controller}\index{APericulumPlayerController@{APericulumPlayerController}}
+
+
+{\ttfamily \+\#include $<$Periculum\+Player\+Controller.\+h$>$}
+
+Inheritance diagram for APericulum\+Player\+Controller:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_a_periculum_player_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_a_periculum_player_controller_acec16f7728fb204b21b7ac6e999363bb}{APericulum\+Player\+Controller}} ()
+\item 
+virtual void \doxymbox{\hyperlink{class_a_periculum_player_controller_aa81ef1104d8d3bef807794b5ad828b53}{Begin\+Play}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_periculum_player_controller_a9f7dd95c626df33dfaa4f6514e56ecad}{End\+Play}} (const EEnd\+Play\+Reason::\+\+Type End\+Play\+Reason) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_periculum_player_controller_ad240b165d5a8daa21aa080bd6c79fbbc}{Pre\+Initialize\+Components}} () override
+\begin{DoxyCompactList}\small\item\em Lifecycle hook invoked before component initialization. Overrides the base-\/class implementation to perform any necessary pre-\/initialization tasks. Used to register this Player\+Controller with the UGame\+Framework\+Component\+Manager to receive modular components and functionality before it fully initializes. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_a_periculum_player_controller_a790416aadf46962440dcc65f5c534c1b}{Tick}} (float Delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_a_periculum_player_controller_ad3fb4166ceb2784c2d3b5ed2c2821402}{On\+Possess}} (APawn \texorpdfstring{$\ast$}{*}In\+Pawn) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_periculum_player_controller_a441fe8990776def9d112aa17ab2c8ef8}{On\+Un\+Possess}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_periculum_player_controller_af2a3a550f12cdec2b03f3cdb6e7a98c0}{Setup\+Input\+Component}} () override
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_a_periculum_player_controller_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_periculum_player_controller_acec16f7728fb204b21b7ac6e999363bb}\index{APericulumPlayerController@{APericulumPlayerController}!APericulumPlayerController@{APericulumPlayerController}}
+\index{APericulumPlayerController@{APericulumPlayerController}!APericulumPlayerController@{APericulumPlayerController}}
+\doxysubsubsection{\texorpdfstring{APericulumPlayerController()}{APericulumPlayerController()}}
+{\footnotesize\ttfamily \label{class_a_periculum_player_controller_acec16f7728fb204b21b7ac6e999363bb} 
+APericulum\+Player\+Controller::\+\+APericulum\+Player\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{class_a_periculum_player_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_periculum_player_controller_aa81ef1104d8d3bef807794b5ad828b53}\index{APericulumPlayerController@{APericulumPlayerController}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!APericulumPlayerController@{APericulumPlayerController}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily \label{class_a_periculum_player_controller_aa81ef1104d8d3bef807794b5ad828b53} 
+void APericulum\+Player\+Controller::\+\+Begin\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_a_game_player_controller_a5f6e02dff3d07862ea963b090e9c6177}{AGame\+Player\+Controller}}, and \doxymbox{\hyperlink{class_a_menu_player_controller_a40c54bf2cb2ca7d0dddf10b2d3330fb0}{AMenu\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ UGameFrameworkComponentManager::SendGameFrameworkComponentExtensionEvent(\textcolor{keyword}{this},\ UGameFrameworkComponentManager::NAME\_GameActorReady);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ Super::BeginPlay();}
+\DoxyCodeLine{00030\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_periculum_player_controller_a9f7dd95c626df33dfaa4f6514e56ecad}\index{APericulumPlayerController@{APericulumPlayerController}!EndPlay@{EndPlay}}
+\index{EndPlay@{EndPlay}!APericulumPlayerController@{APericulumPlayerController}}
+\doxysubsubsection{\texorpdfstring{EndPlay()}{EndPlay()}}
+{\footnotesize\ttfamily \label{class_a_periculum_player_controller_a9f7dd95c626df33dfaa4f6514e56ecad} 
+void APericulum\+Player\+Controller::\+\+End\+Play (\begin{DoxyParamCaption}\item[{const EEnd\+Play\+Reason::\+\+Type}]{End\+Play\+Reason}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_a_game_player_controller_a3b81ac90db8b15d89f6f7447d43222f9}{AGame\+Player\+Controller}}, and \doxymbox{\hyperlink{class_a_menu_player_controller_a2dcc109ae0a352ca001bd623b4cdbea1}{AMenu\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}*\ system\ =\ GetGameInstance()-\/>GetSubsystem<\ UGameFrameworkComponentManager\ >())}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ system-\/>RemoveReceiver(\textcolor{keyword}{this});}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ Super::EndPlay(EndPlayReason);}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_periculum_player_controller_ad3fb4166ceb2784c2d3b5ed2c2821402}\index{APericulumPlayerController@{APericulumPlayerController}!OnPossess@{OnPossess}}
+\index{OnPossess@{OnPossess}!APericulumPlayerController@{APericulumPlayerController}}
+\doxysubsubsection{\texorpdfstring{OnPossess()}{OnPossess()}}
+{\footnotesize\ttfamily \label{class_a_periculum_player_controller_ad3fb4166ceb2784c2d3b5ed2c2821402} 
+void APericulum\+Player\+Controller::\+\+On\+Possess (\begin{DoxyParamCaption}\item[{APawn \texorpdfstring{$\ast$}{*}}]{In\+Pawn}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_a_game_player_controller_abed4c5485dfdff51646d1b159601323e}{AGame\+Player\+Controller}}, and \doxymbox{\hyperlink{class_a_menu_player_controller_ac4e907c5e8848c1d5c3bd1baa6b9fb18}{AMenu\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ Super::OnPossess(InPawn);}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_periculum_player_controller_a441fe8990776def9d112aa17ab2c8ef8}\index{APericulumPlayerController@{APericulumPlayerController}!OnUnPossess@{OnUnPossess}}
+\index{OnUnPossess@{OnUnPossess}!APericulumPlayerController@{APericulumPlayerController}}
+\doxysubsubsection{\texorpdfstring{OnUnPossess()}{OnUnPossess()}}
+{\footnotesize\ttfamily \label{class_a_periculum_player_controller_a441fe8990776def9d112aa17ab2c8ef8} 
+void APericulum\+Player\+Controller::\+\+On\+Un\+Possess (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_a_game_player_controller_acd43481a985f78c459b41c3e5209d3a4}{AGame\+Player\+Controller}}, and \doxymbox{\hyperlink{class_a_menu_player_controller_aea531cf16d0f8872a54ddf3157189372}{AMenu\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ Super::OnUnPossess();}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_periculum_player_controller_ad240b165d5a8daa21aa080bd6c79fbbc}\index{APericulumPlayerController@{APericulumPlayerController}!PreInitializeComponents@{PreInitializeComponents}}
+\index{PreInitializeComponents@{PreInitializeComponents}!APericulumPlayerController@{APericulumPlayerController}}
+\doxysubsubsection{\texorpdfstring{PreInitializeComponents()}{PreInitializeComponents()}}
+{\footnotesize\ttfamily \label{class_a_periculum_player_controller_ad240b165d5a8daa21aa080bd6c79fbbc} 
+void APericulum\+Player\+Controller::\+\+Pre\+Initialize\+Components (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Lifecycle hook invoked before component initialization. Overrides the base-\/class implementation to perform any necessary pre-\/initialization tasks. Used to register this Player\+Controller with the UGame\+Framework\+Component\+Manager to receive modular components and functionality before it fully initializes. 
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_a_game_player_controller_a26ef346a21841333b9cda78f7f411fd8}{AGame\+Player\+Controller}}, and \doxymbox{\hyperlink{class_a_menu_player_controller_a6b92adcb13fb3d7ad494078a2bf6bebd}{AMenu\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ Super::PreInitializeComponents();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}*\ gi\ =\ GetGameInstance())}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}*\ system\ =\ gi-\/>GetSubsystem<\ UGameFrameworkComponentManager\ >())}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ system-\/>AddReceiver(\textcolor{keyword}{this});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_periculum_player_controller_af2a3a550f12cdec2b03f3cdb6e7a98c0}\index{APericulumPlayerController@{APericulumPlayerController}!SetupInputComponent@{SetupInputComponent}}
+\index{SetupInputComponent@{SetupInputComponent}!APericulumPlayerController@{APericulumPlayerController}}
+\doxysubsubsection{\texorpdfstring{SetupInputComponent()}{SetupInputComponent()}}
+{\footnotesize\ttfamily \label{class_a_periculum_player_controller_af2a3a550f12cdec2b03f3cdb6e7a98c0} 
+void APericulum\+Player\+Controller::\+\+Setup\+Input\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_a_game_player_controller_aae72d0c30efda7621a61f4185cf1246c}{AGame\+Player\+Controller}}, and \doxymbox{\hyperlink{class_a_menu_player_controller_ac8e0ebe6d027dae1d500b61fa8df116a}{AMenu\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ Super::SetupInputComponent();}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_periculum_player_controller_a790416aadf46962440dcc65f5c534c1b}\index{APericulumPlayerController@{APericulumPlayerController}!Tick@{Tick}}
+\index{Tick@{Tick}!APericulumPlayerController@{APericulumPlayerController}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily \label{class_a_periculum_player_controller_a790416aadf46962440dcc65f5c534c1b} 
+void APericulum\+Player\+Controller::\+\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \doxymbox{\hyperlink{class_a_game_player_controller_aa095bc61f1a011954b25b3516d6dc80a}{AGame\+Player\+Controller}}, and \doxymbox{\hyperlink{class_a_menu_player_controller_ab4f9062b3958e1dde00e07bf35991681}{AMenu\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ Super::Tick(DeltaTime);}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Base\+Actors/\+\doxymbox{\hyperlink{_periculum_player_controller_8h}{Periculum\+Player\+Controller.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Base\+Actors/\+\doxymbox{\hyperlink{_periculum_player_controller_8cpp}{Periculum\+Player\+Controller.\+cpp}}\end{DoxyCompactItemize}

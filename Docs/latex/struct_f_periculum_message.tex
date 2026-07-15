@@ -1,0 +1,81 @@
+\doxysection{FPericulum\+Message Struct Reference}
+\hypertarget{struct_f_periculum_message}{}\label{struct_f_periculum_message}\index{FPericulumMessage@{FPericulumMessage}}
+
+
+A basic message struct that can be used as a parent struct to define custom messages in the \doxylink{class_periculum}{Periculum} messaging system.  
+
+
+
+
+{\ttfamily \+\#include $<$Periculum\+Message.\+h$>$}
+
+Inheritance diagram for FPericulum\+Message:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_f_periculum_message}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FGameplay\+Tag\+Container \doxymbox{\hyperlink{struct_f_periculum_message_a2433073ce7f35843b6cd64ab2fae9a8e}{Context\+Tags}}
+\begin{DoxyCompactList}\small\item\em An optional container of gameplay tags that can provide additional context for the message. This can be used to filter messages or provide metadata about the message\textquotesingle{}s purpose or origin. \end{DoxyCompactList}\item 
+TWeak\+Object\+Ptr$<$ UObject $>$ \doxymbox{\hyperlink{struct_f_periculum_message_ae592847a831500a40dceed4e2adbb639}{Message\+Receiver}}
+\begin{DoxyCompactList}\small\item\em The UObject that is intended to receive this message. This is used for when the message is intended for a specific recipient, and can be used to filter messages or provide context for the message\textquotesingle{}s purpose. \end{DoxyCompactList}\item 
+TWeak\+Object\+Ptr$<$ UObject $>$ \doxymbox{\hyperlink{struct_f_periculum_message_aa3d2fb9df3a7b74f93ddb5a020ae4dd0}{Message\+Sender}}
+\begin{DoxyCompactList}\small\item\em The UObject responsible for sending this message. If the message is sent through a \doxylink{class_u_messaging_component}{UMessaging\+Component}, this value will be set to the owner of the component at the moment of sending. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{struct_f_periculum_message_a753349e8207f0bc16bd3df5ce692a191}{World\+Time\+Seconds}}
+\begin{DoxyCompactList}\small\item\em When the message was sent, in seconds since the world began. This can be used for time-\/sensitive operations or logging. If the message is sent through a \doxylink{class_u_messaging_component}{UMessaging\+Component}, this value will be set to the world time at the moment of sending by the component. If the message is sent from a non-\/world context, this value will be 0.\+0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A basic message struct that can be used as a parent struct to define custom messages in the \doxylink{class_periculum}{Periculum} messaging system. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_f_periculum_message_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_f_periculum_message_a2433073ce7f35843b6cd64ab2fae9a8e}\index{FPericulumMessage@{FPericulumMessage}!ContextTags@{ContextTags}}
+\index{ContextTags@{ContextTags}!FPericulumMessage@{FPericulumMessage}}
+\doxysubsubsection{\texorpdfstring{ContextTags}{ContextTags}}
+{\footnotesize\ttfamily \label{struct_f_periculum_message_a2433073ce7f35843b6cd64ab2fae9a8e} 
+FGameplay\+Tag\+Container FPericulum\+Message::\+\+Context\+Tags}
+
+
+
+An optional container of gameplay tags that can provide additional context for the message. This can be used to filter messages or provide metadata about the message\textquotesingle{}s purpose or origin. 
+
+\Hypertarget{struct_f_periculum_message_ae592847a831500a40dceed4e2adbb639}\index{FPericulumMessage@{FPericulumMessage}!MessageReceiver@{MessageReceiver}}
+\index{MessageReceiver@{MessageReceiver}!FPericulumMessage@{FPericulumMessage}}
+\doxysubsubsection{\texorpdfstring{MessageReceiver}{MessageReceiver}}
+{\footnotesize\ttfamily \label{struct_f_periculum_message_ae592847a831500a40dceed4e2adbb639} 
+TWeak\+Object\+Ptr$<$UObject$>$ FPericulum\+Message::\+\+Message\+Receiver}
+
+
+
+The UObject that is intended to receive this message. This is used for when the message is intended for a specific recipient, and can be used to filter messages or provide context for the message\textquotesingle{}s purpose. 
+
+\Hypertarget{struct_f_periculum_message_aa3d2fb9df3a7b74f93ddb5a020ae4dd0}\index{FPericulumMessage@{FPericulumMessage}!MessageSender@{MessageSender}}
+\index{MessageSender@{MessageSender}!FPericulumMessage@{FPericulumMessage}}
+\doxysubsubsection{\texorpdfstring{MessageSender}{MessageSender}}
+{\footnotesize\ttfamily \label{struct_f_periculum_message_aa3d2fb9df3a7b74f93ddb5a020ae4dd0} 
+TWeak\+Object\+Ptr$<$UObject$>$ FPericulum\+Message::\+\+Message\+Sender}
+
+
+
+The UObject responsible for sending this message. If the message is sent through a \doxylink{class_u_messaging_component}{UMessaging\+Component}, this value will be set to the owner of the component at the moment of sending. 
+
+\Hypertarget{struct_f_periculum_message_a753349e8207f0bc16bd3df5ce692a191}\index{FPericulumMessage@{FPericulumMessage}!WorldTimeSeconds@{WorldTimeSeconds}}
+\index{WorldTimeSeconds@{WorldTimeSeconds}!FPericulumMessage@{FPericulumMessage}}
+\doxysubsubsection{\texorpdfstring{WorldTimeSeconds}{WorldTimeSeconds}}
+{\footnotesize\ttfamily \label{struct_f_periculum_message_a753349e8207f0bc16bd3df5ce692a191} 
+double FPericulum\+Message::\+\+World\+Time\+Seconds}
+
+
+
+When the message was sent, in seconds since the world began. This can be used for time-\/sensitive operations or logging. If the message is sent through a \doxylink{class_u_messaging_component}{UMessaging\+Component}, this value will be set to the world time at the moment of sending by the component. If the message is sent from a non-\/world context, this value will be 0.\+0. 
+
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Messages/\+\doxymbox{\hyperlink{_periculum_message_8h}{Periculum\+Message.\+h}}\end{DoxyCompactItemize}

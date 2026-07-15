@@ -1,0 +1,203 @@
+\doxysection{ULine\+Trace\+Policy Class Reference}
+\hypertarget{class_u_line_trace_policy}{}\label{class_u_line_trace_policy}\index{ULineTracePolicy@{ULineTracePolicy}}
+
+
+Performs a line trace from the owning actor, using local-\/space start/\+end offsets.  
+
+
+
+
+{\ttfamily \+\#include $<$Line\+Trace\+Policy.\+h$>$}
+
+Inheritance diagram for ULine\+Trace\+Policy:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_u_line_trace_policy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{_trace_types_8h_struct_f_trace_policy_result}{FTrace\+Policy\+Result}} \doxymbox{\hyperlink{class_u_line_trace_policy_a1de50102ea367d6877ba9e7aa73514f5}{Apply\+\_\+\+Implementation}} (UObject \texorpdfstring{$\ast$}{*}Target) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_trace_types_8h_struct_f_trace_policy_result}{FTrace\+Policy\+Result}} \doxymbox{\hyperlink{class_u_trace_policy_a55d2735473981aed90a8cd877d343fd7}{Apply}} (UObject \texorpdfstring{$\ast$}{*}Target) const
+\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_ae51e9db4a1910dc07d178564c5616e1a}{Can\+Apply}} (UObject \texorpdfstring{$\ast$}{*}Target) const
+\item 
+int32 \doxymbox{\hyperlink{class_u_trace_policy_a7a901d6eb6ded6773366185444b60628}{Get\+Effective\+Priority}} () const
+\begin{DoxyCompactList}\small\item\em Returns the effective priority of this policy, calculated as Policy\+Stack\+Priority + Priority\+Scalar. This is used to determine the order of execution in a stack of policies. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_ab4231606c3c3ece4b6a930f8d589c00e}{operator!=}} (const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_aad2086b2b65136b3502689dab9fb6518}{operator$<$}} (const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_a187ad4c280c2c242b694ce85bdd75d29}{operator==}} (const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_af7849c1901edd81cce49ab85e927c477}{operator$>$}} (const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&Other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_i_traceable_interface}{ITraceable\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_f_trace_result}{FTrace\+Result}} \doxymbox{\hyperlink{class_i_traceable_interface_a81e34afc3ed363d572ebbf8f29a329c3}{Get\+Last\+Trace\+Result}} () const
+\item 
+\doxymbox{\hyperlink{struct_f_trace_result}{FTrace\+Result}} \doxymbox{\hyperlink{class_i_traceable_interface_a552f2f098c6c71f8d8f1f85dc53d9bc2}{Perform\+Trace}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_u_line_trace_policy_ad84f3e9629f77e394b583da35f5d7828}{b\+Draw\+Debug}} = false
+\begin{DoxyCompactList}\small\item\em Whether to draw debug lines for the trace in the world. This is useful for visualizing the trace during development and debugging, but should be disabled in production for performance reasons. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_u_line_trace_policy_a69d2ac107b8948aec103f823fda31f58}{b\+Multi\+Trace}} = false
+\begin{DoxyCompactList}\small\item\em Whether to perform a multi-\/trace (returning all hits along the line) or a single trace (returning only the first hit). Multi-\/trace can be useful for detecting multiple objects along a path, while single trace is faster and sufficient for many use cases. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_u_line_trace_policy_a2ba35460288b3959a53ab05a8d06c9a8}{b\+Trace\+Complex}} = false
+\begin{DoxyCompactList}\small\item\em Whether to trace against complex collision (triangles) or simple collision (primitives). Complex collision is more accurate but can be more expensive, while simple collision is faster but less precise. \end{DoxyCompactList}\item 
+FVector \doxymbox{\hyperlink{class_u_line_trace_policy_a651f4a2a923b320b71bd12ac91c6895d}{End\+Offset}} = FVector(100.\+0f, 0.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em The local-\/space offset from the actor\textquotesingle{}s location to end the trace. This allows for tracing to a point other than the actor\textquotesingle{}s origin, such as a specific socket or component location. \end{DoxyCompactList}\item 
+FVector \doxymbox{\hyperlink{class_u_line_trace_policy_a206f60801aae3eb9d2dde3867cebd99b}{Start\+Offset}} = FVector::\+\+Zero\+Vector
+\begin{DoxyCompactList}\small\item\em The local-\/space offset from the actor\textquotesingle{}s location to start the trace. This allows for tracing from a point other than the actor\textquotesingle{}s origin, such as a specific socket or component location. \end{DoxyCompactList}\item 
+TEnum\+As\+Byte$<$ ECollision\+Channel $>$ \doxymbox{\hyperlink{class_u_line_trace_policy_a2f7fa6f27a4e7067710cb3cb74d9cacc}{Trace\+Channel}} = ECC\+\_\+\+Visibility
+\begin{DoxyCompactList}\small\item\em The collision channel to use for the line trace. This determines what types of objects the trace will interact with, such as visibility, camera, or custom channels defined in the project settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_policy_defines_8h_ae0c90079fd61d6f4ce8e7ff00f388d8e}{EPolicy\+Stack\+Priority}} \doxymbox{\hyperlink{class_u_trace_policy_a3146e74e17208d7ddc5a12b7514d51d8}{Policy\+Stack\+Priority}} = \doxymbox{\hyperlink{_policy_defines_8h_ae0c90079fd61d6f4ce8e7ff00f388d8eaeb6d8ae6f20283755b339c0dc273988b}{EPolicy\+Stack\+Priority::\+\+Standard}}
+\begin{DoxyCompactList}\small\item\em The priority of this policy in the stack. Policies with higher priority will be executed before those with lower priority. The effective priority is calculated as Policy\+Stack\+Priority + Priority\+Scalar. \end{DoxyCompactList}\item 
+FName \doxymbox{\hyperlink{class_u_trace_policy_ab57756260665c5388b0b51290d0f9b90}{Policy\+Tag}} = NAME\+\_\+\+None
+\begin{DoxyCompactList}\small\item\em Identifier for this policy, used to determine which policies can be combined in a stack. Policies with the same tag are considered to be of the same type and will not be combined. \end{DoxyCompactList}\item 
+int32 \doxymbox{\hyperlink{class_u_trace_policy_a7fb866ee8a2385512f5e5e6d5f2abf0e}{Priority\+Scalar}} = 0
+\begin{DoxyCompactList}\small\item\em The scalar value added to the Policy\+Stack\+Priority to determine the effective priority of this policy. This allows for fine-\/tuning the order of execution within the same priority level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Performs a line trace from the owning actor, using local-\/space start/\+end offsets. 
+
+\label{doc-func-members}
+\Hypertarget{class_u_line_trace_policy_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_line_trace_policy_a1de50102ea367d6877ba9e7aa73514f5}\index{ULineTracePolicy@{ULineTracePolicy}!Apply\_Implementation@{Apply\_Implementation}}
+\index{Apply\_Implementation@{Apply\_Implementation}!ULineTracePolicy@{ULineTracePolicy}}
+\doxysubsubsection{\texorpdfstring{Apply\_Implementation()}{Apply\_Implementation()}}
+{\footnotesize\ttfamily \label{class_u_line_trace_policy_a1de50102ea367d6877ba9e7aa73514f5} 
+\doxymbox{\hyperlink{_trace_types_8h_struct_f_trace_policy_result}{FTrace\+Policy\+Result}} ULine\+Trace\+Policy::\+\+Apply\+\_\+\+Implementation (\begin{DoxyParamCaption}\item[{UObject \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ FTracePolicyResult\ Result;}
+\DoxyCodeLine{00009\ \ \ \ \ Result.\doxymbox{\hyperlink{_trace_types_8h_a18972ccbbc7f5ef7d10334c6b544db70}{PolicyTag}}\ =\ \doxymbox{\hyperlink{class_u_trace_policy_ab57756260665c5388b0b51290d0f9b90}{PolicyTag}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ AActor*\ Actor\ =\ Cast<AActor>(Target);}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Actor)}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ UWorld*\ World\ =\ Actor-\/>GetWorld();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (!World)}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ FVector\ Start\ =\ Actor-\/>GetActorLocation()\ +\ Actor-\/>GetActorRotation().RotateVector(\doxymbox{\hyperlink{class_u_line_trace_policy_a206f60801aae3eb9d2dde3867cebd99b}{StartOffset}});}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ FVector\ End\ =\ Actor-\/>GetActorLocation()\ +\ Actor-\/>GetActorRotation().RotateVector(\doxymbox{\hyperlink{class_u_line_trace_policy_a651f4a2a923b320b71bd12ac91c6895d}{EndOffset}});}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ FCollisionQueryParams\ QueryParams;}
+\DoxyCodeLine{00027\ \ \ \ \ QueryParams.AddIgnoredActor(Actor);}
+\DoxyCodeLine{00028\ \ \ \ \ QueryParams.bTraceComplex\ =\ \doxymbox{\hyperlink{class_u_line_trace_policy_a2ba35460288b3959a53ab05a8d06c9a8}{bTraceComplex}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_line_trace_policy_a69d2ac107b8948aec103f823fda31f58}{bMultiTrace}})}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Result.\doxymbox{\hyperlink{_trace_types_8h_adb4fde117334ac3f44cfa2d97fdda831}{bHit}}\ =\ World-\/>LineTraceMultiByChannel(Result.\doxymbox{\hyperlink{_trace_types_8h_a51fd04ee4de7b698234953d398784024}{Hits}},\ Start,\ End,\ \doxymbox{\hyperlink{class_u_line_trace_policy_a2f7fa6f27a4e7067710cb3cb74d9cacc}{TraceChannel}},\ QueryParams);}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ FHitResult\ Hit;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ Result.\doxymbox{\hyperlink{_trace_types_8h_adb4fde117334ac3f44cfa2d97fdda831}{bHit}}\ =\ World-\/>LineTraceSingleByChannel(Hit,\ Start,\ End,\ \doxymbox{\hyperlink{class_u_line_trace_policy_a2f7fa6f27a4e7067710cb3cb74d9cacc}{TraceChannel}},\ QueryParams);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Result.\doxymbox{\hyperlink{_trace_types_8h_adb4fde117334ac3f44cfa2d97fdda831}{bHit}})}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ Result.\doxymbox{\hyperlink{_trace_types_8h_a51fd04ee4de7b698234953d398784024}{Hits}}.Add(Hit);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_line_trace_policy_ad84f3e9629f77e394b583da35f5d7828}{bDrawDebug}})}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ DrawDebugLine(World,\ Start,\ End,\ Result.\doxymbox{\hyperlink{_trace_types_8h_adb4fde117334ac3f44cfa2d97fdda831}{bHit}}\ ?\ FColor::Red\ :\ FColor::Green,\ \textcolor{keyword}{false},\ 1.0f);}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ Result;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_line_trace_policy_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_line_trace_policy_ad84f3e9629f77e394b583da35f5d7828}\index{ULineTracePolicy@{ULineTracePolicy}!bDrawDebug@{bDrawDebug}}
+\index{bDrawDebug@{bDrawDebug}!ULineTracePolicy@{ULineTracePolicy}}
+\doxysubsubsection{\texorpdfstring{bDrawDebug}{bDrawDebug}}
+{\footnotesize\ttfamily \label{class_u_line_trace_policy_ad84f3e9629f77e394b583da35f5d7828} 
+bool ULine\+Trace\+Policy::\+b\+Draw\+Debug = false}
+
+
+
+Whether to draw debug lines for the trace in the world. This is useful for visualizing the trace during development and debugging, but should be disabled in production for performance reasons. 
+
+\Hypertarget{class_u_line_trace_policy_a69d2ac107b8948aec103f823fda31f58}\index{ULineTracePolicy@{ULineTracePolicy}!bMultiTrace@{bMultiTrace}}
+\index{bMultiTrace@{bMultiTrace}!ULineTracePolicy@{ULineTracePolicy}}
+\doxysubsubsection{\texorpdfstring{bMultiTrace}{bMultiTrace}}
+{\footnotesize\ttfamily \label{class_u_line_trace_policy_a69d2ac107b8948aec103f823fda31f58} 
+bool ULine\+Trace\+Policy::\+b\+Multi\+Trace = false}
+
+
+
+Whether to perform a multi-\/trace (returning all hits along the line) or a single trace (returning only the first hit). Multi-\/trace can be useful for detecting multiple objects along a path, while single trace is faster and sufficient for many use cases. 
+
+\Hypertarget{class_u_line_trace_policy_a2ba35460288b3959a53ab05a8d06c9a8}\index{ULineTracePolicy@{ULineTracePolicy}!bTraceComplex@{bTraceComplex}}
+\index{bTraceComplex@{bTraceComplex}!ULineTracePolicy@{ULineTracePolicy}}
+\doxysubsubsection{\texorpdfstring{bTraceComplex}{bTraceComplex}}
+{\footnotesize\ttfamily \label{class_u_line_trace_policy_a2ba35460288b3959a53ab05a8d06c9a8} 
+bool ULine\+Trace\+Policy::\+b\+Trace\+Complex = false}
+
+
+
+Whether to trace against complex collision (triangles) or simple collision (primitives). Complex collision is more accurate but can be more expensive, while simple collision is faster but less precise. 
+
+\Hypertarget{class_u_line_trace_policy_a651f4a2a923b320b71bd12ac91c6895d}\index{ULineTracePolicy@{ULineTracePolicy}!EndOffset@{EndOffset}}
+\index{EndOffset@{EndOffset}!ULineTracePolicy@{ULineTracePolicy}}
+\doxysubsubsection{\texorpdfstring{EndOffset}{EndOffset}}
+{\footnotesize\ttfamily \label{class_u_line_trace_policy_a651f4a2a923b320b71bd12ac91c6895d} 
+FVector ULine\+Trace\+Policy::\+\+End\+Offset = FVector(100.\+0f, 0.\+0f, 0.\+0f)}
+
+
+
+The local-\/space offset from the actor\textquotesingle{}s location to end the trace. This allows for tracing to a point other than the actor\textquotesingle{}s origin, such as a specific socket or component location. 
+
+\Hypertarget{class_u_line_trace_policy_a206f60801aae3eb9d2dde3867cebd99b}\index{ULineTracePolicy@{ULineTracePolicy}!StartOffset@{StartOffset}}
+\index{StartOffset@{StartOffset}!ULineTracePolicy@{ULineTracePolicy}}
+\doxysubsubsection{\texorpdfstring{StartOffset}{StartOffset}}
+{\footnotesize\ttfamily \label{class_u_line_trace_policy_a206f60801aae3eb9d2dde3867cebd99b} 
+FVector ULine\+Trace\+Policy::\+\+Start\+Offset = FVector::\+\+Zero\+Vector}
+
+
+
+The local-\/space offset from the actor\textquotesingle{}s location to start the trace. This allows for tracing from a point other than the actor\textquotesingle{}s origin, such as a specific socket or component location. 
+
+\Hypertarget{class_u_line_trace_policy_a2f7fa6f27a4e7067710cb3cb74d9cacc}\index{ULineTracePolicy@{ULineTracePolicy}!TraceChannel@{TraceChannel}}
+\index{TraceChannel@{TraceChannel}!ULineTracePolicy@{ULineTracePolicy}}
+\doxysubsubsection{\texorpdfstring{TraceChannel}{TraceChannel}}
+{\footnotesize\ttfamily \label{class_u_line_trace_policy_a2f7fa6f27a4e7067710cb3cb74d9cacc} 
+TEnum\+As\+Byte$<$ECollision\+Channel$>$ ULine\+Trace\+Policy::\+\+Trace\+Channel = ECC\+\_\+\+Visibility}
+
+
+
+The collision channel to use for the line trace. This determines what types of objects the trace will interact with, such as visibility, camera, or custom channels defined in the project settings. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Trace\+Policies/\+\doxymbox{\hyperlink{_line_trace_policy_8h}{Line\+Trace\+Policy.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Trace\+Policies/\+\doxymbox{\hyperlink{_line_trace_policy_8cpp}{Line\+Trace\+Policy.\+cpp}}\end{DoxyCompactItemize}

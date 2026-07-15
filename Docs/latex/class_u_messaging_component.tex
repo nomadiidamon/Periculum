@@ -1,0 +1,425 @@
+\doxysection{UMessaging\+Component Class Reference}
+\hypertarget{class_u_messaging_component}{}\label{class_u_messaging_component}\index{UMessagingComponent@{UMessagingComponent}}
+
+
+An actor component that provides gameplay message broadcasting and listening to its owning actor.  
+
+
+
+
+{\ttfamily \+\#include $<$Messaging\+Component.\+h$>$}
+
+Inheritance diagram for UMessaging\+Component:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_messaging_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_u_messaging_component_a59bdfc1cd930f7fb71d261f0708e2f58}{Begin\+Play}} () override
+\item 
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_component_acf1d5490309db0ec7a4af16670168f9b}{Broadcast\+Message}} (FGameplay\+Tag Message\+Channel, FMessage\+Type \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+\begin{DoxyCompactList}\small\item\em Broadcasts a message on the provided channel. Message\+Sender is stamped with this component\textquotesingle{}s owner if not already set. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_component_a7c043a1bcd525b4fa9ec2006a12c3229}{Broadcast\+Message\+To\+Object}} (FGameplay\+Tag Base\+Tag, AActor \texorpdfstring{$\ast$}{*}Target\+Object, FMessage\+Type \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+\begin{DoxyCompactList}\small\item\em Broadcasts a message on the instanced channel for a specific target actor. Only listeners that called Listen\+For\+Message\+From\+Context with the same Base\+Tag on a controller whose Context\+Object matches Target\+Object will receive the message. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_messaging_component_a2324b720eb6c94ece8855aa28c703988}{Broadcast\+Test\+Message}} (FGameplay\+Tag Message\+Channel, \doxymbox{\hyperlink{struct_f_periculum_test_message}{FPericulum\+Test\+Message}} \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+\item 
+virtual void \doxymbox{\hyperlink{class_u_messaging_component_a22628668ce527e160045513bf6fd67ef}{End\+Play}} (const EEnd\+Play\+Reason::\+\+Type End\+Play\+Reason) override
+\item 
+\doxymbox{\hyperlink{class_u_messaging_controller}{UMessaging\+Controller}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_messaging_component_a8321aadaab0c4542ea64596890555a07}{Get\+Messaging\+Controller}} () const
+\begin{DoxyCompactList}\small\item\em Returns the underlying messaging controller owned by this component. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\FGameplay\+Message\+Listener\+Handle \doxymbox{\hyperlink{class_u_messaging_component_ab99d704ad28f46952fd24b3cb42babb9}{Listen\+For\+Message}} (FGameplay\+Tag Message\+Channel, TFunction$<$ void(FGameplay\+Tag, const FMessage\+Type \&)$>$ Callback)
+\begin{DoxyCompactList}\small\item\em Registers a listener for messages of the given type on the provided channel. The handle is stored internally and cleaned up automatically on End\+Play. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\FGameplay\+Message\+Listener\+Handle \doxymbox{\hyperlink{class_u_messaging_component_aa7e43a013afe9680a245906729864336}{Listen\+For\+Message\+From\+Context}} (FGameplay\+Tag Base\+Tag, TFunction$<$ void(FGameplay\+Tag, const FMessage\+Type \&)$>$ Callback)
+\begin{DoxyCompactList}\small\item\em Registers a listener on the instanced channel derived from this component\textquotesingle{}s owning actor. Only receives messages broadcast via Broadcast\+Message\+To\+Object targeting the same actor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\FGameplay\+Message\+Listener\+Handle \doxymbox{\hyperlink{class_u_messaging_component_a08f27a9786da5e1510b02874cc76dca7}{Listen\+For\+Message\+From\+Object}} (FGameplay\+Tag Message\+Channel, UObject \texorpdfstring{$\ast$}{*}Sender\+Filter, TFunction$<$ void(FGameplay\+Tag, const FMessage\+Type \&)$>$ Callback)
+\begin{DoxyCompactList}\small\item\em Registers a listener on a channel that filters incoming messages to only those where Message\+Sender matches the provided object. Requires FMessage\+Type to derive from \doxylink{struct_f_periculum_message}{FPericulum\+Message}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\FGameplay\+Message\+Listener\+Handle \doxymbox{\hyperlink{class_u_messaging_component_ab0d8a8cdc75d0d71f338cf0f2d734022}{Listen\+For\+Message\+Targeting\+Object}} (FGameplay\+Tag Message\+Channel, UObject \texorpdfstring{$\ast$}{*}Receiver\+Filter, TFunction$<$ void(FGameplay\+Tag, const FMessage\+Type \&)$>$ Callback)
+\begin{DoxyCompactList}\small\item\em Registers a listener on a channel that filters incoming messages to only those where Message\+Receiver matches the provided object. Requires FMessage\+Type to derive from \doxylink{struct_f_periculum_message}{FPericulum\+Message}. \end{DoxyCompactList}\item 
+FGameplay\+Message\+Listener\+Handle \doxymbox{\hyperlink{class_u_messaging_component_aaf3cc343360cf40f3395a3e7e1c9c0a2}{Listen\+For\+Test\+Message}} (FGameplay\+Tag Message\+Channel, EGameplay\+Message\+Match Match\+Type, const FOn\+Gameplay\+Message\+Received \&Callback)
+\item 
+void \doxymbox{\hyperlink{class_u_messaging_component_a1b0dbb91e9f33f95de9bb72b050b33bd}{Stop\+Listening}} (UPARAM(ref) FGameplay\+Message\+Listener\+Handle \&Handle)
+\begin{DoxyCompactList}\small\item\em Unregisters a single listener handle and removes it from the internal tracking list. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_messaging_component_abf5c1d614f06af325d9456aabaf514d5}{Stop\+Listening\+To\+All}} ()
+\begin{DoxyCompactList}\small\item\em Unregisters all active listeners registered through this component and clears the internal handle list. Called automatically on End\+Play. Can also be called manually to reset all subscriptions at runtime. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_u_messaging_component_a1047ad4c1b6564e433d84304067f191d}{UMessaging\+Component}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static FGameplay\+Tag \doxymbox{\hyperlink{class_u_messaging_component_aa90cf2609b963b4c763aeccc77dba925}{Get\+Actor\+Channel}} (FGameplay\+Tag Base\+Tag, const AActor \texorpdfstring{$\ast$}{*}Actor)
+\begin{DoxyCompactList}\small\item\em Derives a deterministic, per-\/actor instanced gameplay tag from a base tag and a target actor. The generated tag is registered with the gameplay tag manager at runtime if not already present. Static so any system can derive the correct channel for a given actor without holding a controller reference. Format:\+ Base\+Tag.\+Instance.\+Actor\+Name\+\_\+\+Hex\+Address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TObject\+Ptr$<$ \doxymbox{\hyperlink{class_u_messaging_controller}{UMessaging\+Controller}} $>$ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}
+\begin{DoxyCompactList}\small\item\em The messaging controller owned by this component. Created in Begin\+Play with the owning actor as both the outer and the context object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An actor component that provides gameplay message broadcasting and listening to its owning actor. 
+
+Owns a \doxylink{class_u_messaging_controller}{UMessaging\+Controller} which manages all handle lifetimes. It allows for decoupled communication between different parts of the game, enabling components to send and receive messages without needing direct references to each other. All listener handles are automatically unregistered when the component\textquotesingle{}s owner is destroyed via End\+Play. Add this component to any actor that needs to participate in the \doxylink{class_periculum}{Periculum} messaging system. A basic message struct, \doxylink{struct_f_periculum_message}{FPericulum\+Message}, is provided as a parent struct to define custom messages in the \doxylink{class_periculum}{Periculum} messaging system. This struct includes information about the sender, the time the message was sent, and optional context tags. 
+
+\label{doc-constructors}
+\Hypertarget{class_u_messaging_component_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_u_messaging_component_a1047ad4c1b6564e433d84304067f191d}\index{UMessagingComponent@{UMessagingComponent}!UMessagingComponent@{UMessagingComponent}}
+\index{UMessagingComponent@{UMessagingComponent}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{UMessagingComponent()}{UMessagingComponent()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a1047ad4c1b6564e433d84304067f191d} 
+UMessaging\+Component::\+\+UMessaging\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ PrimaryComponentTick.bCanEverTick\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{class_u_messaging_component_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_messaging_component_a59bdfc1cd930f7fb71d261f0708e2f58}\index{UMessagingComponent@{UMessagingComponent}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a59bdfc1cd930f7fb71d261f0708e2f58} 
+void UMessaging\+Component::\+\+Begin\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ Super::BeginPlay();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}\ =\ NewObject<UMessagingController>(\textcolor{keyword}{this});}
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>Initialize(\textcolor{keyword}{this},\ GetOwner());}
+\DoxyCodeLine{00018\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_acf1d5490309db0ec7a4af16670168f9b}\index{UMessagingComponent@{UMessagingComponent}!BroadcastMessage@{BroadcastMessage}}
+\index{BroadcastMessage@{BroadcastMessage}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{BroadcastMessage()}{BroadcastMessage()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_acf1d5490309db0ec7a4af16670168f9b} 
+template$<$typename FMessage\+Type$>$ \\
+void UMessaging\+Component::\+\+Broadcast\+Message (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Message\+Channel}{, }\item[{FMessage\+Type}]{Message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Broadcasts a message on the provided channel. Message\+Sender is stamped with this component\textquotesingle{}s owner if not already set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Message\+Channel} & The gameplay tag channel to broadcast on.\\
+\hline
+{\em Message} & The message struct to broadcast.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastMessage(MessageChannel,\ MoveTemp(\doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}));}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_a7c043a1bcd525b4fa9ec2006a12c3229}\index{UMessagingComponent@{UMessagingComponent}!BroadcastMessageToObject@{BroadcastMessageToObject}}
+\index{BroadcastMessageToObject@{BroadcastMessageToObject}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{BroadcastMessageToObject()}{BroadcastMessageToObject()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a7c043a1bcd525b4fa9ec2006a12c3229} 
+template$<$typename FMessage\+Type$>$ \\
+void UMessaging\+Component::\+\+Broadcast\+Message\+To\+Object (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Base\+Tag}{, }\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target\+Object}{, }\item[{FMessage\+Type}]{Message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Broadcasts a message on the instanced channel for a specific target actor. Only listeners that called Listen\+For\+Message\+From\+Context with the same Base\+Tag on a controller whose Context\+Object matches Target\+Object will receive the message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Base\+Tag} & The base gameplay tag used to derive the instanced channel.\\
+\hline
+{\em Target\+Object} & The actor that identifies the instanced channel to broadcast on.\\
+\hline
+{\em Message} & The message struct to broadcast.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastMessageToObject(BaseTag,\ TargetObject,\ MoveTemp(\doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}));}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_a2324b720eb6c94ece8855aa28c703988}\index{UMessagingComponent@{UMessagingComponent}!BroadcastTestMessage@{BroadcastTestMessage}}
+\index{BroadcastTestMessage@{BroadcastTestMessage}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{BroadcastTestMessage()}{BroadcastTestMessage()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a2324b720eb6c94ece8855aa28c703988} 
+void UMessaging\+Component::\+\+Broadcast\+Test\+Message (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Message\+Channel}{, }\item[{\doxymbox{\hyperlink{struct_f_periculum_test_message}{FPericulum\+Test\+Message}}}]{Message}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastTestMessage(MessageChannel,\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_a22628668ce527e160045513bf6fd67ef}\index{UMessagingComponent@{UMessagingComponent}!EndPlay@{EndPlay}}
+\index{EndPlay@{EndPlay}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{EndPlay()}{EndPlay()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a22628668ce527e160045513bf6fd67ef} 
+void UMessaging\+Component::\+\+End\+Play (\begin{DoxyParamCaption}\item[{const EEnd\+Play\+Reason::\+\+Type}]{End\+Play\+Reason}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>StopListeningToAll();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ Super::EndPlay(EndPlayReason);}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_aa90cf2609b963b4c763aeccc77dba925}\index{UMessagingComponent@{UMessagingComponent}!GetActorChannel@{GetActorChannel}}
+\index{GetActorChannel@{GetActorChannel}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{GetActorChannel()}{GetActorChannel()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_aa90cf2609b963b4c763aeccc77dba925} 
+FGameplay\+Tag UMessaging\+Component::\+\+Get\+Actor\+Channel (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Base\+Tag}{, }\item[{const AActor \texorpdfstring{$\ast$}{*}}]{Actor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Derives a deterministic, per-\/actor instanced gameplay tag from a base tag and a target actor. The generated tag is registered with the gameplay tag manager at runtime if not already present. Static so any system can derive the correct channel for a given actor without holding a controller reference. Format:\+ Base\+Tag.\+Instance.\+Actor\+Name\+\_\+\+Hex\+Address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Base\+Tag} & The base gameplay tag representing the message domain.\\
+\hline
+{\em Actor} & The actor whose identity is used to generate the instanced channel tag.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_controller_ada5c41f9a79418833bf037eff7750f7d}{UMessagingController::GetActorChannel}}(BaseTag,\ Actor);}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_a8321aadaab0c4542ea64596890555a07}\index{UMessagingComponent@{UMessagingComponent}!GetMessagingController@{GetMessagingController}}
+\index{GetMessagingController@{GetMessagingController}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{GetMessagingController()}{GetMessagingController()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a8321aadaab0c4542ea64596890555a07} 
+\doxymbox{\hyperlink{class_u_messaging_controller}{UMessaging\+Controller}} \texorpdfstring{$\ast$}{*} UMessaging\+Component::\+\+Get\+Messaging\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the underlying messaging controller owned by this component. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_ab99d704ad28f46952fd24b3cb42babb9}\index{UMessagingComponent@{UMessagingComponent}!ListenForMessage@{ListenForMessage}}
+\index{ListenForMessage@{ListenForMessage}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{ListenForMessage()}{ListenForMessage()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_ab99d704ad28f46952fd24b3cb42babb9} 
+template$<$typename FMessage\+Type$>$ \\
+FGameplay\+Message\+Listener\+Handle UMessaging\+Component::\+\+Listen\+For\+Message (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Message\+Channel}{, }\item[{TFunction$<$ void(FGameplay\+Tag, const FMessage\+Type \&)$>$}]{Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a listener for messages of the given type on the provided channel. The handle is stored internally and cleaned up automatically on End\+Play. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Message\+Channel} & The gameplay tag channel to listen on.\\
+\hline
+{\em Callback} & The function to invoke when a matching message is received.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ ?\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>ListenForMessage<FMessageType>(MessageChannel,\ MoveTemp(Callback))}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ :\ FGameplayMessageListenerHandle();}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_aa7e43a013afe9680a245906729864336}\index{UMessagingComponent@{UMessagingComponent}!ListenForMessageFromContext@{ListenForMessageFromContext}}
+\index{ListenForMessageFromContext@{ListenForMessageFromContext}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{ListenForMessageFromContext()}{ListenForMessageFromContext()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_aa7e43a013afe9680a245906729864336} 
+template$<$typename FMessage\+Type$>$ \\
+FGameplay\+Message\+Listener\+Handle UMessaging\+Component::\+\+Listen\+For\+Message\+From\+Context (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Base\+Tag}{, }\item[{TFunction$<$ void(FGameplay\+Tag, const FMessage\+Type \&)$>$}]{Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a listener on the instanced channel derived from this component\textquotesingle{}s owning actor. Only receives messages broadcast via Broadcast\+Message\+To\+Object targeting the same actor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Base\+Tag} & The base gameplay tag used to derive the instanced channel.\\
+\hline
+{\em Callback} & The function to invoke when a matching message is received.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116\ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ ?\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>ListenForMessageFromContext<FMessageType>(BaseTag,\ MoveTemp(Callback))}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ :\ FGameplayMessageListenerHandle();}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_a08f27a9786da5e1510b02874cc76dca7}\index{UMessagingComponent@{UMessagingComponent}!ListenForMessageFromObject@{ListenForMessageFromObject}}
+\index{ListenForMessageFromObject@{ListenForMessageFromObject}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{ListenForMessageFromObject()}{ListenForMessageFromObject()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a08f27a9786da5e1510b02874cc76dca7} 
+template$<$typename FMessage\+Type$>$ \\
+FGameplay\+Message\+Listener\+Handle UMessaging\+Component::\+\+Listen\+For\+Message\+From\+Object (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Message\+Channel}{, }\item[{UObject \texorpdfstring{$\ast$}{*}}]{Sender\+Filter}{, }\item[{TFunction$<$ void(FGameplay\+Tag, const FMessage\+Type \&)$>$}]{Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a listener on a channel that filters incoming messages to only those where Message\+Sender matches the provided object. Requires FMessage\+Type to derive from \doxylink{struct_f_periculum_message}{FPericulum\+Message}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Message\+Channel} & The gameplay tag channel to listen on.\\
+\hline
+{\em Sender\+Filter} & The UObject that Message\+Sender must match for the callback to fire.\\
+\hline
+{\em Callback} & The function to invoke when a matching message is received.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00149\ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ ?\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>ListenForMessageFromObject<FMessageType>(}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageChannel,\ SenderFilter,\ MoveTemp(Callback))}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ :\ FGameplayMessageListenerHandle();}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_ab0d8a8cdc75d0d71f338cf0f2d734022}\index{UMessagingComponent@{UMessagingComponent}!ListenForMessageTargetingObject@{ListenForMessageTargetingObject}}
+\index{ListenForMessageTargetingObject@{ListenForMessageTargetingObject}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{ListenForMessageTargetingObject()}{ListenForMessageTargetingObject()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_ab0d8a8cdc75d0d71f338cf0f2d734022} 
+template$<$typename FMessage\+Type$>$ \\
+FGameplay\+Message\+Listener\+Handle UMessaging\+Component::\+\+Listen\+For\+Message\+Targeting\+Object (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Message\+Channel}{, }\item[{UObject \texorpdfstring{$\ast$}{*}}]{Receiver\+Filter}{, }\item[{TFunction$<$ void(FGameplay\+Tag, const FMessage\+Type \&)$>$}]{Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a listener on a channel that filters incoming messages to only those where Message\+Receiver matches the provided object. Requires FMessage\+Type to derive from \doxylink{struct_f_periculum_message}{FPericulum\+Message}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Message\+Channel} & The gameplay tag channel to listen on.\\
+\hline
+{\em Receiver\+Filter} & The UObject that Message\+Receiver must match for the callback to fire.\\
+\hline
+{\em Callback} & The function to invoke when a matching message is received.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ ?\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>ListenForMessageTargetingObject<FMessageType>(}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageChannel,\ ReceiverFilter,\ MoveTemp(Callback))}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ :\ FGameplayMessageListenerHandle();}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_aaf3cc343360cf40f3395a3e7e1c9c0a2}\index{UMessagingComponent@{UMessagingComponent}!ListenForTestMessage@{ListenForTestMessage}}
+\index{ListenForTestMessage@{ListenForTestMessage}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{ListenForTestMessage()}{ListenForTestMessage()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_aaf3cc343360cf40f3395a3e7e1c9c0a2} 
+FGameplay\+Message\+Listener\+Handle UMessaging\+Component::\+\+Listen\+For\+Test\+Message (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Message\+Channel}{, }\item[{EGameplay\+Message\+Match}]{Match\+Type}{, }\item[{const FOn\+Gameplay\+Message\+Received \&}]{Callback}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>ListenForTestMessage(MessageChannel,\ MatchType,\ Callback);}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ FGameplayMessageListenerHandle();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_a1b0dbb91e9f33f95de9bb72b050b33bd}\index{UMessagingComponent@{UMessagingComponent}!StopListening@{StopListening}}
+\index{StopListening@{StopListening}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{StopListening()}{StopListening()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a1b0dbb91e9f33f95de9bb72b050b33bd} 
+void UMessaging\+Component::\+\+Stop\+Listening (\begin{DoxyParamCaption}\item[{UPARAM(ref) FGameplay\+Message\+Listener\+Handle \&}]{Handle}{}\end{DoxyParamCaption})}
+
+
+
+Unregisters a single listener handle and removes it from the internal tracking list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Handle} & The handle returned by a prior Listen\+For\+Message call.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})\ }
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>StopListening(ListenerHandle);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_messaging_component_abf5c1d614f06af325d9456aabaf514d5}\index{UMessagingComponent@{UMessagingComponent}!StopListeningToAll@{StopListeningToAll}}
+\index{StopListeningToAll@{StopListeningToAll}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{StopListeningToAll()}{StopListeningToAll()}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_abf5c1d614f06af325d9456aabaf514d5} 
+void UMessaging\+Component::\+\+Stop\+Listening\+To\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Unregisters all active listeners registered through this component and clears the internal handle list. Called automatically on End\+Play. Can also be called manually to reset all subscriptions at runtime. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})\ }
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>StopListeningToAll();}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_messaging_component_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}\index{UMessagingComponent@{UMessagingComponent}!Controller@{Controller}}
+\index{Controller@{Controller}!UMessagingComponent@{UMessagingComponent}}
+\doxysubsubsection{\texorpdfstring{Controller}{Controller}}
+{\footnotesize\ttfamily \label{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935} 
+TObject\+Ptr$<$\doxymbox{\hyperlink{class_u_messaging_controller}{UMessaging\+Controller}}$>$ UMessaging\+Component::\+\+Controller\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The messaging controller owned by this component. Created in Begin\+Play with the owning actor as both the outer and the context object. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Actor\+Components/\+\doxymbox{\hyperlink{_messaging_component_8h}{Messaging\+Component.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Actor\+Components/\+\doxymbox{\hyperlink{_messaging_component_8cpp}{Messaging\+Component.\+cpp}}\end{DoxyCompactItemize}

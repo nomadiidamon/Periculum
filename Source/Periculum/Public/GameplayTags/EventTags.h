@@ -5,28 +5,53 @@
 #include "CoreMinimal.h"
 #include "NativeGameplayTags.h"
 
-/**
- * This file defines a variety of Gameplay Tags relating to Events used throughout the Periculum project. 
- */
+/// @file EventTags.h
+/// @brief Defines gameplay tags for various events in the Periculum project, including actor events, player events, interaction events, grapple events, weapon events, trace events, save/load events, crafting events, timer events, and time events.
+/// @todo Finish assigning comments to all event tags. The comments should describe the purpose and context of each tag, providing clarity for developers using these tags in gameplay logic.
 
 
-/// Actor Events
+/// @defgroup EventTags Event Tags
+/// @{
+/// Basic event tag for general use.
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event);
+
+
+/// @defgroup ActorEvents Actor Events
+/// @{
+/// Represents an actor event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Actor);
+/// Represents an actor spawned event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Actor_Spawned);
+/// Represents an actor destroyed event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Actor_Destroyed);
+/// @}
 
-/// Player Events
+
+/// @defgroup PlayerEvents Player Events
+/// @{
+/// Represents a player event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Player);
+/// Represents a player spawned event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Player_Spawned);
+/// Represents a player died event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Player_Died);
+/// Represents a player respawned event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Player_Respawned);
+/// @}
 
-/// Interaction Events
+
+/// @defgroup InteractionEvents Interaction Events
+/// @{
+/// Represents an interaction event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Interaction);
+/// Represents an interaction started event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Interaction_Started);
+/// Represents an interaction completed event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Interaction_Completed);
+/// Represents an interaction canceled event
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Interaction_Canceled);
+/// @}
+
 
 /// Grapple Events
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Grapple);
@@ -79,3 +104,5 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Time_DayStarted);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Time_DayEnded);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Time_NightStarted);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Event_Time_NightEnded);
+
+/// @}

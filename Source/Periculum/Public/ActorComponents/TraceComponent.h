@@ -18,8 +18,6 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTraceCompleted, const FTraceResult&
  * UTraceComponent is responsible for performing traces based on a specified trace profile and its associated policies.
  * It can be configured to automatically perform traces at regular intervals or manually triggered.
  */
-
-
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class PERICULUM_API UTraceComponent : public UActorComponent, public ITraceableInterface
 {

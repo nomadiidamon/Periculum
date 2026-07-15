@@ -1,0 +1,420 @@
+\doxysection{UTag\+Container\+Component Class Reference}
+\hypertarget{class_u_tag_container_component}{}\label{class_u_tag_container_component}\index{UTagContainerComponent@{UTagContainerComponent}}
+
+
+This component allows an actor to have a container of gameplay tags that can be added or removed at runtime.  
+
+
+
+
+{\ttfamily \+\#include $<$Tag\+Container\+Component.\+h$>$}
+
+Inheritance diagram for UTag\+Container\+Component:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_tag_container_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_u_tag_container_component_a853ef0e52c869974d5ae9010825b52e8}{Add\+Tag}} (FGameplay\+Tag Tag, int32 Count=1)
+\begin{DoxyCompactList}\small\item\em Adds the specified tag to the container. If the tag already exists, it increments its stack count by the specified amount. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_u_tag_container_component_afb0bf8eec2fca76fe30b01fc79cce90b}{Begin\+Play}} () override
+\item 
+void \doxymbox{\hyperlink{class_u_tag_container_component_a331a8590ecb83066d48b6e67e96b4c7c}{Clear\+All\+Stacks}} ()
+\begin{DoxyCompactList}\small\item\em Removes all tags from the container and resets their stack counts to zero. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_tag_container_component_a8c44b5688e677755274f4114ca868feb}{Clear\+Stack}} (FGameplay\+Tag Tag\+To\+Clear)
+\begin{DoxyCompactList}\small\item\em Reduces the stack count of the specified tag to zero and removes it from the container entirely, regardless of its current count. \end{DoxyCompactList}\item 
+int32 \doxymbox{\hyperlink{class_u_tag_container_component_a1bbae5e5ed391b8298c383b78f4f8a44}{Get\+Tag\+Stack\+Count}} (FGameplay\+Tag Tag) const
+\begin{DoxyCompactList}\small\item\em Retrieves the current stack count for the specified tag. If the tag is not present, it returns zero. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_u_tag_container_component_a540b02031b895f819a1749678eb42184}{Has\+All\+Tags}} (const FGameplay\+Tag\+Container \&Tag\+Container) const
+\begin{DoxyCompactList}\small\item\em Checks if the container has all of the tags in the specified tag container, regardless of their stack counts. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_u_tag_container_component_a5510ce0833b59bc4dca8bfad14b9f18c}{Has\+Any\+Tag}} (const FGameplay\+Tag\+Container \&Tag\+Container) const
+\begin{DoxyCompactList}\small\item\em Checks if the container has any of the tags in the specified tag container, regardless of their stack counts. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_u_tag_container_component_a4b9a51caf5cfa62bb68b9c135fc777d6}{Has\+Tag}} (FGameplay\+Tag Tag) const
+\begin{DoxyCompactList}\small\item\em Checks if the container has the specified tag, regardless of its stack count. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_tag_container_component_a24ada639eb5834af0341c613cfc1c3e3}{Remove\+Tag}} (FGameplay\+Tag Tag, int32 Count=1)
+\begin{DoxyCompactList}\small\item\em Removes the specified tag from the container. If the tag has a stack count greater than one, it decrements the count by the specified amount. If the count reaches zero, the tag is removed entirely. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_u_tag_container_component_a602907502dca867968269d1545d559eb}{UTag\+Container\+Component}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FOn\+Tag\+Added \doxymbox{\hyperlink{class_u_tag_container_component_a5da18f11bf0ff60384967b5bcfeb6378}{On\+Tag\+Added}}
+\begin{DoxyCompactList}\small\item\em Dynamic multicast delegate that is broadcast when a tag is added to the container. Listeners can bind to this event to react to tag additions. \end{DoxyCompactList}\item 
+FOn\+Tag\+Removed \doxymbox{\hyperlink{class_u_tag_container_component_a50106fb2a9dd91cf4f16473215ddae9c}{On\+Tag\+Removed}}
+\begin{DoxyCompactList}\small\item\em Dynamic multicast delegate that is broadcast when a tag is removed from the container. Listeners can bind to this event to react to tag removals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_u_tag_container_component_a8dbb1632b45fc09ab2115825ff5217e1}{Handle\+Tag\+Added}} (FGameplay\+Tag Tag)
+\begin{DoxyCompactList}\small\item\em Internally broadcasts to those listening that a tag has been added to the container. This is called after the tag is successfully added. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_tag_container_component_aa9ed9d3347a3e02cb354400683262300}{Handle\+Tag\+Removed}} (FGameplay\+Tag Tag)
+\begin{DoxyCompactList}\small\item\em Internally broadcasts to those listening that a tag has been removed from the container. This is called after the tag is successfully removed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FGameplay\+Tag\+Container \doxymbox{\hyperlink{class_u_tag_container_component_aa25670b4ca4e9b63cee7d5d8be0c9c28}{Gameplay\+Tags}}
+\begin{DoxyCompactList}\small\item\em The container of gameplay tags that this component manages. \end{DoxyCompactList}\item 
+TMap$<$ FGameplay\+Tag, int32 $>$ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{Tag\+Stack\+Counts}}
+\begin{DoxyCompactList}\small\item\em A map that keeps track of the stack count for each tag. The key is the tag, and the value is the count. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This component allows an actor to have a container of gameplay tags that can be added or removed at runtime. 
+
+It also supports tag stacking, where multiple instances of the same tag can be added and removed independently. 
+
+\label{doc-constructors}
+\Hypertarget{class_u_tag_container_component_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_u_tag_container_component_a602907502dca867968269d1545d559eb}\index{UTagContainerComponent@{UTagContainerComponent}!UTagContainerComponent@{UTagContainerComponent}}
+\index{UTagContainerComponent@{UTagContainerComponent}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{UTagContainerComponent()}{UTagContainerComponent()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a602907502dca867968269d1545d559eb} 
+UTag\+Container\+Component::\+\+UTag\+Container\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ PrimaryComponentTick.bCanEverTick\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{class_u_tag_container_component_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_tag_container_component_a853ef0e52c869974d5ae9010825b52e8}\index{UTagContainerComponent@{UTagContainerComponent}!AddTag@{AddTag}}
+\index{AddTag@{AddTag}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{AddTag()}{AddTag()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a853ef0e52c869974d5ae9010825b52e8} 
+void UTag\+Container\+Component::\+\+Add\+Tag (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Tag}{, }\item[{int32}]{Count}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Adds the specified tag to the container. If the tag already exists, it increments its stack count by the specified amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & The tag to add.\\
+\hline
+{\em Count} & The number of instances to add.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ int32\&\ StackCount\ =\ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}}.FindOrAdd(Tag);}
+\DoxyCodeLine{00020\ \ \ \ \ StackCount\ +=\ Count;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (StackCount\ >\ 0)}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_aa25670b4ca4e9b63cee7d5d8be0c9c28}{GameplayTags}}.AddTag(Tag);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_a8dbb1632b45fc09ab2115825ff5217e1}{HandleTagAdded}}(Tag);}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_afb0bf8eec2fca76fe30b01fc79cce90b}\index{UTagContainerComponent@{UTagContainerComponent}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_afb0bf8eec2fca76fe30b01fc79cce90b} 
+void UTag\+Container\+Component::\+\+Begin\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Super::BeginPlay();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_a331a8590ecb83066d48b6e67e96b4c7c}\index{UTagContainerComponent@{UTagContainerComponent}!ClearAllStacks@{ClearAllStacks}}
+\index{ClearAllStacks@{ClearAllStacks}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{ClearAllStacks()}{ClearAllStacks()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a331a8590ecb83066d48b6e67e96b4c7c} 
+void UTag\+Container\+Component::\+\+Clear\+All\+Stacks (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Removes all tags from the container and resets their stack counts to zero. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ Pair\ :\ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}})}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_a24ada639eb5834af0341c613cfc1c3e3}{RemoveTag}}(Pair.Key,\ Pair.Value);}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}}.Empty();}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_a8c44b5688e677755274f4114ca868feb}\index{UTagContainerComponent@{UTagContainerComponent}!ClearStack@{ClearStack}}
+\index{ClearStack@{ClearStack}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{ClearStack()}{ClearStack()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a8c44b5688e677755274f4114ca868feb} 
+void UTag\+Container\+Component::\+\+Clear\+Stack (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Tag\+To\+Clear}{}\end{DoxyParamCaption})}
+
+
+
+Reduces the stack count of the specified tag to zero and removes it from the container entirely, regardless of its current count. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag\+To\+Clear} & The tag to clear.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}}.Contains(TagToClear))}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ int32\ maxCount\ =\ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}}[TagToClear];}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_a24ada639eb5834af0341c613cfc1c3e3}{RemoveTag}}(TagToClear,\ maxCount);}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_a1bbae5e5ed391b8298c383b78f4f8a44}\index{UTagContainerComponent@{UTagContainerComponent}!GetTagStackCount@{GetTagStackCount}}
+\index{GetTagStackCount@{GetTagStackCount}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{GetTagStackCount()}{GetTagStackCount()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a1bbae5e5ed391b8298c383b78f4f8a44} 
+int32 UTag\+Container\+Component::\+\+Get\+Tag\+Stack\+Count (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Tag}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current stack count for the specified tag. If the tag is not present, it returns zero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & The tag to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current stack count for the tag.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}}.Contains(Tag)\ ?\ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}}[Tag]\ :\ 0;}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_a8dbb1632b45fc09ab2115825ff5217e1}\index{UTagContainerComponent@{UTagContainerComponent}!HandleTagAdded@{HandleTagAdded}}
+\index{HandleTagAdded@{HandleTagAdded}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{HandleTagAdded()}{HandleTagAdded()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a8dbb1632b45fc09ab2115825ff5217e1} 
+void UTag\+Container\+Component::\+\+Handle\+Tag\+Added (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Tag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Internally broadcasts to those listening that a tag has been added to the container. This is called after the tag is successfully added. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_tag_container_component_a5da18f11bf0ff60384967b5bcfeb6378}{OnTagAdded}}.IsBound())}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_a5da18f11bf0ff60384967b5bcfeb6378}{OnTagAdded}}.Broadcast(Tag);}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_aa9ed9d3347a3e02cb354400683262300}\index{UTagContainerComponent@{UTagContainerComponent}!HandleTagRemoved@{HandleTagRemoved}}
+\index{HandleTagRemoved@{HandleTagRemoved}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{HandleTagRemoved()}{HandleTagRemoved()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_aa9ed9d3347a3e02cb354400683262300} 
+void UTag\+Container\+Component::\+\+Handle\+Tag\+Removed (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Tag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Internally broadcasts to those listening that a tag has been removed from the container. This is called after the tag is successfully removed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_tag_container_component_a50106fb2a9dd91cf4f16473215ddae9c}{OnTagRemoved}}.IsBound())}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_a50106fb2a9dd91cf4f16473215ddae9c}{OnTagRemoved}}.Broadcast(Tag);}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_a540b02031b895f819a1749678eb42184}\index{UTagContainerComponent@{UTagContainerComponent}!HasAllTags@{HasAllTags}}
+\index{HasAllTags@{HasAllTags}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{HasAllTags()}{HasAllTags()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a540b02031b895f819a1749678eb42184} 
+bool UTag\+Container\+Component::\+\+Has\+All\+Tags (\begin{DoxyParamCaption}\item[{const FGameplay\+Tag\+Container \&}]{Tag\+Container}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the container has all of the tags in the specified tag container, regardless of their stack counts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag\+Container} & The tag container to check against.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all tags are present, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_tag_container_component_aa25670b4ca4e9b63cee7d5d8be0c9c28}{GameplayTags}}.HasAll(TagContainer);}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_a5510ce0833b59bc4dca8bfad14b9f18c}\index{UTagContainerComponent@{UTagContainerComponent}!HasAnyTag@{HasAnyTag}}
+\index{HasAnyTag@{HasAnyTag}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{HasAnyTag()}{HasAnyTag()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a5510ce0833b59bc4dca8bfad14b9f18c} 
+bool UTag\+Container\+Component::\+\+Has\+Any\+Tag (\begin{DoxyParamCaption}\item[{const FGameplay\+Tag\+Container \&}]{Tag\+Container}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the container has any of the tags in the specified tag container, regardless of their stack counts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag\+Container} & The tag container to check against.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if any tags are present, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_tag_container_component_aa25670b4ca4e9b63cee7d5d8be0c9c28}{GameplayTags}}.HasAny(TagContainer);}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_a4b9a51caf5cfa62bb68b9c135fc777d6}\index{UTagContainerComponent@{UTagContainerComponent}!HasTag@{HasTag}}
+\index{HasTag@{HasTag}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{HasTag()}{HasTag()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a4b9a51caf5cfa62bb68b9c135fc777d6} 
+bool UTag\+Container\+Component::\+\+Has\+Tag (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Tag}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the container has the specified tag, regardless of its stack count. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & The tag to check for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the tag is present, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_tag_container_component_aa25670b4ca4e9b63cee7d5d8be0c9c28}{GameplayTags}}.HasTag(Tag))}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_tag_container_component_a24ada639eb5834af0341c613cfc1c3e3}\index{UTagContainerComponent@{UTagContainerComponent}!RemoveTag@{RemoveTag}}
+\index{RemoveTag@{RemoveTag}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{RemoveTag()}{RemoveTag()}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a24ada639eb5834af0341c613cfc1c3e3} 
+void UTag\+Container\+Component::\+\+Remove\+Tag (\begin{DoxyParamCaption}\item[{FGameplay\+Tag}]{Tag}{, }\item[{int32}]{Count}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Removes the specified tag from the container. If the tag has a stack count greater than one, it decrements the count by the specified amount. If the count reaches zero, the tag is removed entirely. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tag} & The tag to remove.\\
+\hline
+{\em Count} & The number of instances to remove.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (int32*\ StackCountPtr\ =\ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}}.Find(Tag))}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ int32\&\ StackCount\ =\ *StackCountPtr;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ StackCount\ -\/=\ Count;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (StackCount\ <=\ 0)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_aa25670b4ca4e9b63cee7d5d8be0c9c28}{GameplayTags}}.RemoveTag(Tag);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_aa9ed9d3347a3e02cb354400683262300}{HandleTagRemoved}}(Tag);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}{TagStackCounts}}.Remove(Tag);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_tag_container_component_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_tag_container_component_aa25670b4ca4e9b63cee7d5d8be0c9c28}\index{UTagContainerComponent@{UTagContainerComponent}!GameplayTags@{GameplayTags}}
+\index{GameplayTags@{GameplayTags}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{GameplayTags}{GameplayTags}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_aa25670b4ca4e9b63cee7d5d8be0c9c28} 
+FGameplay\+Tag\+Container UTag\+Container\+Component::\+\+Gameplay\+Tags\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The container of gameplay tags that this component manages. 
+
+\Hypertarget{class_u_tag_container_component_a5da18f11bf0ff60384967b5bcfeb6378}\index{UTagContainerComponent@{UTagContainerComponent}!OnTagAdded@{OnTagAdded}}
+\index{OnTagAdded@{OnTagAdded}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{OnTagAdded}{OnTagAdded}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a5da18f11bf0ff60384967b5bcfeb6378} 
+FOn\+Tag\+Added UTag\+Container\+Component::\+\+On\+Tag\+Added}
+
+
+
+Dynamic multicast delegate that is broadcast when a tag is added to the container. Listeners can bind to this event to react to tag additions. 
+
+\Hypertarget{class_u_tag_container_component_a50106fb2a9dd91cf4f16473215ddae9c}\index{UTagContainerComponent@{UTagContainerComponent}!OnTagRemoved@{OnTagRemoved}}
+\index{OnTagRemoved@{OnTagRemoved}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{OnTagRemoved}{OnTagRemoved}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a50106fb2a9dd91cf4f16473215ddae9c} 
+FOn\+Tag\+Removed UTag\+Container\+Component::\+\+On\+Tag\+Removed}
+
+
+
+Dynamic multicast delegate that is broadcast when a tag is removed from the container. Listeners can bind to this event to react to tag removals. 
+
+\Hypertarget{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1}\index{UTagContainerComponent@{UTagContainerComponent}!TagStackCounts@{TagStackCounts}}
+\index{TagStackCounts@{TagStackCounts}!UTagContainerComponent@{UTagContainerComponent}}
+\doxysubsubsection{\texorpdfstring{TagStackCounts}{TagStackCounts}}
+{\footnotesize\ttfamily \label{class_u_tag_container_component_a7219fb37ac637266a7257c4f28dd2ec1} 
+TMap$<$FGameplay\+Tag, int32$>$ UTag\+Container\+Component::\+\+Tag\+Stack\+Counts\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+A map that keeps track of the stack count for each tag. The key is the tag, and the value is the count. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Actor\+Components/\+\doxymbox{\hyperlink{_tag_container_component_8h}{Tag\+Container\+Component.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Actor\+Components/\+\doxymbox{\hyperlink{_tag_container_component_8cpp}{Tag\+Container\+Component.\+cpp}}\end{DoxyCompactItemize}

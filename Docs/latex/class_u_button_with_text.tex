@@ -1,0 +1,273 @@
+\doxysection{UButton\+With\+Text Class Reference}
+\hypertarget{class_u_button_with_text}{}\label{class_u_button_with_text}\index{UButtonWithText@{UButtonWithText}}
+
+
+{\ttfamily \+\#include $<$Button\+With\+Text.\+h$>$}
+
+Inheritance diagram for UButton\+With\+Text:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_button_with_text}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_aea05fc0897afbbc5849a0a319adcad51}{Handle\+Button\+Clicked}} ()
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_a5034c119809830f81703474a85832b53}{Handle\+Button\+Focused}} (bool b\+Is\+Focused)
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_a9be384299cce73f2cbac3532a6e90cd4}{Handle\+Button\+Hovered}} ()
+\item 
+FORCEINLINE bool \doxymbox{\hyperlink{class_u_button_with_text_ac964c8b88d1bee79eabaced8fd965317}{Is\+Focused}} () const
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_a36f76d069e83fcb50f6fbe050d192694}{Set\+Info\+Text}} (const FText \&In\+Info)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+UButton \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}
+\item 
+FText \doxymbox{\hyperlink{class_u_button_with_text_a83f388b650df415094b2ab82407007d3}{Info}}
+\item 
+FOn\+Button\+Clicked \doxymbox{\hyperlink{class_u_button_with_text_a79768e6271c8a69db305c957907e98c0}{On\+Clicked}}
+\item 
+FOn\+Button\+Focused \doxymbox{\hyperlink{class_u_button_with_text_aed713408683855f2cbadf94fb3a16eb4}{On\+Focused}}
+\item 
+FOn\+Button\+Hovered \doxymbox{\hyperlink{class_u_button_with_text_acf50b5ef437049773460c74f10b210c5}{On\+Hovered}}
+\item 
+UText\+Block \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_button_with_text_ac77d5fd08474ad7b798c9dc5426d4382}{Text\+Block}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_a18b6679809583a3bdbaadb1c2f6dbff3}{Native\+Construct}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_a127bddeb42e5b8c6b94f6344cb33653b}{Native\+Destruct}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_a3075445bff7bf4c438012b5d5133546f}{Native\+On\+Added\+To\+Focus\+Path}} (const FFocus\+Event \&In\+Focus\+Event) override
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_a271b07cf369ee07dd3395b66952b07d2}{Native\+On\+Removed\+From\+Focus\+Path}} (const FFocus\+Event \&In\+Focus\+Event) override
+\item 
+virtual void \doxymbox{\hyperlink{class_u_button_with_text_a3a94872a146df9f773a24fda516cc515}{Native\+Pre\+Construct}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_u_button_with_text_a0a238b42d2dd881824b6f8d8f48354a9}{b\+Is\+Currently\+Focused}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_u_button_with_text_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_button_with_text_aea05fc0897afbbc5849a0a319adcad51}\index{UButtonWithText@{UButtonWithText}!HandleButtonClicked@{HandleButtonClicked}}
+\index{HandleButtonClicked@{HandleButtonClicked}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{HandleButtonClicked()}{HandleButtonClicked()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_aea05fc0897afbbc5849a0a319adcad51} 
+void UButton\+With\+Text::\+\+Handle\+Button\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_a79768e6271c8a69db305c957907e98c0}{OnClicked}}.IsBound())}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_a79768e6271c8a69db305c957907e98c0}{OnClicked}}.Broadcast();}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_a5034c119809830f81703474a85832b53}\index{UButtonWithText@{UButtonWithText}!HandleButtonFocused@{HandleButtonFocused}}
+\index{HandleButtonFocused@{HandleButtonFocused}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{HandleButtonFocused()}{HandleButtonFocused()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a5034c119809830f81703474a85832b53} 
+void UButton\+With\+Text::\+\+Handle\+Button\+Focused (\begin{DoxyParamCaption}\item[{bool}]{b\+Is\+Focused}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_aed713408683855f2cbadf94fb3a16eb4}{OnFocused}}.IsBound())}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_aed713408683855f2cbadf94fb3a16eb4}{OnFocused}}.Broadcast(bIsFocused);}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_a9be384299cce73f2cbac3532a6e90cd4}\index{UButtonWithText@{UButtonWithText}!HandleButtonHovered@{HandleButtonHovered}}
+\index{HandleButtonHovered@{HandleButtonHovered}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{HandleButtonHovered()}{HandleButtonHovered()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a9be384299cce73f2cbac3532a6e90cd4} 
+void UButton\+With\+Text::\+\+Handle\+Button\+Hovered (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_acf50b5ef437049773460c74f10b210c5}{OnHovered}}.IsBound())}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_acf50b5ef437049773460c74f10b210c5}{OnHovered}}.Broadcast();}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_ac964c8b88d1bee79eabaced8fd965317}\index{UButtonWithText@{UButtonWithText}!IsFocused@{IsFocused}}
+\index{IsFocused@{IsFocused}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{IsFocused()}{IsFocused()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_ac964c8b88d1bee79eabaced8fd965317} 
+FORCEINLINE bool UButton\+With\+Text::\+\+Is\+Focused (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_button_with_text_a0a238b42d2dd881824b6f8d8f48354a9}{bIsCurrentlyFocused}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_a18b6679809583a3bdbaadb1c2f6dbff3}\index{UButtonWithText@{UButtonWithText}!NativeConstruct@{NativeConstruct}}
+\index{NativeConstruct@{NativeConstruct}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{NativeConstruct()}{NativeConstruct()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a18b6679809583a3bdbaadb1c2f6dbff3} 
+void UButton\+With\+Text::\+\+Native\+Construct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ Super::NativeConstruct();}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}})}
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}-\/>OnClicked.IsAlreadyBound(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_button_with_text_aea05fc0897afbbc5849a0a319adcad51}{UButtonWithText::HandleButtonClicked}}))}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}-\/>OnClicked.AddDynamic(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_button_with_text_aea05fc0897afbbc5849a0a319adcad51}{UButtonWithText::HandleButtonClicked}});}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}-\/>OnHovered.IsAlreadyBound(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_button_with_text_a9be384299cce73f2cbac3532a6e90cd4}{UButtonWithText::HandleButtonHovered}}))}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}-\/>OnHovered.AddDynamic(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_button_with_text_a9be384299cce73f2cbac3532a6e90cd4}{UButtonWithText::HandleButtonHovered}});}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+\DoxyCodeLine{00015\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_a127bddeb42e5b8c6b94f6344cb33653b}\index{UButtonWithText@{UButtonWithText}!NativeDestruct@{NativeDestruct}}
+\index{NativeDestruct@{NativeDestruct}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{NativeDestruct()}{NativeDestruct()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a127bddeb42e5b8c6b94f6344cb33653b} 
+void UButton\+With\+Text::\+\+Native\+Destruct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ Super::NativeDestruct();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}})}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}-\/>OnClicked.IsAlreadyBound(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_button_with_text_aea05fc0897afbbc5849a0a319adcad51}{UButtonWithText::HandleButtonClicked}}))}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}-\/>OnClicked.RemoveDynamic(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_button_with_text_aea05fc0897afbbc5849a0a319adcad51}{UButtonWithText::HandleButtonClicked}});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}-\/>OnHovered.IsAlreadyBound(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_button_with_text_a9be384299cce73f2cbac3532a6e90cd4}{UButtonWithText::HandleButtonHovered}}))}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}{Button}}-\/>OnHovered.RemoveDynamic(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_button_with_text_a9be384299cce73f2cbac3532a6e90cd4}{UButtonWithText::HandleButtonHovered}});}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_a3075445bff7bf4c438012b5d5133546f}\index{UButtonWithText@{UButtonWithText}!NativeOnAddedToFocusPath@{NativeOnAddedToFocusPath}}
+\index{NativeOnAddedToFocusPath@{NativeOnAddedToFocusPath}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{NativeOnAddedToFocusPath()}{NativeOnAddedToFocusPath()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a3075445bff7bf4c438012b5d5133546f} 
+void UButton\+With\+Text::\+\+Native\+On\+Added\+To\+Focus\+Path (\begin{DoxyParamCaption}\item[{const FFocus\+Event \&}]{In\+Focus\+Event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ Super::NativeOnAddedToFocusPath(InFocusEvent);}
+\DoxyCodeLine{00041\ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_a0a238b42d2dd881824b6f8d8f48354a9}{bIsCurrentlyFocused}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00042\ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_a5034c119809830f81703474a85832b53}{HandleButtonFocused}}(\doxymbox{\hyperlink{class_u_button_with_text_a0a238b42d2dd881824b6f8d8f48354a9}{bIsCurrentlyFocused}});}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_a271b07cf369ee07dd3395b66952b07d2}\index{UButtonWithText@{UButtonWithText}!NativeOnRemovedFromFocusPath@{NativeOnRemovedFromFocusPath}}
+\index{NativeOnRemovedFromFocusPath@{NativeOnRemovedFromFocusPath}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{NativeOnRemovedFromFocusPath()}{NativeOnRemovedFromFocusPath()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a271b07cf369ee07dd3395b66952b07d2} 
+void UButton\+With\+Text::\+\+Native\+On\+Removed\+From\+Focus\+Path (\begin{DoxyParamCaption}\item[{const FFocus\+Event \&}]{In\+Focus\+Event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ Super::NativeOnRemovedFromFocusPath(InFocusEvent);}
+\DoxyCodeLine{00048\ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_a0a238b42d2dd881824b6f8d8f48354a9}{bIsCurrentlyFocused}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00049\ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_a5034c119809830f81703474a85832b53}{HandleButtonFocused}}(\doxymbox{\hyperlink{class_u_button_with_text_a0a238b42d2dd881824b6f8d8f48354a9}{bIsCurrentlyFocused}});}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_a3a94872a146df9f773a24fda516cc515}\index{UButtonWithText@{UButtonWithText}!NativePreConstruct@{NativePreConstruct}}
+\index{NativePreConstruct@{NativePreConstruct}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{NativePreConstruct()}{NativePreConstruct()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a3a94872a146df9f773a24fda516cc515} 
+void UButton\+With\+Text::\+\+Native\+Pre\+Construct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ Super::NativePreConstruct();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_ac77d5fd08474ad7b798c9dc5426d4382}{TextBlock}})}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_ac77d5fd08474ad7b798c9dc5426d4382}{TextBlock}}-\/>SetText(\doxymbox{\hyperlink{class_u_button_with_text_a83f388b650df415094b2ab82407007d3}{Info}});}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_button_with_text_a36f76d069e83fcb50f6fbe050d192694}\index{UButtonWithText@{UButtonWithText}!SetInfoText@{SetInfoText}}
+\index{SetInfoText@{SetInfoText}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{SetInfoText()}{SetInfoText()}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a36f76d069e83fcb50f6fbe050d192694} 
+void UButton\+With\+Text::\+\+Set\+Info\+Text (\begin{DoxyParamCaption}\item[{const FText \&}]{In\+Info}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_a83f388b650df415094b2ab82407007d3}{Info}}\ =\ InInfo;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_button_with_text_ac77d5fd08474ad7b798c9dc5426d4382}{TextBlock}})}
+\DoxyCodeLine{00074\ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_button_with_text_ac77d5fd08474ad7b798c9dc5426d4382}{TextBlock}}-\/>SetText(\doxymbox{\hyperlink{class_u_button_with_text_a83f388b650df415094b2ab82407007d3}{Info}});}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_button_with_text_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_button_with_text_a0a238b42d2dd881824b6f8d8f48354a9}\index{UButtonWithText@{UButtonWithText}!bIsCurrentlyFocused@{bIsCurrentlyFocused}}
+\index{bIsCurrentlyFocused@{bIsCurrentlyFocused}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{bIsCurrentlyFocused}{bIsCurrentlyFocused}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a0a238b42d2dd881824b6f8d8f48354a9} 
+bool UButton\+With\+Text::\+b\+Is\+Currently\+Focused\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457}\index{UButtonWithText@{UButtonWithText}!Button@{Button}}
+\index{Button@{Button}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{Button}{Button}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_aeb8bd3b66c54b5a4a9f3f281fdf5f457} 
+UButton\texorpdfstring{$\ast$}{*} UButton\+With\+Text::\+\+Button}
+
+\Hypertarget{class_u_button_with_text_a83f388b650df415094b2ab82407007d3}\index{UButtonWithText@{UButtonWithText}!Info@{Info}}
+\index{Info@{Info}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{Info}{Info}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a83f388b650df415094b2ab82407007d3} 
+FText UButton\+With\+Text::\+\+Info}
+
+\Hypertarget{class_u_button_with_text_a79768e6271c8a69db305c957907e98c0}\index{UButtonWithText@{UButtonWithText}!OnClicked@{OnClicked}}
+\index{OnClicked@{OnClicked}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{OnClicked}{OnClicked}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_a79768e6271c8a69db305c957907e98c0} 
+FOn\+Button\+Clicked UButton\+With\+Text::\+\+On\+Clicked}
+
+\Hypertarget{class_u_button_with_text_aed713408683855f2cbadf94fb3a16eb4}\index{UButtonWithText@{UButtonWithText}!OnFocused@{OnFocused}}
+\index{OnFocused@{OnFocused}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{OnFocused}{OnFocused}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_aed713408683855f2cbadf94fb3a16eb4} 
+FOn\+Button\+Focused UButton\+With\+Text::\+\+On\+Focused}
+
+\Hypertarget{class_u_button_with_text_acf50b5ef437049773460c74f10b210c5}\index{UButtonWithText@{UButtonWithText}!OnHovered@{OnHovered}}
+\index{OnHovered@{OnHovered}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{OnHovered}{OnHovered}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_acf50b5ef437049773460c74f10b210c5} 
+FOn\+Button\+Hovered UButton\+With\+Text::\+\+On\+Hovered}
+
+\Hypertarget{class_u_button_with_text_ac77d5fd08474ad7b798c9dc5426d4382}\index{UButtonWithText@{UButtonWithText}!TextBlock@{TextBlock}}
+\index{TextBlock@{TextBlock}!UButtonWithText@{UButtonWithText}}
+\doxysubsubsection{\texorpdfstring{TextBlock}{TextBlock}}
+{\footnotesize\ttfamily \label{class_u_button_with_text_ac77d5fd08474ad7b798c9dc5426d4382} 
+UText\+Block\texorpdfstring{$\ast$}{*} UButton\+With\+Text::\+\+Text\+Block}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+UI/\+\doxymbox{\hyperlink{_button_with_text_8h}{Button\+With\+Text.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+UI/\+\doxymbox{\hyperlink{_button_with_text_8cpp}{Button\+With\+Text.\+cpp}}\end{DoxyCompactItemize}

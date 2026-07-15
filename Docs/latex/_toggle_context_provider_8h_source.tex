@@ -1,0 +1,34 @@
+\doxysection{Toggle\+Context\+Provider.\+h}
+\hypertarget{_toggle_context_provider_8h_source}{}\label{_toggle_context_provider_8h_source}\index{Source/Periculum/Public/Interfaces/ToggleContextProvider.h@{Source/Periculum/Public/Interfaces/ToggleContextProvider.h}}
+\doxymbox{\hyperlink{_toggle_context_provider_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}UObject/Interface.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}ToggleContextProvider.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ This\ class\ does\ not\ need\ to\ be\ modified.}}
+\DoxyCodeLine{00010\ UINTERFACE(MinimalAPI)}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{class_u_toggle_context_provider}{UToggleContextProvider}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_u_toggle_context_provider}{UInterface}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_i_toggle_context_provider}{IToggleContextProvider}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Add\ interface\ functions\ to\ this\ class.\ This\ is\ the\ class\ that\ will\ be\ inherited\ to\ implement\ this\ interface.}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ this\ context\ provider\ has\ a\ specific\ toggle\ tag.\ This\ can\ be\ used\ to\ quickly\ check\ for\ the\ presence\ of\ a\ relevant\ toggle\ without\ having\ to\ retrieve\ the\ entire\ list\ of\ tags.}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ HasToggleTag(FName\ Tag)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \};}
+
+\end{DoxyCode}

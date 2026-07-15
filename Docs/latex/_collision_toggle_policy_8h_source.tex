@@ -1,0 +1,50 @@
+\doxysection{Collision\+Toggle\+Policy.\+h}
+\hypertarget{_collision_toggle_policy_8h_source}{}\label{_collision_toggle_policy_8h_source}\index{Source/Periculum/Public/TogglePolicies/CollisionTogglePolicy.h@{Source/Periculum/Public/TogglePolicies/CollisionTogglePolicy.h}}
+\doxymbox{\hyperlink{_collision_toggle_policy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}TogglePolicies/TogglePolicy.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CollisionTogglePolicy.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Enum\ representing\ the\ different\ collision\ toggle\ modes.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00012\ UENUM(BlueprintType)}
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum}\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{ECollisionToggleMode}}\ :\ \doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{uint8}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ NoCollision\ \doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(\doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}No\ Collision"{}}),}
+\DoxyCodeLine{00016\ \ \ \ \ QueryOnly\ \doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{UMETA}}(\doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Query\ Only"{}}),}
+\DoxyCodeLine{00017\ \ \ \ \ PhysicsOnly\ \doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{UMETA}}(\doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Physics\ Only"{}}),}
+\DoxyCodeLine{00018\ \ \ \ \ QueryAndPhysics\ \doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{UMETA}}(\doxymbox{\hyperlink{_collision_toggle_policy_8h_aeae0344a3bb40c0c834f938cb8806da2}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Query\ and\ Physics"{}}),}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ A\ toggle\ policy\ that\ controls\ the\ collision\ settings\ of\ a\ target\ object.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00024\ UCLASS(EditInlineNew)}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_u_collision_toggle_policy}{UCollisionTogglePolicy}}\ :\ \textcolor{keyword}{public}\ UTogglePolicy}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{///\ The\ collision\ mode\ to\ apply\ when\ the\ policy\ is\ disabled.\ This\ determines\ how\ the\ target\ object's\ collision\ settings\ will\ be\ modified\ when\ the\ policy\ is\ not\ active.}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00033\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}CollisionTogglePolicy"{}})}
+\DoxyCodeLine{00034\ \ \ \ \ ECollisionToggleMode\ DisableMode\ =\ ECollisionToggleMode::NoCollision;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Apply\_Implementation(UObject*\ Target,\ \textcolor{keywordtype}{bool}\ bEnable)\ override;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{///\ A\ map\ that\ stores\ the\ original\ collision\ settings\ of\ the\ target\ object's\ primitive\ components.\ This\ is\ used\ to\ restore\ the\ original\ settings\ when\ the\ policy\ is\ disabled.}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00042\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00043\ \ \ \ \ TMap<UPrimitiveComponent*,\ TEnumAsByte<ECollisionEnabled::Type>>\ OriginalCollisionSettings;}
+\DoxyCodeLine{00044\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,30 @@
+\doxysection{Composite\+Toggle\+Policy.\+h}
+\hypertarget{_composite_toggle_policy_8h_source}{}\label{_composite_toggle_policy_8h_source}\index{Source/Periculum/Public/TogglePolicies/CompositeTogglePolicy.h@{Source/Periculum/Public/TogglePolicies/CompositeTogglePolicy.h}}
+\doxymbox{\hyperlink{_composite_toggle_policy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}TogglePolicies/TogglePolicy.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CompositeTogglePolicy.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ A\ toggle\ policy\ that\ applies\ multiple\ sub-\/policies\ in\ sequence.\ This\ allows\ for\ complex\ toggling\ behavior\ by\ combining\ simpler\ policies.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00012\ UCLASS()}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_u_composite_toggle_policy}{UCompositeTogglePolicy}}\ :\ \textcolor{keyword}{public}\ UTogglePolicy}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{///\ The\ list\ of\ sub-\/policies\ that\ will\ be\ applied\ in\ sequence.\ Each\ sub-\/policy\ will\ be\ applied\ to\ the\ target\ object\ when\ this\ composite\ policy\ is\ applied.}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00021\ \ \ \ \ UPROPERTY(EditAnywhere,\ Instanced,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}CompositeTogglePolicy"{}})}
+\DoxyCodeLine{00022\ \ \ \ \ TArray<UTogglePolicy*>\ SubPolicies;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}

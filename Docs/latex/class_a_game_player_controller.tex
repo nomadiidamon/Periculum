@@ -1,0 +1,216 @@
+\doxysection{AGame\+Player\+Controller Class Reference}
+\hypertarget{class_a_game_player_controller}{}\label{class_a_game_player_controller}\index{AGamePlayerController@{AGamePlayerController}}
+
+
+Game\+Player\+Controller is the player controller class for the standard game mode.  
+
+
+
+
+{\ttfamily \+\#include $<$Game\+Player\+Controller.\+h$>$}
+
+Inheritance diagram for AGame\+Player\+Controller:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_a_game_player_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_a_game_player_controller_a07d7d49220167cfd38c8080e75795753}{AGame\+Player\+Controller}} ()
+\item 
+virtual void \doxymbox{\hyperlink{class_a_game_player_controller_a5f6e02dff3d07862ea963b090e9c6177}{Begin\+Play}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_game_player_controller_a3b81ac90db8b15d89f6f7447d43222f9}{End\+Play}} (const EEnd\+Play\+Reason::\+\+Type End\+Play\+Reason) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_game_player_controller_a26ef346a21841333b9cda78f7f411fd8}{Pre\+Initialize\+Components}} () override
+\begin{DoxyCompactList}\small\item\em Performs pre-\/initialization of the object\textquotesingle{}s components. This virtual method is called during the setup phase and can be overridden to configure or prepare components before the main initialization. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_a_game_player_controller_aa095bc61f1a011954b25b3516d6dc80a}{Tick}} (float Delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_a_periculum_player_controller}{APericulum\+Player\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_a_periculum_player_controller_acec16f7728fb204b21b7ac6e999363bb}{APericulum\+Player\+Controller}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_a_game_player_controller_abed4c5485dfdff51646d1b159601323e}{On\+Possess}} (APawn \texorpdfstring{$\ast$}{*}In\+Pawn) override
+\begin{DoxyCompactList}\small\item\em Behavior when the player controller possesses a pawn. This virtual method is called when the controller takes control of a pawn, allowing for custom logic to be executed upon possession. Override this method to implement specific behavior when possessing a pawn. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_a_game_player_controller_acd43481a985f78c459b41c3e5209d3a4}{On\+Un\+Possess}} () override
+\begin{DoxyCompactList}\small\item\em Behavior when the player controller unpossesses a pawn. This virtual method is called when the controller relinquishes control of a pawn, allowing for custom logic to be executed upon unpossession. Override this method to implement specific behavior when unpossessing a pawn. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_a_game_player_controller_aae72d0c30efda7621a61f4185cf1246c}{Setup\+Input\+Component}} () override
+\begin{DoxyCompactList}\small\item\em Sets up the input component for the player controller. This virtual method is called to bind input actions and axes to functions, allowing the player to interact with the game. Override this method to customize input handling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Game\+Player\+Controller is the player controller class for the standard game mode. 
+
+\label{doc-constructors}
+\Hypertarget{class_a_game_player_controller_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_game_player_controller_a07d7d49220167cfd38c8080e75795753}\index{AGamePlayerController@{AGamePlayerController}!AGamePlayerController@{AGamePlayerController}}
+\index{AGamePlayerController@{AGamePlayerController}!AGamePlayerController@{AGamePlayerController}}
+\doxysubsubsection{\texorpdfstring{AGamePlayerController()}{AGamePlayerController()}}
+{\footnotesize\ttfamily \label{class_a_game_player_controller_a07d7d49220167cfd38c8080e75795753} 
+AGame\+Player\+Controller::\+\+AGame\+Player\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004\ \{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{class_a_game_player_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_game_player_controller_a5f6e02dff3d07862ea963b090e9c6177}\index{AGamePlayerController@{AGamePlayerController}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AGamePlayerController@{AGamePlayerController}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily \label{class_a_game_player_controller_a5f6e02dff3d07862ea963b090e9c6177} 
+void AGame\+Player\+Controller::\+\+Begin\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_a_periculum_player_controller_aa81ef1104d8d3bef807794b5ad828b53}{APericulum\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ Super::BeginPlay();}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_game_player_controller_a3b81ac90db8b15d89f6f7447d43222f9}\index{AGamePlayerController@{AGamePlayerController}!EndPlay@{EndPlay}}
+\index{EndPlay@{EndPlay}!AGamePlayerController@{AGamePlayerController}}
+\doxysubsubsection{\texorpdfstring{EndPlay()}{EndPlay()}}
+{\footnotesize\ttfamily \label{class_a_game_player_controller_a3b81ac90db8b15d89f6f7447d43222f9} 
+void AGame\+Player\+Controller::\+\+End\+Play (\begin{DoxyParamCaption}\item[{const EEnd\+Play\+Reason::\+\+Type}]{End\+Play\+Reason}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_a_periculum_player_controller_a9f7dd95c626df33dfaa4f6514e56ecad}{APericulum\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ Super::EndPlay(EndPlayReason);}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_game_player_controller_abed4c5485dfdff51646d1b159601323e}\index{AGamePlayerController@{AGamePlayerController}!OnPossess@{OnPossess}}
+\index{OnPossess@{OnPossess}!AGamePlayerController@{AGamePlayerController}}
+\doxysubsubsection{\texorpdfstring{OnPossess()}{OnPossess()}}
+{\footnotesize\ttfamily \label{class_a_game_player_controller_abed4c5485dfdff51646d1b159601323e} 
+void AGame\+Player\+Controller::\+\+On\+Possess (\begin{DoxyParamCaption}\item[{APawn \texorpdfstring{$\ast$}{*}}]{In\+Pawn}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Behavior when the player controller possesses a pawn. This virtual method is called when the controller takes control of a pawn, allowing for custom logic to be executed upon possession. Override this method to implement specific behavior when possessing a pawn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em In\+Pawn} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \doxymbox{\hyperlink{class_a_periculum_player_controller_ad3fb4166ceb2784c2d3b5ed2c2821402}{APericulum\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ Super::OnPossess(InPawn);}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_game_player_controller_acd43481a985f78c459b41c3e5209d3a4}\index{AGamePlayerController@{AGamePlayerController}!OnUnPossess@{OnUnPossess}}
+\index{OnUnPossess@{OnUnPossess}!AGamePlayerController@{AGamePlayerController}}
+\doxysubsubsection{\texorpdfstring{OnUnPossess()}{OnUnPossess()}}
+{\footnotesize\ttfamily \label{class_a_game_player_controller_acd43481a985f78c459b41c3e5209d3a4} 
+void AGame\+Player\+Controller::\+\+On\+Un\+Possess (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Behavior when the player controller unpossesses a pawn. This virtual method is called when the controller relinquishes control of a pawn, allowing for custom logic to be executed upon unpossession. Override this method to implement specific behavior when unpossessing a pawn. 
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_a_periculum_player_controller_a441fe8990776def9d112aa17ab2c8ef8}{APericulum\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ Super::OnUnPossess();}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_game_player_controller_a26ef346a21841333b9cda78f7f411fd8}\index{AGamePlayerController@{AGamePlayerController}!PreInitializeComponents@{PreInitializeComponents}}
+\index{PreInitializeComponents@{PreInitializeComponents}!AGamePlayerController@{AGamePlayerController}}
+\doxysubsubsection{\texorpdfstring{PreInitializeComponents()}{PreInitializeComponents()}}
+{\footnotesize\ttfamily \label{class_a_game_player_controller_a26ef346a21841333b9cda78f7f411fd8} 
+void AGame\+Player\+Controller::\+\+Pre\+Initialize\+Components (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Performs pre-\/initialization of the object\textquotesingle{}s components. This virtual method is called during the setup phase and can be overridden to configure or prepare components before the main initialization. 
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_a_periculum_player_controller_ad240b165d5a8daa21aa080bd6c79fbbc}{APericulum\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ Super::PreInitializeComponents();}
+\DoxyCodeLine{00011\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_game_player_controller_aae72d0c30efda7621a61f4185cf1246c}\index{AGamePlayerController@{AGamePlayerController}!SetupInputComponent@{SetupInputComponent}}
+\index{SetupInputComponent@{SetupInputComponent}!AGamePlayerController@{AGamePlayerController}}
+\doxysubsubsection{\texorpdfstring{SetupInputComponent()}{SetupInputComponent()}}
+{\footnotesize\ttfamily \label{class_a_game_player_controller_aae72d0c30efda7621a61f4185cf1246c} 
+void AGame\+Player\+Controller::\+\+Setup\+Input\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Sets up the input component for the player controller. This virtual method is called to bind input actions and axes to functions, allowing the player to interact with the game. Override this method to customize input handling. 
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_a_periculum_player_controller_af2a3a550f12cdec2b03f3cdb6e7a98c0}{APericulum\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ Super::SetupInputComponent();}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_game_player_controller_aa095bc61f1a011954b25b3516d6dc80a}\index{AGamePlayerController@{AGamePlayerController}!Tick@{Tick}}
+\index{Tick@{Tick}!AGamePlayerController@{AGamePlayerController}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily \label{class_a_game_player_controller_aa095bc61f1a011954b25b3516d6dc80a} 
+void AGame\+Player\+Controller::\+\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \doxymbox{\hyperlink{class_a_periculum_player_controller_a790416aadf46962440dcc65f5c534c1b}{APericulum\+Player\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ Super::Tick(DeltaTime);}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Actors/\+\doxymbox{\hyperlink{_game_player_controller_8h}{Game\+Player\+Controller.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Actors/\+\doxymbox{\hyperlink{_game_player_controller_8cpp}{Game\+Player\+Controller.\+cpp}}\end{DoxyCompactItemize}

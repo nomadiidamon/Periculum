@@ -1,0 +1,135 @@
+\doxysection{Sphere\+Spawner\+Component.\+h}
+\hypertarget{_sphere_spawner_component_8h_source}{}\label{_sphere_spawner_component_8h_source}\index{Source/Periculum/Public/SceneComponents/SphereSpawnerComponent.h@{Source/Periculum/Public/SceneComponents/SphereSpawnerComponent.h}}
+\doxymbox{\hyperlink{_sphere_spawner_component_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}Components/ActorComponent.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}Utility/SphereComponentUtilities.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}SphereSpawnerComponent.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class}\ USphereComponent;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ A\ component\ that\ spawns\ points\ within\ a\ sphere\ defined\ by\ a\ USphereComponent.\ It\ allows\ for\ customizable\ spawn\ parameters,\ randomization,\ and\ debug\ visualization\ of\ the\ spawn\ area\ and\ last\ spawn\ point.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00014\ UCLASS(\ ClassGroup=(Custom),\ meta=(BlueprintSpawnableComponent)\ )}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_u_sphere_spawner_component}{USphereSpawnerComponent}}\ :\ \textcolor{keyword}{public}\ UActorComponent}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ USphereSpawnerComponent();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ TickComponent(\textcolor{keywordtype}{float}\ DeltaTime,\ ELevelTick\ TickType,\ FActorComponentTickFunction*\ ThisTickFunction)\ override;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnRegister()\ override;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{///\ A\ pointer\ to\ a\ USphereComponent\ used\ for\ sphere\ spawning.}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00030\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00031\ \ \ \ \ TObjectPtr<USphereComponent>\ SphereComponent;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{///\ The\ parameters\ used\ for\ spawning\ within\ the\ sphere.}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00036\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00037\ \ \ \ \ FSphereSpawnParams\ SpawnParams;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{///\ History\ of\ spawn\ data\ generated\ by\ the\ component,\ stored\ as\ an\ array\ of\ FSphereSpawnData.}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00042\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00043\ \ \ \ \ TArray<FSphereSpawnData>\ SpawnHistory;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{///\ The\ maximum\ number\ of\ spawn\ history\ entries\ to\ keep.\ When\ the\ limit\ is\ reached,\ older\ entries\ will\ be\ removed.}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00048\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00049\ \ \ \ \ int32\ MaxSpawnHistory\ =\ 100;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{///\ An\ integer\ property\ that\ specifies\ the\ seed\ used\ for\ sphere\ spawning.\ It\ is\ editable\ anywhere\ and\ exposed\ to\ Blueprints\ for\ reading\ and\ writing,\ categorized\ under\ "{}Sphere\ Spawning"{}.}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00054\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00055\ \ \ \ \ int32\ RandomSeed\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{///\ The\ random\ stream\ used\ for\ generating\ random\ values\ during\ sphere\ spawning.\ It\ is\ initialized\ with\ the\ specified\ RandomSeed\ and\ is\ not\ exposed\ to\ Blueprints\ or\ editable\ in\ the\ editor.}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00060\ \ \ \ \ UPROPERTY()}
+\DoxyCodeLine{00061\ \ \ \ \ FRandomStream\ RandomStream;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{///\ Whether\ to\ draw\ debug\ visualization\ of\ the\ sphere\ spawning\ area.\ If\ true,\ the\ area\ will\ be\ drawn\ for\ debugging\ purposes.\ It\ is\ editable\ anywhere\ and\ exposed\ to\ Blueprints\ for\ reading\ and\ writing,\ categorized\ under\ "{}Sphere\ Spawning"{}.}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00066\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ bDebugDrawArea\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{///\ Whether\ to\ draw\ debug\ visualization\ of\ the\ last\ spawn\ point.\ If\ true,\ the\ last\ spawn\ point\ will\ be\ drawn\ for\ debugging\ purposes.\ It\ is\ editable\ anywhere\ and\ exposed\ to\ Blueprints\ for\ reading\ and\ writing,\ categorized\ under\ "{}Sphere\ Spawning"{}.}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00072\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ bDebugDrawLastPoint\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{///\ Sets\ the\ spawn\ parameters\ for\ the\ sphere\ spawner\ component.\ This\ function\ allows\ you\ to\ update\ the\ spawn\ parameters\ used\ for\ generating\ spawn\ points\ within\ the\ sphere.}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{///\ It\ takes\ a\ constant\ reference\ to\ an\ FSphereSpawnParams\ structure\ as\ input\ and\ assigns\ it\ to\ the\ SpawnParams\ property\ of\ the\ component.}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{///\ <param\ name="{}InParams"{}>The\ new\ spawn\ parameters\ to\ set.</param>}}
+\DoxyCodeLine{00081\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ SetSpawnParams(\textcolor{keyword}{const}\ FSphereSpawnParams\&\ InParams)\ \{\ \ SpawnParams\ =\ InParams;\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{///\ Clears\ the\ recorded\ spawn\ history\ by\ emptying\ the\ SpawnHistory\ container.}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00087\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ ClearSpawnHistory()\ \{\ SpawnHistory.Empty();\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{///\ Sets\ the\ random\ seed\ for\ the\ sphere\ spawner\ component\ and\ initializes\ the\ RandomStream\ with\ the\ specified\ seed.\ This\ function\ allows\ you\ to\ control\ the\ randomness\ of\ the\ spawn\ points\ generated\ within\ the\ sphere.}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{///\ <param\ name="{}InSeed"{}>The\ new\ random\ seed\ to\ set.</param>}}
+\DoxyCodeLine{00094\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRandomSeed(int32\ InSeed)\ \{\ RandomSeed\ =\ InSeed;\ RandomStream.Initialize(RandomSeed);\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{///\ Draws\ debug\ visualization\ of\ the\ sphere\ spawning\ area.\ If\ bDebugDrawArea\ is\ true,\ this\ function\ will\ render\ the\ sphere\ defined\ by\ the\ SphereComponent\ for\ debugging\ purposes.}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00100\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawDebugSpawnArea()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{///\ Draws\ debug\ visualization\ of\ the\ last\ spawn\ point\ generated\ by\ the\ sphere\ spawner\ component.\ If\ bDebugDrawLastPoint\ is\ true,\ this\ function\ will\ render\ a\ visual\ representation\ of\ the\ last\ spawn\ location\ for\ debugging\ purposes.}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00106\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawDebugLastSpawnPoint()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{///\ Generates\ a\ new\ spawn\ data\ point\ within\ the\ sphere\ defined\ by\ the\ SphereComponent,\ based\ on\ the\ current\ SpawnParams\ and\ RandomStream.\ }}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{///\ This\ function\ returns\ an\ FSphereSpawnData\ structure\ containing\ the\ generated\ spawn\ location\ and\ any\ other\ relevant\ information.}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{///\ <returns>The\ FSphereSpawnData\ structure\ containing\ the\ generated\ spawn\ data.</returns>}}
+\DoxyCodeLine{00114\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00115\ \ \ \ \ FSphereSpawnData\ GenerateSpawnData();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{///\ Generates\ a\ new\ spawn\ data\ point\ within\ the\ sphere\ defined\ by\ the\ SphereComponent,\ based\ on\ the\ current\ SpawnParams\ and\ RandomStream,\ and\ stores\ it\ in\ the\ SpawnHistory\ array.}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{///\ <returns>The\ FSphereSpawnData\ structure\ containing\ the\ generated\ spawn\ data.</returns>}}
+\DoxyCodeLine{00121\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Sphere\ Spawning"{}})}
+\DoxyCodeLine{00122\ \ \ \ \ FSphereSpawnData\ GenerateAndStoreSpawnData();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{///\ The\ last\ spawn\ location\ generated\ by\ the\ sphere\ spawner\ component.\ This\ property\ is\ used\ for\ debug\ visualization\ of\ the\ last\ spawn\ point\ and\ is\ not\ exposed\ to\ Blueprints\ or\ editable\ in\ the\ editor.}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00128\ \ \ \ \ FVector\ LastSpawnLocation;}
+\DoxyCodeLine{00129\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,76 @@
+\doxysection{Boid.\+h}
+\hypertarget{_boid_8h_source}{}\label{_boid_8h_source}\index{Source/Periculum/Public/Actors/Boid.h@{Source/Periculum/Public/Actors/Boid.h}}
+\doxymbox{\hyperlink{_boid_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}GameFramework/Actor.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}Boid.generated.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class}\ UFlockingComponent;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class}\ UStaticMeshComponent;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class}\ USkeletalMeshComponent;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class}\ USphereComponent;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct_f_flock_settings}{FFlockSettings}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ ABoid\ class\ represents\ an\ individual\ boid\ in\ a\ flocking\ simulation.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ It\ contains\ a\ FlockingComponent\ that\ handles\ the\ flocking\ behavior\ and\ a\ StaticMeshComponent\ for\ visual\ representation.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ UCLASS()}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_a_boid}{ABoid}}\ :\ \textcolor{keyword}{public}\ AActor}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ ABoid();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginPlay()\ override;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Tick(\textcolor{keywordtype}{float}\ DeltaTime)\ override;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{///\ Returns\ the\ FlockingComponent\ associated\ with\ this\ Boid.}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{///\ <returns>The\ FlockingComponent\ instance\ if\ valid,\ otherwise\ nullptr.</returns>}}
+\DoxyCodeLine{00035\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00036\ \ \ \ \ UFlockingComponent*\ GetFlockingComponent()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ FlockingComponent;\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{///\ The\ FlockingComponent\ responsible\ for\ handling\ the\ flocking\ behavior\ of\ this\ Boid.}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00042\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Flocking"{}})}
+\DoxyCodeLine{00043\ \ \ \ \ UFlockingComponent*\ FlockingComponent;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{///\ The\ StaticMeshComponent\ used\ for\ visual\ representation\ of\ the\ Boid.}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00048\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Flocking"{}})}
+\DoxyCodeLine{00049\ \ \ \ \ UStaticMeshComponent*\ StaticMeshComponent;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{///\ Bool\ to\ determine\ whether\ to\ draw\ debug\ radius\ for\ the\ Boid's\ flocking\ behavior.}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00054\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Flocking"{}})}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ bDrawDebugRadius\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{///\ Bool\ to\ determine\ whether\ to\ draw\ debug\ sight\ line\ for\ the\ Boid's\ flocking\ behavior.}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00060\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Flocking"{}})}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ bDrawDebugSightLine\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{///\ A\ function\ to\ update\ the\ flock\ settings\ of\ the\ Boid's\ FlockingComponent.}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{///\ <param\ name="{}NewSettings"{}>The\ new\ flock\ settings\ to\ apply.</param>}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateFlockSettings(\textcolor{keyword}{const}\ FFlockSettings\&\ NewSettings);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \};}
+
+\end{DoxyCode}

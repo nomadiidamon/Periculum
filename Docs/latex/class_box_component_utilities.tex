@@ -1,0 +1,170 @@
+\doxysection{Box\+Component\+Utilities Class Reference}
+\hypertarget{class_box_component_utilities}{}\label{class_box_component_utilities}\index{BoxComponentUtilities@{BoxComponentUtilities}}
+
+
+{\ttfamily \+\#include $<$Box\+Component\+Utilities.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static FVector \doxymbox{\hyperlink{class_box_component_utilities_a9e2fea4b3d76d3bd0fd5968fc9c84091}{Get\+Random\+Non\+Uniform\+Scale}} (const \doxymbox{\hyperlink{struct_f_box_spawn_params}{FBox\+Spawn\+Params}} \&Spawn\+Params, FRandom\+Stream \&Random\+Stream)
+\item 
+static FVector \doxymbox{\hyperlink{class_box_component_utilities_a41250a699f80fb3cdeb5de635b265970}{Get\+Random\+Point\+In\+Box}} (const UBox\+Component \texorpdfstring{$\ast$}{*}Box\+Component, FRandom\+Stream \&Random\+Stream)
+\item 
+static FVector \doxymbox{\hyperlink{class_box_component_utilities_a6f2c5d8bd6f80c910081cc3ac18dd1d7}{Get\+Random\+Point\+On\+Box\+Surface}} (const UBox\+Component \texorpdfstring{$\ast$}{*}Box\+Component, FRandom\+Stream \&Random\+Stream)
+\item 
+static FVector \doxymbox{\hyperlink{class_box_component_utilities_ac8531b5f098e3ea37bd6616f81ff60c2}{Get\+Random\+Radial\+Direction}} (const UBox\+Component \texorpdfstring{$\ast$}{*}Box\+Component, FRandom\+Stream \&Random\+Stream)
+\item 
+static FRotator \doxymbox{\hyperlink{class_box_component_utilities_aaadb6879d0b2633b4bde9f286bf8098d}{Get\+Random\+Rotation}} (FRandom\+Stream \&Random\+Stream)
+\item 
+static FVector \doxymbox{\hyperlink{class_box_component_utilities_ad4a389e80230175493a4b5670edb31fa}{Get\+Random\+Uniform\+Scale}} (const \doxymbox{\hyperlink{struct_f_box_spawn_params}{FBox\+Spawn\+Params}} \&Spawn\+Params, FRandom\+Stream \&Random\+Stream)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_box_component_utilities_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_box_component_utilities_a9e2fea4b3d76d3bd0fd5968fc9c84091}\index{BoxComponentUtilities@{BoxComponentUtilities}!GetRandomNonUniformScale@{GetRandomNonUniformScale}}
+\index{GetRandomNonUniformScale@{GetRandomNonUniformScale}!BoxComponentUtilities@{BoxComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomNonUniformScale()}{GetRandomNonUniformScale()}}
+{\footnotesize\ttfamily \label{class_box_component_utilities_a9e2fea4b3d76d3bd0fd5968fc9c84091} 
+FVector Box\+Component\+Utilities::\+\+Get\+Random\+Non\+Uniform\+Scale (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_f_box_spawn_params}{FBox\+Spawn\+Params}} \&}]{Spawn\+Params}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{float}\ X\ =\ RandomStream.FRandRange(SpawnParams.\doxymbox{\hyperlink{struct_f_box_spawn_params_a73e9a53922ff24d1b6f6b29368bd478b}{MinNonUniformScale}}.X,\ SpawnParams.\doxymbox{\hyperlink{struct_f_box_spawn_params_a5466d0a2242c825d0dce292a2f24ee1f}{MaxNonUniformScale}}.X);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{float}\ Y\ =\ RandomStream.FRandRange(SpawnParams.\doxymbox{\hyperlink{struct_f_box_spawn_params_a73e9a53922ff24d1b6f6b29368bd478b}{MinNonUniformScale}}.Y,\ SpawnParams.\doxymbox{\hyperlink{struct_f_box_spawn_params_a5466d0a2242c825d0dce292a2f24ee1f}{MaxNonUniformScale}}.Y);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{float}\ Z\ =\ RandomStream.FRandRange(SpawnParams.\doxymbox{\hyperlink{struct_f_box_spawn_params_a73e9a53922ff24d1b6f6b29368bd478b}{MinNonUniformScale}}.Z,\ SpawnParams.\doxymbox{\hyperlink{struct_f_box_spawn_params_a5466d0a2242c825d0dce292a2f24ee1f}{MaxNonUniformScale}}.Z);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ FVector(X,\ Y,\ Z);}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_box_component_utilities_a41250a699f80fb3cdeb5de635b265970}\index{BoxComponentUtilities@{BoxComponentUtilities}!GetRandomPointInBox@{GetRandomPointInBox}}
+\index{GetRandomPointInBox@{GetRandomPointInBox}!BoxComponentUtilities@{BoxComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomPointInBox()}{GetRandomPointInBox()}}
+{\footnotesize\ttfamily \label{class_box_component_utilities_a41250a699f80fb3cdeb5de635b265970} 
+FVector Box\+Component\+Utilities::\+\+Get\+Random\+Point\+In\+Box (\begin{DoxyParamCaption}\item[{const UBox\+Component \texorpdfstring{$\ast$}{*}}]{Box\+Component}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ FVector\ Extent\ =\ BoxComponent-\/>GetScaledBoxExtent();}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ FVector\ LocalPoint;}
+\DoxyCodeLine{00009\ \ \ \ \ LocalPoint.X\ =\ RandomStream.FRandRange(-\/Extent.X,\ Extent.X);}
+\DoxyCodeLine{00010\ \ \ \ \ LocalPoint.Y\ =\ RandomStream.FRandRange(-\/Extent.Y,\ Extent.Y);}
+\DoxyCodeLine{00011\ \ \ \ \ LocalPoint.Z\ =\ RandomStream.FRandRange(-\/Extent.Z,\ Extent.Z);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{return}\ BoxComponent-\/>GetComponentTransform().TransformPosition(LocalPoint);}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_box_component_utilities_a6f2c5d8bd6f80c910081cc3ac18dd1d7}\index{BoxComponentUtilities@{BoxComponentUtilities}!GetRandomPointOnBoxSurface@{GetRandomPointOnBoxSurface}}
+\index{GetRandomPointOnBoxSurface@{GetRandomPointOnBoxSurface}!BoxComponentUtilities@{BoxComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomPointOnBoxSurface()}{GetRandomPointOnBoxSurface()}}
+{\footnotesize\ttfamily \label{class_box_component_utilities_a6f2c5d8bd6f80c910081cc3ac18dd1d7} 
+FVector Box\+Component\+Utilities::\+\+Get\+Random\+Point\+On\+Box\+Surface (\begin{DoxyParamCaption}\item[{const UBox\+Component \texorpdfstring{$\ast$}{*}}]{Box\+Component}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ FVector\ Extent\ =\ BoxComponent-\/>GetScaledBoxExtent();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ XY\ =\ Extent.X\ *\ Extent.Y;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ XZ\ =\ Extent.X\ *\ Extent.Z;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ YZ\ =\ Extent.Y\ *\ Extent.Z;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ TotalArea\ =\ 2.f\ *\ (XY\ +\ XZ\ +\ YZ);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ Pick\ =\ RandomStream.FRand()\ *\ TotalArea;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ FVector\ LocalPoint;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ ±Z\ faces\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (Pick\ <\ XY\ *\ 2.f)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ X\ =\ RandomStream.FRandRange(-\/Extent.X,\ Extent.X);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Y\ =\ RandomStream.FRandRange(-\/Extent.Y,\ Extent.Y);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Sign\ =\ (Pick\ <\ XY)\ ?\ 1.f\ :\ -\/1.f;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ LocalPoint\ =\ FVector(X,\ Y,\ Sign\ *\ Extent.Z);}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ ±Y\ faces\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (Pick\ <\ XY\ *\ 2.f\ +\ XZ\ *\ 2.f)}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ X\ =\ RandomStream.FRandRange(-\/Extent.X,\ Extent.X);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Z\ =\ RandomStream.FRandRange(-\/Extent.Z,\ Extent.Z);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Sign\ =\ ((Pick\ -\/\ XY\ *\ 2.f)\ <\ XZ)\ ?\ 1.f\ :\ -\/1.f;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ LocalPoint\ =\ FVector(X,\ Sign\ *\ Extent.Y,\ Z);}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ ±X\ faces\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Y\ =\ RandomStream.FRandRange(-\/Extent.Y,\ Extent.Y);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Z\ =\ RandomStream.FRandRange(-\/Extent.Z,\ Extent.Z);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Sign\ =\ ((Pick\ -\/\ (XY\ *\ 2.f\ +\ XZ\ *\ 2.f))\ <\ YZ)\ ?\ 1.f\ :\ -\/1.f;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ LocalPoint\ =\ FVector(Sign\ *\ Extent.X,\ Y,\ Z);}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ BoxComponent-\/>GetComponentTransform().TransformPosition(LocalPoint);}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_box_component_utilities_ac8531b5f098e3ea37bd6616f81ff60c2}\index{BoxComponentUtilities@{BoxComponentUtilities}!GetRandomRadialDirection@{GetRandomRadialDirection}}
+\index{GetRandomRadialDirection@{GetRandomRadialDirection}!BoxComponentUtilities@{BoxComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomRadialDirection()}{GetRandomRadialDirection()}}
+{\footnotesize\ttfamily \label{class_box_component_utilities_ac8531b5f098e3ea37bd6616f81ff60c2} 
+FVector Box\+Component\+Utilities::\+\+Get\+Random\+Radial\+Direction (\begin{DoxyParamCaption}\item[{const UBox\+Component \texorpdfstring{$\ast$}{*}}]{Box\+Component}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ FVector\ Center\ =\ BoxComponent-\/>GetComponentLocation();}
+\DoxyCodeLine{00066\ \ \ \ \ FVector\ Point\ =\ \doxymbox{\hyperlink{class_box_component_utilities_a6f2c5d8bd6f80c910081cc3ac18dd1d7}{BoxComponentUtilities::GetRandomPointOnBoxSurface}}(BoxComponent,\ RandomStream);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ (Point\ -\/\ Center).GetSafeNormal();}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_box_component_utilities_aaadb6879d0b2633b4bde9f286bf8098d}\index{BoxComponentUtilities@{BoxComponentUtilities}!GetRandomRotation@{GetRandomRotation}}
+\index{GetRandomRotation@{GetRandomRotation}!BoxComponentUtilities@{BoxComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomRotation()}{GetRandomRotation()}}
+{\footnotesize\ttfamily \label{class_box_component_utilities_aaadb6879d0b2633b4bde9f286bf8098d} 
+FRotator Box\+Component\+Utilities::\+\+Get\+Random\+Rotation (\begin{DoxyParamCaption}\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ FRotator(}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ RandomStream.FRandRange(0.f,\ 360.f),}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ RandomStream.FRandRange(0.f,\ 360.f),}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ RandomStream.FRandRange(0.f,\ 360.f)}
+\DoxyCodeLine{00077\ \ \ \ \ );}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_box_component_utilities_ad4a389e80230175493a4b5670edb31fa}\index{BoxComponentUtilities@{BoxComponentUtilities}!GetRandomUniformScale@{GetRandomUniformScale}}
+\index{GetRandomUniformScale@{GetRandomUniformScale}!BoxComponentUtilities@{BoxComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomUniformScale()}{GetRandomUniformScale()}}
+{\footnotesize\ttfamily \label{class_box_component_utilities_ad4a389e80230175493a4b5670edb31fa} 
+FVector Box\+Component\+Utilities::\+\+Get\+Random\+Uniform\+Scale (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_f_box_spawn_params}{FBox\+Spawn\+Params}} \&}]{Spawn\+Params}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{float}\ S\ =\ RandomStream.FRandRange(SpawnParams.\doxymbox{\hyperlink{struct_f_box_spawn_params_a7caf948aade3f7b5fff317d71adedb50}{MinUniformScale}},\ SpawnParams.\doxymbox{\hyperlink{struct_f_box_spawn_params_a4554f5e1c6cd8354b8ee6d1154520445}{MaxUniformScale}});}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ FVector(S);}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Utility/\+\doxymbox{\hyperlink{_box_component_utilities_8h}{Box\+Component\+Utilities.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Utility/\+\doxymbox{\hyperlink{_box_component_utilities_8cpp}{Box\+Component\+Utilities.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,122 @@
+\doxysection{Sphere\+Component\+Utilities Class Reference}
+\hypertarget{class_sphere_component_utilities}{}\label{class_sphere_component_utilities}\index{SphereComponentUtilities@{SphereComponentUtilities}}
+
+
+{\ttfamily \+\#include $<$Sphere\+Component\+Utilities.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static FVector \doxymbox{\hyperlink{class_sphere_component_utilities_af1b64bb9905ffe80d275cdc09e375144}{Get\+Random\+Non\+Uniform\+Scale}} (const \doxymbox{\hyperlink{struct_f_sphere_spawn_params}{FSphere\+Spawn\+Params}} \&Spawn\+Params, FRandom\+Stream \&Random\+Stream)
+\item 
+static FVector \doxymbox{\hyperlink{class_sphere_component_utilities_ab7f4bf0e6d628be9ccd421f5abd33a17}{Get\+Random\+Point\+In\+Sphere}} (const USphere\+Component \texorpdfstring{$\ast$}{*}Sphere\+Component, FRandom\+Stream \&Random\+Stream)
+\item 
+static FVector \doxymbox{\hyperlink{class_sphere_component_utilities_a9e1d916987da822e6475481fea61dd3a}{Get\+Random\+Point\+On\+Sphere\+Surface}} (const USphere\+Component \texorpdfstring{$\ast$}{*}Sphere\+Component, FRandom\+Stream \&Random\+Stream)
+\item 
+static FVector \doxymbox{\hyperlink{class_sphere_component_utilities_a7d99fa712b0388153268eff95ed5b095}{Get\+Random\+Radial\+Direction}} (const USphere\+Component \texorpdfstring{$\ast$}{*}Sphere\+Component, FRandom\+Stream \&Random\+Stream)
+\item 
+static FRotator \doxymbox{\hyperlink{class_sphere_component_utilities_a22cae96090cc191b209490d9a2a433ff}{Get\+Random\+Rotation}} (FRandom\+Stream \&Random\+Stream)
+\item 
+static FVector \doxymbox{\hyperlink{class_sphere_component_utilities_a42bac78198c56a1bf773041b344ff050}{Get\+Random\+Uniform\+Scale}} (const \doxymbox{\hyperlink{struct_f_sphere_spawn_params}{FSphere\+Spawn\+Params}} \&Spawn\+Params, FRandom\+Stream \&Random\+Stream)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_sphere_component_utilities_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sphere_component_utilities_af1b64bb9905ffe80d275cdc09e375144}\index{SphereComponentUtilities@{SphereComponentUtilities}!GetRandomNonUniformScale@{GetRandomNonUniformScale}}
+\index{GetRandomNonUniformScale@{GetRandomNonUniformScale}!SphereComponentUtilities@{SphereComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomNonUniformScale()}{GetRandomNonUniformScale()}}
+{\footnotesize\ttfamily \label{class_sphere_component_utilities_af1b64bb9905ffe80d275cdc09e375144} 
+FVector Sphere\+Component\+Utilities::\+\+Get\+Random\+Non\+Uniform\+Scale (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_f_sphere_spawn_params}{FSphere\+Spawn\+Params}} \&}]{Spawn\+Params}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ FVector\ NonUniformScale;}
+\DoxyCodeLine{00040\ \ \ \ \ NonUniformScale.X\ =\ RandomStream.FRandRange(SpawnParams.\doxymbox{\hyperlink{struct_f_sphere_spawn_params_a2432817c9af15f87817d8af56c557870}{MinNonUniformScale}}.X,\ SpawnParams.\doxymbox{\hyperlink{struct_f_sphere_spawn_params_ae7c063ac4e2b71be30560cb236b773b1}{MaxNonUniformScale}}.X);}
+\DoxyCodeLine{00041\ \ \ \ \ NonUniformScale.Y\ =\ RandomStream.FRandRange(SpawnParams.\doxymbox{\hyperlink{struct_f_sphere_spawn_params_a2432817c9af15f87817d8af56c557870}{MinNonUniformScale}}.Y,\ SpawnParams.\doxymbox{\hyperlink{struct_f_sphere_spawn_params_ae7c063ac4e2b71be30560cb236b773b1}{MaxNonUniformScale}}.Y);}
+\DoxyCodeLine{00042\ \ \ \ \ NonUniformScale.Z\ =\ RandomStream.FRandRange(SpawnParams.\doxymbox{\hyperlink{struct_f_sphere_spawn_params_a2432817c9af15f87817d8af56c557870}{MinNonUniformScale}}.Z,\ SpawnParams.\doxymbox{\hyperlink{struct_f_sphere_spawn_params_ae7c063ac4e2b71be30560cb236b773b1}{MaxNonUniformScale}}.Z);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ NonUniformScale;}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_sphere_component_utilities_ab7f4bf0e6d628be9ccd421f5abd33a17}\index{SphereComponentUtilities@{SphereComponentUtilities}!GetRandomPointInSphere@{GetRandomPointInSphere}}
+\index{GetRandomPointInSphere@{GetRandomPointInSphere}!SphereComponentUtilities@{SphereComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomPointInSphere()}{GetRandomPointInSphere()}}
+{\footnotesize\ttfamily \label{class_sphere_component_utilities_ab7f4bf0e6d628be9ccd421f5abd33a17} 
+FVector Sphere\+Component\+Utilities::\+\+Get\+Random\+Point\+In\+Sphere (\begin{DoxyParamCaption}\item[{const USphere\+Component \texorpdfstring{$\ast$}{*}}]{Sphere\+Component}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{float}\ Radius\ =\ SphereComponent-\/>GetScaledSphereRadius();}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{float}\ ScaledRadius\ =\ Radius\ *\ FMath::Pow(RandomStream.FRand(),\ 1.0f\ /\ 3.0f);}
+\DoxyCodeLine{00008\ \ \ \ \ FVector\ localPoint\ =\ RandomStream.VRand()\ *\ ScaledRadius;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{return}\ SphereComponent-\/>GetComponentTransform().TransformPosition(localPoint);}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_sphere_component_utilities_a9e1d916987da822e6475481fea61dd3a}\index{SphereComponentUtilities@{SphereComponentUtilities}!GetRandomPointOnSphereSurface@{GetRandomPointOnSphereSurface}}
+\index{GetRandomPointOnSphereSurface@{GetRandomPointOnSphereSurface}!SphereComponentUtilities@{SphereComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomPointOnSphereSurface()}{GetRandomPointOnSphereSurface()}}
+{\footnotesize\ttfamily \label{class_sphere_component_utilities_a9e1d916987da822e6475481fea61dd3a} 
+FVector Sphere\+Component\+Utilities::\+\+Get\+Random\+Point\+On\+Sphere\+Surface (\begin{DoxyParamCaption}\item[{const USphere\+Component \texorpdfstring{$\ast$}{*}}]{Sphere\+Component}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{float}\ Radius\ =\ SphereComponent-\/>GetScaledSphereRadius();}
+\DoxyCodeLine{00015\ \ \ \ \ FVector\ localPoint\ =\ RandomStream.VRand()\ *\ Radius;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{return}\ SphereComponent-\/>GetComponentTransform().TransformPosition(localPoint);}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_sphere_component_utilities_a7d99fa712b0388153268eff95ed5b095}\index{SphereComponentUtilities@{SphereComponentUtilities}!GetRandomRadialDirection@{GetRandomRadialDirection}}
+\index{GetRandomRadialDirection@{GetRandomRadialDirection}!SphereComponentUtilities@{SphereComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomRadialDirection()}{GetRandomRadialDirection()}}
+{\footnotesize\ttfamily \label{class_sphere_component_utilities_a7d99fa712b0388153268eff95ed5b095} 
+FVector Sphere\+Component\+Utilities::\+\+Get\+Random\+Radial\+Direction (\begin{DoxyParamCaption}\item[{const USphere\+Component \texorpdfstring{$\ast$}{*}}]{Sphere\+Component}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ FVector\ localDirection\ =\ RandomStream.VRand();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ SphereComponent-\/>GetComponentTransform().TransformVectorNoScale(localDirection).GetSafeNormal();}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_sphere_component_utilities_a22cae96090cc191b209490d9a2a433ff}\index{SphereComponentUtilities@{SphereComponentUtilities}!GetRandomRotation@{GetRandomRotation}}
+\index{GetRandomRotation@{GetRandomRotation}!SphereComponentUtilities@{SphereComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomRotation()}{GetRandomRotation()}}
+{\footnotesize\ttfamily \label{class_sphere_component_utilities_a22cae96090cc191b209490d9a2a433ff} 
+FRotator Sphere\+Component\+Utilities::\+\+Get\+Random\+Rotation (\begin{DoxyParamCaption}\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ FRotator\ \doxymbox{\hyperlink{_spawn_modes_8h_af1322c92781ca7732e2c264c0fc24d37a4d3a6a2db06689b1c9e191f03e30a900}{RandomRotation}}\ =\ FRotator(RandomStream.FRandRange(0.0f,\ 360.0f),\ RandomStream.FRandRange(0.0f,\ 360.0f),\ RandomStream.FRandRange(0.0f,\ 360.0f));}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{_spawn_modes_8h_af1322c92781ca7732e2c264c0fc24d37a4d3a6a2db06689b1c9e191f03e30a900}{RandomRotation}};}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_sphere_component_utilities_a42bac78198c56a1bf773041b344ff050}\index{SphereComponentUtilities@{SphereComponentUtilities}!GetRandomUniformScale@{GetRandomUniformScale}}
+\index{GetRandomUniformScale@{GetRandomUniformScale}!SphereComponentUtilities@{SphereComponentUtilities}}
+\doxysubsubsection{\texorpdfstring{GetRandomUniformScale()}{GetRandomUniformScale()}}
+{\footnotesize\ttfamily \label{class_sphere_component_utilities_a42bac78198c56a1bf773041b344ff050} 
+FVector Sphere\+Component\+Utilities::\+\+Get\+Random\+Uniform\+Scale (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_f_sphere_spawn_params}{FSphere\+Spawn\+Params}} \&}]{Spawn\+Params}{, }\item[{FRandom\+Stream \&}]{Random\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ UniformScale\ =\ RandomStream.FRandRange(SpawnParams.\doxymbox{\hyperlink{struct_f_sphere_spawn_params_a73f3ccd8b75657dc545dfd4b25226424}{MinUniformScale}},\ SpawnParams.\doxymbox{\hyperlink{struct_f_sphere_spawn_params_a68abe7ee54d8acdd6aac7eec74c42ebd}{MaxUniformScale}});}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ FVector(UniformScale);}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Utility/\+\doxymbox{\hyperlink{_sphere_component_utilities_8h}{Sphere\+Component\+Utilities.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Utility/\+\doxymbox{\hyperlink{_sphere_component_utilities_8cpp}{Sphere\+Component\+Utilities.\+cpp}}\end{DoxyCompactItemize}

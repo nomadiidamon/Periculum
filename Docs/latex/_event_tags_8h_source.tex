@@ -1,0 +1,114 @@
+\doxysection{Event\+Tags.\+h}
+\hypertarget{_event_tags_8h_source}{}\label{_event_tags_8h_source}\index{Source/Periculum/Public/GameplayTags/EventTags.h@{Source/Periculum/Public/GameplayTags/EventTags.h}}
+\doxymbox{\hyperlink{_event_tags_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{///\ @file\ EventTags.h}}
+\DoxyCodeLine{00009\ \textcolor{comment}{///\ @brief\ Defines\ gameplay\ tags\ for\ various\ events\ in\ the\ Periculum\ project,\ including\ actor\ events,\ player\ events,\ interaction\ events,\ grapple\ events,\ weapon\ events,\ trace\ events,\ save/load\ events,\ crafting\ events,\ timer\ events,\ and\ time\ events.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{///\ @todo\ Finish\ assigning\ comments\ to\ all\ event\ tags.\ The\ comments\ should\ describe\ the\ purpose\ and\ context\ of\ each\ tag,\ providing\ clarity\ for\ developers\ using\ these\ tags\ in\ gameplay\ logic.}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{///\ @defgroup\ EventTags\ Event\ Tags}}
+\DoxyCodeLine{00014\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{///\ Basic\ event\ tag\ for\ general\ use.}}
+\DoxyCodeLine{00016\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{///\ @defgroup\ ActorEvents\ Actor\ Events}}
+\DoxyCodeLine{00020\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{///\ Represents\ an\ actor\ event}}
+\DoxyCodeLine{00022\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Actor);}
+\DoxyCodeLine{00023\ \textcolor{comment}{///\ Represents\ an\ actor\ spawned\ event}}
+\DoxyCodeLine{00024\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Actor\_Spawned);}
+\DoxyCodeLine{00025\ \textcolor{comment}{///\ Represents\ an\ actor\ destroyed\ event}}
+\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Actor\_Destroyed);}
+\DoxyCodeLine{00027\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{///\ @defgroup\ PlayerEvents\ Player\ Events}}
+\DoxyCodeLine{00031\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{///\ Represents\ a\ player\ event}}
+\DoxyCodeLine{00033\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Player);}
+\DoxyCodeLine{00034\ \textcolor{comment}{///\ Represents\ a\ player\ spawned\ event}}
+\DoxyCodeLine{00035\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Player\_Spawned);}
+\DoxyCodeLine{00036\ \textcolor{comment}{///\ Represents\ a\ player\ died\ event}}
+\DoxyCodeLine{00037\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Player\_Died);}
+\DoxyCodeLine{00038\ \textcolor{comment}{///\ Represents\ a\ player\ respawned\ event}}
+\DoxyCodeLine{00039\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Player\_Respawned);}
+\DoxyCodeLine{00040\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{///\ @defgroup\ InteractionEvents\ Interaction\ Events}}
+\DoxyCodeLine{00044\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00045\ \textcolor{comment}{///\ Represents\ an\ interaction\ event}}
+\DoxyCodeLine{00046\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Interaction);}
+\DoxyCodeLine{00047\ \textcolor{comment}{///\ Represents\ an\ interaction\ started\ event}}
+\DoxyCodeLine{00048\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Interaction\_Started);}
+\DoxyCodeLine{00049\ \textcolor{comment}{///\ Represents\ an\ interaction\ completed\ event}}
+\DoxyCodeLine{00050\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Interaction\_Completed);}
+\DoxyCodeLine{00051\ \textcolor{comment}{///\ Represents\ an\ interaction\ canceled\ event}}
+\DoxyCodeLine{00052\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Interaction\_Canceled);}
+\DoxyCodeLine{00053\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{///\ Grapple\ Events}}
+\DoxyCodeLine{00057\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Grapple);}
+\DoxyCodeLine{00058\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Grapple\_Started);}
+\DoxyCodeLine{00059\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Grapple\_Attached);}
+\DoxyCodeLine{00060\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Grapple\_Detached);}
+\DoxyCodeLine{00061\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Grapple\_Finished);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{///\ Weapon\ Events}}
+\DoxyCodeLine{00064\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Weapon);}
+\DoxyCodeLine{00065\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Weapon\_ReloadStarted);}
+\DoxyCodeLine{00066\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Weapon\_ReloadFinished);}
+\DoxyCodeLine{00067\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Weapon\_Used);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{///\ Trace\ Events}}
+\DoxyCodeLine{00070\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Trace);}
+\DoxyCodeLine{00071\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Trace\_Begin);}
+\DoxyCodeLine{00072\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Trace\_End);}
+\DoxyCodeLine{00073\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Trace\_Hit);}
+\DoxyCodeLine{00074\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Trace\_Miss);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{///\ Save\ Events}}
+\DoxyCodeLine{00077\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Save);}
+\DoxyCodeLine{00078\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Save\_Started);}
+\DoxyCodeLine{00079\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Save\_Completed);}
+\DoxyCodeLine{00080\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Save\_Failed);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{///\ Load\ Events}}
+\DoxyCodeLine{00083\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Load);}
+\DoxyCodeLine{00084\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Load\_Started);}
+\DoxyCodeLine{00085\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Load\_Completed);}
+\DoxyCodeLine{00086\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Load\_Failed);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{comment}{///\ Crafting\ Events}}
+\DoxyCodeLine{00089\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Crafting);}
+\DoxyCodeLine{00090\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Crafting\_Started);}
+\DoxyCodeLine{00091\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Crafting\_Completed);}
+\DoxyCodeLine{00092\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Crafting\_Failed);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{comment}{///\ Timer\ Events}}
+\DoxyCodeLine{00096\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Timer);}
+\DoxyCodeLine{00097\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Timer\_Started);}
+\DoxyCodeLine{00098\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Timer\_Completed);}
+\DoxyCodeLine{00099\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Timer\_Failed);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{comment}{///\ Time\ Events}}
+\DoxyCodeLine{00102\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Time);}
+\DoxyCodeLine{00103\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Time\_DayStarted);}
+\DoxyCodeLine{00104\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Time\_DayEnded);}
+\DoxyCodeLine{00105\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Time\_NightStarted);}
+\DoxyCodeLine{00106\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Event\_Time\_NightEnded);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{///\ @\}}}
+
+\end{DoxyCode}

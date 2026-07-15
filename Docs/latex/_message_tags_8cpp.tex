@@ -1,0 +1,203 @@
+\doxysection{Source/\+\+Periculum/\+\+Private/\+\+Gameplay\+Tags/\+\+Message\+Tags.cpp File Reference}
+\hypertarget{_message_tags_8cpp}{}\label{_message_tags_8cpp}\index{Source/Periculum/Private/GameplayTags/MessageTags.cpp@{Source/Periculum/Private/GameplayTags/MessageTags.cpp}}
+{\ttfamily \+\#include "{}Gameplay\+Tags/\+\+Message\+Tags.\+h"{}}\newline
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_a7284cb6557fe1341a5cd6dc4dba0cd5a}{TAG\+\_\+\+Message}}
+\begin{DoxyCompactList}\small\item\em Message Events. \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_a164e12ddde69ecc592d311d4d7d56b33}{TAG\+\_\+\+Message\+\_\+\+Audio}}
+\begin{DoxyCompactList}\small\item\em Audio Messages. \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_a271b1b99c4eb49cd97554d8282cf293b}{TAG\+\_\+\+Message\+\_\+\+Audio\+\_\+\+Pause}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents an audio pause message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_a973eecc5d6022b5a4e8d4faeeafe29f3}{TAG\+\_\+\+Message\+\_\+\+Audio\+\_\+\+Play}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents an audio play message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_ac1866985acbc6a7c5222786e599a22fd}{TAG\+\_\+\+Message\+\_\+\+Audio\+\_\+\+Resume}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents an audio resume message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_ab0970164c11d4ead5bf4836187b8c9e1}{TAG\+\_\+\+Message\+\_\+\+Audio\+\_\+\+Stop}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents an audio stop message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_af70ed5133fc9a41aaa457024abdcc88d}{TAG\+\_\+\+Message\+\_\+\+Debug}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents a debug message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_ac3c2eca5c0f524fbec2e10c5b5f53ab3}{TAG\+\_\+\+Message\+\_\+\+Notification}}
+\begin{DoxyCompactList}\small\item\em Notification Messages. \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_a4995cf941c06198845119d4af1cfc08b}{TAG\+\_\+\+Message\+\_\+\+UI}}
+\begin{DoxyCompactList}\small\item\em UI Messages. \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_a816fb651b432e6989a2a26c85d9a88f6}{TAG\+\_\+\+Message\+\_\+\+UI\+\_\+\+Health\+Changed}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents a UI health changed message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_aaa2c6661d79aef0090cbd66da2c1273d}{TAG\+\_\+\+Message\+\_\+\+UI\+\_\+\+Mana\+Changed}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents a UI mana changed message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_af19f735798f03a4325be2a2eaef42e0f}{TAG\+\_\+\+Message\+\_\+\+UI\+\_\+\+Stamina\+Changed}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents a UI stamina changed message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_aeab7995060dcb5b9e3a9100d01089a2c}{TAG\+\_\+\+Message\+\_\+\+World}}
+\begin{DoxyCompactList}\small\item\em World Message. \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_af1fdd842c671cd14d9cdbbad01bb0105}{TAG\+\_\+\+Message\+\_\+\+World\+\_\+\+Season\+Changed}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents a world season changed message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_a9405cc6d02b4c0f499fa1586ebd43fda}{TAG\+\_\+\+Message\+\_\+\+World\+\_\+\+Time\+Changed}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents a world time changed message."{} \end{DoxyCompactList}\item 
+FGameplay\+Tag \doxymbox{\hyperlink{_message_tags_8cpp_a3dc04641d083aa8706cf8bc5de9ffe0c}{TAG\+\_\+\+Message\+\_\+\+World\+\_\+\+Weather\+Changed}}
+\begin{DoxyCompactList}\small\item\em "{}\+Represents a world weather changed message."{} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{_message_tags_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_message_tags_8cpp_a7284cb6557fe1341a5cd6dc4dba0cd5a}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message@{TAG\_Message}}
+\index{TAG\_Message@{TAG\_Message}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message}{TAG\_Message}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_a7284cb6557fe1341a5cd6dc4dba0cd5a} 
+FGameplay\+Tag TAG\+\_\+\+Message}
+
+
+
+Message Events. 
+
+"{}\+Basic message tag for general use."{} \Hypertarget{_message_tags_8cpp_a164e12ddde69ecc592d311d4d7d56b33}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_Audio@{TAG\_Message\_Audio}}
+\index{TAG\_Message\_Audio@{TAG\_Message\_Audio}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_Audio}{TAG\_Message\_Audio}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_a164e12ddde69ecc592d311d4d7d56b33} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+Audio}
+
+
+
+Audio Messages. 
+
+"{}\+Represents an audio message."{} \Hypertarget{_message_tags_8cpp_a271b1b99c4eb49cd97554d8282cf293b}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_Audio\_Pause@{TAG\_Message\_Audio\_Pause}}
+\index{TAG\_Message\_Audio\_Pause@{TAG\_Message\_Audio\_Pause}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_Audio\_Pause}{TAG\_Message\_Audio\_Pause}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_a271b1b99c4eb49cd97554d8282cf293b} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+Audio\+\_\+\+Pause}
+
+
+
+"{}\+Represents an audio pause message."{} 
+
+\Hypertarget{_message_tags_8cpp_a973eecc5d6022b5a4e8d4faeeafe29f3}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_Audio\_Play@{TAG\_Message\_Audio\_Play}}
+\index{TAG\_Message\_Audio\_Play@{TAG\_Message\_Audio\_Play}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_Audio\_Play}{TAG\_Message\_Audio\_Play}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_a973eecc5d6022b5a4e8d4faeeafe29f3} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+Audio\+\_\+\+Play}
+
+
+
+"{}\+Represents an audio play message."{} 
+
+\Hypertarget{_message_tags_8cpp_ac1866985acbc6a7c5222786e599a22fd}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_Audio\_Resume@{TAG\_Message\_Audio\_Resume}}
+\index{TAG\_Message\_Audio\_Resume@{TAG\_Message\_Audio\_Resume}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_Audio\_Resume}{TAG\_Message\_Audio\_Resume}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_ac1866985acbc6a7c5222786e599a22fd} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+Audio\+\_\+\+Resume}
+
+
+
+"{}\+Represents an audio resume message."{} 
+
+\Hypertarget{_message_tags_8cpp_ab0970164c11d4ead5bf4836187b8c9e1}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_Audio\_Stop@{TAG\_Message\_Audio\_Stop}}
+\index{TAG\_Message\_Audio\_Stop@{TAG\_Message\_Audio\_Stop}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_Audio\_Stop}{TAG\_Message\_Audio\_Stop}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_ab0970164c11d4ead5bf4836187b8c9e1} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+Audio\+\_\+\+Stop}
+
+
+
+"{}\+Represents an audio stop message."{} 
+
+\Hypertarget{_message_tags_8cpp_af70ed5133fc9a41aaa457024abdcc88d}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_Debug@{TAG\_Message\_Debug}}
+\index{TAG\_Message\_Debug@{TAG\_Message\_Debug}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_Debug}{TAG\_Message\_Debug}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_af70ed5133fc9a41aaa457024abdcc88d} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+Debug}
+
+
+
+"{}\+Represents a debug message."{} 
+
+\Hypertarget{_message_tags_8cpp_ac3c2eca5c0f524fbec2e10c5b5f53ab3}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_Notification@{TAG\_Message\_Notification}}
+\index{TAG\_Message\_Notification@{TAG\_Message\_Notification}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_Notification}{TAG\_Message\_Notification}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_ac3c2eca5c0f524fbec2e10c5b5f53ab3} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+Notification}
+
+
+
+Notification Messages. 
+
+"{}\+Represents a notification message."{} \Hypertarget{_message_tags_8cpp_a4995cf941c06198845119d4af1cfc08b}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_UI@{TAG\_Message\_UI}}
+\index{TAG\_Message\_UI@{TAG\_Message\_UI}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_UI}{TAG\_Message\_UI}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_a4995cf941c06198845119d4af1cfc08b} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+UI}
+
+
+
+UI Messages. 
+
+"{}\+Represents a UI message."{} \Hypertarget{_message_tags_8cpp_a816fb651b432e6989a2a26c85d9a88f6}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_UI\_HealthChanged@{TAG\_Message\_UI\_HealthChanged}}
+\index{TAG\_Message\_UI\_HealthChanged@{TAG\_Message\_UI\_HealthChanged}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_UI\_HealthChanged}{TAG\_Message\_UI\_HealthChanged}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_a816fb651b432e6989a2a26c85d9a88f6} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+UI\+\_\+\+Health\+Changed}
+
+
+
+"{}\+Represents a UI health changed message."{} 
+
+\Hypertarget{_message_tags_8cpp_aaa2c6661d79aef0090cbd66da2c1273d}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_UI\_ManaChanged@{TAG\_Message\_UI\_ManaChanged}}
+\index{TAG\_Message\_UI\_ManaChanged@{TAG\_Message\_UI\_ManaChanged}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_UI\_ManaChanged}{TAG\_Message\_UI\_ManaChanged}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_aaa2c6661d79aef0090cbd66da2c1273d} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+UI\+\_\+\+Mana\+Changed}
+
+
+
+"{}\+Represents a UI mana changed message."{} 
+
+\Hypertarget{_message_tags_8cpp_af19f735798f03a4325be2a2eaef42e0f}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_UI\_StaminaChanged@{TAG\_Message\_UI\_StaminaChanged}}
+\index{TAG\_Message\_UI\_StaminaChanged@{TAG\_Message\_UI\_StaminaChanged}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_UI\_StaminaChanged}{TAG\_Message\_UI\_StaminaChanged}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_af19f735798f03a4325be2a2eaef42e0f} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+UI\+\_\+\+Stamina\+Changed}
+
+
+
+"{}\+Represents a UI stamina changed message."{} 
+
+\Hypertarget{_message_tags_8cpp_aeab7995060dcb5b9e3a9100d01089a2c}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_World@{TAG\_Message\_World}}
+\index{TAG\_Message\_World@{TAG\_Message\_World}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_World}{TAG\_Message\_World}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_aeab7995060dcb5b9e3a9100d01089a2c} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+World}
+
+
+
+World Message. 
+
+"{}\+Represents a world message."{} \Hypertarget{_message_tags_8cpp_af1fdd842c671cd14d9cdbbad01bb0105}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_World\_SeasonChanged@{TAG\_Message\_World\_SeasonChanged}}
+\index{TAG\_Message\_World\_SeasonChanged@{TAG\_Message\_World\_SeasonChanged}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_World\_SeasonChanged}{TAG\_Message\_World\_SeasonChanged}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_af1fdd842c671cd14d9cdbbad01bb0105} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+World\+\_\+\+Season\+Changed}
+
+
+
+"{}\+Represents a world season changed message."{} 
+
+\Hypertarget{_message_tags_8cpp_a9405cc6d02b4c0f499fa1586ebd43fda}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_World\_TimeChanged@{TAG\_Message\_World\_TimeChanged}}
+\index{TAG\_Message\_World\_TimeChanged@{TAG\_Message\_World\_TimeChanged}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_World\_TimeChanged}{TAG\_Message\_World\_TimeChanged}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_a9405cc6d02b4c0f499fa1586ebd43fda} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+World\+\_\+\+Time\+Changed}
+
+
+
+"{}\+Represents a world time changed message."{} 
+
+\Hypertarget{_message_tags_8cpp_a3dc04641d083aa8706cf8bc5de9ffe0c}\index{MessageTags.cpp@{MessageTags.cpp}!TAG\_Message\_World\_WeatherChanged@{TAG\_Message\_World\_WeatherChanged}}
+\index{TAG\_Message\_World\_WeatherChanged@{TAG\_Message\_World\_WeatherChanged}!MessageTags.cpp@{MessageTags.cpp}}
+\doxysubsubsection{\texorpdfstring{TAG\_Message\_World\_WeatherChanged}{TAG\_Message\_World\_WeatherChanged}}
+{\footnotesize\ttfamily \label{_message_tags_8cpp_a3dc04641d083aa8706cf8bc5de9ffe0c} 
+FGameplay\+Tag TAG\+\_\+\+Message\+\_\+\+World\+\_\+\+Weather\+Changed}
+
+
+
+"{}\+Represents a world weather changed message."{} 
+

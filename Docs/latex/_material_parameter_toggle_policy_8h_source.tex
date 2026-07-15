@@ -1,0 +1,92 @@
+\doxysection{Material\+Parameter\+Toggle\+Policy.\+h}
+\hypertarget{_material_parameter_toggle_policy_8h_source}{}\label{_material_parameter_toggle_policy_8h_source}\index{Source/Periculum/Public/TogglePolicies/MaterialParameterTogglePolicy.h@{Source/Periculum/Public/TogglePolicies/MaterialParameterTogglePolicy.h}}
+\doxymbox{\hyperlink{_material_parameter_toggle_policy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}TogglePolicies/TogglePolicy.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}MaterialParameterTogglePolicy.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ The\ type\ of\ material\ parameter\ to\ modify.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00012\ UENUM(BlueprintType)}
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum}\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{_material_parameter_toggle_policy_8h_abc794a969d0c6cedca00911490b89f12}{EMaterialParamType}}\ :\ \doxymbox{\hyperlink{_material_parameter_toggle_policy_8h_abc794a969d0c6cedca00911490b89f12}{uint8}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ Scalar\ \ \doxymbox{\hyperlink{_material_parameter_toggle_policy_8h_abc794a969d0c6cedca00911490b89f12aa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(\doxymbox{\hyperlink{_material_parameter_toggle_policy_8h_abc794a969d0c6cedca00911490b89f12}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Scalar"{}}),}
+\DoxyCodeLine{00016\ \ \ \ \ Color\ \ \ \doxymbox{\hyperlink{_material_parameter_toggle_policy_8h_abc794a969d0c6cedca00911490b89f12}{UMETA}}(\doxymbox{\hyperlink{_material_parameter_toggle_policy_8h_abc794a969d0c6cedca00911490b89f12}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Linear\ Color"{}}),}
+\DoxyCodeLine{00017\ \ \ \ \ Vector\ \ \doxymbox{\hyperlink{_material_parameter_toggle_policy_8h_abc794a969d0c6cedca00911490b89f12}{UMETA}}(\doxymbox{\hyperlink{_material_parameter_toggle_policy_8h_abc794a969d0c6cedca00911490b89f12}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Vector\ (XYZ)"{}}),}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ A\ toggle\ policy\ that\ modifies\ a\ material\ parameter.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00024\ UCLASS()}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_u_material_parameter_toggle_policy}{UMaterialParameterTogglePolicy}}\ :\ \textcolor{keyword}{public}\ UTogglePolicy}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{///\ The\ name\ of\ the\ material\ parameter\ to\ modify.\ This\ should\ match\ the\ name\ of\ a\ parameter\ in\ the\ material\ applied\ to\ the\ target\ object.}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00033\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}MaterialParameter"{}})}
+\DoxyCodeLine{00034\ \ \ \ \ FName\ ParameterName\ =\ NAME\_None;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{///\ The\ type\ of\ the\ material\ parameter\ to\ modify.\ This\ determines\ which\ property\ of\ the\ material\ will\ be\ changed\ when\ the\ policy\ is\ applied.}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00039\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}MaterialParameter"{}})}
+\DoxyCodeLine{00040\ \ \ \ \ EMaterialParamType\ ParameterType\ =\ EMaterialParamType::Scalar;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{///\ The\ value\ to\ set\ the\ material\ parameter\ to\ when\ the\ policy\ is\ applied\ and\ the\ target\ is\ enabled.\ This\ value\ is\ used\ for\ scalar\ parameters.}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00045\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}MaterialParameter|Scalar"{}},}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ meta\ =\ (EditCondition\ =\ \textcolor{stringliteral}{"{}ParameterType\ ==\ EMaterialParamType::Scalar"{}},\ EditConditionHides))}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ EnabledScalar\ =\ 1.0f;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{///\ The\ value\ to\ set\ the\ material\ parameter\ to\ when\ the\ policy\ is\ applied\ and\ the\ target\ is\ disabled.\ This\ value\ is\ used\ for\ scalar\ parameters.}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00052\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}MaterialParameter|Scalar"{}},}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ meta\ =\ (EditCondition\ =\ \textcolor{stringliteral}{"{}ParameterType\ ==\ EMaterialParamType::Scalar"{}},\ EditConditionHides))}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{float}\ DisabledScalar\ =\ 0.0f;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{///\ The\ Linear\ Color\ value\ to\ set\ the\ material\ parameter\ to\ when\ the\ policy\ is\ applied\ and\ the\ target\ is\ enabled.\ This\ value\ is\ used\ for\ color\ parameters.}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00059\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}MaterialParameter|Color"{}},}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ meta\ =\ (EditCondition\ =\ \textcolor{stringliteral}{"{}ParameterType\ ==\ EMaterialParamType::Color"{}},\ EditConditionHides))}
+\DoxyCodeLine{00061\ \ \ \ \ FLinearColor\ EnabledColor\ =\ FLinearColor::White;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{///\ The\ Linear\ Color\ value\ to\ set\ the\ material\ parameter\ to\ when\ the\ policy\ is\ applied\ and\ the\ target\ is\ disabled.\ This\ value\ is\ used\ for\ color\ parameters.}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00066\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}MaterialParameter|Color"{}},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ meta\ =\ (EditCondition\ =\ \textcolor{stringliteral}{"{}ParameterType\ ==\ EMaterialParamType::Color"{}},\ EditConditionHides))}
+\DoxyCodeLine{00068\ \ \ \ \ FLinearColor\ DisabledColor\ =\ FLinearColor::Black;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{///\ The\ Vector\ value\ to\ set\ the\ material\ parameter\ to\ when\ the\ policy\ is\ applied\ and\ the\ target\ is\ enabled.\ This\ value\ is\ used\ for\ vector\ parameters.}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00073\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}MaterialParameter|Vector"{}},}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ meta\ =\ (EditCondition\ =\ \textcolor{stringliteral}{"{}ParameterType\ ==\ EMaterialParamType::Vector"{}},\ EditConditionHides))}
+\DoxyCodeLine{00075\ \ \ \ \ FLinearColor\ EnabledVector\ =\ FLinearColor(1.f,\ 1.f,\ 1.f,\ 1.f);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{///\ <summary>}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{///\ THe\ Vector\ value\ to\ set\ the\ material\ parameter\ to\ when\ the\ policy\ is\ applied\ and\ the\ target\ is\ disabled.\ This\ value\ is\ used\ for\ vector\ parameters.}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{///\ </summary>}}
+\DoxyCodeLine{00080\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}MaterialParameter|Vector"{}},}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ meta\ =\ (EditCondition\ =\ \textcolor{stringliteral}{"{}ParameterType\ ==\ EMaterialParamType::Vector"{}},\ EditConditionHides))}
+\DoxyCodeLine{00082\ \ \ \ \ FLinearColor\ DisabledVector\ =\ FLinearColor(0.f,\ 0.f,\ 0.f,\ 0.f);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ CanApply\_Implementation(UObject*\ Target,\ \textcolor{keywordtype}{bool}\ bEnable)\ override;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Apply\_Implementation(UObject*\ Target,\ \textcolor{keywordtype}{bool}\ bEnable)\ override;}
+\DoxyCodeLine{00086\ \};}
+
+\end{DoxyCode}

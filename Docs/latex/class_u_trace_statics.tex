@@ -1,0 +1,265 @@
+\doxysection{UTrace\+Statics Class Reference}
+\hypertarget{class_u_trace_statics}{}\label{class_u_trace_statics}\index{UTraceStatics@{UTraceStatics}}
+
+
+{\ttfamily \+\#include $<$Trace\+Statics.\+h$>$}
+
+Inheritance diagram for UTrace\+Statics:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_trace_statics}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \doxymbox{\hyperlink{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c}{Actor\+Is\+Traceable}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static void \doxymbox{\hyperlink{class_u_trace_statics_a7959fb3e3b237163aae39d6d3edee856}{Add\+Policies}} (AActor \texorpdfstring{$\ast$}{*}Target, const TArray$<$ \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Policies)
+\item 
+static void \doxymbox{\hyperlink{class_u_trace_statics_a101c4032bab571b25b6c977c78a25569}{Add\+Policy}} (AActor \texorpdfstring{$\ast$}{*}Target, \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\item 
+static void \doxymbox{\hyperlink{class_u_trace_statics_a8e48d69445e551baabcbd46ec7d83856}{Add\+Unique\+Policy}} (AActor \texorpdfstring{$\ast$}{*}Target, \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\item 
+static void \doxymbox{\hyperlink{class_u_trace_statics_a45e41c0a29ea06db81be977e1cbc56ef}{Clear\+Policies}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static \doxymbox{\hyperlink{class_u_trace_profile}{UTrace\+Profile}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50}{Get\+Trace\+Profile}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static \doxymbox{\hyperlink{struct_f_trace_result}{FTrace\+Result}} \doxymbox{\hyperlink{class_u_trace_statics_a404bb7b143bd5f62658b8a45afd116f1}{Perform\+Trace}} (AActor \texorpdfstring{$\ast$}{*}Target)
+\item 
+static \doxymbox{\hyperlink{_trace_types_8h_struct_f_trace_policy_result}{FTrace\+Policy\+Result}} \doxymbox{\hyperlink{class_u_trace_statics_aef2fc0b7d728af04fcc494694ec3b6d5}{Perform\+Trace\+By\+Tag}} (AActor \texorpdfstring{$\ast$}{*}Target, FName Tag)
+\item 
+static void \doxymbox{\hyperlink{class_u_trace_statics_a5475e708844ad26b58a07640738c5afa}{Remove\+Policies}} (AActor \texorpdfstring{$\ast$}{*}Target, const TArray$<$ \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Policies)
+\item 
+static void \doxymbox{\hyperlink{class_u_trace_statics_a2e1cd503134318fe3ff9c98ef249232a}{Remove\+Policy}} (AActor \texorpdfstring{$\ast$}{*}Target, \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_u_trace_statics_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c}\index{UTraceStatics@{UTraceStatics}!ActorIsTraceable@{ActorIsTraceable}}
+\index{ActorIsTraceable@{ActorIsTraceable}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{ActorIsTraceable()}{ActorIsTraceable()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c} 
+bool UTrace\+Statics::\+\+Actor\+Is\+Traceable (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00135\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{return}\ Target-\/>FindComponentByClass<UTraceComponent>()\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00142\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_a7959fb3e3b237163aae39d6d3edee856}\index{UTraceStatics@{UTraceStatics}!AddPolicies@{AddPolicies}}
+\index{AddPolicies@{AddPolicies}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{AddPolicies()}{AddPolicies()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a7959fb3e3b237163aae39d6d3edee856} 
+void UTrace\+Statics::\+\+Add\+Policies (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Policies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c}{ActorIsTraceable}}(Target))}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50}{GetTraceProfile}}(Target))}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>AddPolicies(Policies);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_a101c4032bab571b25b6c977c78a25569}\index{UTraceStatics@{UTraceStatics}!AddPolicy@{AddPolicy}}
+\index{AddPolicy@{AddPolicy}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{AddPolicy()}{AddPolicy()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a101c4032bab571b25b6c977c78a25569} 
+void UTrace\+Statics::\+\+Add\+Policy (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{\doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c}{ActorIsTraceable}}(Target))}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50}{GetTraceProfile}}(Target))}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>AddPolicy(Policy);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_a8e48d69445e551baabcbd46ec7d83856}\index{UTraceStatics@{UTraceStatics}!AddUniquePolicy@{AddUniquePolicy}}
+\index{AddUniquePolicy@{AddUniquePolicy}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{AddUniquePolicy()}{AddUniquePolicy()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a8e48d69445e551baabcbd46ec7d83856} 
+void UTrace\+Statics::\+\+Add\+Unique\+Policy (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{\doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c}{ActorIsTraceable}}(Target))}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50}{GetTraceProfile}}(Target))}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>AddUniquePolicy(Policy);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_a45e41c0a29ea06db81be977e1cbc56ef}\index{UTraceStatics@{UTraceStatics}!ClearPolicies@{ClearPolicies}}
+\index{ClearPolicies@{ClearPolicies}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{ClearPolicies()}{ClearPolicies()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a45e41c0a29ea06db81be977e1cbc56ef} 
+void UTrace\+Statics::\+\+Clear\+Policies (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c}{ActorIsTraceable}}(Target))}
+\DoxyCodeLine{00126\ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50}{GetTraceProfile}}(Target))}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>ClearPolicies();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50}\index{UTraceStatics@{UTraceStatics}!GetTraceProfile@{GetTraceProfile}}
+\index{GetTraceProfile@{GetTraceProfile}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{GetTraceProfile()}{GetTraceProfile()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50} 
+\doxymbox{\hyperlink{class_u_trace_profile}{UTrace\+Profile}} \texorpdfstring{$\ast$}{*} UTrace\+Statics::\+\+Get\+Trace\+Profile (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceComponent*\ TraceComp\ =\ Cast<UTraceComponent>(Target-\/>GetComponentByClass(UTraceComponent::StaticClass())))}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TraceComp-\/>GetActiveProfile();}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_a404bb7b143bd5f62658b8a45afd116f1}\index{UTraceStatics@{UTraceStatics}!PerformTrace@{PerformTrace}}
+\index{PerformTrace@{PerformTrace}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{PerformTrace()}{PerformTrace()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a404bb7b143bd5f62658b8a45afd116f1} 
+\doxymbox{\hyperlink{struct_f_trace_result}{FTrace\+Result}} UTrace\+Statics::\+\+Perform\+Trace (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FTraceResult();}
+\DoxyCodeLine{00012\ \ \ \ \ \}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceComponent*\ TraceComp\ =\ Cast<UTraceComponent>(Target-\/>GetComponentByClass(UTraceComponent::StaticClass())))}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TraceComp-\/>PerformTrace();}
+\DoxyCodeLine{00016\ \ \ \ \ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{return}\ FTraceResult();}
+\DoxyCodeLine{00018\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_aef2fc0b7d728af04fcc494694ec3b6d5}\index{UTraceStatics@{UTraceStatics}!PerformTraceByTag@{PerformTraceByTag}}
+\index{PerformTraceByTag@{PerformTraceByTag}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{PerformTraceByTag()}{PerformTraceByTag()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_aef2fc0b7d728af04fcc494694ec3b6d5} 
+\doxymbox{\hyperlink{_trace_types_8h_struct_f_trace_policy_result}{FTrace\+Policy\+Result}} UTrace\+Statics::\+\+Perform\+Trace\+By\+Tag (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{FName}]{Tag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FTracePolicyResult();}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceComponent*\ TraceComp\ =\ Cast<UTraceComponent>(Target-\/>GetComponentByClass(UTraceComponent::StaticClass())))}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TraceComp-\/>PerformTraceByTag(Tag);}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ FTracePolicyResult();}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_a5475e708844ad26b58a07640738c5afa}\index{UTraceStatics@{UTraceStatics}!RemovePolicies@{RemovePolicies}}
+\index{RemovePolicies@{RemovePolicies}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{RemovePolicies()}{RemovePolicies()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a5475e708844ad26b58a07640738c5afa} 
+void UTrace\+Statics::\+\+Remove\+Policies (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Policies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c}{ActorIsTraceable}}(Target))}
+\DoxyCodeLine{00111\ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50}{GetTraceProfile}}(Target))}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>RemovePolicies(Policies);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_statics_a2e1cd503134318fe3ff9c98ef249232a}\index{UTraceStatics@{UTraceStatics}!RemovePolicy@{RemovePolicy}}
+\index{RemovePolicy@{RemovePolicy}!UTraceStatics@{UTraceStatics}}
+\doxysubsubsection{\texorpdfstring{RemovePolicy()}{RemovePolicy()}}
+{\footnotesize\ttfamily \label{class_u_trace_statics_a2e1cd503134318fe3ff9c98ef249232a} 
+void UTrace\+Statics::\+\+Remove\+Policy (\begin{DoxyParamCaption}\item[{AActor \texorpdfstring{$\ast$}{*}}]{Target}{, }\item[{\doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Target)}
+\DoxyCodeLine{00092\ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_trace_statics_a75d59e95cec679afc219fd89b069725c}{ActorIsTraceable}}(Target))}
+\DoxyCodeLine{00096\ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UTraceProfile*\ Profile\ =\ \doxymbox{\hyperlink{class_u_trace_statics_a37887f5d8bd32e5fab5a6244f8f59a50}{GetTraceProfile}}(Target))}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ Profile-\/>RemovePolicy(Policy);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Utility/\+\doxymbox{\hyperlink{_trace_statics_8h}{Trace\+Statics.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Utility/\+\doxymbox{\hyperlink{_trace_statics_8cpp}{Trace\+Statics.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,89 @@
+\doxysection{Crosshair.\+h}
+\hypertarget{_crosshair_8h_source}{}\label{_crosshair_8h_source}\index{Source/Periculum/Public/UI/Crosshair.h@{Source/Periculum/Public/UI/Crosshair.h}}
+\doxymbox{\hyperlink{_crosshair_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}Blueprint/UserWidget.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}Crosshair.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ DECLARE\_DYNAMIC\_MULTICAST\_DELEGATE(FOnCrosshairEvent);}
+\DoxyCodeLine{00010\ \doxymbox{\hyperlink{_toggle_component_8h_a171cc69f57b6f0d4a2755ecd8576c00e}{DECLARE\_DYNAMIC\_MULTICAST\_DELEGATE\_OneParam}}(\doxymbox{\hyperlink{_toggle_component_8h_a171cc69f57b6f0d4a2755ecd8576c00e}{FOnCrosshairCharacterEvent}},\ \textcolor{keywordtype}{bool},\ \doxymbox{\hyperlink{_toggle_component_8h_a171cc69f57b6f0d4a2755ecd8576c00e}{bIsAlly}});}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class}\ UImage;}
+\DoxyCodeLine{00014\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ UENUM(BlueprintType)}
+\DoxyCodeLine{00019\ \textcolor{keyword}{enum}\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{ECrosshairState}}\ :\ \doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{uint8}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ Default\ \doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cdaa3f80d8f0f1b4ffa8c475f5d60ea5635}{UMETA}}(\doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Default"{}}),}
+\DoxyCodeLine{00022\ \ \ \ \ Hit\ \doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{UMETA}}(\doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Hit"{}}),}
+\DoxyCodeLine{00023\ \ \ \ \ Ally\ \doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{UMETA}}(\doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Ally"{}}),}
+\DoxyCodeLine{00024\ \ \ \ \ Enemy\ \doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{UMETA}}(\doxymbox{\hyperlink{_crosshair_8h_aa948bbac161adbba765c25e4d8ef02cd}{DisplayName}}\ =\ \textcolor{stringliteral}{"{}Enemy"{}})}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ UCLASS()}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_u_crosshair}{UCrosshair}}\ :\ \textcolor{keyword}{public}\ UUserWidget}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ NativeConstruct()\ override;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ NativePreConstruct()\ override;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ NativeDestruct()\ override;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ UPROPERTY(BlueprintAssignable)}
+\DoxyCodeLine{00043\ \ \ \ \ FOnCrosshairEvent\ OnCrosshairHit;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ UPROPERTY(BlueprintAssignable)}
+\DoxyCodeLine{00046\ \ \ \ \ FOnCrosshairCharacterEvent\ OnCrosshairHitAlly;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ UPROPERTY(BlueprintAssignable)}
+\DoxyCodeLine{00049\ \ \ \ \ FOnCrosshairCharacterEvent\ OnCrosshairHitEnemy;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ UFUNCTION(BlueprintCallable)}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ HandleCrosshairHit();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ UFUNCTION(BlueprintCallable)}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ HandleCrosshairHitAlly(\textcolor{keywordtype}{bool}\ bIsAlly);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ UFUNCTION(BlueprintCallable)}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ HandleCrosshairHitEnemy(\textcolor{keywordtype}{bool}\ bIsAlly);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ UFUNCTION(BlueprintCallable)}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ SetCrosshairState(ECrosshairState\ NewState);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ UFUNCTION(BlueprintCallable)}
+\DoxyCodeLine{00064\ \ \ \ \ FORCEINLINE\ FVector2D\ GetAbsoluteCoordinates()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ SetVisibility(ESlateVisibility\ InVisibility)\ override;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ UFUNCTION(BlueprintCallable)}
+\DoxyCodeLine{00069\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{bool}\ ValidCrosshair()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ ValidCrosshairStates();\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00072\ \ \ \ \ UPROPERTY(BlueprintReadOnly,\ meta=(BindWidget))}
+\DoxyCodeLine{00073\ \ \ \ \ UImage*\ CurrentCrosshair;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Crosshair"{}})}
+\DoxyCodeLine{00076\ \ \ \ \ TArray<UImage*>\ CrosshairStates;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ UPROPERTY(EditAnywhere,\ Category\ =\ \textcolor{stringliteral}{"{}Crosshair"{}})}
+\DoxyCodeLine{00079\ \ \ \ \ ECrosshairState\ CurrentState;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ ValidCrosshairStates()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ \};}
+
+\end{DoxyCode}

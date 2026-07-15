@@ -1,0 +1,92 @@
+\doxysection{Weapon\+Tags.\+h}
+\hypertarget{_weapon_tags_8h_source}{}\label{_weapon_tags_8h_source}\index{Source/Periculum/Public/GameplayTags/WeaponTags.h@{Source/Periculum/Public/GameplayTags/WeaponTags.h}}
+\doxymbox{\hyperlink{_weapon_tags_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ This\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ relating\ to\ weapons\ and\ their\ various\ classifications.\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{///\ Weapon\ Tags}}
+\DoxyCodeLine{00014\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{///\ Weapon\ States}}
+\DoxyCodeLine{00017\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State);}
+\DoxyCodeLine{00018\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Equipped);}
+\DoxyCodeLine{00019\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Stowed);}
+\DoxyCodeLine{00020\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Attacking);}
+\DoxyCodeLine{00021\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Firing);}
+\DoxyCodeLine{00022\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Reloading);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{///\ Weapon\ Condition}}
+\DoxyCodeLine{00025\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition);}
+\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Pristine);}
+\DoxyCodeLine{00027\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Damaged);}
+\DoxyCodeLine{00028\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Irreparable);}
+\DoxyCodeLine{00029\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Overheated);}
+\DoxyCodeLine{00030\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Jammed);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{///\ Weapon\ Rarity}}
+\DoxyCodeLine{00033\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Common);}
+\DoxyCodeLine{00034\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Uncommon);}
+\DoxyCodeLine{00035\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Rare);}
+\DoxyCodeLine{00036\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Epic);}
+\DoxyCodeLine{00037\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Legendary);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{///\ Weapon\ Parts}}
+\DoxyCodeLine{00040\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part);}
+\DoxyCodeLine{00041\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged);}
+\DoxyCodeLine{00042\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{///\ Ranged\ Weapon\ Parts}}
+\DoxyCodeLine{00045\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Barrel);}
+\DoxyCodeLine{00046\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Scope);}
+\DoxyCodeLine{00047\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Stock);}
+\DoxyCodeLine{00048\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Magazine);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{///\ Melee\ Weapon\ Parts}}
+\DoxyCodeLine{00051\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Blade);}
+\DoxyCodeLine{00052\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Hilt);}
+\DoxyCodeLine{00053\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Crossguard);}
+\DoxyCodeLine{00054\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Pommel);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{///\ Weapon\ Types}}
+\DoxyCodeLine{00057\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type);}
+\DoxyCodeLine{00058\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged);}
+\DoxyCodeLine{00059\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{///\ One\ Handed\ Ranged\ Weapons}}
+\DoxyCodeLine{00062\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H);}
+\DoxyCodeLine{00063\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H\_Pistol);}
+\DoxyCodeLine{00064\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H\_ThrowingSpear);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{///\ Two\ Handed\ Ranged\ Weapons}}
+\DoxyCodeLine{00067\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H);}
+\DoxyCodeLine{00068\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_Rifle);}
+\DoxyCodeLine{00069\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_Crossbow);}
+\DoxyCodeLine{00070\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_BowAndArrow);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{///\ One\ Handed\ Melee\ Weapons}}
+\DoxyCodeLine{00073\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H);}
+\DoxyCodeLine{00074\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Sword);}
+\DoxyCodeLine{00075\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Axe);}
+\DoxyCodeLine{00076\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Club);}
+\DoxyCodeLine{00077\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Shield);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{///\ Two\ Handed\ Melee\ Weapons}}
+\DoxyCodeLine{00080\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H);}
+\DoxyCodeLine{00081\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Sword);}
+\DoxyCodeLine{00082\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Axe);}
+\DoxyCodeLine{00083\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Club);}
+\DoxyCodeLine{00084\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Shield);}
+\DoxyCodeLine{00085\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Spear);}
+\DoxyCodeLine{00086\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Halberd);}
+
+\end{DoxyCode}

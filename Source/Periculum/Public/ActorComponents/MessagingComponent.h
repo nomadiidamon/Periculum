@@ -1,5 +1,4 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -15,7 +14,6 @@
 * All listener handles are automatically unregistered when the component's owner is destroyed via EndPlay. Add this component to any actor that needs to participate in the Periculum messaging system.
 * A basic message struct, FPericulumMessage, is provided as a parent struct to define custom messages in the Periculum messaging system. This struct includes information about the sender, the time the message was sent, and optional context tags.
 */
-
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class PERICULUM_API UMessagingComponent : public UActorComponent
 {

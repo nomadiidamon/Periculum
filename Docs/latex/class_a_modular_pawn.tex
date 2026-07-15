@@ -1,0 +1,177 @@
+\doxysection{AModular\+Pawn Class Reference}
+\hypertarget{class_a_modular_pawn}{}\label{class_a_modular_pawn}\index{AModularPawn@{AModularPawn}}
+
+
+A modular pawn that can be extended with components and functionality.  
+
+
+
+
+{\ttfamily \+\#include $<$Modular\+Pawn.\+h$>$}
+
+Inheritance diagram for AModular\+Pawn:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_modular_pawn}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_a_modular_pawn_a9f8bc410ada28298c356dec013340160}{AModular\+Pawn}} ()
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_pawn_aafabd92f516cd76713d6b42e98387d97}{Begin\+Play}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_pawn_a4e38ceec8a84bf3101bb7310b5e8418a}{End\+Play}} (const EEnd\+Play\+Reason::\+\+Type End\+Play\+Reason) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_pawn_ae6334fc95827403a4e53df4a44d030e4}{Possessed\+By}} (AController \texorpdfstring{$\ast$}{*}New\+Controller) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_pawn_a7bce28a92b1f6a84f99cae49ad574697}{Pre\+Initialize\+Components}} () override
+\begin{DoxyCompactList}\small\item\em Lifecycle hook invoked before component initialization. Overrides the base-\/class implementation to perform any necessary pre-\/initialization tasks. Used to register this Pawn with the UGame\+Framework\+Component\+Manager to receive modular components and functionality before it fully initializes. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_pawn_a244304f7247a61f6a39661e1152e60b6}{Setup\+Player\+Input\+Component}} (class UInput\+Component \texorpdfstring{$\ast$}{*}Player\+Input\+Component) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_pawn_aa9ea8b097da51e3ace35eed8e0007fbc}{Tick}} (float Delta\+Time) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_pawn_a33c7a200ef403d706cbd733cf3bb103f}{Un\+Possessed}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A modular pawn that can be extended with components and functionality. 
+
+\label{doc-constructors}
+\Hypertarget{class_a_modular_pawn_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_modular_pawn_a9f8bc410ada28298c356dec013340160}\index{AModularPawn@{AModularPawn}!AModularPawn@{AModularPawn}}
+\index{AModularPawn@{AModularPawn}!AModularPawn@{AModularPawn}}
+\doxysubsubsection{\texorpdfstring{AModularPawn()}{AModularPawn()}}
+{\footnotesize\ttfamily \label{class_a_modular_pawn_a9f8bc410ada28298c356dec013340160} 
+AModular\+Pawn::\+\+AModular\+Pawn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ PrimaryActorTick.bCanEverTick\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{class_a_modular_pawn_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_modular_pawn_aafabd92f516cd76713d6b42e98387d97}\index{AModularPawn@{AModularPawn}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AModularPawn@{AModularPawn}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily \label{class_a_modular_pawn_aafabd92f516cd76713d6b42e98387d97} 
+void AModular\+Pawn::\+\+Begin\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ UGameFrameworkComponentManager::SendGameFrameworkComponentExtensionEvent(\textcolor{keyword}{this},\ UGameFrameworkComponentManager::NAME\_GameActorReady);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ Super::BeginPlay();}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_pawn_a4e38ceec8a84bf3101bb7310b5e8418a}\index{AModularPawn@{AModularPawn}!EndPlay@{EndPlay}}
+\index{EndPlay@{EndPlay}!AModularPawn@{AModularPawn}}
+\doxysubsubsection{\texorpdfstring{EndPlay()}{EndPlay()}}
+{\footnotesize\ttfamily \label{class_a_modular_pawn_a4e38ceec8a84bf3101bb7310b5e8418a} 
+void AModular\+Pawn::\+\+End\+Play (\begin{DoxyParamCaption}\item[{const EEnd\+Play\+Reason::\+\+Type}]{End\+Play\+Reason}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}*\ system\ =\ GetGameInstance()-\/>GetSubsystem<\ UGameFrameworkComponentManager\ >())}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ system-\/>RemoveReceiver(\textcolor{keyword}{this});}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ Super::EndPlay(EndPlayReason);}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_pawn_ae6334fc95827403a4e53df4a44d030e4}\index{AModularPawn@{AModularPawn}!PossessedBy@{PossessedBy}}
+\index{PossessedBy@{PossessedBy}!AModularPawn@{AModularPawn}}
+\doxysubsubsection{\texorpdfstring{PossessedBy()}{PossessedBy()}}
+{\footnotesize\ttfamily \label{class_a_modular_pawn_ae6334fc95827403a4e53df4a44d030e4} 
+void AModular\+Pawn::\+\+Possessed\+By (\begin{DoxyParamCaption}\item[{AController \texorpdfstring{$\ast$}{*}}]{New\+Controller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ Super::PossessedBy(NewController);}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_pawn_a7bce28a92b1f6a84f99cae49ad574697}\index{AModularPawn@{AModularPawn}!PreInitializeComponents@{PreInitializeComponents}}
+\index{PreInitializeComponents@{PreInitializeComponents}!AModularPawn@{AModularPawn}}
+\doxysubsubsection{\texorpdfstring{PreInitializeComponents()}{PreInitializeComponents()}}
+{\footnotesize\ttfamily \label{class_a_modular_pawn_a7bce28a92b1f6a84f99cae49ad574697} 
+void AModular\+Pawn::\+\+Pre\+Initialize\+Components (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Lifecycle hook invoked before component initialization. Overrides the base-\/class implementation to perform any necessary pre-\/initialization tasks. Used to register this Pawn with the UGame\+Framework\+Component\+Manager to receive modular components and functionality before it fully initializes. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ Super::PreInitializeComponents();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{if}\ (UGameFrameworkComponentManager*\ Manager\ =}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ GetGameInstance()-\/>GetSubsystem<UGameFrameworkComponentManager>())}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Manager-\/>AddReceiver(\textcolor{keyword}{this});}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_pawn_a244304f7247a61f6a39661e1152e60b6}\index{AModularPawn@{AModularPawn}!SetupPlayerInputComponent@{SetupPlayerInputComponent}}
+\index{SetupPlayerInputComponent@{SetupPlayerInputComponent}!AModularPawn@{AModularPawn}}
+\doxysubsubsection{\texorpdfstring{SetupPlayerInputComponent()}{SetupPlayerInputComponent()}}
+{\footnotesize\ttfamily \label{class_a_modular_pawn_a244304f7247a61f6a39661e1152e60b6} 
+void AModular\+Pawn::\+\+Setup\+Player\+Input\+Component (\begin{DoxyParamCaption}\item[{class UInput\+Component \texorpdfstring{$\ast$}{*}}]{Player\+Input\+Component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ Super::SetupPlayerInputComponent(PlayerInputComponent);}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_pawn_aa9ea8b097da51e3ace35eed8e0007fbc}\index{AModularPawn@{AModularPawn}!Tick@{Tick}}
+\index{Tick@{Tick}!AModularPawn@{AModularPawn}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily \label{class_a_modular_pawn_aa9ea8b097da51e3ace35eed8e0007fbc} 
+void AModular\+Pawn::\+\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ Super::Tick(DeltaTime);}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_pawn_a33c7a200ef403d706cbd733cf3bb103f}\index{AModularPawn@{AModularPawn}!UnPossessed@{UnPossessed}}
+\index{UnPossessed@{UnPossessed}!AModularPawn@{AModularPawn}}
+\doxysubsubsection{\texorpdfstring{UnPossessed()}{UnPossessed()}}
+{\footnotesize\ttfamily \label{class_a_modular_pawn_a33c7a200ef403d706cbd733cf3bb103f} 
+void AModular\+Pawn::\+\+Un\+Possessed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ Super::UnPossessed();}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Base\+Actors/\+\doxymbox{\hyperlink{_modular_pawn_8h}{Modular\+Pawn.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Base\+Actors/\+\doxymbox{\hyperlink{_modular_pawn_8cpp}{Modular\+Pawn.\+cpp}}\end{DoxyCompactItemize}

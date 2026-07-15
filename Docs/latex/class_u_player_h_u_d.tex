@@ -1,0 +1,325 @@
+\doxysection{UPlayer\+HUD Class Reference}
+\hypertarget{class_u_player_h_u_d}{}\label{class_u_player_h_u_d}\index{UPlayerHUD@{UPlayerHUD}}
+
+
+{\ttfamily \+\#include $<$Player\+HUD.\+h$>$}
+
+Inheritance diagram for UPlayer\+HUD:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_player_h_u_d}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_u_player_h_u_d_a63e242f9c7048b1265fb501b3009e025}{Absolute\+To\+Viewport}} (UObject \texorpdfstring{$\ast$}{*}World\+Context\+Object, FVector2D Absolute\+Desktop\+Coordinate, FVector2D \&Pixel\+Position, FVector2D \&Viewport\+Position) const
+\item 
+bool \doxymbox{\hyperlink{class_u_player_h_u_d_a826c75f1abcf63bda56d529e98e04575}{Deproject\+Screen\+To\+World}} (APlayer\+Controller const \texorpdfstring{$\ast$}{*}Player, const FVector2D \&Screen\+Position, FVector \&World\+Position, FVector \&World\+Direction) const
+\item 
+virtual void \doxymbox{\hyperlink{class_u_player_h_u_d_a46eec5ff4da1450bf662849922dd027f}{Set\+Visibility}} (ESlate\+Visibility In\+Visibility) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_u_crosshair}{UCrosshair}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}
+\item 
+\doxymbox{\hyperlink{class_u_health_bar}{UHealth\+Bar}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_player_h_u_d_a8c616beb9d5026c731dc73bac0a76a2a}{Player\+Health\+Bar}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_u_player_h_u_d_a2a709be36c547b50cb46d880af766792}{Native\+Construct}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_u_player_h_u_d_a1544bbec4f8b802b0c2672746cf01eaa}{Native\+Destruct}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_u_player_h_u_d_ac9d8eefd529c3ac9de3a96b124e86c75}{Native\+Pre\+Construct}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_u_player_h_u_d_a42b6f7bf83d55e42d85785f8b0600300}{Native\+Tick}} (const FGeometry \&My\+Geometry, float In\+Delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_u_player_h_u_d_a0e3ec6356e60be5489fbd070b2b355c3}{b\+Fade\+In\+And\+Out}}
+\item 
+FVector \doxymbox{\hyperlink{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd}{Crosshair\+World\+Hit\+Location}}
+\item 
+UWidget\+Animation \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_player_h_u_d_ab6d4ed54753dca59c47bda02418af8b0}{Fade\+In\+Animation}}
+\item 
+UWidget\+Animation \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_player_h_u_d_afb641d481d1efa6bc7fa7c36c7c088fb}{Fade\+Out\+Animation}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_u_player_h_u_d_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_player_h_u_d_a63e242f9c7048b1265fb501b3009e025}\index{UPlayerHUD@{UPlayerHUD}!AbsoluteToViewport@{AbsoluteToViewport}}
+\index{AbsoluteToViewport@{AbsoluteToViewport}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{AbsoluteToViewport()}{AbsoluteToViewport()}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a63e242f9c7048b1265fb501b3009e025} 
+void UPlayer\+HUD::\+\+Absolute\+To\+Viewport (\begin{DoxyParamCaption}\item[{UObject \texorpdfstring{$\ast$}{*}}]{World\+Context\+Object}{, }\item[{FVector2D}]{Absolute\+Desktop\+Coordinate}{, }\item[{FVector2D \&}]{Pixel\+Position}{, }\item[{FVector2D \&}]{Viewport\+Position}{}\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ UWorld*\ World\ =\ GEngine-\/>GetWorldFromContextObject(WorldContextObject,\ EGetWorldErrorMode::LogAndReturnNull);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (World\ \&\&\ World-\/>IsGameWorld())}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UGameViewportClient*\ ViewportClient\ =\ World-\/>GetGameViewport())}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ TSharedPtr<IGameLayerManager>\ GameLayerManager\ =\ ViewportClient-\/>GetGameLayerManager();}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GameLayerManager.IsValid())}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FVector2D\ ViewportSize;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ViewportClient-\/>GetViewportSize(ViewportSize);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ FGeometry\&\ ViewportGeometry\ =\ GameLayerManager-\/>GetViewportWidgetHostGeometry();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ViewportPosition\ =\ ViewportGeometry.AbsoluteToLocal(AbsoluteDesktopCoordinate);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PixelPosition\ =\ (ViewportPosition\ /\ ViewportGeometry.GetLocalSize())\ *\ ViewportSize;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ PixelPosition\ =\ FVector2D(0,\ 0);}
+\DoxyCodeLine{00156\ \ \ \ \ ViewportPosition\ =\ FVector2D(0,\ 0);}
+\DoxyCodeLine{00157\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_player_h_u_d_a826c75f1abcf63bda56d529e98e04575}\index{UPlayerHUD@{UPlayerHUD}!DeprojectScreenToWorld@{DeprojectScreenToWorld}}
+\index{DeprojectScreenToWorld@{DeprojectScreenToWorld}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{DeprojectScreenToWorld()}{DeprojectScreenToWorld()}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a826c75f1abcf63bda56d529e98e04575} 
+bool UPlayer\+HUD::\+\+Deproject\+Screen\+To\+World (\begin{DoxyParamCaption}\item[{APlayer\+Controller const \texorpdfstring{$\ast$}{*}}]{Player}{, }\item[{const FVector2D \&}]{Screen\+Position}{, }\item[{FVector \&}]{World\+Position}{, }\item[{FVector \&}]{World\+Direction}{}\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ ULocalPlayer*\ \textcolor{keyword}{const}\ LP\ =\ Player\ ?\ Player-\/>GetLocalPlayer()\ :\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{if}\ (LP\ \&\&\ LP-\/>ViewportClient)}
+\DoxyCodeLine{00163\ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ FSceneViewProjectionData\ ProjectionData;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LP-\/>GetProjectionData(LP-\/>ViewportClient-\/>Viewport,\ \textcolor{comment}{/*out*/}\ ProjectionData))}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ FMatrix\ \textcolor{keyword}{const}\ InvViewProjMatrix\ =\ ProjectionData.ComputeViewProjectionMatrix().InverseFast();}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ FSceneView::DeprojectScreenToWorld(ScreenPosition,\ ProjectionData.GetConstrainedViewRect(),\ InvViewProjMatrix,\ \textcolor{comment}{/*out*/}\ WorldPosition,\ \textcolor{comment}{/*out*/}\ WorldDirection);}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ WorldPosition\ =\ FVector::ZeroVector;}
+\DoxyCodeLine{00174\ \ \ \ \ WorldDirection\ =\ FVector::ZeroVector;}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00176\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_player_h_u_d_a2a709be36c547b50cb46d880af766792}\index{UPlayerHUD@{UPlayerHUD}!NativeConstruct@{NativeConstruct}}
+\index{NativeConstruct@{NativeConstruct}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{NativeConstruct()}{NativeConstruct()}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a2a709be36c547b50cb46d880af766792} 
+void UPlayer\+HUD::\+\+Native\+Construct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Super::NativeConstruct();}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_player_h_u_d_a8c616beb9d5026c731dc73bac0a76a2a}{PlayerHealthBar}})}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Warning,\ TEXT(\textcolor{stringliteral}{"{}PlayerHealthBar\ is\ not\ bound\ in\ PlayerHUD"{}}));}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}})}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Warning,\ TEXT(\textcolor{stringliteral}{"{}Crosshair\ is\ not\ bound\ in\ PlayerHUD"{}}));}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_player_h_u_d_a0e3ec6356e60be5489fbd070b2b355c3}{bFadeInAndOut}})}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_player_h_u_d_ab6d4ed54753dca59c47bda02418af8b0}{FadeInAnimation}})}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Warning,\ TEXT(\textcolor{stringliteral}{"{}FadeInAnimation\ is\ not\ set\ in\ PlayerHUD."{}}));}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_player_h_u_d_afb641d481d1efa6bc7fa7c36c7c088fb}{FadeOutAnimation}})}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Warning,\ TEXT(\textcolor{stringliteral}{"{}FadeOutAnimation\ is\ not\ set\ in\ PlayerHUD."{}}));}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_player_h_u_d_a1544bbec4f8b802b0c2672746cf01eaa}\index{UPlayerHUD@{UPlayerHUD}!NativeDestruct@{NativeDestruct}}
+\index{NativeDestruct@{NativeDestruct}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{NativeDestruct()}{NativeDestruct()}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a1544bbec4f8b802b0c2672746cf01eaa} 
+void UPlayer\+HUD::\+\+Native\+Destruct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ Super::NativeDestruct();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_player_h_u_d_ac9d8eefd529c3ac9de3a96b124e86c75}\index{UPlayerHUD@{UPlayerHUD}!NativePreConstruct@{NativePreConstruct}}
+\index{NativePreConstruct@{NativePreConstruct}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{NativePreConstruct()}{NativePreConstruct()}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_ac9d8eefd529c3ac9de3a96b124e86c75} 
+void UPlayer\+HUD::\+\+Native\+Pre\+Construct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ Super::NativePreConstruct();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_player_h_u_d_a42b6f7bf83d55e42d85785f8b0600300}\index{UPlayerHUD@{UPlayerHUD}!NativeTick@{NativeTick}}
+\index{NativeTick@{NativeTick}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{NativeTick()}{NativeTick()}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a42b6f7bf83d55e42d85785f8b0600300} 
+void UPlayer\+HUD::\+\+Native\+Tick (\begin{DoxyParamCaption}\item[{const FGeometry \&}]{My\+Geometry}{, }\item[{float}]{In\+Delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ Super::NativeTick(MyGeometry,\ InDeltaTime);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}\ ||\ !\doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>ValidCrosshair())}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Warning,\ TEXT(\textcolor{stringliteral}{"{}Crosshair\ is\ not\ valid\ in\ PlayerHUD.\ Please\ check\ the\ widget\ blueprint."{}}));}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ FVector2D\ PixelPosition,\ ViewportPosition;}
+\DoxyCodeLine{00057\ \ \ \ \ FVector2D\ AbsoluteCoordinates\ =\ \doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>GetAbsoluteCoordinates();}
+\DoxyCodeLine{00058\ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a63e242f9c7048b1265fb501b3009e025}{AbsoluteToViewport}}(this-\/>GetOwningPlayer(),\ AbsoluteCoordinates,\ PixelPosition,\ ViewportPosition);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ FVector\ WorldPosition,\ WorldDirection;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_player_h_u_d_a826c75f1abcf63bda56d529e98e04575}{DeprojectScreenToWorld}}(this-\/>GetOwningPlayer(),}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ PixelPosition\ +\ (TransformVector(\doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>GetCachedGeometry().GetAccumulatedRenderTransform(),}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>GetCachedGeometry().GetLocalSize())\ *\ 0.5f),\ WorldPosition,\ WorldDirection))}
+\DoxyCodeLine{00064\ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Warning,\ TEXT(\textcolor{stringliteral}{"{}Failed\ to\ deproject\ screen\ to\ world\ in\ PlayerHUD."{}}));}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd}{CrosshairWorldHitLocation}}\ =\ WorldPosition\ +\ WorldDirection\ *\ 100000.f;}
+\DoxyCodeLine{00069\ \ \ \ \ FHitResult\ hit;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetWorld()-\/>LineTraceSingleByObjectType(hit,\ WorldPosition,\ \doxymbox{\hyperlink{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd}{CrosshairWorldHitLocation}},}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ FCollisionObjectQueryParams(ECC\_TO\_BITFIELD(ECC\_Pawn)\ |\ ECC\_TO\_BITFIELD(ECC\_WorldStatic)\ |\ ECC\_TO\_BITFIELD(ECC\_WorldDynamic)),}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ FCollisionQueryParams(FName(TEXT(\textcolor{stringliteral}{"{}CrosshairTrace"{}})),\ \textcolor{keyword}{false},\ this-\/>GetOwningPlayer())))}
+\DoxyCodeLine{00073\ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd}{CrosshairWorldHitLocation}}\ =\ hit.ImpactPoint;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hit.Component-\/>GetCollisionObjectType()\ ==\ ECC\_Pawn)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hit.GetActor()-\/>Tags.Contains(FName(TEXT(\textcolor{stringliteral}{"{}Ally"{}}))))}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>SetCrosshairState(ECrosshairState::Ally);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Log,\ TEXT(\textcolor{stringliteral}{"{}Crosshair\ hit\ ally\ at\ location:\ \%s"{}}),\ *\doxymbox{\hyperlink{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd}{CrosshairWorldHitLocation}}.ToString());}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hit.GetActor()-\/>Tags.Contains(FName(TEXT(\textcolor{stringliteral}{"{}Enemy"{}}))))}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>SetCrosshairState(ECrosshairState::Enemy);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Log,\ TEXT(\textcolor{stringliteral}{"{}Crosshair\ hit\ enemy\ at\ location:\ \%s"{}}),\ *\doxymbox{\hyperlink{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd}{CrosshairWorldHitLocation}}.ToString());}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>SetCrosshairState(ECrosshairState::Hit);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hit.Component-\/>GetCollisionObjectType()\ ==\ ECC\_WorldStatic\ ||\ hit.Component-\/>GetCollisionObjectType()\ ==\ ECC\_WorldDynamic)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>SetCrosshairState(ECrosshairState::Default);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Log,\ TEXT(\textcolor{stringliteral}{"{}Crosshair\ hit\ world\ at\ location:\ \%s"{}}),\ *\doxymbox{\hyperlink{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd}{CrosshairWorldHitLocation}}.ToString());}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}{Crosshair}}-\/>SetCrosshairState(ECrosshairState::Default);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_player_h_u_d_a46eec5ff4da1450bf662849922dd027f}\index{UPlayerHUD@{UPlayerHUD}!SetVisibility@{SetVisibility}}
+\index{SetVisibility@{SetVisibility}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{SetVisibility()}{SetVisibility()}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a46eec5ff4da1450bf662849922dd027f} 
+void UPlayer\+HUD::\+\+Set\+Visibility (\begin{DoxyParamCaption}\item[{ESlate\+Visibility}]{In\+Visibility}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ Super::SetVisibility(InVisibility);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_player_h_u_d_a0e3ec6356e60be5489fbd070b2b355c3}{bFadeInAndOut}})}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InVisibility\ ==\ ESlateVisibility::Visible)}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_player_h_u_d_ab6d4ed54753dca59c47bda02418af8b0}{FadeInAnimation}})}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Warning,\ TEXT(\textcolor{stringliteral}{"{}FadeInAnimation\ is\ not\ set\ in\ PlayerHUD."{}}));}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ PlayAnimation(\doxymbox{\hyperlink{class_u_player_h_u_d_ab6d4ed54753dca59c47bda02418af8b0}{FadeInAnimation}});}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_player_h_u_d_afb641d481d1efa6bc7fa7c36c7c088fb}{FadeOutAnimation}})}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_UI,\ Warning,\ TEXT(\textcolor{stringliteral}{"{}FadeOutAnimation\ is\ not\ set\ in\ PlayerHUD."{}}));}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ PlayAnimation(\doxymbox{\hyperlink{class_u_player_h_u_d_afb641d481d1efa6bc7fa7c36c7c088fb}{FadeOutAnimation}});}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_player_h_u_d_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_player_h_u_d_a0e3ec6356e60be5489fbd070b2b355c3}\index{UPlayerHUD@{UPlayerHUD}!bFadeInAndOut@{bFadeInAndOut}}
+\index{bFadeInAndOut@{bFadeInAndOut}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{bFadeInAndOut}{bFadeInAndOut}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a0e3ec6356e60be5489fbd070b2b355c3} 
+bool UPlayer\+HUD::\+b\+Fade\+In\+And\+Out\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a}\index{UPlayerHUD@{UPlayerHUD}!Crosshair@{Crosshair}}
+\index{Crosshair@{Crosshair}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{Crosshair}{Crosshair}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a4e578fcb34ab3ddd9596b7942033518a} 
+\doxymbox{\hyperlink{class_u_crosshair}{UCrosshair}}\texorpdfstring{$\ast$}{*} UPlayer\+HUD::\+\+Crosshair}
+
+\Hypertarget{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd}\index{UPlayerHUD@{UPlayerHUD}!CrosshairWorldHitLocation@{CrosshairWorldHitLocation}}
+\index{CrosshairWorldHitLocation@{CrosshairWorldHitLocation}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{CrosshairWorldHitLocation}{CrosshairWorldHitLocation}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a5346fb73ff69b19258c3104c331e57bd} 
+FVector UPlayer\+HUD::\+\+Crosshair\+World\+Hit\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_u_player_h_u_d_ab6d4ed54753dca59c47bda02418af8b0}\index{UPlayerHUD@{UPlayerHUD}!FadeInAnimation@{FadeInAnimation}}
+\index{FadeInAnimation@{FadeInAnimation}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{FadeInAnimation}{FadeInAnimation}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_ab6d4ed54753dca59c47bda02418af8b0} 
+UWidget\+Animation\texorpdfstring{$\ast$}{*} UPlayer\+HUD::\+\+Fade\+In\+Animation\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_u_player_h_u_d_afb641d481d1efa6bc7fa7c36c7c088fb}\index{UPlayerHUD@{UPlayerHUD}!FadeOutAnimation@{FadeOutAnimation}}
+\index{FadeOutAnimation@{FadeOutAnimation}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{FadeOutAnimation}{FadeOutAnimation}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_afb641d481d1efa6bc7fa7c36c7c088fb} 
+UWidget\+Animation\texorpdfstring{$\ast$}{*} UPlayer\+HUD::\+\+Fade\+Out\+Animation\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_u_player_h_u_d_a8c616beb9d5026c731dc73bac0a76a2a}\index{UPlayerHUD@{UPlayerHUD}!PlayerHealthBar@{PlayerHealthBar}}
+\index{PlayerHealthBar@{PlayerHealthBar}!UPlayerHUD@{UPlayerHUD}}
+\doxysubsubsection{\texorpdfstring{PlayerHealthBar}{PlayerHealthBar}}
+{\footnotesize\ttfamily \label{class_u_player_h_u_d_a8c616beb9d5026c731dc73bac0a76a2a} 
+\doxymbox{\hyperlink{class_u_health_bar}{UHealth\+Bar}}\texorpdfstring{$\ast$}{*} UPlayer\+HUD::\+\+Player\+Health\+Bar}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+UI/\+\doxymbox{\hyperlink{_player_h_u_d_8h}{Player\+HUD.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+UI/\+\doxymbox{\hyperlink{_player_h_u_d_8cpp}{Player\+HUD.\+cpp}}\end{DoxyCompactItemize}

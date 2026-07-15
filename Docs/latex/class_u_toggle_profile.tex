@@ -1,0 +1,433 @@
+\doxysection{UToggle\+Profile Class Reference}
+\hypertarget{class_u_toggle_profile}{}\label{class_u_toggle_profile}\index{UToggleProfile@{UToggleProfile}}
+
+
+A data asset that holds a collection of toggle policies.  
+
+
+
+
+{\ttfamily \+\#include $<$Toggle\+Profile.\+h$>$}
+
+Inheritance diagram for UToggle\+Profile:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_toggle_profile}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_profile_a99171f279481bde9ab4c64501c2c7366}{operator!=}} (const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Other\+Policies) const
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_profile_a5d5c36dd3468ba6e81bdd2e8d830b4ae}{operator!=}} (const \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_profile_a39f10b8dc7395f236fe16e78bd4b4c94}{operator$<$}} (const \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_profile_acaea8a3476f19a6a09b18d762ddf1872}{operator==}} (const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Other\+Policies) const
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_profile_ad7697be350d5f05d4fb4022875ad2c1b}{operator==}} (const \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_profile_a6f31706dd9aefe3a89bfe7544b2e435c}{operator$>$}} (const \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \&Other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FOn\+Toggle\+Profile\+Changed \doxymbox{\hyperlink{class_u_toggle_profile_a8f002f4d587be751ee7c6fe6dee51504}{On\+Profile\+Changed}}
+\begin{DoxyCompactList}\small\item\em A multicast delegate that is triggered whenever the toggle profile changes. Listeners can subscribe to this event to be notified of changes in the profile. \end{DoxyCompactList}\item 
+TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{Toggle\+Policies}}
+\begin{DoxyCompactList}\small\item\em The array of toggle policies associated with this profile. Each policy defines specific rules or conditions for toggling features on or off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_u_toggle_profile_a12a558019e4dbee11bd9d4a8a18b8432}{Add\+Policies}} (const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Policies)
+\begin{DoxyCompactList}\small\item\em Adds an array of toggle policies to the profile. Each valid policy in the array is added to the Toggle\+Policies array, and the profile change event is triggered. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_toggle_profile_a80f65d52712c065805b7b5af6b81e392}{Add\+Policy}} (\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\begin{DoxyCompactList}\small\item\em Adds a new toggle policy to the profile. If the policy is valid (not null), it is added to the Toggle\+Policies array, and the profile change event is triggered. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_toggle_profile_aac45aeef38df171ff016c3a5b620e434}{Add\+Unique\+Policies}} (const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Policies)
+\begin{DoxyCompactList}\small\item\em Adds an array of unique toggle policies to the profile. Each policy that is not already present in the Toggle\+Policies array is added, and the profile change event is triggered. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_toggle_profile_ae68b11e95fa41df4f82c2247e91c2bdf}{Add\+Unique\+Policy}} (\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\begin{DoxyCompactList}\small\item\em Adds a unique toggle policy to the profile. If the policy is not already present in the Toggle\+Policies array, it is added, and the profile change event is triggered. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_toggle_profile_a48f87f37ab788d0525b19d4ae268db2b}{Clear\+Policies}} ()
+\begin{DoxyCompactList}\small\item\em Clears all toggle policies from the profile. The Toggle\+Policies array is emptied, and the profile change event is triggered. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}{Handle\+Profile\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em Handler function that is called whenever the toggle profile changes. It broadcasts the On\+Profile\+Changed event to notify any listeners of the change. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_toggle_profile_a745824d2f76773bf8a658bc61a1b217d}{Remove\+Policies}} (const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&Policies)
+\begin{DoxyCompactList}\small\item\em Removes an array of toggle policies from the profile. Each policy that is present in the Toggle\+Policies array is removed, and the profile change event is triggered. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_toggle_profile_a81c1e3dfd563f32df0b91757d4de36af}{Remove\+Policy}} (\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}Policy)
+\begin{DoxyCompactList}\small\item\em Removes a toggle policy from the profile. If the policy is present in the Toggle\+Policies array, it is removed, and the profile change event is triggered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_u_toggle_profile_ae5a5830f83a64843ceb691d6600dae47}{UToggle\+Statics}}
+\begin{DoxyCompactList}\small\item\em UBlueprint\+Function\+Library class that is declared as a friend to allow access to private members of \doxylink{class_u_toggle_profile}{UToggle\+Profile}. This enables the static functions in \doxylink{class_u_toggle_statics}{UToggle\+Statics} to manipulate toggle profiles directly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A data asset that holds a collection of toggle policies. 
+
+It allows adding, removing, and managing toggle policies, and notifies listeners when the profile changes. 
+
+\label{doc-func-members}
+\Hypertarget{class_u_toggle_profile_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_toggle_profile_a12a558019e4dbee11bd9d4a8a18b8432}\index{UToggleProfile@{UToggleProfile}!AddPolicies@{AddPolicies}}
+\index{AddPolicies@{AddPolicies}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{AddPolicies()}{AddPolicies()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a12a558019e4dbee11bd9d4a8a18b8432} 
+void UToggle\+Profile::\+\+Add\+Policies (\begin{DoxyParamCaption}\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Policies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds an array of toggle policies to the profile. Each valid policy in the array is added to the Toggle\+Policies array, and the profile change event is triggered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Policies} & The array of toggle policies to add.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ TArray<UTogglePolicy*>\ ValidPolicies;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{for}\ (UTogglePolicy*\ Policy\ :\ Policies)}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Policy)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ ValidPolicies.Add(Policy);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}.Append(ValidPolicies);}
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}{HandleProfileChanged}}();}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_a80f65d52712c065805b7b5af6b81e392}\index{UToggleProfile@{UToggleProfile}!AddPolicy@{AddPolicy}}
+\index{AddPolicy@{AddPolicy}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{AddPolicy()}{AddPolicy()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a80f65d52712c065805b7b5af6b81e392} 
+void UToggle\+Profile::\+\+Add\+Policy (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds a new toggle policy to the profile. If the policy is valid (not null), it is added to the Toggle\+Policies array, and the profile change event is triggered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Policy} & The toggle policy to add.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Policy)}
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00011\ \ \ \ \ \}}
+\DoxyCodeLine{00012\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}.Add(Policy);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}{HandleProfileChanged}}();}
+\DoxyCodeLine{00015\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_aac45aeef38df171ff016c3a5b620e434}\index{UToggleProfile@{UToggleProfile}!AddUniquePolicies@{AddUniquePolicies}}
+\index{AddUniquePolicies@{AddUniquePolicies}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{AddUniquePolicies()}{AddUniquePolicies()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_aac45aeef38df171ff016c3a5b620e434} 
+void UToggle\+Profile::\+\+Add\+Unique\+Policies (\begin{DoxyParamCaption}\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Policies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds an array of unique toggle policies to the profile. Each policy that is not already present in the Toggle\+Policies array is added, and the profile change event is triggered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Policies} & The array of toggle policies to add.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ TArray<UTogglePolicy*>\ ValidPolicies;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (UTogglePolicy*\ Policy\ :\ Policies)}
+\DoxyCodeLine{00042\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Policy)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ ValidPolicies.AddUnique(Policy);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}.Append(ValidPolicies);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}{HandleProfileChanged}}();}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_ae68b11e95fa41df4f82c2247e91c2bdf}\index{UToggleProfile@{UToggleProfile}!AddUniquePolicy@{AddUniquePolicy}}
+\index{AddUniquePolicy@{AddUniquePolicy}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{AddUniquePolicy()}{AddUniquePolicy()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_ae68b11e95fa41df4f82c2247e91c2bdf} 
+void UToggle\+Profile::\+\+Add\+Unique\+Policy (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds a unique toggle policy to the profile. If the policy is not already present in the Toggle\+Policies array, it is added, and the profile change event is triggered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Policy} & The toggle policy to add.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}.AddUnique(Policy);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}{HandleProfileChanged}}();}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_a48f87f37ab788d0525b19d4ae268db2b}\index{UToggleProfile@{UToggleProfile}!ClearPolicies@{ClearPolicies}}
+\index{ClearPolicies@{ClearPolicies}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{ClearPolicies()}{ClearPolicies()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a48f87f37ab788d0525b19d4ae268db2b} 
+void UToggle\+Profile::\+\+Clear\+Policies (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Clears all toggle policies from the profile. The Toggle\+Policies array is emptied, and the profile change event is triggered. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}.Empty();}
+\DoxyCodeLine{00071\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}{HandleProfileChanged}}();}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}\index{UToggleProfile@{UToggleProfile}!HandleProfileChanged@{HandleProfileChanged}}
+\index{HandleProfileChanged@{HandleProfileChanged}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{HandleProfileChanged()}{HandleProfileChanged()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f} 
+void UToggle\+Profile::\+\+Handle\+Profile\+Changed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Handler function that is called whenever the toggle profile changes. It broadcasts the On\+Profile\+Changed event to notify any listeners of the change. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_toggle_profile_a8f002f4d587be751ee7c6fe6dee51504}{OnProfileChanged}}.IsBound())}
+\DoxyCodeLine{00077\ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_a8f002f4d587be751ee7c6fe6dee51504}{OnProfileChanged}}.Broadcast(\textcolor{keyword}{this});}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_a99171f279481bde9ab4c64501c2c7366}\index{UToggleProfile@{UToggleProfile}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a99171f279481bde9ab4c64501c2c7366} 
+bool UToggle\+Profile::\+operator!= (\begin{DoxyParamCaption}\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Other\+Policies}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ OtherPolicies);}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_a5d5c36dd3468ba6e81bdd2e8d830b4ae}\index{UToggleProfile@{UToggleProfile}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a5d5c36dd3468ba6e81bdd2e8d830b4ae} 
+bool UToggle\+Profile::\+operator!= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ Other);}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_a39f10b8dc7395f236fe16e78bd4b4c94}\index{UToggleProfile@{UToggleProfile}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a39f10b8dc7395f236fe16e78bd4b4c94} 
+bool UToggle\+Profile::\+operator$<$ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116\ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ ThisPriority\ =\ 0.0f;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ OtherPriority\ =\ 0.0f;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (UTogglePolicy*\ Policy\ :\ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}})}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Policy)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ThisPriority\ +=\ \textcolor{keyword}{static\_cast<}int32\textcolor{keyword}{>}(Policy-\/>PolicyStackPriority)\ +\ Policy-\/>PriorityScalar;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (UTogglePolicy*\ Policy\ :\ Other.\doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}})}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Policy)}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OtherPriority\ +=\ \textcolor{keyword}{static\_cast<}int32\textcolor{keyword}{>}(Policy-\/>\doxymbox{\hyperlink{class_u_toggle_policy_a5862989faded226a9e99c27c3260a522}{PolicyStackPriority}})\ +\ Policy-\/>\doxymbox{\hyperlink{class_u_toggle_policy_a119a29828a7ffdb0523d539e1acdd349}{PriorityScalar}};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ThisPriority\ <\ OtherPriority;}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_acaea8a3476f19a6a09b18d762ddf1872}\index{UToggleProfile@{UToggleProfile}!operator==@{operator==}}
+\index{operator==@{operator==}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_acaea8a3476f19a6a09b18d762ddf1872} 
+bool UToggle\+Profile::\+operator== (\begin{DoxyParamCaption}\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Other\+Policies}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00162\ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}\ ==\ OtherPolicies;}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_ad7697be350d5f05d4fb4022875ad2c1b}\index{UToggleProfile@{UToggleProfile}!operator==@{operator==}}
+\index{operator==@{operator==}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_ad7697be350d5f05d4fb4022875ad2c1b} 
+bool UToggle\+Profile::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}\ ==\ Other.\doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}};}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_a6f31706dd9aefe3a89bfe7544b2e435c}\index{UToggleProfile@{UToggleProfile}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a6f31706dd9aefe3a89bfe7544b2e435c} 
+bool UToggle\+Profile::\+operator$>$ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_u_toggle_profile}{UToggle\+Profile}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ ThisPriority\ =\ 0.0f;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ OtherPriority\ =\ 0.0f;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (UTogglePolicy*\ Policy\ :\ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}})}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Policy)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ThisPriority\ +=\ \textcolor{keyword}{static\_cast<}int32\textcolor{keyword}{>}(Policy-\/>PolicyStackPriority)\ +\ Policy-\/>PriorityScalar;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (UTogglePolicy*\ Policy\ :\ Other.\doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}})}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Policy)}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OtherPriority\ +=\ \textcolor{keyword}{static\_cast<}int32\textcolor{keyword}{>}(Policy-\/>\doxymbox{\hyperlink{class_u_toggle_policy_a5862989faded226a9e99c27c3260a522}{PolicyStackPriority}})\ +\ Policy-\/>\doxymbox{\hyperlink{class_u_toggle_policy_a119a29828a7ffdb0523d539e1acdd349}{PriorityScalar}};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ThisPriority\ >\ OtherPriority;}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_a745824d2f76773bf8a658bc61a1b217d}\index{UToggleProfile@{UToggleProfile}!RemovePolicies@{RemovePolicies}}
+\index{RemovePolicies@{RemovePolicies}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{RemovePolicies()}{RemovePolicies()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a745824d2f76773bf8a658bc61a1b217d} 
+void UToggle\+Profile::\+\+Remove\+Policies (\begin{DoxyParamCaption}\item[{const TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{Policies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Removes an array of toggle policies from the profile. Each policy that is present in the Toggle\+Policies array is removed, and the profile change event is triggered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Policies} & The array of toggle policies to remove.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (UTogglePolicy*\ Policy\ :\ Policies)}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}.Remove(Policy);}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}{HandleProfileChanged}}();}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_toggle_profile_a81c1e3dfd563f32df0b91757d4de36af}\index{UToggleProfile@{UToggleProfile}!RemovePolicy@{RemovePolicy}}
+\index{RemovePolicy@{RemovePolicy}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{RemovePolicy()}{RemovePolicy()}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a81c1e3dfd563f32df0b91757d4de36af} 
+void UToggle\+Profile::\+\+Remove\+Policy (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*}}]{Policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Removes a toggle policy from the profile. If the policy is present in the Toggle\+Policies array, it is removed, and the profile change event is triggered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Policy} & The toggle policy to remove.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}{TogglePolicies}}.Remove(Policy);}
+\DoxyCodeLine{00056\ \ \ \ \ \doxymbox{\hyperlink{class_u_toggle_profile_aa05a79e8edd8b7697c87fb1ed315be5f}{HandleProfileChanged}}();}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-related-members}
+\Hypertarget{class_u_toggle_profile_doc-related-members}
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_u_toggle_profile_ae5a5830f83a64843ceb691d6600dae47}\index{UToggleProfile@{UToggleProfile}!UToggleStatics@{UToggleStatics}}
+\index{UToggleStatics@{UToggleStatics}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{UToggleStatics}{UToggleStatics}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_ae5a5830f83a64843ceb691d6600dae47} 
+friend class \doxymbox{\hyperlink{class_u_toggle_statics}{UToggle\+Statics}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+UBlueprint\+Function\+Library class that is declared as a friend to allow access to private members of \doxylink{class_u_toggle_profile}{UToggle\+Profile}. This enables the static functions in \doxylink{class_u_toggle_statics}{UToggle\+Statics} to manipulate toggle profiles directly. 
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_toggle_profile_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_toggle_profile_a8f002f4d587be751ee7c6fe6dee51504}\index{UToggleProfile@{UToggleProfile}!OnProfileChanged@{OnProfileChanged}}
+\index{OnProfileChanged@{OnProfileChanged}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{OnProfileChanged}{OnProfileChanged}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a8f002f4d587be751ee7c6fe6dee51504} 
+FOn\+Toggle\+Profile\+Changed UToggle\+Profile::\+\+On\+Profile\+Changed}
+
+
+
+A multicast delegate that is triggered whenever the toggle profile changes. Listeners can subscribe to this event to be notified of changes in the profile. 
+
+\Hypertarget{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed}\index{UToggleProfile@{UToggleProfile}!TogglePolicies@{TogglePolicies}}
+\index{TogglePolicies@{TogglePolicies}!UToggleProfile@{UToggleProfile}}
+\doxysubsubsection{\texorpdfstring{TogglePolicies}{TogglePolicies}}
+{\footnotesize\ttfamily \label{class_u_toggle_profile_a4955c8d43e1b9e3c50e6395c08e14fed} 
+TArray$<$\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}}\texorpdfstring{$\ast$}{*}$>$ UToggle\+Profile::\+\+Toggle\+Policies}
+
+
+
+The array of toggle policies associated with this profile. Each policy defines specific rules or conditions for toggling features on or off. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Data\+Assets/\+\doxymbox{\hyperlink{_toggle_profile_8h}{Toggle\+Profile.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Data\+Assets/\+\doxymbox{\hyperlink{_toggle_profile_8cpp}{Toggle\+Profile.\+cpp}}\end{DoxyCompactItemize}

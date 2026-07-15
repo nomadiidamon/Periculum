@@ -17,8 +17,6 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FToggleStateChanged, bool, bEnabled)
  * UToggleComponent is a component that can be attached to an actor to provide toggle functionality.
  * It allows enabling and disabling the component, and it can execute policies based on the toggle state.
  */
-
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PERICULUM_API UToggleComponent : public UActorComponent, public IToggleableInterface
 {

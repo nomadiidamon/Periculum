@@ -12,9 +12,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTagRemoved, FGameplayTag, Tag);
 
 /**
  * This component allows an actor to have a container of gameplay tags that can be added or removed at runtime. 
- It also supports tag stacking, where multiple instances of the same tag can be added and removed independently.
+ * It also supports tag stacking, where multiple instances of the same tag can be added and removed independently.
  */
-
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class PERICULUM_API UTagContainerComponent : public UActorComponent
 {

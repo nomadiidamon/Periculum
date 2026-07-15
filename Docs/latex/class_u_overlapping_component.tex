@@ -1,0 +1,190 @@
+\doxysection{UOverlapping\+Component Class Reference}
+\hypertarget{class_u_overlapping_component}{}\label{class_u_overlapping_component}\index{UOverlappingComponent@{UOverlappingComponent}}
+
+
+{\ttfamily \+\#include $<$Overlapping\+Component.\+h$>$}
+
+Inheritance diagram for UOverlapping\+Component:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_overlapping_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_u_overlapping_component_a2f019e5d123733200bc657be2a18959b}{Get\+Overlapping\+Actors}} () const
+\begin{DoxyCompactList}\small\item\em Returns the array of actors that are currently overlapping with the specified collision primitive. This function provides a way to access the list of overlapping actors from other parts of the code or Blueprints. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_overlapping_component_a33e94c522f43fac08e973b2e19a31d22}{On\+Overlap\+Begin}} (UPrimitive\+Component \texorpdfstring{$\ast$}{*}Overlapped\+Comp, AActor \texorpdfstring{$\ast$}{*}Other\+Actor, UPrimitive\+Component \texorpdfstring{$\ast$}{*}Other\+Comp, int32 Other\+Body\+Index, bool b\+From\+Sweep, const FHit\+Result \&Sweep\+Result)
+\item 
+void \doxymbox{\hyperlink{class_u_overlapping_component_ac67b1488bad768fd0fb5474df255f216}{On\+Overlap\+End}} (UPrimitive\+Component \texorpdfstring{$\ast$}{*}Overlapped\+Comp, AActor \texorpdfstring{$\ast$}{*}Other\+Actor, UPrimitive\+Component \texorpdfstring{$\ast$}{*}Other\+Comp, int32 Other\+Body\+Index)
+\item 
+\doxymbox{\hyperlink{class_u_overlapping_component_a1d4a8301d50e72813690b8c8a2adbedf}{UOverlapping\+Component}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TObject\+Ptr$<$ UPrimitive\+Component $>$ \doxymbox{\hyperlink{class_u_overlapping_component_aaec32340631c91495b9a26518f18e25b}{Collision\+Primitive}}
+\begin{DoxyCompactList}\small\item\em The collision primitive that this component will use to detect overlapping actors. This should be set to a valid UPrimitive\+Component (e.\+g., a UBox\+Component, USphere\+Component, etc.) in the owning actor. \end{DoxyCompactList}\item 
+TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_u_overlapping_component_a97f94d93aa2c56d56c27e8d54f968e65}{Overlapping\+Actors}}
+\begin{DoxyCompactList}\small\item\em The array of actors that are currently overlapping with the specified collision primitive. This array is updated automatically when actors begin and end overlapping. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_u_overlapping_component_af1087ebb974f06fbab1fbbfe41d99538}{Begin\+Play}} () override
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_u_overlapping_component_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_u_overlapping_component_a1d4a8301d50e72813690b8c8a2adbedf}\index{UOverlappingComponent@{UOverlappingComponent}!UOverlappingComponent@{UOverlappingComponent}}
+\index{UOverlappingComponent@{UOverlappingComponent}!UOverlappingComponent@{UOverlappingComponent}}
+\doxysubsubsection{\texorpdfstring{UOverlappingComponent()}{UOverlappingComponent()}}
+{\footnotesize\ttfamily \label{class_u_overlapping_component_a1d4a8301d50e72813690b8c8a2adbedf} 
+UOverlapping\+Component::\+\+UOverlapping\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ PrimaryComponentTick.bCanEverTick\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00007\ \ \ \ \ \doxymbox{\hyperlink{class_u_overlapping_component_aaec32340631c91495b9a26518f18e25b}{CollisionPrimitive}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00008\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{class_u_overlapping_component_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_overlapping_component_af1087ebb974f06fbab1fbbfe41d99538}\index{UOverlappingComponent@{UOverlappingComponent}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!UOverlappingComponent@{UOverlappingComponent}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily \label{class_u_overlapping_component_af1087ebb974f06fbab1fbbfe41d99538} 
+void UOverlapping\+Component::\+\+Begin\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ Super::BeginPlay();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_overlapping_component_a2f019e5d123733200bc657be2a18959b}\index{UOverlappingComponent@{UOverlappingComponent}!GetOverlappingActors@{GetOverlappingActors}}
+\index{GetOverlappingActors@{GetOverlappingActors}!UOverlappingComponent@{UOverlappingComponent}}
+\doxysubsubsection{\texorpdfstring{GetOverlappingActors()}{GetOverlappingActors()}}
+{\footnotesize\ttfamily \label{class_u_overlapping_component_a2f019e5d123733200bc657be2a18959b} 
+TArray$<$ AActor \texorpdfstring{$\ast$}{*} $>$ UOverlapping\+Component::\+\+Get\+Overlapping\+Actors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the array of actors that are currently overlapping with the specified collision primitive. This function provides a way to access the list of overlapping actors from other parts of the code or Blueprints. 
+
+\begin{DoxyReturn}{Returns}
+The array of overlapping actors. Can be empty if no actors are overlapping.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_overlapping_component_a97f94d93aa2c56d56c27e8d54f968e65}{OverlappingActors}}.Num()\ ==\ 0)}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//PERICULUM\_LOG(Periculum\_Game,\ Log,\ "{}No\ actors\ are\ currently\ overlapping\ with\ \%s"{},\ *GetOwner()-\/>GetName());}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TArray<AActor*>();}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ TArray<AActor*>\ ValidOverlappingActors;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{for}\ (AActor*\ Actor\ :\ \doxymbox{\hyperlink{class_u_overlapping_component_a97f94d93aa2c56d56c27e8d54f968e65}{OverlappingActors}})}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Actor\ \&\&\ Actor-\/>IsValidLowLevel())}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ ValidOverlappingActors.Add(Actor);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//PERICULUM\_LOG(Periculum\_Game,\ Warning,\ "{}Invalid\ actor\ found\ in\ OverlappingActors\ array\ of\ \%s.\ Removing\ it."{},\ *GetOwner()-\/>GetName());}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const\_cast<}TArray<AActor*>\&\textcolor{keyword}{>}(\doxymbox{\hyperlink{class_u_overlapping_component_a97f94d93aa2c56d56c27e8d54f968e65}{OverlappingActors}}).Remove(Actor);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (ValidOverlappingActors.Num()\ ==\ 0)}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//PERICULUM\_LOG(Periculum\_Game,\ Log,\ "{}All\ actors\ in\ OverlappingActors\ array\ of\ \%s\ are\ invalid.\ Returning\ an\ empty\ array."{},\ *GetOwner()-\/>GetName());}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Log,\ \textcolor{stringliteral}{"{}\%d\ valid\ actors\ are\ currently\ overlapping\ with\ \%s"{}},\ ValidOverlappingActors.Num(),\ *GetOwner()-\/>GetName());}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ ValidOverlappingActors;}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_overlapping_component_a33e94c522f43fac08e973b2e19a31d22}\index{UOverlappingComponent@{UOverlappingComponent}!OnOverlapBegin@{OnOverlapBegin}}
+\index{OnOverlapBegin@{OnOverlapBegin}!UOverlappingComponent@{UOverlappingComponent}}
+\doxysubsubsection{\texorpdfstring{OnOverlapBegin()}{OnOverlapBegin()}}
+{\footnotesize\ttfamily \label{class_u_overlapping_component_a33e94c522f43fac08e973b2e19a31d22} 
+void UOverlapping\+Component::\+\+On\+Overlap\+Begin (\begin{DoxyParamCaption}\item[{UPrimitive\+Component \texorpdfstring{$\ast$}{*}}]{Overlapped\+Comp}{, }\item[{AActor \texorpdfstring{$\ast$}{*}}]{Other\+Actor}{, }\item[{UPrimitive\+Component \texorpdfstring{$\ast$}{*}}]{Other\+Comp}{, }\item[{int32}]{Other\+Body\+Index}{, }\item[{bool}]{b\+From\+Sweep}{, }\item[{const FHit\+Result \&}]{Sweep\+Result}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ overlapping\ actor\ is\ valid\ and\ not\ the\ owner\ of\ this\ component}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (OtherActor\ \&\&\ OtherActor\ !=\ GetOwner())}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ the\ overlapping\ actor\ to\ the\ array}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_overlapping_component_a97f94d93aa2c56d56c27e8d54f968e65}{OverlappingActors}}.AddUnique(OtherActor);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Log,\ \textcolor{stringliteral}{"{}Actor\ \%s\ has\ begun\ overlapping\ with\ \%s"{}},\ *OtherActor-\/>GetName(),\ *GetOwner()-\/>GetName());}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_overlapping_component_ac67b1488bad768fd0fb5474df255f216}\index{UOverlappingComponent@{UOverlappingComponent}!OnOverlapEnd@{OnOverlapEnd}}
+\index{OnOverlapEnd@{OnOverlapEnd}!UOverlappingComponent@{UOverlappingComponent}}
+\doxysubsubsection{\texorpdfstring{OnOverlapEnd()}{OnOverlapEnd()}}
+{\footnotesize\ttfamily \label{class_u_overlapping_component_ac67b1488bad768fd0fb5474df255f216} 
+void UOverlapping\+Component::\+\+On\+Overlap\+End (\begin{DoxyParamCaption}\item[{UPrimitive\+Component \texorpdfstring{$\ast$}{*}}]{Overlapped\+Comp}{, }\item[{AActor \texorpdfstring{$\ast$}{*}}]{Other\+Actor}{, }\item[{UPrimitive\+Component \texorpdfstring{$\ast$}{*}}]{Other\+Comp}{, }\item[{int32}]{Other\+Body\+Index}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ overlapping\ actor\ is\ valid\ and\ not\ the\ owner\ of\ this\ component}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (OtherActor\ \&\&\ OtherActor\ !=\ GetOwner())}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Remove\ the\ overlapping\ actor\ from\ the\ array}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_overlapping_component_a97f94d93aa2c56d56c27e8d54f968e65}{OverlappingActors}}.Remove(OtherActor);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Log,\ \textcolor{stringliteral}{"{}Actor\ \%s\ has\ ended\ overlapping\ with\ \%s"{}},\ *OtherActor-\/>GetName(),\ *GetOwner()-\/>GetName());}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_overlapping_component_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_overlapping_component_aaec32340631c91495b9a26518f18e25b}\index{UOverlappingComponent@{UOverlappingComponent}!CollisionPrimitive@{CollisionPrimitive}}
+\index{CollisionPrimitive@{CollisionPrimitive}!UOverlappingComponent@{UOverlappingComponent}}
+\doxysubsubsection{\texorpdfstring{CollisionPrimitive}{CollisionPrimitive}}
+{\footnotesize\ttfamily \label{class_u_overlapping_component_aaec32340631c91495b9a26518f18e25b} 
+TObject\+Ptr$<$UPrimitive\+Component$>$ UOverlapping\+Component::\+\+Collision\+Primitive}
+
+
+
+The collision primitive that this component will use to detect overlapping actors. This should be set to a valid UPrimitive\+Component (e.\+g., a UBox\+Component, USphere\+Component, etc.) in the owning actor. 
+
+\Hypertarget{class_u_overlapping_component_a97f94d93aa2c56d56c27e8d54f968e65}\index{UOverlappingComponent@{UOverlappingComponent}!OverlappingActors@{OverlappingActors}}
+\index{OverlappingActors@{OverlappingActors}!UOverlappingComponent@{UOverlappingComponent}}
+\doxysubsubsection{\texorpdfstring{OverlappingActors}{OverlappingActors}}
+{\footnotesize\ttfamily \label{class_u_overlapping_component_a97f94d93aa2c56d56c27e8d54f968e65} 
+TArray$<$AActor\texorpdfstring{$\ast$}{*}$>$ UOverlapping\+Component::\+\+Overlapping\+Actors}
+
+
+
+The array of actors that are currently overlapping with the specified collision primitive. This array is updated automatically when actors begin and end overlapping. 
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Actor\+Components/\+\doxymbox{\hyperlink{_overlapping_component_8h}{Overlapping\+Component.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Actor\+Components/\+\doxymbox{\hyperlink{_overlapping_component_8cpp}{Overlapping\+Component.\+cpp}}\end{DoxyCompactItemize}

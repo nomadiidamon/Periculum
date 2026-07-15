@@ -1,0 +1,422 @@
+\doxysection{UCode\+Game\+Instance Class Reference}
+\hypertarget{class_u_code_game_instance}{}\label{class_u_code_game_instance}\index{UCodeGameInstance@{UCodeGameInstance}}
+
+
+{\ttfamily \+\#include $<$Code\+Game\+Instance.\+h$>$}
+
+Inheritance diagram for UCode\+Game\+Instance:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_code_game_instance}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+FORCEINLINE TArray$<$ FName $>$ \doxymbox{\hyperlink{class_u_code_game_instance_a4c7109b68129e48ffc419f0c632488a7}{Get\+All\+Level\+Names}} () const
+\item 
+FORCEINLINE \doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} \doxymbox{\hyperlink{class_u_code_game_instance_aeb8b39205eeb3d6e5cccc101c2fd50c4}{Get\+Current\+Input\+Device\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Input Device Management. \end{DoxyCompactList}\item 
+FORCEINLINE int \doxymbox{\hyperlink{class_u_code_game_instance_ae53aaab2647a7d310dfbea443f0b153b}{Get\+Current\+Level\+Index}} () const
+\item 
+FORCEINLINE FName \doxymbox{\hyperlink{class_u_code_game_instance_a85d73de3d309b67a329690ad10e9d420}{Get\+Current\+Level\+Name}} () const
+\item 
+FORCEINLINE \doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} \doxymbox{\hyperlink{class_u_code_game_instance_a553ff1e2827ad675db6603c4764e4ca3}{Get\+Preferred\+Gamepad\+Type}} () const
+\item 
+FORCEINLINE int \doxymbox{\hyperlink{class_u_code_game_instance_ab80b159ea8558692e512f37cbd807380}{Get\+Total\+Levels}} () const
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_ac0c932ba75828c04ee46aa7902eeb305}{Load\+First\+Level}} ()
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_aea0c785cf6e2505fa243bac0355c385b}{Load\+First\+Level\+Delayed}} (float Delay=0.\+5f)
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_a55eca2daac5fee9057a1ceda991642cc}{Load\+Gym\+Level}} ()
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_aa9bc2855591f9d4eb49983afac0f6725}{Load\+Gym\+Level\+Delayed}} (float Delay=0.\+5f)
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_af28bb9578f0632f84d362c3e567708d0}{Load\+Level\+Safe}} (int Level\+Index)
+\begin{DoxyCompactList}\small\item\em Level Loading and Management. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_a5bee5dc8f1214747613a625a3baa7eaa}{Load\+Level\+Safe\+Delayed}} (int Level\+Index, float Delay=0.\+5f)
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_a8f62909a4eb5b25e8cdd74e60ebba674}{Load\+Main\+Menu}} ()
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_a650dda11ecea9c45bcacb45193dd453e}{Load\+Main\+Menu\+Delayed}} (float Delay=0.\+5f)
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_a67c728b3aaa620e1fd5426caa54f64b0}{Load\+Museum\+Level}} ()
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_a015be60d79c4d16e90fa0b2bf4ade7d9}{Load\+Museum\+Level\+Delayed}} (float Delay=0.\+5f)
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_ab3a257520e59156d04deaad5a4ef1a79}{Restart\+Current\+Level}} ()
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_a0ff46a2c92b8a7588e504efad617cbaa}{Restart\+Current\+Level\+Delayed}} (float Delay=0.\+5f)
+\item 
+void \doxymbox{\hyperlink{class_u_code_game_instance_a58ca421e3198508914174116e817c9b3}{Set\+Current\+Input\+Device\+Type}} (\doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} New\+Input\+Device\+Type)
+\item 
+FORCEINLINE void \doxymbox{\hyperlink{class_u_code_game_instance_a37516197136611547e65647a751ac7e9}{Set\+Preferred\+Gamepad\+Type}} (\doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} New\+Preferred\+Gamepad\+Type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_u_code_game_instance_a2d4f84d21698247f80add654e0bbdee4}{Init}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} \doxymbox{\hyperlink{class_u_code_game_instance_a1202f78daa8e2d2e2d649282877ae39a}{Current\+Input\+Device\+Type}}
+\item 
+int \doxymbox{\hyperlink{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}{Current\+Level\+Index}}
+\item 
+FTimer\+Handle \doxymbox{\hyperlink{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105}{Delayed\+Level\+Load\+Timer\+Handle}}
+\item 
+TArray$<$ FName $>$ \doxymbox{\hyperlink{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}{Game\+Levels}}
+\item 
+\doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} \doxymbox{\hyperlink{class_u_code_game_instance_a77ecfb41c3c087fa2f0687721cf54f33}{Preferred\+Gamepad\+Type}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_u_code_game_instance_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_code_game_instance_a4c7109b68129e48ffc419f0c632488a7}\index{UCodeGameInstance@{UCodeGameInstance}!GetAllLevelNames@{GetAllLevelNames}}
+\index{GetAllLevelNames@{GetAllLevelNames}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{GetAllLevelNames()}{GetAllLevelNames()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a4c7109b68129e48ffc419f0c632488a7} 
+FORCEINLINE TArray$<$ FName $>$ UCode\+Game\+Instance::\+\+Get\+All\+Level\+Names (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \{\ TArray<FName>\ LevelNames\ =\ \doxymbox{\hyperlink{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}{GameLevels}};\ \textcolor{keywordflow}{return}\ LevelNames;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_aeb8b39205eeb3d6e5cccc101c2fd50c4}\index{UCodeGameInstance@{UCodeGameInstance}!GetCurrentInputDeviceType@{GetCurrentInputDeviceType}}
+\index{GetCurrentInputDeviceType@{GetCurrentInputDeviceType}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{GetCurrentInputDeviceType()}{GetCurrentInputDeviceType()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_aeb8b39205eeb3d6e5cccc101c2fd50c4} 
+FORCEINLINE \doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} UCode\+Game\+Instance::\+\+Get\+Current\+Input\+Device\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Input Device Management. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_code_game_instance_a1202f78daa8e2d2e2d649282877ae39a}{CurrentInputDeviceType}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_ae53aaab2647a7d310dfbea443f0b153b}\index{UCodeGameInstance@{UCodeGameInstance}!GetCurrentLevelIndex@{GetCurrentLevelIndex}}
+\index{GetCurrentLevelIndex@{GetCurrentLevelIndex}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{GetCurrentLevelIndex()}{GetCurrentLevelIndex()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_ae53aaab2647a7d310dfbea443f0b153b} 
+FORCEINLINE int UCode\+Game\+Instance::\+\+Get\+Current\+Level\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}{CurrentLevelIndex}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a85d73de3d309b67a329690ad10e9d420}\index{UCodeGameInstance@{UCodeGameInstance}!GetCurrentLevelName@{GetCurrentLevelName}}
+\index{GetCurrentLevelName@{GetCurrentLevelName}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{GetCurrentLevelName()}{GetCurrentLevelName()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a85d73de3d309b67a329690ad10e9d420} 
+FORCEINLINE FName UCode\+Game\+Instance::\+\+Get\+Current\+Level\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}{GameLevels}}.IsValidIndex(\doxymbox{\hyperlink{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}{CurrentLevelIndex}})\ ?\ \doxymbox{\hyperlink{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}{GameLevels}}[\doxymbox{\hyperlink{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}{CurrentLevelIndex}}]\ :\ FName(TEXT(\textcolor{stringliteral}{"{}InvalidLevel"{}}));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a553ff1e2827ad675db6603c4764e4ca3}\index{UCodeGameInstance@{UCodeGameInstance}!GetPreferredGamepadType@{GetPreferredGamepadType}}
+\index{GetPreferredGamepadType@{GetPreferredGamepadType}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{GetPreferredGamepadType()}{GetPreferredGamepadType()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a553ff1e2827ad675db6603c4764e4ca3} 
+FORCEINLINE \doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} UCode\+Game\+Instance::\+\+Get\+Preferred\+Gamepad\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_code_game_instance_a77ecfb41c3c087fa2f0687721cf54f33}{PreferredGamepadType}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_ab80b159ea8558692e512f37cbd807380}\index{UCodeGameInstance@{UCodeGameInstance}!GetTotalLevels@{GetTotalLevels}}
+\index{GetTotalLevels@{GetTotalLevels}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{GetTotalLevels()}{GetTotalLevels()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_ab80b159ea8558692e512f37cbd807380} 
+FORCEINLINE int UCode\+Game\+Instance::\+\+Get\+Total\+Levels (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}{GameLevels}}.Num();\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a2d4f84d21698247f80add654e0bbdee4}\index{UCodeGameInstance@{UCodeGameInstance}!Init@{Init}}
+\index{Init@{Init}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a2d4f84d21698247f80add654e0bbdee4} 
+void UCode\+Game\+Instance::\+\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ Super::Init();}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordflow}{if}\ (UGameplayMessageSubsystem*\ MessageSubsystem\ =\ GetSubsystem<UGameplayMessageSubsystem>())\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Log,\ \textcolor{stringliteral}{"{}GameplayMessageSubsystem\ initialized\ successfully."{}});}
+\DoxyCodeLine{00012\ \ \ \ \ \}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Error,\ \textcolor{stringliteral}{"{}Failed\ to\ initialize\ GameplayMessageSubsystem."{}});}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}{GameLevels}}.Num()\ ==\ 0)}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Warning,\ \textcolor{stringliteral}{"{}GameLevels\ array\ is\ empty\ in\ CodeGameInstance.\ Please\ populate\ it\ with\ the\ level\ names\ in\ the\ editor."{}});}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00022\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}{CurrentLevelIndex}}\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{class_u_code_game_instance_a77ecfb41c3c087fa2f0687721cf54f33}{PreferredGamepadType}}\ =\ EInputDeviceType::IDT\_PS5;}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_ac0c932ba75828c04ee46aa7902eeb305}\index{UCodeGameInstance@{UCodeGameInstance}!LoadFirstLevel@{LoadFirstLevel}}
+\index{LoadFirstLevel@{LoadFirstLevel}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadFirstLevel()}{LoadFirstLevel()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_ac0c932ba75828c04ee46aa7902eeb305} 
+void UCode\+Game\+Instance::\+\+Load\+First\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Log,\ \textcolor{stringliteral}{"{}Loading\ First\ Level..."{}});}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_aea0c785cf6e2505fa243bac0355c385b}\index{UCodeGameInstance@{UCodeGameInstance}!LoadFirstLevelDelayed@{LoadFirstLevelDelayed}}
+\index{LoadFirstLevelDelayed@{LoadFirstLevelDelayed}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadFirstLevelDelayed()}{LoadFirstLevelDelayed()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_aea0c785cf6e2505fa243bac0355c385b} 
+void UCode\+Game\+Instance::\+\+Load\+First\+Level\+Delayed (\begin{DoxyParamCaption}\item[{float}]{Delay}{ = {\ttfamily 0.5f}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ GetWorld()-\/>GetTimerManager().SetTimer(\doxymbox{\hyperlink{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105}{DelayedLevelLoadTimerHandle}},}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ FTimerDelegate::CreateUObject(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_code_game_instance_ac0c932ba75828c04ee46aa7902eeb305}{UCodeGameInstance::LoadFirstLevel}}),\ Delay,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a55eca2daac5fee9057a1ceda991642cc}\index{UCodeGameInstance@{UCodeGameInstance}!LoadGymLevel@{LoadGymLevel}}
+\index{LoadGymLevel@{LoadGymLevel}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadGymLevel()}{LoadGymLevel()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a55eca2daac5fee9057a1ceda991642cc} 
+void UCode\+Game\+Instance::\+\+Load\+Gym\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Log,\ \textcolor{stringliteral}{"{}Loading\ Gym\ Level..."{}});}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_aa9bc2855591f9d4eb49983afac0f6725}\index{UCodeGameInstance@{UCodeGameInstance}!LoadGymLevelDelayed@{LoadGymLevelDelayed}}
+\index{LoadGymLevelDelayed@{LoadGymLevelDelayed}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadGymLevelDelayed()}{LoadGymLevelDelayed()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_aa9bc2855591f9d4eb49983afac0f6725} 
+void UCode\+Game\+Instance::\+\+Load\+Gym\+Level\+Delayed (\begin{DoxyParamCaption}\item[{float}]{Delay}{ = {\ttfamily 0.5f}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ GetWorld()-\/>GetTimerManager().SetTimer(\doxymbox{\hyperlink{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105}{DelayedLevelLoadTimerHandle}},}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ FTimerDelegate::CreateUObject(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_code_game_instance_a55eca2daac5fee9057a1ceda991642cc}{UCodeGameInstance::LoadGymLevel}}),\ Delay,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_af28bb9578f0632f84d362c3e567708d0}\index{UCodeGameInstance@{UCodeGameInstance}!LoadLevelSafe@{LoadLevelSafe}}
+\index{LoadLevelSafe@{LoadLevelSafe}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadLevelSafe()}{LoadLevelSafe()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_af28bb9578f0632f84d362c3e567708d0} 
+void UCode\+Game\+Instance::\+\+Load\+Level\+Safe (\begin{DoxyParamCaption}\item[{int}]{Level\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Level Loading and Management. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}{GameLevels}}.IsValidIndex(LevelIndex))}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Warning,\ \textcolor{stringliteral}{"{}Invalid\ level\ index\ \%d\ in\ LoadLevelSafe.\ Please\ check\ the\ GameLevels\ array\ in\ CodeGameInstance."{}},\ LevelIndex);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \doxymbox{\hyperlink{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}{CurrentLevelIndex}}\ =\ LevelIndex;}
+\DoxyCodeLine{00036\ \ \ \ \ GEngine-\/>SetClientTravel(GetWorld(),\ *\doxymbox{\hyperlink{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}{GameLevels}}[\doxymbox{\hyperlink{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}{CurrentLevelIndex}}].ToString(),\ TRAVEL\_Absolute);}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a5bee5dc8f1214747613a625a3baa7eaa}\index{UCodeGameInstance@{UCodeGameInstance}!LoadLevelSafeDelayed@{LoadLevelSafeDelayed}}
+\index{LoadLevelSafeDelayed@{LoadLevelSafeDelayed}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadLevelSafeDelayed()}{LoadLevelSafeDelayed()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a5bee5dc8f1214747613a625a3baa7eaa} 
+void UCode\+Game\+Instance::\+\+Load\+Level\+Safe\+Delayed (\begin{DoxyParamCaption}\item[{int}]{Level\+Index}{, }\item[{float}]{Delay}{ = {\ttfamily 0.5f}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ GetWorld()-\/>GetTimerManager().SetTimer(\doxymbox{\hyperlink{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105}{DelayedLevelLoadTimerHandle}},}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ FTimerDelegate::CreateUObject(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_code_game_instance_af28bb9578f0632f84d362c3e567708d0}{UCodeGameInstance::LoadLevelSafe}},\ LevelIndex),\ Delay,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a8f62909a4eb5b25e8cdd74e60ebba674}\index{UCodeGameInstance@{UCodeGameInstance}!LoadMainMenu@{LoadMainMenu}}
+\index{LoadMainMenu@{LoadMainMenu}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadMainMenu()}{LoadMainMenu()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a8f62909a4eb5b25e8cdd74e60ebba674} 
+void UCode\+Game\+Instance::\+\+Load\+Main\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Log,\ \textcolor{stringliteral}{"{}Loading\ Main\ Menu..."{}});}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a650dda11ecea9c45bcacb45193dd453e}\index{UCodeGameInstance@{UCodeGameInstance}!LoadMainMenuDelayed@{LoadMainMenuDelayed}}
+\index{LoadMainMenuDelayed@{LoadMainMenuDelayed}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadMainMenuDelayed()}{LoadMainMenuDelayed()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a650dda11ecea9c45bcacb45193dd453e} 
+void UCode\+Game\+Instance::\+\+Load\+Main\+Menu\+Delayed (\begin{DoxyParamCaption}\item[{float}]{Delay}{ = {\ttfamily 0.5f}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ GetWorld()-\/>GetTimerManager().SetTimer(\doxymbox{\hyperlink{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105}{DelayedLevelLoadTimerHandle}},}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ FTimerDelegate::CreateUObject(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_code_game_instance_a8f62909a4eb5b25e8cdd74e60ebba674}{UCodeGameInstance::LoadMainMenu}}),\ Delay,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a67c728b3aaa620e1fd5426caa54f64b0}\index{UCodeGameInstance@{UCodeGameInstance}!LoadMuseumLevel@{LoadMuseumLevel}}
+\index{LoadMuseumLevel@{LoadMuseumLevel}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadMuseumLevel()}{LoadMuseumLevel()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a67c728b3aaa620e1fd5426caa54f64b0} 
+void UCode\+Game\+Instance::\+\+Load\+Museum\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Game,\ Log,\ \textcolor{stringliteral}{"{}Loading\ Museum\ Level..."{}});}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a015be60d79c4d16e90fa0b2bf4ade7d9}\index{UCodeGameInstance@{UCodeGameInstance}!LoadMuseumLevelDelayed@{LoadMuseumLevelDelayed}}
+\index{LoadMuseumLevelDelayed@{LoadMuseumLevelDelayed}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{LoadMuseumLevelDelayed()}{LoadMuseumLevelDelayed()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a015be60d79c4d16e90fa0b2bf4ade7d9} 
+void UCode\+Game\+Instance::\+\+Load\+Museum\+Level\+Delayed (\begin{DoxyParamCaption}\item[{float}]{Delay}{ = {\ttfamily 0.5f}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ GetWorld()-\/>GetTimerManager().SetTimer(\doxymbox{\hyperlink{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105}{DelayedLevelLoadTimerHandle}},}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ FTimerDelegate::CreateUObject(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_code_game_instance_a67c728b3aaa620e1fd5426caa54f64b0}{UCodeGameInstance::LoadMuseumLevel}}),\ Delay,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_ab3a257520e59156d04deaad5a4ef1a79}\index{UCodeGameInstance@{UCodeGameInstance}!RestartCurrentLevel@{RestartCurrentLevel}}
+\index{RestartCurrentLevel@{RestartCurrentLevel}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{RestartCurrentLevel()}{RestartCurrentLevel()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_ab3a257520e59156d04deaad5a4ef1a79} 
+void UCode\+Game\+Instance::\+\+Restart\+Current\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \doxymbox{\hyperlink{class_u_code_game_instance_af28bb9578f0632f84d362c3e567708d0}{LoadLevelSafe}}(\doxymbox{\hyperlink{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}{CurrentLevelIndex}});}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a0ff46a2c92b8a7588e504efad617cbaa}\index{UCodeGameInstance@{UCodeGameInstance}!RestartCurrentLevelDelayed@{RestartCurrentLevelDelayed}}
+\index{RestartCurrentLevelDelayed@{RestartCurrentLevelDelayed}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{RestartCurrentLevelDelayed()}{RestartCurrentLevelDelayed()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a0ff46a2c92b8a7588e504efad617cbaa} 
+void UCode\+Game\+Instance::\+\+Restart\+Current\+Level\+Delayed (\begin{DoxyParamCaption}\item[{float}]{Delay}{ = {\ttfamily 0.5f}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ GetWorld()-\/>GetTimerManager().SetTimer(\doxymbox{\hyperlink{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105}{DelayedLevelLoadTimerHandle}},}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ FTimerDelegate::CreateUObject(\textcolor{keyword}{this},\ \&\doxymbox{\hyperlink{class_u_code_game_instance_ab3a257520e59156d04deaad5a4ef1a79}{UCodeGameInstance::RestartCurrentLevel}}),\ Delay,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a58ca421e3198508914174116e817c9b3}\index{UCodeGameInstance@{UCodeGameInstance}!SetCurrentInputDeviceType@{SetCurrentInputDeviceType}}
+\index{SetCurrentInputDeviceType@{SetCurrentInputDeviceType}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{SetCurrentInputDeviceType()}{SetCurrentInputDeviceType()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a58ca421e3198508914174116e817c9b3} 
+void UCode\+Game\+Instance::\+\+Set\+Current\+Input\+Device\+Type (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}}}]{New\+Input\+Device\+Type}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{if}\ (NewInputDeviceType\ !=\ EInputDeviceType::IDT\_Keyboard)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_code_game_instance_a1202f78daa8e2d2e2d649282877ae39a}{CurrentInputDeviceType}}\ =\ \doxymbox{\hyperlink{class_u_code_game_instance_a77ecfb41c3c087fa2f0687721cf54f33}{PreferredGamepadType}};}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00108\ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_code_game_instance_a1202f78daa8e2d2e2d649282877ae39a}{CurrentInputDeviceType}}\ =\ NewInputDeviceType;}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \doxymbox{\hyperlink{_periculum_log_8h_ada5503610e22658658ce8c48742bf547}{PERICULUM\_LOG}}(Periculum\_Input,\ Log,\ \textcolor{stringliteral}{"{}Current\ input\ device\ type\ set\ to:\ \%s"{}},\ *UEnum::GetValueAsString(\doxymbox{\hyperlink{class_u_code_game_instance_a1202f78daa8e2d2e2d649282877ae39a}{CurrentInputDeviceType}}));}
+\DoxyCodeLine{00112\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_code_game_instance_a37516197136611547e65647a751ac7e9}\index{UCodeGameInstance@{UCodeGameInstance}!SetPreferredGamepadType@{SetPreferredGamepadType}}
+\index{SetPreferredGamepadType@{SetPreferredGamepadType}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{SetPreferredGamepadType()}{SetPreferredGamepadType()}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a37516197136611547e65647a751ac7e9} 
+FORCEINLINE void UCode\+Game\+Instance::\+\+Set\+Preferred\+Gamepad\+Type (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}}}]{New\+Preferred\+Gamepad\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \{\ \doxymbox{\hyperlink{class_u_code_game_instance_a77ecfb41c3c087fa2f0687721cf54f33}{PreferredGamepadType}}\ =\ NewPreferredGamepadType;\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_code_game_instance_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_code_game_instance_a1202f78daa8e2d2e2d649282877ae39a}\index{UCodeGameInstance@{UCodeGameInstance}!CurrentInputDeviceType@{CurrentInputDeviceType}}
+\index{CurrentInputDeviceType@{CurrentInputDeviceType}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{CurrentInputDeviceType}{CurrentInputDeviceType}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a1202f78daa8e2d2e2d649282877ae39a} 
+\doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} UCode\+Game\+Instance::\+\+Current\+Input\+Device\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230}\index{UCodeGameInstance@{UCodeGameInstance}!CurrentLevelIndex@{CurrentLevelIndex}}
+\index{CurrentLevelIndex@{CurrentLevelIndex}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{CurrentLevelIndex}{CurrentLevelIndex}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a9ebac4042b823e814139dafb1424e230} 
+int UCode\+Game\+Instance::\+\+Current\+Level\+Index\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105}\index{UCodeGameInstance@{UCodeGameInstance}!DelayedLevelLoadTimerHandle@{DelayedLevelLoadTimerHandle}}
+\index{DelayedLevelLoadTimerHandle@{DelayedLevelLoadTimerHandle}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{DelayedLevelLoadTimerHandle}{DelayedLevelLoadTimerHandle}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_ae4b6f7a5a1b6003b7f4cc56565233105} 
+FTimer\+Handle UCode\+Game\+Instance::\+\+Delayed\+Level\+Load\+Timer\+Handle\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3}\index{UCodeGameInstance@{UCodeGameInstance}!GameLevels@{GameLevels}}
+\index{GameLevels@{GameLevels}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{GameLevels}{GameLevels}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a70ec98329fc1815c3a0845d8349f95f3} 
+TArray$<$FName$>$ UCode\+Game\+Instance::\+\+Game\+Levels\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_u_code_game_instance_a77ecfb41c3c087fa2f0687721cf54f33}\index{UCodeGameInstance@{UCodeGameInstance}!PreferredGamepadType@{PreferredGamepadType}}
+\index{PreferredGamepadType@{PreferredGamepadType}!UCodeGameInstance@{UCodeGameInstance}}
+\doxysubsubsection{\texorpdfstring{PreferredGamepadType}{PreferredGamepadType}}
+{\footnotesize\ttfamily \label{class_u_code_game_instance_a77ecfb41c3c087fa2f0687721cf54f33} 
+\doxymbox{\hyperlink{_input_types_8h_ac9770cb45f7e1cc17681a45002d6222c}{EInput\+Device\+Type}} UCode\+Game\+Instance::\+\+Preferred\+Gamepad\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Game/\+\doxymbox{\hyperlink{_code_game_instance_8h}{Code\+Game\+Instance.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Game/\+\doxymbox{\hyperlink{_code_game_instance_8cpp}{Code\+Game\+Instance.\+cpp}}\end{DoxyCompactItemize}

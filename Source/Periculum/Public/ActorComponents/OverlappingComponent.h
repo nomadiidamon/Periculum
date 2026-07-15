@@ -11,7 +11,6 @@ class UPrimitiveComponent;
 /*
 * UOverlappingComponent is a custom Actor Component that tracks overlapping actors using a specified collision primitive.
 */
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PERICULUM_API UOverlappingComponent : public UActorComponent
 {

@@ -1,0 +1,102 @@
+\doxysection{Code\+Game\+Instance.\+h}
+\hypertarget{_code_game_instance_8h_source}{}\label{_code_game_instance_8h_source}\index{Source/Periculum/Public/Game/CodeGameInstance.h@{Source/Periculum/Public/Game/CodeGameInstance.h}}
+\doxymbox{\hyperlink{_code_game_instance_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}Engine/GameInstance.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CodeGameInstance.generated.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/**}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ UCLASS()}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class}\ PERICULUM\_API\ \doxymbox{\hyperlink{class_u_code_game_instance}{UCodeGameInstance}}\ :\ \textcolor{keyword}{public}\ UGameInstance}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Init()\ override;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{///\ Level\ Loading\ and\ Management}}
+\DoxyCodeLine{00020\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadLevelSafe(\textcolor{keywordtype}{int}\ LevelIndex);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadLevelSafeDelayed(\textcolor{keywordtype}{int}\ LevelIndex,\ \textcolor{keywordtype}{float}\ Delay\ =\ 0.5f);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadMainMenu();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadMainMenuDelayed(\textcolor{keywordtype}{float}\ Delay\ =\ 0.5f);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadFirstLevel();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadFirstLevelDelayed(\textcolor{keywordtype}{float}\ Delay\ =\ 0.5f);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadGymLevel();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadGymLevelDelayed(\textcolor{keywordtype}{float}\ Delay\ =\ 0.5f);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadMuseumLevel();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadMuseumLevelDelayed(\textcolor{keywordtype}{float}\ Delay\ =\ 0.5f);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ RestartCurrentLevel();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ RestartCurrentLevelDelayed(\textcolor{keywordtype}{float}\ Delay\ =\ 0.5f);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00057\ \ \ \ \ FORCEINLINE\ FName\ GetCurrentLevelName()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ GameLevels.IsValidIndex(CurrentLevelIndex)\ ?\ GameLevels[CurrentLevelIndex]\ :\ FName(TEXT(\textcolor{stringliteral}{"{}InvalidLevel"{}}));\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00060\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{int}\ GetCurrentLevelIndex()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ CurrentLevelIndex;\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00063\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{int}\ GetTotalLevels()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ GameLevels.Num();\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00066\ \ \ \ \ FORCEINLINE\ TArray<FName>\ GetAllLevelNames()\ \textcolor{keyword}{const}\ \{\ TArray<FName>\ LevelNames\ =\ GameLevels;\ \textcolor{keywordflow}{return}\ LevelNames;\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{///\ Input\ Device\ Management}}
+\DoxyCodeLine{00070\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Controls"{}})}
+\DoxyCodeLine{00071\ \ \ \ \ FORCEINLINE\ EInputDeviceType\ GetCurrentInputDeviceType()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ CurrentInputDeviceType;\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Controls"{}})}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ SetCurrentInputDeviceType(EInputDeviceType\ NewInputDeviceType);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Controls"{}})}
+\DoxyCodeLine{00077\ \ \ \ \ FORCEINLINE\ EInputDeviceType\ GetPreferredGamepadType()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ PreferredGamepadType;\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ UFUNCTION(BlueprintCallable,\ Category\ =\ \textcolor{stringliteral}{"{}Controls"{}})}
+\DoxyCodeLine{00080\ \ \ \ \ FORCEINLINE\ \textcolor{keywordtype}{void}\ SetPreferredGamepadType(EInputDeviceType\ NewPreferredGamepadType)\ \{\ PreferredGamepadType\ =\ NewPreferredGamepadType;\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00083\ \ \ \ \ UPROPERTY(EditAnywhere,\ BlueprintReadWrite,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00084\ \ \ \ \ TArray<FName>\ GameLevels;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly,\ Category\ =\ \textcolor{stringliteral}{"{}Game\ Instance"{}})}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ CurrentLevelIndex;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly,\ Category\ =\ \textcolor{stringliteral}{"{}Controls"{}})}
+\DoxyCodeLine{00090\ \ \ \ \ EInputDeviceType\ CurrentInputDeviceType;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly,\ Category\ =\ \textcolor{stringliteral}{"{}Controls"{}})}
+\DoxyCodeLine{00093\ \ \ \ \ EInputDeviceType\ PreferredGamepadType;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ FTimerHandle\ DelayedLevelLoadTimerHandle;}
+\DoxyCodeLine{00096\ \};}
+
+\end{DoxyCode}

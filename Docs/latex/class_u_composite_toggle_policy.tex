@@ -1,0 +1,72 @@
+\doxysection{UComposite\+Toggle\+Policy Class Reference}
+\hypertarget{class_u_composite_toggle_policy}{}\label{class_u_composite_toggle_policy}\index{UCompositeTogglePolicy@{UCompositeTogglePolicy}}
+
+
+A toggle policy that applies multiple sub-\/policies in sequence.  
+
+
+
+
+{\ttfamily \+\#include $<$Composite\+Toggle\+Policy.\+h$>$}
+
+Inheritance diagram for UComposite\+Toggle\+Policy:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_u_composite_toggle_policy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TArray$<$ \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{class_u_composite_toggle_policy_ace703e2bd48b42277163b82223f43094}{Sub\+Policies}}
+\begin{DoxyCompactList}\small\item\em The list of sub-\/policies that will be applied in sequence. Each sub-\/policy will be applied to the target object when this composite policy is applied. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_policy_defines_8h_ae0c90079fd61d6f4ce8e7ff00f388d8e}{EPolicy\+Stack\+Priority}} \doxymbox{\hyperlink{class_u_toggle_policy_a5862989faded226a9e99c27c3260a522}{Policy\+Stack\+Priority}} = \doxymbox{\hyperlink{_policy_defines_8h_ae0c90079fd61d6f4ce8e7ff00f388d8eaeb6d8ae6f20283755b339c0dc273988b}{EPolicy\+Stack\+Priority::\+\+Standard}}
+\begin{DoxyCompactList}\small\item\em The priority of this policy in the stack. Policies with higher priority will be applied before those with lower priority. This allows for more granular control over the order in which policies are applied, especially when multiple policies are present. \end{DoxyCompactList}\item 
+int32 \doxymbox{\hyperlink{class_u_toggle_policy_a119a29828a7ffdb0523d539e1acdd349}{Priority\+Scalar}} = 0
+\begin{DoxyCompactList}\small\item\em An additional scalar value that can be used to further adjust the effective priority of this policy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}}}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_u_toggle_policy_a283efb9484f3df1017cac71ee56e605a}{Apply}} (UObject \texorpdfstring{$\ast$}{*}Target, bool b\+Enable)
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_policy_a2610a6342057d76d4974708338b8918a}{Can\+Apply}} (UObject \texorpdfstring{$\ast$}{*}Target, bool b\+Enable)
+\item 
+int32 \doxymbox{\hyperlink{class_u_toggle_policy_a9d280f76e5b8ede2db813806ced49b98}{Get\+Effective\+Priority}} () const
+\begin{DoxyCompactList}\small\item\em Returns the effective priority of this policy, which is the sum of the stack priority and the priority scalar. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_u_toggle_policy_a7e143ffacd45279887c81a44f79cd18f}{operator!=}} (const \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_policy_a68ae4e3f75884ee15eec9a7c40ecaf89}{operator$<$}} (const \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_policy_a7625e0912e8514c0b4ce2afab1d4b83e}{operator==}} (const \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_toggle_policy_a326b6e012e8b197a5f100f3e230afb2c}{operator$>$}} (const \doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}} \&Other) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A toggle policy that applies multiple sub-\/policies in sequence. 
+
+This allows for complex toggling behavior by combining simpler policies. 
+
+\label{doc-variable-members}
+\Hypertarget{class_u_composite_toggle_policy_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_composite_toggle_policy_ace703e2bd48b42277163b82223f43094}\index{UCompositeTogglePolicy@{UCompositeTogglePolicy}!SubPolicies@{SubPolicies}}
+\index{SubPolicies@{SubPolicies}!UCompositeTogglePolicy@{UCompositeTogglePolicy}}
+\doxysubsubsection{\texorpdfstring{SubPolicies}{SubPolicies}}
+{\footnotesize\ttfamily \label{class_u_composite_toggle_policy_ace703e2bd48b42277163b82223f43094} 
+TArray$<$\doxymbox{\hyperlink{class_u_toggle_policy}{UToggle\+Policy}}\texorpdfstring{$\ast$}{*}$>$ UComposite\+Toggle\+Policy::\+\+Sub\+Policies}
+
+
+
+The list of sub-\/policies that will be applied in sequence. Each sub-\/policy will be applied to the target object when this composite policy is applied. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Toggle\+Policies/\+\doxymbox{\hyperlink{_composite_toggle_policy_8h}{Composite\+Toggle\+Policy.\+h}}\end{DoxyCompactItemize}

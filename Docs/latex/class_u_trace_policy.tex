@@ -1,0 +1,184 @@
+\doxysection{UTrace\+Policy Class Reference}
+\hypertarget{class_u_trace_policy}{}\label{class_u_trace_policy}\index{UTracePolicy@{UTracePolicy}}
+
+
+An abstract base class for trace policies.  
+
+
+
+
+{\ttfamily \+\#include $<$Trace\+Policy.\+h$>$}
+
+Inheritance diagram for UTrace\+Policy:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_u_trace_policy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_trace_types_8h_struct_f_trace_policy_result}{FTrace\+Policy\+Result}} \doxymbox{\hyperlink{class_u_trace_policy_a55d2735473981aed90a8cd877d343fd7}{Apply}} (UObject \texorpdfstring{$\ast$}{*}Target) const
+\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_ae51e9db4a1910dc07d178564c5616e1a}{Can\+Apply}} (UObject \texorpdfstring{$\ast$}{*}Target) const
+\item 
+int32 \doxymbox{\hyperlink{class_u_trace_policy_a7a901d6eb6ded6773366185444b60628}{Get\+Effective\+Priority}} () const
+\begin{DoxyCompactList}\small\item\em Returns the effective priority of this policy, calculated as Policy\+Stack\+Priority + Priority\+Scalar. This is used to determine the order of execution in a stack of policies. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_ab4231606c3c3ece4b6a930f8d589c00e}{operator!=}} (const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_aad2086b2b65136b3502689dab9fb6518}{operator$<$}} (const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_a187ad4c280c2c242b694ce85bdd75d29}{operator==}} (const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&Other) const
+\item 
+bool \doxymbox{\hyperlink{class_u_trace_policy_af7849c1901edd81cce49ab85e927c477}{operator$>$}} (const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&Other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_i_traceable_interface}{ITraceable\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_f_trace_result}{FTrace\+Result}} \doxymbox{\hyperlink{class_i_traceable_interface_a81e34afc3ed363d572ebbf8f29a329c3}{Get\+Last\+Trace\+Result}} () const
+\item 
+\doxymbox{\hyperlink{struct_f_trace_result}{FTrace\+Result}} \doxymbox{\hyperlink{class_i_traceable_interface_a552f2f098c6c71f8d8f1f85dc53d9bc2}{Perform\+Trace}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_policy_defines_8h_ae0c90079fd61d6f4ce8e7ff00f388d8e}{EPolicy\+Stack\+Priority}} \doxymbox{\hyperlink{class_u_trace_policy_a3146e74e17208d7ddc5a12b7514d51d8}{Policy\+Stack\+Priority}} = \doxymbox{\hyperlink{_policy_defines_8h_ae0c90079fd61d6f4ce8e7ff00f388d8eaeb6d8ae6f20283755b339c0dc273988b}{EPolicy\+Stack\+Priority::\+\+Standard}}
+\begin{DoxyCompactList}\small\item\em The priority of this policy in the stack. Policies with higher priority will be executed before those with lower priority. The effective priority is calculated as Policy\+Stack\+Priority + Priority\+Scalar. \end{DoxyCompactList}\item 
+FName \doxymbox{\hyperlink{class_u_trace_policy_ab57756260665c5388b0b51290d0f9b90}{Policy\+Tag}} = NAME\+\_\+\+None
+\begin{DoxyCompactList}\small\item\em Identifier for this policy, used to determine which policies can be combined in a stack. Policies with the same tag are considered to be of the same type and will not be combined. \end{DoxyCompactList}\item 
+int32 \doxymbox{\hyperlink{class_u_trace_policy_a7fb866ee8a2385512f5e5e6d5f2abf0e}{Priority\+Scalar}} = 0
+\begin{DoxyCompactList}\small\item\em The scalar value added to the Policy\+Stack\+Priority to determine the effective priority of this policy. This allows for fine-\/tuning the order of execution within the same priority level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstract base class for trace policies. 
+
+A trace policy defines a single way of performing a trace, and can be combined with other policies to form a stack of trace behaviors. 
+
+\label{doc-func-members}
+\Hypertarget{class_u_trace_policy_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_trace_policy_a55d2735473981aed90a8cd877d343fd7}\index{UTracePolicy@{UTracePolicy}!Apply@{Apply}}
+\index{Apply@{Apply}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{Apply()}{Apply()}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_a55d2735473981aed90a8cd877d343fd7} 
+\doxymbox{\hyperlink{_trace_types_8h_struct_f_trace_policy_result}{FTrace\+Policy\+Result}} UTrace\+Policy::\+\+Apply (\begin{DoxyParamCaption}\item[{UObject \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_u_trace_policy_ae51e9db4a1910dc07d178564c5616e1a}\index{UTracePolicy@{UTracePolicy}!CanApply@{CanApply}}
+\index{CanApply@{CanApply}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{CanApply()}{CanApply()}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_ae51e9db4a1910dc07d178564c5616e1a} 
+bool UTrace\+Policy::\+\+Can\+Apply (\begin{DoxyParamCaption}\item[{UObject \texorpdfstring{$\ast$}{*}}]{Target}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_u_trace_policy_a7a901d6eb6ded6773366185444b60628}\index{UTracePolicy@{UTracePolicy}!GetEffectivePriority@{GetEffectivePriority}}
+\index{GetEffectivePriority@{GetEffectivePriority}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{GetEffectivePriority()}{GetEffectivePriority()}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_a7a901d6eb6ded6773366185444b60628} 
+int32 UTrace\+Policy::\+\+Get\+Effective\+Priority (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the effective priority of this policy, calculated as Policy\+Stack\+Priority + Priority\+Scalar. This is used to determine the order of execution in a stack of policies. 
+
+\begin{DoxyReturn}{Returns}
+The effective priority of this policy.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}int32\textcolor{keyword}{>}(\doxymbox{\hyperlink{class_u_trace_policy_a3146e74e17208d7ddc5a12b7514d51d8}{PolicyStackPriority}})\ +\ \doxymbox{\hyperlink{class_u_trace_policy_a7fb866ee8a2385512f5e5e6d5f2abf0e}{PriorityScalar}};}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_policy_ab4231606c3c3ece4b6a930f8d589c00e}\index{UTracePolicy@{UTracePolicy}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_ab4231606c3c3ece4b6a930f8d589c00e} 
+bool UTrace\+Policy::\+operator!= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ Other);}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_policy_aad2086b2b65136b3502689dab9fb6518}\index{UTracePolicy@{UTracePolicy}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_aad2086b2b65136b3502689dab9fb6518} 
+bool UTrace\+Policy::\+operator$<$ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_trace_policy_a7a901d6eb6ded6773366185444b60628}{GetEffectivePriority}}()\ <\ Other.\doxymbox{\hyperlink{class_u_trace_policy_a7a901d6eb6ded6773366185444b60628}{GetEffectivePriority}}();}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_policy_a187ad4c280c2c242b694ce85bdd75d29}\index{UTracePolicy@{UTracePolicy}!operator==@{operator==}}
+\index{operator==@{operator==}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_a187ad4c280c2c242b694ce85bdd75d29} 
+bool UTrace\+Policy::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}\ ==\ \&Other;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_u_trace_policy_af7849c1901edd81cce49ab85e927c477}\index{UTracePolicy@{UTracePolicy}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_af7849c1901edd81cce49ab85e927c477} 
+bool UTrace\+Policy::\+operator$>$ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_u_trace_policy}{UTrace\+Policy}} \&}]{Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_trace_policy_a7a901d6eb6ded6773366185444b60628}{GetEffectivePriority}}()\ >\ Other.\doxymbox{\hyperlink{class_u_trace_policy_a7a901d6eb6ded6773366185444b60628}{GetEffectivePriority}}();}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_u_trace_policy_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_u_trace_policy_a3146e74e17208d7ddc5a12b7514d51d8}\index{UTracePolicy@{UTracePolicy}!PolicyStackPriority@{PolicyStackPriority}}
+\index{PolicyStackPriority@{PolicyStackPriority}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{PolicyStackPriority}{PolicyStackPriority}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_a3146e74e17208d7ddc5a12b7514d51d8} 
+\doxymbox{\hyperlink{_policy_defines_8h_ae0c90079fd61d6f4ce8e7ff00f388d8e}{EPolicy\+Stack\+Priority}} UTrace\+Policy::\+\+Policy\+Stack\+Priority = \doxymbox{\hyperlink{_policy_defines_8h_ae0c90079fd61d6f4ce8e7ff00f388d8eaeb6d8ae6f20283755b339c0dc273988b}{EPolicy\+Stack\+Priority::\+\+Standard}}}
+
+
+
+The priority of this policy in the stack. Policies with higher priority will be executed before those with lower priority. The effective priority is calculated as Policy\+Stack\+Priority + Priority\+Scalar. 
+
+\Hypertarget{class_u_trace_policy_ab57756260665c5388b0b51290d0f9b90}\index{UTracePolicy@{UTracePolicy}!PolicyTag@{PolicyTag}}
+\index{PolicyTag@{PolicyTag}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{PolicyTag}{PolicyTag}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_ab57756260665c5388b0b51290d0f9b90} 
+FName UTrace\+Policy::\+\+Policy\+Tag = NAME\+\_\+\+None}
+
+
+
+Identifier for this policy, used to determine which policies can be combined in a stack. Policies with the same tag are considered to be of the same type and will not be combined. 
+
+\Hypertarget{class_u_trace_policy_a7fb866ee8a2385512f5e5e6d5f2abf0e}\index{UTracePolicy@{UTracePolicy}!PriorityScalar@{PriorityScalar}}
+\index{PriorityScalar@{PriorityScalar}!UTracePolicy@{UTracePolicy}}
+\doxysubsubsection{\texorpdfstring{PriorityScalar}{PriorityScalar}}
+{\footnotesize\ttfamily \label{class_u_trace_policy_a7fb866ee8a2385512f5e5e6d5f2abf0e} 
+int32 UTrace\+Policy::\+\+Priority\+Scalar = 0}
+
+
+
+The scalar value added to the Policy\+Stack\+Priority to determine the effective priority of this policy. This allows for fine-\/tuning the order of execution within the same priority level. 
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Trace\+Policies/\+\doxymbox{\hyperlink{_trace_policy_8h}{Trace\+Policy.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,206 @@
+\doxysection{AModular\+Character Class Reference}
+\hypertarget{class_a_modular_character}{}\label{class_a_modular_character}\index{AModularCharacter@{AModularCharacter}}
+
+
+A modular character that can be extended with components and functionality.  
+
+
+
+
+{\ttfamily \+\#include $<$Modular\+Character.\+h$>$}
+
+Inheritance diagram for AModular\+Character:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_modular_character}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_a_modular_character_a1dd6ca465440c9244e37d243ef5a01c6}{AModular\+Character}} ()
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_a86b65c1c541b0d70653fdb5b2aefbd3d}{Begin\+Play}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_ab9dbc5ca4c156bededcd2ee09143b506}{End\+Play}} (const EEnd\+Play\+Reason::\+\+Type End\+Play\+Reason) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_a54f3f51d3e755007c6418162f2f4e860}{On\+Rep\+\_\+\+Controller}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_ab2c13a50e40ddfafdf5d730892a6c472}{On\+Rep\+\_\+\+Player\+State}} () override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_a6913f48e4d07e291cc885d41e14f3e62}{Possessed\+By}} (AController \texorpdfstring{$\ast$}{*}New\+Controller) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_a92bf728578e247255d064c342b7e6c60}{Pre\+Initialize\+Components}} () override
+\begin{DoxyCompactList}\small\item\em Lifecycle hook invoked before component initialization. Overrides the base-\/class implementation to perform any necessary pre-\/initialization tasks. Used to register this Character with the UGame\+Framework\+Component\+Manager to receive modular components and functionality before it fully initializes. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_a39ad90b1defe8fdf442e0435bd1bb868}{Setup\+Player\+Input\+Component}} (class UInput\+Component \texorpdfstring{$\ast$}{*}Player\+Input\+Component) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_a480e2a6953985f94bdc817c96d1fb644}{Tick}} (float Delta\+Time) override
+\item 
+virtual void \doxymbox{\hyperlink{class_a_modular_character_aa6a491c93bf159585776a8609e20bb3b}{Un\+Possessed}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A modular character that can be extended with components and functionality. 
+
+\label{doc-constructors}
+\Hypertarget{class_a_modular_character_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_modular_character_a1dd6ca465440c9244e37d243ef5a01c6}\index{AModularCharacter@{AModularCharacter}!AModularCharacter@{AModularCharacter}}
+\index{AModularCharacter@{AModularCharacter}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{AModularCharacter()}{AModularCharacter()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_a1dd6ca465440c9244e37d243ef5a01c6} 
+AModular\+Character::\+\+AModular\+Character (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ PrimaryActorTick.bCanEverTick\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00008\ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{class_a_modular_character_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_modular_character_a86b65c1c541b0d70653fdb5b2aefbd3d}\index{AModularCharacter@{AModularCharacter}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_a86b65c1c541b0d70653fdb5b2aefbd3d} 
+void AModular\+Character::\+\+Begin\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ UGameFrameworkComponentManager::SendGameFrameworkComponentExtensionEvent(\textcolor{keyword}{this},\ UGameFrameworkComponentManager::NAME\_GameActorReady);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ Super::BeginPlay();}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_character_ab9dbc5ca4c156bededcd2ee09143b506}\index{AModularCharacter@{AModularCharacter}!EndPlay@{EndPlay}}
+\index{EndPlay@{EndPlay}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{EndPlay()}{EndPlay()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_ab9dbc5ca4c156bededcd2ee09143b506} 
+void AModular\+Character::\+\+End\+Play (\begin{DoxyParamCaption}\item[{const EEnd\+Play\+Reason::\+\+Type}]{End\+Play\+Reason}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}*\ system\ =\ GetGameInstance()-\/>GetSubsystem<\ UGameFrameworkComponentManager\ >())}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ system-\/>RemoveReceiver(\textcolor{keyword}{this});}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ Super::EndPlay(EndPlayReason);}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_character_a54f3f51d3e755007c6418162f2f4e860}\index{AModularCharacter@{AModularCharacter}!OnRep\_Controller@{OnRep\_Controller}}
+\index{OnRep\_Controller@{OnRep\_Controller}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{OnRep\_Controller()}{OnRep\_Controller()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_a54f3f51d3e755007c6418162f2f4e860} 
+void AModular\+Character::\+\+On\+Rep\+\_\+\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ Super::OnRep\_Controller();}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_character_ab2c13a50e40ddfafdf5d730892a6c472}\index{AModularCharacter@{AModularCharacter}!OnRep\_PlayerState@{OnRep\_PlayerState}}
+\index{OnRep\_PlayerState@{OnRep\_PlayerState}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{OnRep\_PlayerState()}{OnRep\_PlayerState()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_ab2c13a50e40ddfafdf5d730892a6c472} 
+void AModular\+Character::\+\+On\+Rep\+\_\+\+Player\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ Super::OnRep\_PlayerState();}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_character_a6913f48e4d07e291cc885d41e14f3e62}\index{AModularCharacter@{AModularCharacter}!PossessedBy@{PossessedBy}}
+\index{PossessedBy@{PossessedBy}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{PossessedBy()}{PossessedBy()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_a6913f48e4d07e291cc885d41e14f3e62} 
+void AModular\+Character::\+\+Possessed\+By (\begin{DoxyParamCaption}\item[{AController \texorpdfstring{$\ast$}{*}}]{New\+Controller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ Super::PossessedBy(NewController);}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_character_a92bf728578e247255d064c342b7e6c60}\index{AModularCharacter@{AModularCharacter}!PreInitializeComponents@{PreInitializeComponents}}
+\index{PreInitializeComponents@{PreInitializeComponents}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{PreInitializeComponents()}{PreInitializeComponents()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_a92bf728578e247255d064c342b7e6c60} 
+void AModular\+Character::\+\+Pre\+Initialize\+Components (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Lifecycle hook invoked before component initialization. Overrides the base-\/class implementation to perform any necessary pre-\/initialization tasks. Used to register this Character with the UGame\+Framework\+Component\+Manager to receive modular components and functionality before it fully initializes. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ Super::PreInitializeComponents();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{if}\ (UGameFrameworkComponentManager*\ Manager\ =}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ GetGameInstance()-\/>GetSubsystem<UGameFrameworkComponentManager>())}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Manager-\/>AddReceiver(\textcolor{keyword}{this});}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_character_a39ad90b1defe8fdf442e0435bd1bb868}\index{AModularCharacter@{AModularCharacter}!SetupPlayerInputComponent@{SetupPlayerInputComponent}}
+\index{SetupPlayerInputComponent@{SetupPlayerInputComponent}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{SetupPlayerInputComponent()}{SetupPlayerInputComponent()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_a39ad90b1defe8fdf442e0435bd1bb868} 
+void AModular\+Character::\+\+Setup\+Player\+Input\+Component (\begin{DoxyParamCaption}\item[{class UInput\+Component \texorpdfstring{$\ast$}{*}}]{Player\+Input\+Component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ Super::SetupPlayerInputComponent(PlayerInputComponent);}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_character_a480e2a6953985f94bdc817c96d1fb644}\index{AModularCharacter@{AModularCharacter}!Tick@{Tick}}
+\index{Tick@{Tick}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_a480e2a6953985f94bdc817c96d1fb644} 
+void AModular\+Character::\+\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ Super::Tick(DeltaTime);}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_a_modular_character_aa6a491c93bf159585776a8609e20bb3b}\index{AModularCharacter@{AModularCharacter}!UnPossessed@{UnPossessed}}
+\index{UnPossessed@{UnPossessed}!AModularCharacter@{AModularCharacter}}
+\doxysubsubsection{\texorpdfstring{UnPossessed()}{UnPossessed()}}
+{\footnotesize\ttfamily \label{class_a_modular_character_aa6a491c93bf159585776a8609e20bb3b} 
+void AModular\+Character::\+\+Un\+Possessed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ Super::UnPossessed();}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+Source/\+\+Periculum/\+\+Public/\+\+Base\+Actors/\+\doxymbox{\hyperlink{_modular_character_8h}{Modular\+Character.\+h}}\item 
+Source/\+\+Periculum/\+\+Private/\+\+Base\+Actors/\+\doxymbox{\hyperlink{_modular_character_8cpp}{Modular\+Character.\+cpp}}\end{DoxyCompactItemize}
