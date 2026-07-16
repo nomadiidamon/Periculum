@@ -1,7 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#pragma once
+/// @file PericulumGameplayTags.h
+/// @brief This header file serves as a centralized reference for all GameplayTags used throughout the Periculum project. It includes various tag categories such as AI, Crafting, Effects, Events, Game States, Interactions, Messages, and Weapons.
 
+#pragma once
 #include "CoreMinimal.h"
 #include "NativeGameplayTags.h"
 #include "AITags.h"
@@ -12,8 +14,3 @@
 #include "InteractionTags.h"
 #include "MessageTags.h"
 #include "WeaponTags.h"
-
-/**
- * This file can be used as a one stop reference to all GameplayTags used throughout the Periculum project. 
- */
-
