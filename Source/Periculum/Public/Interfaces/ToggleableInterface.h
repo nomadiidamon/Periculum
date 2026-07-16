@@ -14,7 +14,7 @@ class UToggleableInterface : public UInterface
 };
 
 /**
- * 
+ * This interface defines the contract for objects that can be toggled on or off in the Periculum system. Implementing this interface allows an object to participate in toggle state management, enabling or disabling its functionality as needed.
  */
 class PERICULUM_API IToggleableInterface
 {
@@ -22,19 +22,29 @@ class PERICULUM_API IToggleableInterface
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	// Toggle the state of the object. If bEnabled is true, enable the object; if false, disable it.
+    /// <summary>
+	/// Toggles the state of the object. If bEnabled is true, enable the object; if false, disable it.
+    /// </summary>
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void Enable();
 
-	// Toggle the state of the object. If bEnabled is true, enable the object; if false, disable it.
+    /// <summary>
+	/// Toggles the state of the object. If bEnabled is true, enable the object; if false, disable it.
+    /// </summary>
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void Disable();
 
-	// Set the enabled state of the object. If bEnabled is true, enable the object; if false, disable it.
+    /// <summary>
+	/// Sets the enabled state of the object. If bEnabled is true, enable the object; if false, disable it.
+    /// </summary>
+    /// <param name="bEnabled">The new enabled state of the object.</param>
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void SetEnabled(bool bEnabled);
 
-	// Get the enabled state of the object. Returns true if the object is enabled, false otherwise.
+    /// <summary>
+	/// Gets the enabled state of the object. Returns true if the object is enabled, false otherwise.
+    /// </summary>
+    /// <returns>True if the object is enabled, false otherwise.</returns>
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     bool IsEnabled() const;
 

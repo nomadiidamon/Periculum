@@ -15,18 +15,24 @@ class UTraceableInterface : public UInterface
 };
 
 /**
- * 
+ * This interface defines the contract for objects that can perform traces in the Periculum system. Implementing this interface allows an object to participate in trace operations
  */
 class PERICULUM_API ITraceableInterface
 {
 	GENERATED_BODY()
 
 public:
-	// Executes the full trace policy stack (Profile + RuntimePolicies) and returns the aggregate result.
+	/// <summary>
+	/// Executes the full trace policy stack (Profile + RuntimePolicies) and returns the aggregate result.
+	/// </summary>
+	/// <returns>The aggregate trace result.</returns>
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	FTraceResult PerformTrace();
 
-	// Returns the result of the most recently executed trace without re-running it.
+	/// <summary>
+	/// Returns the result of the most recently executed trace without re-running it.
+	/// </summary>
+	/// <returns>The result of the last trace.</returns>
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	FTraceResult GetLastTraceResult() const;
 };

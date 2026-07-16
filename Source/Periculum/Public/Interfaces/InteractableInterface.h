@@ -14,7 +14,7 @@ class UInteractableInterface : public UInterface
 };
 
 /**
- * 
+ * This interface defines the contract for objects that can be interacted with in the Periculum system. Implementing this interface allows an object to respond to interaction events, enabling player or AI characters to engage with it in various ways.
  */
 class PERICULUM_API IInteractableInterface
 {

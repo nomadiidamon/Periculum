@@ -14,7 +14,7 @@ class UToggleContextProvider : public UInterface
 };
 
 /**
- * 
+ * This interface defines the contract for objects that can provide toggle context information in the Periculum system. Implementing this interface allows an object to participate in toggle state management and provide relevant context for toggles.
  */
 class PERICULUM_API IToggleContextProvider
 {
@@ -22,7 +22,11 @@ class PERICULUM_API IToggleContextProvider
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	// Check if this context provider has a specific toggle tag. This can be used to quickly check for the presence of a relevant toggle without having to retrieve the entire list of tags.
+	/// <summary>
+	/// Checks if this context provider has a specific toggle tag. This can be used to quickly check for the presence of a relevant toggle without having to retrieve the entire list of tags.
+	/// </summary>
+	/// <param name="Tag">The name of the toggle tag to check for.</param>
+	/// <returns>True if the toggle tag is present, false otherwise.</returns>
 	virtual bool HasToggleTag(FName Tag) const = 0;
 	
 };
