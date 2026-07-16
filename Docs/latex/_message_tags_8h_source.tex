@@ -4,40 +4,75 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{/**}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ This\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ used\ for\ deccoupled\ system\ messaging\ throughout\ the\ Periculum\ project.\ }}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{comment}{///\ Message\ Events}}
+\DoxyCodeLine{00003\ \textcolor{comment}{///\ @file\ MessageTags.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{///\ @brief\ This\ header\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ used\ for\ decoupled\ system\ messaging\ throughout\ the\ Periculum\ project.\ These\ tags\ facilitate\ communication\ between\ different\ systems\ and\ components,\ enabling\ a\ flexible\ and\ modular\ architecture.}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{///\ @defgroup\ MessageTags\ Message\ Tags}}
+\DoxyCodeLine{00012\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{///\ Basic\ message\ tag\ for\ general\ use.}}
 \DoxyCodeLine{00014\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message);}
-\DoxyCodeLine{00015\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Debug);}
+\DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{comment}{///\ World\ Message}}
-\DoxyCodeLine{00018\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_World);}
-\DoxyCodeLine{00019\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_World\_TimeChanged);}
-\DoxyCodeLine{00020\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_World\_WeatherChanged);}
-\DoxyCodeLine{00021\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_World\_SeasonChanged);}
+\DoxyCodeLine{00017\ \textcolor{comment}{///\ @defgroup\ DebugMessages\ Debug\ Messages}}
+\DoxyCodeLine{00018\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{///\ Debug\ message\ tag\ for\ logging\ and\ debugging\ purposes.}}
+\DoxyCodeLine{00020\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Debug);}
+\DoxyCodeLine{00021\ \textcolor{comment}{///\ @\}}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{comment}{///\ Audio\ Messages}}
-\DoxyCodeLine{00024\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio);}
-\DoxyCodeLine{00025\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio\_Play);}
-\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio\_Stop);}
-\DoxyCodeLine{00027\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio\_Pause);}
-\DoxyCodeLine{00028\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio\_Resume);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{comment}{///\ UI\ Messages}}
-\DoxyCodeLine{00031\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_UI);}
-\DoxyCodeLine{00032\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_UI\_HealthChanged);}
-\DoxyCodeLine{00033\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_UI\_StaminaChanged);}
-\DoxyCodeLine{00034\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_UI\_ManaChanged);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{///\ @defgroup\ WorldMessages\ World\ Messages}}
+\DoxyCodeLine{00025\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00026\ \textcolor{comment}{///\ World\ message\ tag\ for\ events\ related\ to\ the\ game\ world,\ such\ as\ time,\ weather,\ and\ season\ changes.}}
+\DoxyCodeLine{00027\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_World);}
+\DoxyCodeLine{00028\ \textcolor{comment}{///\ World\ time\ changed\ message\ tag\ for\ notifying\ systems\ of\ changes\ in\ the\ in-\/game\ time.}}
+\DoxyCodeLine{00029\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_World\_TimeChanged);}
+\DoxyCodeLine{00030\ \textcolor{comment}{///\ World\ weather\ changed\ message\ tag\ for\ notifying\ systems\ of\ changes\ in\ the\ in-\/game\ weather\ conditions.}}
+\DoxyCodeLine{00031\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_World\_WeatherChanged);}
+\DoxyCodeLine{00032\ \textcolor{comment}{///\ World\ season\ changed\ message\ tag\ for\ notifying\ systems\ of\ changes\ in\ the\ in-\/game\ seasons.}}
+\DoxyCodeLine{00033\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_World\_SeasonChanged);}
+\DoxyCodeLine{00034\ \textcolor{comment}{///\ @\}}}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{comment}{///\ Notification\ Messages}}
-\DoxyCodeLine{00037\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Notification);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{///\ @defgroup\ AudioMessages\ Audio\ Messages}}
+\DoxyCodeLine{00038\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00039\ \textcolor{comment}{///\ Audio\ message\ tag\ for\ events\ related\ to\ in-\/game\ audio,\ such\ as\ sound\ effects\ and\ music.}}
+\DoxyCodeLine{00040\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio);}
+\DoxyCodeLine{00041\ \textcolor{comment}{///\ Audio\ play\ message\ tag\ for\ notifying\ systems\ to\ play\ a\ specific\ audio\ clip\ or\ sound\ effect.}}
+\DoxyCodeLine{00042\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio\_Play);}
+\DoxyCodeLine{00043\ \textcolor{comment}{///\ Audio\ stop\ message\ tag\ for\ notifying\ systems\ to\ stop\ a\ specific\ audio\ clip\ or\ sound\ effect.}}
+\DoxyCodeLine{00044\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio\_Stop);}
+\DoxyCodeLine{00045\ \textcolor{comment}{///\ Audio\ pause\ message\ tag\ for\ notifying\ systems\ to\ pause\ a\ specific\ audio\ clip\ or\ sound\ effect.}}
+\DoxyCodeLine{00046\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio\_Pause);}
+\DoxyCodeLine{00047\ \textcolor{comment}{///\ Audio\ resume\ message\ tag\ for\ notifying\ systems\ to\ resume\ a\ specific\ audio\ clip\ or\ sound\ effect.}}
+\DoxyCodeLine{00048\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Audio\_Resume);}
+\DoxyCodeLine{00049\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{///\ @defgroup\ UIMessages\ UI\ Messages}}
+\DoxyCodeLine{00053\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00054\ \textcolor{comment}{///\ UI\ message\ tag\ for\ events\ related\ to\ the\ user\ interface,\ such\ as\ health,\ stamina,\ and\ mana\ changes.}}
+\DoxyCodeLine{00055\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_UI);}
+\DoxyCodeLine{00056\ \textcolor{comment}{///\ UI\ health\ changed\ message\ tag\ for\ notifying\ systems\ of\ changes\ in\ the\ player's\ health.}}
+\DoxyCodeLine{00057\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_UI\_HealthChanged);}
+\DoxyCodeLine{00058\ \textcolor{comment}{///\ UI\ stamina\ changed\ message\ tag\ for\ notifying\ systems\ of\ changes\ in\ the\ player's\ stamina.}}
+\DoxyCodeLine{00059\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_UI\_StaminaChanged);}
+\DoxyCodeLine{00060\ \textcolor{comment}{///\ UI\ mana\ changed\ message\ tag\ for\ notifying\ systems\ of\ changes\ in\ the\ player's\ mana.}}
+\DoxyCodeLine{00061\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_UI\_ManaChanged);}
+\DoxyCodeLine{00062\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{///\ @defgroup\ NotificationMessages}}
+\DoxyCodeLine{00066\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00067\ \textcolor{comment}{///\ Notification\ message\ tag\ for\ events\ related\ to\ in-\/game\ notifications,\ such\ as\ alerts,\ warnings,\ and\ messages\ to\ the\ player.}}
+\DoxyCodeLine{00068\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Message\_Notification);}
+\DoxyCodeLine{00069\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{///\ @\}}}
 
 \end{DoxyCode}

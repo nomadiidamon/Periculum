@@ -94,72 +94,132 @@ $(function(){initNavTree('_crafting_tags_8h_source.html','',''); });
 <div class="contents">
 <a href="_crafting_tags_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#</span><span class="preprocessor">pragma</span> <span class="preprocessor">once</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;CoreMinimal.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;NativeGameplayTags.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/**</span></div>
-<div class="line"><span class="lineno">    9</span><span class="comment"> * This file defines a variety of Gameplay Tags used in relation to crafting throughout the Periculum project. </span></div>
-<div class="line"><span class="lineno">   10</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/// Crafting Tags</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a9d8b13817a00127ec9ec57ae8fcfcfa1">   15</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting);</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/// @file CraftingTags.h</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/// @brief This header file defines a variety of Gameplay Tags used in relation to crafting throughout the Periculum project.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#</span><span class="preprocessor">pragma</span> <span class="preprocessor">once</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;CoreMinimal.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;NativeGameplayTags.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/// @defgroup CraftingTags Crafting Tags</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/// @{</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/// Basic crafting tag for general use.</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="group___crafting_tags.html#ga9d8b13817a00127ec9ec57ae8fcfcfa1">   14</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/// Crafting Station Tags</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a2b44e3aba86dae325dfb9fc5640b1b72">   18</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a48ebeaf3e3252e94bb08ff3cdce96b1c">   19</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Smith);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a63239a5e12dfeeac665ff97332872975">   20</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Chemist);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a1d3b14769fea44b2d593286f4461e2be">   21</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Mage);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/// Crafting Recipe Tags</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a84ec5b1f4d47e93c2377b686548f4543">   24</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a0b6925d8c2ffe69659feac7d3351cf49">   25</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Weapon);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a89a8044df8631db988c97e03ab1a8405">   26</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Armor);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a17c11ff621a1f0071d924f3af6f45338">   27</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Ability);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a2afc0f08f87453eb68f8b68039de2451">   28</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Consumable);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a05ac380f817a0a0f45c705d320b833c5">   29</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_MetalAlloy);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/// Crafting Resource Tags</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#aba9cd98020408de6837d8dc062d50673">   32</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#ad9dc0f0536358e441fd83c97af889624">   33</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Wood);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a896540b48e8a08aee1905470665767c3">   34</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Cloth);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#aec217051935bec821bc5030174899674">   35</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Leather);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#adb8125937cd852134573476beaa63058">   36</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Clay);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#ae141eb2e3c5b07402c0fc5af412e36c1">   37</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#ab38b9fc77fd8045b9cabc25174ac02e3">   38</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Gem);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#ac0821a690a5c7e9546651545b2bc1121">   39</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Herb);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/// Crafting Resource Tags - Metal ores</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a01da76c784fa70826cdc2b8ee31a6ec1">   42</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a57ae7344d70d2b38ce7391d931369ba7">   43</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Iron);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a8e8db65147df6eb76eff99089a51f5b6">   44</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Aluminum);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a2c85b46914750c2b173bb070414b997c">   45</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Copper);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a220a3efb4cd8b84c16c0f56d96999a66">   46</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Zinc);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a8752092129daf336c25fb742eb87f159">   47</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Tin);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#afd88163e44a56228c6aa58804aa7da14">   48</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Lead);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a3f563250901ce6fc5ed3483bc134d89f">   49</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Cobalt);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a3b5390f05c9df7c947910f83bb4d5817">   50</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Silver);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a051c3e01266def3851f07539978ee615">   51</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Gold);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#ad886385afbecc49e8cee0dd3cfc4ee53">   52</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Platinum);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#af8d79151ec30ced1a66d05bd5f13ccd5">   53</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Mercury);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a50e17e8ed4091f3a30bad802a22208d9">   54</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Palladium);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a9188980c8c8dd2a0f3e0d7378e4c0499">   55</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Neodymium);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a21d9ca495c5b83a6d41fb5c4042dd7b1">   56</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Titanium);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/// Crafting Resource Tags - Metal Alloys</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a724dfa2b2bbabea80ba9be403752a83d">   59</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a9a08879e40e9d52245a42d9646365605">   60</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Bronze);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a6046261344b7c9e388cbb83988f4ba34">   61</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Brass);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a289a1388b590377db739a0c49b9033de">   62</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_CastIron);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a2e9bd371a65c6cdf57da0a0264ab99cc">   63</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Steel);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a30f5573964a656792f9da8ad37839330">   64</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Steel_Stainless);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a51637a0660c17f101584d3a654eff990">   65</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Electrum);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a81f006c8253e8a03b144477687f027b8">   66</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_GunMetal);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a48b8bf9c05bd5041937e41579e1189e5">   67</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_SterlingSilver);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="_crafting_tags_8h.html#a09480e15b73eeca8d4a5a8a3c6af6415">   68</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_WhiteGold);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/// @defgroup CraftingStations Crafting Station Tags</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/// @{</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/// Represents a crafting station.</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="group___crafting_stations.html#ga2b44e3aba86dae325dfb9fc5640b1b72">   20</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/// Represents a smith crafting station.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="group___crafting_stations.html#ga48ebeaf3e3252e94bb08ff3cdce96b1c">   22</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Smith);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/// Represents a chemist crafting station.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="group___crafting_stations.html#ga63239a5e12dfeeac665ff97332872975">   24</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Chemist);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/// Represents a mage crafting station.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="group___crafting_stations.html#ga1d3b14769fea44b2d593286f4461e2be">   26</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Station_Mage);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/// @}</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/// @defgroup CraftingRecipes Crafting Recipe Tags</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/// @{</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/// Represents a crafting recipe.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="group___crafting_recipes.html#ga84ec5b1f4d47e93c2377b686548f4543">   33</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/// Represents a weapon crafting recipe.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="group___crafting_recipes.html#ga0b6925d8c2ffe69659feac7d3351cf49">   35</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Weapon);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/// Represents an armor crafting recipe.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group___crafting_recipes.html#ga89a8044df8631db988c97e03ab1a8405">   37</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Armor);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/// Represents an ability crafting recipe.</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="group___crafting_recipes.html#ga17c11ff621a1f0071d924f3af6f45338">   39</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Ability);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/// Represents a consumable crafting recipe.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="group___crafting_recipes.html#ga2afc0f08f87453eb68f8b68039de2451">   41</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_Consumable);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/// Represents a metal alloy crafting recipe.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="group___crafting_recipes.html#ga05ac380f817a0a0f45c705d320b833c5">   43</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Recipe_MetalAlloy);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">/// @}</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">/// @defgroup CraftingResources Crafting Resource Tags</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/// @{</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/// Represents a crafting resource.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="group___crafting_resources.html#gaba9cd98020408de6837d8dc062d50673">   50</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/// Represents a wood crafting resource.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="group___crafting_resources.html#gad9dc0f0536358e441fd83c97af889624">   52</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Wood);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/// Represents a cloth crafting resource.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="group___crafting_resources.html#ga896540b48e8a08aee1905470665767c3">   54</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Cloth);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/// Represents a leather crafting resource.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="group___crafting_resources.html#gaec217051935bec821bc5030174899674">   56</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Leather);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/// Represents a clay crafting resource.</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="group___crafting_resources.html#gadb8125937cd852134573476beaa63058">   58</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Clay);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/// Represents a metal crafting resource.</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="group___crafting_resources.html#gae141eb2e3c5b07402c0fc5af412e36c1">   60</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">/// Represents a gem crafting resource.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="group___crafting_resources.html#gab38b9fc77fd8045b9cabc25174ac02e3">   62</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Gem);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">/// Represents a herb crafting resource.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="group___crafting_resources.html#gac0821a690a5c7e9546651545b2bc1121">   64</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Herb);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/// @}</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">/// @defgroup MetalOres Crafting Resource Tags - Metal Ores</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/// @{</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/// Represents a metal ore crafting resource.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga01da76c784fa70826cdc2b8ee31a6ec1">   71</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/// Represents an iron ore crafting resource.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga57ae7344d70d2b38ce7391d931369ba7">   73</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Iron);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/// Represents an aluminum ore crafting resource.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga8e8db65147df6eb76eff99089a51f5b6">   75</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Aluminum);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/// Represents a copper ore crafting resource.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga2c85b46914750c2b173bb070414b997c">   77</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Copper);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">/// Represents a zinc ore crafting resource.</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga220a3efb4cd8b84c16c0f56d96999a66">   79</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Zinc);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">/// Represents a tin ore crafting resource.</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga8752092129daf336c25fb742eb87f159">   81</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Tin);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/// Represents a lead ore crafting resource.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="group___metal_ores.html#gafd88163e44a56228c6aa58804aa7da14">   83</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Lead);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">/// Represents a cobalt ore crafting resource.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga3f563250901ce6fc5ed3483bc134d89f">   85</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Cobalt);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">/// Represents a silver ore crafting resource.</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga3b5390f05c9df7c947910f83bb4d5817">   87</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Silver);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">/// Represents a gold ore crafting resource.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga051c3e01266def3851f07539978ee615">   89</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Gold);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/// Represents a platinum ore crafting resource.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="group___metal_ores.html#gad886385afbecc49e8cee0dd3cfc4ee53">   91</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Platinum);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">/// Represents a mercury ore crafting resource.</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="group___metal_ores.html#gaf8d79151ec30ced1a66d05bd5f13ccd5">   93</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Mercury);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">/// Represents a palladium ore crafting resource.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga50e17e8ed4091f3a30bad802a22208d9">   95</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Palladium);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">/// Represents a neodymium ore crafting resource.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga9188980c8c8dd2a0f3e0d7378e4c0499">   97</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Neodymium);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/// Represents a titanium ore crafting resource.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="group___metal_ores.html#ga21d9ca495c5b83a6d41fb5c4042dd7b1">   99</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Ore_Titanium);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/// @}</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">/// @defgroup MetalAlloys Crafting Resource Tags - Metal Alloys</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">/// @{</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/// Represents a metal alloy crafting resource.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga724dfa2b2bbabea80ba9be403752a83d">  106</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">/// Represents a bronze alloy crafting resource.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga9a08879e40e9d52245a42d9646365605">  108</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Bronze);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">/// Represents a brass alloy crafting resource.</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga6046261344b7c9e388cbb83988f4ba34">  110</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Brass);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">/// Represents a cast iron alloy crafting resource.</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga289a1388b590377db739a0c49b9033de">  112</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_CastIron);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">/// Represents a steel alloy crafting resource.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga2e9bd371a65c6cdf57da0a0264ab99cc">  114</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Steel);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">/// Represents a stainless steel alloy crafting resource.</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga30f5573964a656792f9da8ad37839330">  116</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Steel_Stainless);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">/// Represents an electrum alloy crafting resource.</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga51637a0660c17f101584d3a654eff990">  118</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_Electrum);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">/// Represents a gun metal alloy crafting resource.</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga81f006c8253e8a03b144477687f027b8">  120</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_GunMetal);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">/// Represents a sterling silver alloy crafting resource.</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga48b8bf9c05bd5041937e41579e1189e5">  122</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_SterlingSilver);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">/// Represents a white gold alloy crafting resource.</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="group___metal_alloys.html#ga09480e15b73eeca8d4a5a8a3c6af6415">  124</a></span>UE_DECLARE_GAMEPLAY_TAG_EXTERN(Crafting_Resource_Metal_Alloy_WhiteGold);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">/// @}</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">/// @}</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

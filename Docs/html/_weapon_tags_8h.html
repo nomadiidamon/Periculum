@@ -92,6 +92,9 @@ $(function(){initNavTree('_weapon_tags_8h.html','',''); });
   <div class="headertitle"><div class="title">WeaponTags.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This header file defines a variety of Gameplay Tags used in relation to weapons and their various classifications throughout the <a class="el" href="class_periculum.html">Periculum</a> project. These tags facilitate the categorization and management of different weapon types, states, conditions, rarities, and parts.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
 <code>#include &quot;NativeGameplayTags.h&quot;</code><br />
 </div>
@@ -99,811 +102,100 @@ $(function(){initNavTree('_weapon_tags_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a5b98bf903476f088bc10129df2b81a5d" id="r_a5b98bf903476f088bc10129df2b81a5d"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a5b98bf903476f088bc10129df2b81a5d">Weapon</a></td></tr>
-<tr class="memdesc:a5b98bf903476f088bc10129df2b81a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This file defines a variety of Gameplay Tags relating to weapons and their various classifications.  <br /></td></tr>
-<tr class="memitem:a3d6a3238a511b3db060fc64592f00857" id="r_a3d6a3238a511b3db060fc64592f00857"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a3d6a3238a511b3db060fc64592f00857">Weapon_Condition</a></td></tr>
-<tr class="memdesc:a3d6a3238a511b3db060fc64592f00857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weapon Condition.  <br /></td></tr>
-<tr class="memitem:a053ea566d14bd90c815f01532e09e9dc" id="r_a053ea566d14bd90c815f01532e09e9dc"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a053ea566d14bd90c815f01532e09e9dc">Weapon_Condition_Damaged</a></td></tr>
-<tr class="memitem:acb9cbf3063c5b7a4f995fd42cafadebe" id="r_acb9cbf3063c5b7a4f995fd42cafadebe"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#acb9cbf3063c5b7a4f995fd42cafadebe">Weapon_Condition_Irreparable</a></td></tr>
-<tr class="memitem:a83c633cf76aceb400f0069840b3c9614" id="r_a83c633cf76aceb400f0069840b3c9614"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a83c633cf76aceb400f0069840b3c9614">Weapon_Condition_Jammed</a></td></tr>
-<tr class="memitem:a998804f7fa3463fcdf212c781917ceae" id="r_a998804f7fa3463fcdf212c781917ceae"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a998804f7fa3463fcdf212c781917ceae">Weapon_Condition_Overheated</a></td></tr>
-<tr class="memitem:a95734f82f9a98ef2ae4aaecc34d6c41c" id="r_a95734f82f9a98ef2ae4aaecc34d6c41c"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a95734f82f9a98ef2ae4aaecc34d6c41c">Weapon_Condition_Pristine</a></td></tr>
-<tr class="memitem:aa13a54c4213c317eb78fb2de2cca9382" id="r_aa13a54c4213c317eb78fb2de2cca9382"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#aa13a54c4213c317eb78fb2de2cca9382">Weapon_Part</a></td></tr>
-<tr class="memdesc:aa13a54c4213c317eb78fb2de2cca9382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weapon Parts.  <br /></td></tr>
-<tr class="memitem:a990a8599ea473a7619b2723ebf180a86" id="r_a990a8599ea473a7619b2723ebf180a86"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a990a8599ea473a7619b2723ebf180a86">Weapon_Part_Melee</a></td></tr>
-<tr class="memitem:a6acbe4a6207bd50318f348f326532742" id="r_a6acbe4a6207bd50318f348f326532742"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a6acbe4a6207bd50318f348f326532742">Weapon_Part_Melee_Blade</a></td></tr>
-<tr class="memdesc:a6acbe4a6207bd50318f348f326532742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Melee Weapon Parts.  <br /></td></tr>
-<tr class="memitem:a8b225c1b2d91a7cfca7da3354d94c48e" id="r_a8b225c1b2d91a7cfca7da3354d94c48e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a8b225c1b2d91a7cfca7da3354d94c48e">Weapon_Part_Melee_Crossguard</a></td></tr>
-<tr class="memitem:a18305bf63c7f7a1dba8aeb3905df0ea8" id="r_a18305bf63c7f7a1dba8aeb3905df0ea8"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a18305bf63c7f7a1dba8aeb3905df0ea8">Weapon_Part_Melee_Hilt</a></td></tr>
-<tr class="memitem:a3f8428ee0ba57f134df4852a09f5b6ab" id="r_a3f8428ee0ba57f134df4852a09f5b6ab"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a3f8428ee0ba57f134df4852a09f5b6ab">Weapon_Part_Melee_Pommel</a></td></tr>
-<tr class="memitem:ad5ea5e4ad5e4d0b49cb7a79918e1e806" id="r_ad5ea5e4ad5e4d0b49cb7a79918e1e806"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#ad5ea5e4ad5e4d0b49cb7a79918e1e806">Weapon_Part_Ranged</a></td></tr>
-<tr class="memitem:a925760b8d7fa8580b455ddaac26cddd6" id="r_a925760b8d7fa8580b455ddaac26cddd6"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a925760b8d7fa8580b455ddaac26cddd6">Weapon_Part_Ranged_Barrel</a></td></tr>
-<tr class="memdesc:a925760b8d7fa8580b455ddaac26cddd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ranged Weapon Parts.  <br /></td></tr>
-<tr class="memitem:a83b7d18277554537644b26a629bc2d9a" id="r_a83b7d18277554537644b26a629bc2d9a"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a83b7d18277554537644b26a629bc2d9a">Weapon_Part_Ranged_Magazine</a></td></tr>
-<tr class="memitem:a5fd1216e1acab71ab81025ff8ba88461" id="r_a5fd1216e1acab71ab81025ff8ba88461"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a5fd1216e1acab71ab81025ff8ba88461">Weapon_Part_Ranged_Scope</a></td></tr>
-<tr class="memitem:a1593a51fa0e8b00040a066a1cf4878ba" id="r_a1593a51fa0e8b00040a066a1cf4878ba"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a1593a51fa0e8b00040a066a1cf4878ba">Weapon_Part_Ranged_Stock</a></td></tr>
-<tr class="memitem:aa5d0cd4292eb2e53effb3aa4960e582b" id="r_aa5d0cd4292eb2e53effb3aa4960e582b"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#aa5d0cd4292eb2e53effb3aa4960e582b">Weapon_Rarity_Common</a></td></tr>
-<tr class="memdesc:aa5d0cd4292eb2e53effb3aa4960e582b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weapon Rarity.  <br /></td></tr>
-<tr class="memitem:ac9d0b268b69fa1a291ad0ee6da035902" id="r_ac9d0b268b69fa1a291ad0ee6da035902"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#ac9d0b268b69fa1a291ad0ee6da035902">Weapon_Rarity_Epic</a></td></tr>
-<tr class="memitem:abcfe1e67884f160f8e91142a2cb0a4e9" id="r_abcfe1e67884f160f8e91142a2cb0a4e9"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#abcfe1e67884f160f8e91142a2cb0a4e9">Weapon_Rarity_Legendary</a></td></tr>
-<tr class="memitem:a69322066e6d69e3ecdc6f1688060c57e" id="r_a69322066e6d69e3ecdc6f1688060c57e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a69322066e6d69e3ecdc6f1688060c57e">Weapon_Rarity_Rare</a></td></tr>
-<tr class="memitem:a8d80d55e486a6a234710b083a4eaea8b" id="r_a8d80d55e486a6a234710b083a4eaea8b"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a8d80d55e486a6a234710b083a4eaea8b">Weapon_Rarity_Uncommon</a></td></tr>
-<tr class="memitem:aa4150665ada9fc3ac2d1bd50e0eff676" id="r_aa4150665ada9fc3ac2d1bd50e0eff676"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#aa4150665ada9fc3ac2d1bd50e0eff676">Weapon_State</a></td></tr>
-<tr class="memdesc:aa4150665ada9fc3ac2d1bd50e0eff676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weapon States.  <br /></td></tr>
-<tr class="memitem:a10803beb84a8f3e09ced345317706db1" id="r_a10803beb84a8f3e09ced345317706db1"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a10803beb84a8f3e09ced345317706db1">Weapon_State_Attacking</a></td></tr>
-<tr class="memitem:a17d71d218b9baa34b77594d340a27ce7" id="r_a17d71d218b9baa34b77594d340a27ce7"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a17d71d218b9baa34b77594d340a27ce7">Weapon_State_Equipped</a></td></tr>
-<tr class="memitem:a5206de9b51286532fc6e728fc1998743" id="r_a5206de9b51286532fc6e728fc1998743"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a5206de9b51286532fc6e728fc1998743">Weapon_State_Firing</a></td></tr>
-<tr class="memitem:a5205f31d98dd2851c6136c198549c5a4" id="r_a5205f31d98dd2851c6136c198549c5a4"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a5205f31d98dd2851c6136c198549c5a4">Weapon_State_Reloading</a></td></tr>
-<tr class="memitem:a53d14f740a54f8247b2b80539f09510a" id="r_a53d14f740a54f8247b2b80539f09510a"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a53d14f740a54f8247b2b80539f09510a">Weapon_State_Stowed</a></td></tr>
-<tr class="memitem:a0513c44e8bffcc8d3ac320007ce51b9d" id="r_a0513c44e8bffcc8d3ac320007ce51b9d"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a0513c44e8bffcc8d3ac320007ce51b9d">Weapon_Type</a></td></tr>
-<tr class="memdesc:a0513c44e8bffcc8d3ac320007ce51b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weapon Types.  <br /></td></tr>
-<tr class="memitem:abad50d3823adfe8213b4628d1295c78e" id="r_abad50d3823adfe8213b4628d1295c78e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#abad50d3823adfe8213b4628d1295c78e">Weapon_Type_Melee</a></td></tr>
-<tr class="memitem:acbae9ae993ed9529e7cd7bd580b2dae9" id="r_acbae9ae993ed9529e7cd7bd580b2dae9"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#acbae9ae993ed9529e7cd7bd580b2dae9">Weapon_Type_Melee_1H</a></td></tr>
-<tr class="memdesc:acbae9ae993ed9529e7cd7bd580b2dae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">One Handed Melee Weapons.  <br /></td></tr>
-<tr class="memitem:a558aac6d4a833b7fd5160e2aad813b99" id="r_a558aac6d4a833b7fd5160e2aad813b99"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a558aac6d4a833b7fd5160e2aad813b99">Weapon_Type_Melee_1H_Axe</a></td></tr>
-<tr class="memitem:ae13db55a1015112f06451dc6d17fc0ea" id="r_ae13db55a1015112f06451dc6d17fc0ea"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#ae13db55a1015112f06451dc6d17fc0ea">Weapon_Type_Melee_1H_Club</a></td></tr>
-<tr class="memitem:ad03668248112680d1a2f78c8f26cce7d" id="r_ad03668248112680d1a2f78c8f26cce7d"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#ad03668248112680d1a2f78c8f26cce7d">Weapon_Type_Melee_1H_Shield</a></td></tr>
-<tr class="memitem:a177975076052c3c68a5fe90d4e2dc374" id="r_a177975076052c3c68a5fe90d4e2dc374"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a177975076052c3c68a5fe90d4e2dc374">Weapon_Type_Melee_1H_Sword</a></td></tr>
-<tr class="memitem:a7275262c0ca53286ebb8857340d28701" id="r_a7275262c0ca53286ebb8857340d28701"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a7275262c0ca53286ebb8857340d28701">Weapon_Type_Melee_2H</a></td></tr>
-<tr class="memdesc:a7275262c0ca53286ebb8857340d28701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Two Handed Melee Weapons.  <br /></td></tr>
-<tr class="memitem:abbaf49800a7539e7360ad6c25bc4ee86" id="r_abbaf49800a7539e7360ad6c25bc4ee86"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#abbaf49800a7539e7360ad6c25bc4ee86">Weapon_Type_Melee_2H_Axe</a></td></tr>
-<tr class="memitem:a2e9d55b685d9c89427526d5ddfddc92e" id="r_a2e9d55b685d9c89427526d5ddfddc92e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a2e9d55b685d9c89427526d5ddfddc92e">Weapon_Type_Melee_2H_Club</a></td></tr>
-<tr class="memitem:a6ab505a20a6aa6e749dab591cf7398d3" id="r_a6ab505a20a6aa6e749dab591cf7398d3"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a6ab505a20a6aa6e749dab591cf7398d3">Weapon_Type_Melee_2H_Halberd</a></td></tr>
-<tr class="memitem:a935259d371030b60b76b11fea05ee7a1" id="r_a935259d371030b60b76b11fea05ee7a1"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a935259d371030b60b76b11fea05ee7a1">Weapon_Type_Melee_2H_Shield</a></td></tr>
-<tr class="memitem:a6e6114bba58465f9ff2a9de168386b4e" id="r_a6e6114bba58465f9ff2a9de168386b4e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a6e6114bba58465f9ff2a9de168386b4e">Weapon_Type_Melee_2H_Spear</a></td></tr>
-<tr class="memitem:a8ffd1b430881204ad634035e75a6aa84" id="r_a8ffd1b430881204ad634035e75a6aa84"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a8ffd1b430881204ad634035e75a6aa84">Weapon_Type_Melee_2H_Sword</a></td></tr>
-<tr class="memitem:a8a34f4ae3e650ee583bb3ddb337bd8e3" id="r_a8a34f4ae3e650ee583bb3ddb337bd8e3"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a8a34f4ae3e650ee583bb3ddb337bd8e3">Weapon_Type_Ranged</a></td></tr>
-<tr class="memitem:aa9a25ac4ac2e317e72df703dcc34433b" id="r_aa9a25ac4ac2e317e72df703dcc34433b"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#aa9a25ac4ac2e317e72df703dcc34433b">Weapon_Type_Ranged_1H</a></td></tr>
-<tr class="memdesc:aa9a25ac4ac2e317e72df703dcc34433b"><td class="mdescLeft">&#160;</td><td class="mdescRight">One Handed Ranged Weapons.  <br /></td></tr>
-<tr class="memitem:afb1283cb8a8831d93744aea13b5ddd6d" id="r_afb1283cb8a8831d93744aea13b5ddd6d"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#afb1283cb8a8831d93744aea13b5ddd6d">Weapon_Type_Ranged_1H_Pistol</a></td></tr>
-<tr class="memitem:a362e35b8f76bbb53ab5685fbfc9cd055" id="r_a362e35b8f76bbb53ab5685fbfc9cd055"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a362e35b8f76bbb53ab5685fbfc9cd055">Weapon_Type_Ranged_1H_ThrowingSpear</a></td></tr>
-<tr class="memitem:a689916635b535d0efea2fed0303a0608" id="r_a689916635b535d0efea2fed0303a0608"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a689916635b535d0efea2fed0303a0608">Weapon_Type_Ranged_2H</a></td></tr>
-<tr class="memdesc:a689916635b535d0efea2fed0303a0608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Two Handed Ranged Weapons.  <br /></td></tr>
-<tr class="memitem:afd298dc00a02904848e26db2d9eea3e6" id="r_afd298dc00a02904848e26db2d9eea3e6"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#afd298dc00a02904848e26db2d9eea3e6">Weapon_Type_Ranged_2H_BowAndArrow</a></td></tr>
-<tr class="memitem:a7af168bde5b9e0a43337a5422feea316" id="r_a7af168bde5b9e0a43337a5422feea316"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a7af168bde5b9e0a43337a5422feea316">Weapon_Type_Ranged_2H_Crossbow</a></td></tr>
-<tr class="memitem:a126ac8e2de4731beec89f4f248823f94" id="r_a126ac8e2de4731beec89f4f248823f94"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="#a126ac8e2de4731beec89f4f248823f94">Weapon_Type_Ranged_2H_Rifle</a></td></tr>
+<tr class="memitem:ga5b98bf903476f088bc10129df2b81a5d" id="r_ga5b98bf903476f088bc10129df2b81a5d"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_tags.html#ga5b98bf903476f088bc10129df2b81a5d">Weapon</a></td></tr>
+<tr class="memitem:ga3d6a3238a511b3db060fc64592f00857" id="r_ga3d6a3238a511b3db060fc64592f00857"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_conditions.html#ga3d6a3238a511b3db060fc64592f00857">Weapon_Condition</a></td></tr>
+<tr class="memitem:ga053ea566d14bd90c815f01532e09e9dc" id="r_ga053ea566d14bd90c815f01532e09e9dc"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_conditions.html#ga053ea566d14bd90c815f01532e09e9dc">Weapon_Condition_Damaged</a></td></tr>
+<tr class="memdesc:ga053ea566d14bd90c815f01532e09e9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a damaged weapon condition.  <br /></td></tr>
+<tr class="memitem:gacb9cbf3063c5b7a4f995fd42cafadebe" id="r_gacb9cbf3063c5b7a4f995fd42cafadebe"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_conditions.html#gacb9cbf3063c5b7a4f995fd42cafadebe">Weapon_Condition_Irreparable</a></td></tr>
+<tr class="memdesc:gacb9cbf3063c5b7a4f995fd42cafadebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an irreparable weapon condition.  <br /></td></tr>
+<tr class="memitem:ga83c633cf76aceb400f0069840b3c9614" id="r_ga83c633cf76aceb400f0069840b3c9614"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_conditions.html#ga83c633cf76aceb400f0069840b3c9614">Weapon_Condition_Jammed</a></td></tr>
+<tr class="memdesc:ga83c633cf76aceb400f0069840b3c9614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a jammed weapon condition.  <br /></td></tr>
+<tr class="memitem:ga998804f7fa3463fcdf212c781917ceae" id="r_ga998804f7fa3463fcdf212c781917ceae"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_conditions.html#ga998804f7fa3463fcdf212c781917ceae">Weapon_Condition_Overheated</a></td></tr>
+<tr class="memdesc:ga998804f7fa3463fcdf212c781917ceae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an overheated weapon condition.  <br /></td></tr>
+<tr class="memitem:ga95734f82f9a98ef2ae4aaecc34d6c41c" id="r_ga95734f82f9a98ef2ae4aaecc34d6c41c"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_conditions.html#ga95734f82f9a98ef2ae4aaecc34d6c41c">Weapon_Condition_Pristine</a></td></tr>
+<tr class="memdesc:ga95734f82f9a98ef2ae4aaecc34d6c41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a pristine weapon condition.  <br /></td></tr>
+<tr class="memitem:gaa13a54c4213c317eb78fb2de2cca9382" id="r_gaa13a54c4213c317eb78fb2de2cca9382"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_parts.html#gaa13a54c4213c317eb78fb2de2cca9382">Weapon_Part</a></td></tr>
+<tr class="memitem:ga990a8599ea473a7619b2723ebf180a86" id="r_ga990a8599ea473a7619b2723ebf180a86"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_parts.html#ga990a8599ea473a7619b2723ebf180a86">Weapon_Part_Melee</a></td></tr>
+<tr class="memdesc:ga990a8599ea473a7619b2723ebf180a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a melee weapon part.  <br /></td></tr>
+<tr class="memitem:ga6acbe4a6207bd50318f348f326532742" id="r_ga6acbe4a6207bd50318f348f326532742"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___melee_weapon_parts.html#ga6acbe4a6207bd50318f348f326532742">Weapon_Part_Melee_Blade</a></td></tr>
+<tr class="memitem:ga8b225c1b2d91a7cfca7da3354d94c48e" id="r_ga8b225c1b2d91a7cfca7da3354d94c48e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___melee_weapon_parts.html#ga8b225c1b2d91a7cfca7da3354d94c48e">Weapon_Part_Melee_Crossguard</a></td></tr>
+<tr class="memdesc:ga8b225c1b2d91a7cfca7da3354d94c48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a melee weapon crossguard part.  <br /></td></tr>
+<tr class="memitem:ga18305bf63c7f7a1dba8aeb3905df0ea8" id="r_ga18305bf63c7f7a1dba8aeb3905df0ea8"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___melee_weapon_parts.html#ga18305bf63c7f7a1dba8aeb3905df0ea8">Weapon_Part_Melee_Hilt</a></td></tr>
+<tr class="memdesc:ga18305bf63c7f7a1dba8aeb3905df0ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a melee weapon hilt part.  <br /></td></tr>
+<tr class="memitem:ga3f8428ee0ba57f134df4852a09f5b6ab" id="r_ga3f8428ee0ba57f134df4852a09f5b6ab"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___melee_weapon_parts.html#ga3f8428ee0ba57f134df4852a09f5b6ab">Weapon_Part_Melee_Pommel</a></td></tr>
+<tr class="memdesc:ga3f8428ee0ba57f134df4852a09f5b6ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a melee weapon pommel part.  <br /></td></tr>
+<tr class="memitem:gad5ea5e4ad5e4d0b49cb7a79918e1e806" id="r_gad5ea5e4ad5e4d0b49cb7a79918e1e806"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_parts.html#gad5ea5e4ad5e4d0b49cb7a79918e1e806">Weapon_Part_Ranged</a></td></tr>
+<tr class="memdesc:gad5ea5e4ad5e4d0b49cb7a79918e1e806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a ranged weapon part.  <br /></td></tr>
+<tr class="memitem:ga925760b8d7fa8580b455ddaac26cddd6" id="r_ga925760b8d7fa8580b455ddaac26cddd6"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___ranged_weapon_parts.html#ga925760b8d7fa8580b455ddaac26cddd6">Weapon_Part_Ranged_Barrel</a></td></tr>
+<tr class="memitem:ga83b7d18277554537644b26a629bc2d9a" id="r_ga83b7d18277554537644b26a629bc2d9a"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___ranged_weapon_parts.html#ga83b7d18277554537644b26a629bc2d9a">Weapon_Part_Ranged_Magazine</a></td></tr>
+<tr class="memdesc:ga83b7d18277554537644b26a629bc2d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a ranged weapon magazine part.  <br /></td></tr>
+<tr class="memitem:ga5fd1216e1acab71ab81025ff8ba88461" id="r_ga5fd1216e1acab71ab81025ff8ba88461"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___ranged_weapon_parts.html#ga5fd1216e1acab71ab81025ff8ba88461">Weapon_Part_Ranged_Scope</a></td></tr>
+<tr class="memdesc:ga5fd1216e1acab71ab81025ff8ba88461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a ranged weapon scope part.  <br /></td></tr>
+<tr class="memitem:ga1593a51fa0e8b00040a066a1cf4878ba" id="r_ga1593a51fa0e8b00040a066a1cf4878ba"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___ranged_weapon_parts.html#ga1593a51fa0e8b00040a066a1cf4878ba">Weapon_Part_Ranged_Stock</a></td></tr>
+<tr class="memdesc:ga1593a51fa0e8b00040a066a1cf4878ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a ranged weapon stock part.  <br /></td></tr>
+<tr class="memitem:gaa5d0cd4292eb2e53effb3aa4960e582b" id="r_gaa5d0cd4292eb2e53effb3aa4960e582b"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_rarities.html#gaa5d0cd4292eb2e53effb3aa4960e582b">Weapon_Rarity_Common</a></td></tr>
+<tr class="memitem:gac9d0b268b69fa1a291ad0ee6da035902" id="r_gac9d0b268b69fa1a291ad0ee6da035902"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_rarities.html#gac9d0b268b69fa1a291ad0ee6da035902">Weapon_Rarity_Epic</a></td></tr>
+<tr class="memdesc:gac9d0b268b69fa1a291ad0ee6da035902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an epic weapon rarity.  <br /></td></tr>
+<tr class="memitem:gabcfe1e67884f160f8e91142a2cb0a4e9" id="r_gabcfe1e67884f160f8e91142a2cb0a4e9"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_rarities.html#gabcfe1e67884f160f8e91142a2cb0a4e9">Weapon_Rarity_Legendary</a></td></tr>
+<tr class="memdesc:gabcfe1e67884f160f8e91142a2cb0a4e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a legendary weapon rarity.  <br /></td></tr>
+<tr class="memitem:ga69322066e6d69e3ecdc6f1688060c57e" id="r_ga69322066e6d69e3ecdc6f1688060c57e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_rarities.html#ga69322066e6d69e3ecdc6f1688060c57e">Weapon_Rarity_Rare</a></td></tr>
+<tr class="memdesc:ga69322066e6d69e3ecdc6f1688060c57e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a rare weapon rarity.  <br /></td></tr>
+<tr class="memitem:ga8d80d55e486a6a234710b083a4eaea8b" id="r_ga8d80d55e486a6a234710b083a4eaea8b"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_rarities.html#ga8d80d55e486a6a234710b083a4eaea8b">Weapon_Rarity_Uncommon</a></td></tr>
+<tr class="memdesc:ga8d80d55e486a6a234710b083a4eaea8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an uncommon weapon rarity.  <br /></td></tr>
+<tr class="memitem:gaa4150665ada9fc3ac2d1bd50e0eff676" id="r_gaa4150665ada9fc3ac2d1bd50e0eff676"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_states.html#gaa4150665ada9fc3ac2d1bd50e0eff676">Weapon_State</a></td></tr>
+<tr class="memitem:ga10803beb84a8f3e09ced345317706db1" id="r_ga10803beb84a8f3e09ced345317706db1"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_states.html#ga10803beb84a8f3e09ced345317706db1">Weapon_State_Attacking</a></td></tr>
+<tr class="memdesc:ga10803beb84a8f3e09ced345317706db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an attacking weapon state.  <br /></td></tr>
+<tr class="memitem:ga17d71d218b9baa34b77594d340a27ce7" id="r_ga17d71d218b9baa34b77594d340a27ce7"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_states.html#ga17d71d218b9baa34b77594d340a27ce7">Weapon_State_Equipped</a></td></tr>
+<tr class="memdesc:ga17d71d218b9baa34b77594d340a27ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an equipped weapon state.  <br /></td></tr>
+<tr class="memitem:ga5206de9b51286532fc6e728fc1998743" id="r_ga5206de9b51286532fc6e728fc1998743"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_states.html#ga5206de9b51286532fc6e728fc1998743">Weapon_State_Firing</a></td></tr>
+<tr class="memdesc:ga5206de9b51286532fc6e728fc1998743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a firing weapon state.  <br /></td></tr>
+<tr class="memitem:ga5205f31d98dd2851c6136c198549c5a4" id="r_ga5205f31d98dd2851c6136c198549c5a4"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_states.html#ga5205f31d98dd2851c6136c198549c5a4">Weapon_State_Reloading</a></td></tr>
+<tr class="memdesc:ga5205f31d98dd2851c6136c198549c5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a reloading weapon state.  <br /></td></tr>
+<tr class="memitem:ga53d14f740a54f8247b2b80539f09510a" id="r_ga53d14f740a54f8247b2b80539f09510a"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_states.html#ga53d14f740a54f8247b2b80539f09510a">Weapon_State_Stowed</a></td></tr>
+<tr class="memdesc:ga53d14f740a54f8247b2b80539f09510a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a stowed weapon state.  <br /></td></tr>
+<tr class="memitem:ga0513c44e8bffcc8d3ac320007ce51b9d" id="r_ga0513c44e8bffcc8d3ac320007ce51b9d"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_types.html#ga0513c44e8bffcc8d3ac320007ce51b9d">Weapon_Type</a></td></tr>
+<tr class="memitem:gabad50d3823adfe8213b4628d1295c78e" id="r_gabad50d3823adfe8213b4628d1295c78e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_types.html#gabad50d3823adfe8213b4628d1295c78e">Weapon_Type_Melee</a></td></tr>
+<tr class="memdesc:gabad50d3823adfe8213b4628d1295c78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a melee weapon type.  <br /></td></tr>
+<tr class="memitem:gacbae9ae993ed9529e7cd7bd580b2dae9" id="r_gacbae9ae993ed9529e7cd7bd580b2dae9"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___one_handed_melee_weapons.html#gacbae9ae993ed9529e7cd7bd580b2dae9">Weapon_Type_Melee_1H</a></td></tr>
+<tr class="memitem:ga558aac6d4a833b7fd5160e2aad813b99" id="r_ga558aac6d4a833b7fd5160e2aad813b99"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___one_handed_melee_weapons.html#ga558aac6d4a833b7fd5160e2aad813b99">Weapon_Type_Melee_1H_Axe</a></td></tr>
+<tr class="memdesc:ga558aac6d4a833b7fd5160e2aad813b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a one-handed axe weapon type.  <br /></td></tr>
+<tr class="memitem:gae13db55a1015112f06451dc6d17fc0ea" id="r_gae13db55a1015112f06451dc6d17fc0ea"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___one_handed_melee_weapons.html#gae13db55a1015112f06451dc6d17fc0ea">Weapon_Type_Melee_1H_Club</a></td></tr>
+<tr class="memdesc:gae13db55a1015112f06451dc6d17fc0ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a one-handed club weapon type.  <br /></td></tr>
+<tr class="memitem:gad03668248112680d1a2f78c8f26cce7d" id="r_gad03668248112680d1a2f78c8f26cce7d"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___one_handed_melee_weapons.html#gad03668248112680d1a2f78c8f26cce7d">Weapon_Type_Melee_1H_Shield</a></td></tr>
+<tr class="memdesc:gad03668248112680d1a2f78c8f26cce7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a one-handed shield weapon type.  <br /></td></tr>
+<tr class="memitem:ga177975076052c3c68a5fe90d4e2dc374" id="r_ga177975076052c3c68a5fe90d4e2dc374"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___one_handed_melee_weapons.html#ga177975076052c3c68a5fe90d4e2dc374">Weapon_Type_Melee_1H_Sword</a></td></tr>
+<tr class="memdesc:ga177975076052c3c68a5fe90d4e2dc374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a one-handed sword weapon type.  <br /></td></tr>
+<tr class="memitem:ga7275262c0ca53286ebb8857340d28701" id="r_ga7275262c0ca53286ebb8857340d28701"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_melee_weapons.html#ga7275262c0ca53286ebb8857340d28701">Weapon_Type_Melee_2H</a></td></tr>
+<tr class="memitem:gabbaf49800a7539e7360ad6c25bc4ee86" id="r_gabbaf49800a7539e7360ad6c25bc4ee86"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_melee_weapons.html#gabbaf49800a7539e7360ad6c25bc4ee86">Weapon_Type_Melee_2H_Axe</a></td></tr>
+<tr class="memdesc:gabbaf49800a7539e7360ad6c25bc4ee86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed axe weapon type.  <br /></td></tr>
+<tr class="memitem:ga2e9d55b685d9c89427526d5ddfddc92e" id="r_ga2e9d55b685d9c89427526d5ddfddc92e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_melee_weapons.html#ga2e9d55b685d9c89427526d5ddfddc92e">Weapon_Type_Melee_2H_Club</a></td></tr>
+<tr class="memdesc:ga2e9d55b685d9c89427526d5ddfddc92e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed club weapon type.  <br /></td></tr>
+<tr class="memitem:ga6ab505a20a6aa6e749dab591cf7398d3" id="r_ga6ab505a20a6aa6e749dab591cf7398d3"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_melee_weapons.html#ga6ab505a20a6aa6e749dab591cf7398d3">Weapon_Type_Melee_2H_Halberd</a></td></tr>
+<tr class="memdesc:ga6ab505a20a6aa6e749dab591cf7398d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed halberd weapon type.  <br /></td></tr>
+<tr class="memitem:ga935259d371030b60b76b11fea05ee7a1" id="r_ga935259d371030b60b76b11fea05ee7a1"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_melee_weapons.html#ga935259d371030b60b76b11fea05ee7a1">Weapon_Type_Melee_2H_Shield</a></td></tr>
+<tr class="memdesc:ga935259d371030b60b76b11fea05ee7a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed shield weapon type.  <br /></td></tr>
+<tr class="memitem:ga6e6114bba58465f9ff2a9de168386b4e" id="r_ga6e6114bba58465f9ff2a9de168386b4e"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_melee_weapons.html#ga6e6114bba58465f9ff2a9de168386b4e">Weapon_Type_Melee_2H_Spear</a></td></tr>
+<tr class="memdesc:ga6e6114bba58465f9ff2a9de168386b4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed spear weapon type.  <br /></td></tr>
+<tr class="memitem:ga8ffd1b430881204ad634035e75a6aa84" id="r_ga8ffd1b430881204ad634035e75a6aa84"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_melee_weapons.html#ga8ffd1b430881204ad634035e75a6aa84">Weapon_Type_Melee_2H_Sword</a></td></tr>
+<tr class="memdesc:ga8ffd1b430881204ad634035e75a6aa84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed sword weapon type.  <br /></td></tr>
+<tr class="memitem:ga8a34f4ae3e650ee583bb3ddb337bd8e3" id="r_ga8a34f4ae3e650ee583bb3ddb337bd8e3"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___weapon_types.html#ga8a34f4ae3e650ee583bb3ddb337bd8e3">Weapon_Type_Ranged</a></td></tr>
+<tr class="memdesc:ga8a34f4ae3e650ee583bb3ddb337bd8e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a ranged weapon type.  <br /></td></tr>
+<tr class="memitem:gaa9a25ac4ac2e317e72df703dcc34433b" id="r_gaa9a25ac4ac2e317e72df703dcc34433b"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___one_handed_ranged_weapons.html#gaa9a25ac4ac2e317e72df703dcc34433b">Weapon_Type_Ranged_1H</a></td></tr>
+<tr class="memitem:gafb1283cb8a8831d93744aea13b5ddd6d" id="r_gafb1283cb8a8831d93744aea13b5ddd6d"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___one_handed_ranged_weapons.html#gafb1283cb8a8831d93744aea13b5ddd6d">Weapon_Type_Ranged_1H_Pistol</a></td></tr>
+<tr class="memdesc:gafb1283cb8a8831d93744aea13b5ddd6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a one-handed pistol weapon type.  <br /></td></tr>
+<tr class="memitem:ga362e35b8f76bbb53ab5685fbfc9cd055" id="r_ga362e35b8f76bbb53ab5685fbfc9cd055"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___one_handed_ranged_weapons.html#ga362e35b8f76bbb53ab5685fbfc9cd055">Weapon_Type_Ranged_1H_ThrowingSpear</a></td></tr>
+<tr class="memdesc:ga362e35b8f76bbb53ab5685fbfc9cd055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a one-handed throwing spear weapon type.  <br /></td></tr>
+<tr class="memitem:ga689916635b535d0efea2fed0303a0608" id="r_ga689916635b535d0efea2fed0303a0608"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_ranged_weapons.html#ga689916635b535d0efea2fed0303a0608">Weapon_Type_Ranged_2H</a></td></tr>
+<tr class="memitem:gafd298dc00a02904848e26db2d9eea3e6" id="r_gafd298dc00a02904848e26db2d9eea3e6"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_ranged_weapons.html#gafd298dc00a02904848e26db2d9eea3e6">Weapon_Type_Ranged_2H_BowAndArrow</a></td></tr>
+<tr class="memdesc:gafd298dc00a02904848e26db2d9eea3e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed bow and arrow weapon type.  <br /></td></tr>
+<tr class="memitem:ga7af168bde5b9e0a43337a5422feea316" id="r_ga7af168bde5b9e0a43337a5422feea316"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_ranged_weapons.html#ga7af168bde5b9e0a43337a5422feea316">Weapon_Type_Ranged_2H_Crossbow</a></td></tr>
+<tr class="memdesc:ga7af168bde5b9e0a43337a5422feea316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed crossbow weapon type.  <br /></td></tr>
+<tr class="memitem:ga126ac8e2de4731beec89f4f248823f94" id="r_ga126ac8e2de4731beec89f4f248823f94"><td class="memItemLeft">FGameplayTag&#160;</td><td class="memItemRight"><a class="el" href="group___two_handed_ranged_weapons.html#ga126ac8e2de4731beec89f4f248823f94">Weapon_Type_Ranged_2H_Rifle</a></td></tr>
+<tr class="memdesc:ga126ac8e2de4731beec89f4f248823f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a two-handed rifle weapon type.  <br /></td></tr>
 </table>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a5b98bf903476f088bc10129df2b81a5d" name="a5b98bf903476f088bc10129df2b81a5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b98bf903476f088bc10129df2b81a5d">&#9670;&#160;</a></span>Weapon</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This file defines a variety of Gameplay Tags relating to weapons and their various classifications. </p>
-<p>Weapon Tags </p>
-
-</div>
-</div>
-<a id="a3d6a3238a511b3db060fc64592f00857" name="a3d6a3238a511b3db060fc64592f00857"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d6a3238a511b3db060fc64592f00857">&#9670;&#160;</a></span>Weapon_Condition</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Condition</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Weapon Condition. </p>
-
-</div>
-</div>
-<a id="a053ea566d14bd90c815f01532e09e9dc" name="a053ea566d14bd90c815f01532e09e9dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a053ea566d14bd90c815f01532e09e9dc">&#9670;&#160;</a></span>Weapon_Condition_Damaged</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Condition_Damaged</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acb9cbf3063c5b7a4f995fd42cafadebe" name="acb9cbf3063c5b7a4f995fd42cafadebe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb9cbf3063c5b7a4f995fd42cafadebe">&#9670;&#160;</a></span>Weapon_Condition_Irreparable</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Condition_Irreparable</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a83c633cf76aceb400f0069840b3c9614" name="a83c633cf76aceb400f0069840b3c9614"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83c633cf76aceb400f0069840b3c9614">&#9670;&#160;</a></span>Weapon_Condition_Jammed</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Condition_Jammed</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a998804f7fa3463fcdf212c781917ceae" name="a998804f7fa3463fcdf212c781917ceae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a998804f7fa3463fcdf212c781917ceae">&#9670;&#160;</a></span>Weapon_Condition_Overheated</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Condition_Overheated</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a95734f82f9a98ef2ae4aaecc34d6c41c" name="a95734f82f9a98ef2ae4aaecc34d6c41c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95734f82f9a98ef2ae4aaecc34d6c41c">&#9670;&#160;</a></span>Weapon_Condition_Pristine</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Condition_Pristine</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa13a54c4213c317eb78fb2de2cca9382" name="aa13a54c4213c317eb78fb2de2cca9382"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa13a54c4213c317eb78fb2de2cca9382">&#9670;&#160;</a></span>Weapon_Part</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Weapon Parts. </p>
-
-</div>
-</div>
-<a id="a990a8599ea473a7619b2723ebf180a86" name="a990a8599ea473a7619b2723ebf180a86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a990a8599ea473a7619b2723ebf180a86">&#9670;&#160;</a></span>Weapon_Part_Melee</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Melee</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6acbe4a6207bd50318f348f326532742" name="a6acbe4a6207bd50318f348f326532742"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6acbe4a6207bd50318f348f326532742">&#9670;&#160;</a></span>Weapon_Part_Melee_Blade</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Melee_Blade</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Melee Weapon Parts. </p>
-
-</div>
-</div>
-<a id="a8b225c1b2d91a7cfca7da3354d94c48e" name="a8b225c1b2d91a7cfca7da3354d94c48e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b225c1b2d91a7cfca7da3354d94c48e">&#9670;&#160;</a></span>Weapon_Part_Melee_Crossguard</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Melee_Crossguard</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a18305bf63c7f7a1dba8aeb3905df0ea8" name="a18305bf63c7f7a1dba8aeb3905df0ea8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18305bf63c7f7a1dba8aeb3905df0ea8">&#9670;&#160;</a></span>Weapon_Part_Melee_Hilt</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Melee_Hilt</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3f8428ee0ba57f134df4852a09f5b6ab" name="a3f8428ee0ba57f134df4852a09f5b6ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f8428ee0ba57f134df4852a09f5b6ab">&#9670;&#160;</a></span>Weapon_Part_Melee_Pommel</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Melee_Pommel</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad5ea5e4ad5e4d0b49cb7a79918e1e806" name="ad5ea5e4ad5e4d0b49cb7a79918e1e806"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5ea5e4ad5e4d0b49cb7a79918e1e806">&#9670;&#160;</a></span>Weapon_Part_Ranged</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Ranged</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a925760b8d7fa8580b455ddaac26cddd6" name="a925760b8d7fa8580b455ddaac26cddd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a925760b8d7fa8580b455ddaac26cddd6">&#9670;&#160;</a></span>Weapon_Part_Ranged_Barrel</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Ranged_Barrel</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Ranged Weapon Parts. </p>
-
-</div>
-</div>
-<a id="a83b7d18277554537644b26a629bc2d9a" name="a83b7d18277554537644b26a629bc2d9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83b7d18277554537644b26a629bc2d9a">&#9670;&#160;</a></span>Weapon_Part_Ranged_Magazine</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Ranged_Magazine</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5fd1216e1acab71ab81025ff8ba88461" name="a5fd1216e1acab71ab81025ff8ba88461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fd1216e1acab71ab81025ff8ba88461">&#9670;&#160;</a></span>Weapon_Part_Ranged_Scope</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Ranged_Scope</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1593a51fa0e8b00040a066a1cf4878ba" name="a1593a51fa0e8b00040a066a1cf4878ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1593a51fa0e8b00040a066a1cf4878ba">&#9670;&#160;</a></span>Weapon_Part_Ranged_Stock</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Part_Ranged_Stock</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa5d0cd4292eb2e53effb3aa4960e582b" name="aa5d0cd4292eb2e53effb3aa4960e582b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5d0cd4292eb2e53effb3aa4960e582b">&#9670;&#160;</a></span>Weapon_Rarity_Common</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Rarity_Common</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Weapon Rarity. </p>
-
-</div>
-</div>
-<a id="ac9d0b268b69fa1a291ad0ee6da035902" name="ac9d0b268b69fa1a291ad0ee6da035902"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9d0b268b69fa1a291ad0ee6da035902">&#9670;&#160;</a></span>Weapon_Rarity_Epic</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Rarity_Epic</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abcfe1e67884f160f8e91142a2cb0a4e9" name="abcfe1e67884f160f8e91142a2cb0a4e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcfe1e67884f160f8e91142a2cb0a4e9">&#9670;&#160;</a></span>Weapon_Rarity_Legendary</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Rarity_Legendary</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a69322066e6d69e3ecdc6f1688060c57e" name="a69322066e6d69e3ecdc6f1688060c57e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69322066e6d69e3ecdc6f1688060c57e">&#9670;&#160;</a></span>Weapon_Rarity_Rare</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Rarity_Rare</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8d80d55e486a6a234710b083a4eaea8b" name="a8d80d55e486a6a234710b083a4eaea8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d80d55e486a6a234710b083a4eaea8b">&#9670;&#160;</a></span>Weapon_Rarity_Uncommon</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Rarity_Uncommon</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa4150665ada9fc3ac2d1bd50e0eff676" name="aa4150665ada9fc3ac2d1bd50e0eff676"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4150665ada9fc3ac2d1bd50e0eff676">&#9670;&#160;</a></span>Weapon_State</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_State</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Weapon States. </p>
-
-</div>
-</div>
-<a id="a10803beb84a8f3e09ced345317706db1" name="a10803beb84a8f3e09ced345317706db1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10803beb84a8f3e09ced345317706db1">&#9670;&#160;</a></span>Weapon_State_Attacking</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_State_Attacking</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a17d71d218b9baa34b77594d340a27ce7" name="a17d71d218b9baa34b77594d340a27ce7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17d71d218b9baa34b77594d340a27ce7">&#9670;&#160;</a></span>Weapon_State_Equipped</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_State_Equipped</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5206de9b51286532fc6e728fc1998743" name="a5206de9b51286532fc6e728fc1998743"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5206de9b51286532fc6e728fc1998743">&#9670;&#160;</a></span>Weapon_State_Firing</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_State_Firing</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5205f31d98dd2851c6136c198549c5a4" name="a5205f31d98dd2851c6136c198549c5a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5205f31d98dd2851c6136c198549c5a4">&#9670;&#160;</a></span>Weapon_State_Reloading</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_State_Reloading</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a53d14f740a54f8247b2b80539f09510a" name="a53d14f740a54f8247b2b80539f09510a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53d14f740a54f8247b2b80539f09510a">&#9670;&#160;</a></span>Weapon_State_Stowed</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_State_Stowed</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0513c44e8bffcc8d3ac320007ce51b9d" name="a0513c44e8bffcc8d3ac320007ce51b9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0513c44e8bffcc8d3ac320007ce51b9d">&#9670;&#160;</a></span>Weapon_Type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Weapon Types. </p>
-
-</div>
-</div>
-<a id="abad50d3823adfe8213b4628d1295c78e" name="abad50d3823adfe8213b4628d1295c78e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abad50d3823adfe8213b4628d1295c78e">&#9670;&#160;</a></span>Weapon_Type_Melee</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acbae9ae993ed9529e7cd7bd580b2dae9" name="acbae9ae993ed9529e7cd7bd580b2dae9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbae9ae993ed9529e7cd7bd580b2dae9">&#9670;&#160;</a></span>Weapon_Type_Melee_1H</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_1H</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>One Handed Melee Weapons. </p>
-
-</div>
-</div>
-<a id="a558aac6d4a833b7fd5160e2aad813b99" name="a558aac6d4a833b7fd5160e2aad813b99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a558aac6d4a833b7fd5160e2aad813b99">&#9670;&#160;</a></span>Weapon_Type_Melee_1H_Axe</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_1H_Axe</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae13db55a1015112f06451dc6d17fc0ea" name="ae13db55a1015112f06451dc6d17fc0ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae13db55a1015112f06451dc6d17fc0ea">&#9670;&#160;</a></span>Weapon_Type_Melee_1H_Club</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_1H_Club</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad03668248112680d1a2f78c8f26cce7d" name="ad03668248112680d1a2f78c8f26cce7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad03668248112680d1a2f78c8f26cce7d">&#9670;&#160;</a></span>Weapon_Type_Melee_1H_Shield</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_1H_Shield</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a177975076052c3c68a5fe90d4e2dc374" name="a177975076052c3c68a5fe90d4e2dc374"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a177975076052c3c68a5fe90d4e2dc374">&#9670;&#160;</a></span>Weapon_Type_Melee_1H_Sword</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_1H_Sword</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7275262c0ca53286ebb8857340d28701" name="a7275262c0ca53286ebb8857340d28701"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7275262c0ca53286ebb8857340d28701">&#9670;&#160;</a></span>Weapon_Type_Melee_2H</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_2H</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Two Handed Melee Weapons. </p>
-
-</div>
-</div>
-<a id="abbaf49800a7539e7360ad6c25bc4ee86" name="abbaf49800a7539e7360ad6c25bc4ee86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbaf49800a7539e7360ad6c25bc4ee86">&#9670;&#160;</a></span>Weapon_Type_Melee_2H_Axe</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_2H_Axe</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2e9d55b685d9c89427526d5ddfddc92e" name="a2e9d55b685d9c89427526d5ddfddc92e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e9d55b685d9c89427526d5ddfddc92e">&#9670;&#160;</a></span>Weapon_Type_Melee_2H_Club</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_2H_Club</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6ab505a20a6aa6e749dab591cf7398d3" name="a6ab505a20a6aa6e749dab591cf7398d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ab505a20a6aa6e749dab591cf7398d3">&#9670;&#160;</a></span>Weapon_Type_Melee_2H_Halberd</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_2H_Halberd</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a935259d371030b60b76b11fea05ee7a1" name="a935259d371030b60b76b11fea05ee7a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a935259d371030b60b76b11fea05ee7a1">&#9670;&#160;</a></span>Weapon_Type_Melee_2H_Shield</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_2H_Shield</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6e6114bba58465f9ff2a9de168386b4e" name="a6e6114bba58465f9ff2a9de168386b4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e6114bba58465f9ff2a9de168386b4e">&#9670;&#160;</a></span>Weapon_Type_Melee_2H_Spear</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_2H_Spear</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8ffd1b430881204ad634035e75a6aa84" name="a8ffd1b430881204ad634035e75a6aa84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ffd1b430881204ad634035e75a6aa84">&#9670;&#160;</a></span>Weapon_Type_Melee_2H_Sword</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Melee_2H_Sword</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8a34f4ae3e650ee583bb3ddb337bd8e3" name="a8a34f4ae3e650ee583bb3ddb337bd8e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a34f4ae3e650ee583bb3ddb337bd8e3">&#9670;&#160;</a></span>Weapon_Type_Ranged</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Ranged</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa9a25ac4ac2e317e72df703dcc34433b" name="aa9a25ac4ac2e317e72df703dcc34433b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9a25ac4ac2e317e72df703dcc34433b">&#9670;&#160;</a></span>Weapon_Type_Ranged_1H</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Ranged_1H</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>One Handed Ranged Weapons. </p>
-
-</div>
-</div>
-<a id="afb1283cb8a8831d93744aea13b5ddd6d" name="afb1283cb8a8831d93744aea13b5ddd6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb1283cb8a8831d93744aea13b5ddd6d">&#9670;&#160;</a></span>Weapon_Type_Ranged_1H_Pistol</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Ranged_1H_Pistol</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a362e35b8f76bbb53ab5685fbfc9cd055" name="a362e35b8f76bbb53ab5685fbfc9cd055"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a362e35b8f76bbb53ab5685fbfc9cd055">&#9670;&#160;</a></span>Weapon_Type_Ranged_1H_ThrowingSpear</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Ranged_1H_ThrowingSpear</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a689916635b535d0efea2fed0303a0608" name="a689916635b535d0efea2fed0303a0608"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a689916635b535d0efea2fed0303a0608">&#9670;&#160;</a></span>Weapon_Type_Ranged_2H</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Ranged_2H</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Two Handed Ranged Weapons. </p>
-
-</div>
-</div>
-<a id="afd298dc00a02904848e26db2d9eea3e6" name="afd298dc00a02904848e26db2d9eea3e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd298dc00a02904848e26db2d9eea3e6">&#9670;&#160;</a></span>Weapon_Type_Ranged_2H_BowAndArrow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Ranged_2H_BowAndArrow</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7af168bde5b9e0a43337a5422feea316" name="a7af168bde5b9e0a43337a5422feea316"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7af168bde5b9e0a43337a5422feea316">&#9670;&#160;</a></span>Weapon_Type_Ranged_2H_Crossbow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Ranged_2H_Crossbow</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a126ac8e2de4731beec89f4f248823f94" name="a126ac8e2de4731beec89f4f248823f94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a126ac8e2de4731beec89f4f248823f94">&#9670;&#160;</a></span>Weapon_Type_Ranged_2H_Rifle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FGameplayTag Weapon_Type_Ranged_2H_Rifle</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This header file defines a variety of Gameplay Tags used in relation to weapons and their various classifications throughout the <a class="el" href="class_periculum.html">Periculum</a> project. These tags facilitate the categorization and management of different weapon types, states, conditions, rarities, and parts. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

@@ -18,11 +18,11 @@ Inheritance diagram for UMessaging\+Controller:\+\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_controller_aa47cb7efea95e655bae260b9dbf0837e}{Broadcast\+Message}} (FGameplay\+Tag Message\+Channel, FMessage\+Type \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_controller_aa47cb7efea95e655bae260b9dbf0837e}{Broadcast\+Message}} (FGameplay\+Tag Message\+Channel, FMessage\+Type \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
 \begin{DoxyCompactList}\small\item\em Broadcasts a message on the provided channel. If the message derives from \doxylink{struct_f_periculum_message}{FPericulum\+Message}, Message\+Sender is stamped with the Context\+Object and World\+Time\+Seconds is stamped with the current world time if not already set. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_controller_a6bd7dc39c821d20ff29b8ee67b4ef194}{Broadcast\+Message\+To\+Object}} (FGameplay\+Tag Base\+Tag, AActor \texorpdfstring{$\ast$}{*}Target\+Object, FMessage\+Type \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_controller_a6bd7dc39c821d20ff29b8ee67b4ef194}{Broadcast\+Message\+To\+Object}} (FGameplay\+Tag Base\+Tag, AActor \texorpdfstring{$\ast$}{*}Target\+Object, FMessage\+Type \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
 \begin{DoxyCompactList}\small\item\em Broadcasts a message on a per-\/actor instanced channel derived from Base\+Tag and Target\+Object. Only listeners that registered via Listen\+For\+Message\+From\+Context with the same Base\+Tag on a controller whose Context\+Object matches Target\+Object will receive the message. If the message derives from \doxylink{struct_f_periculum_message}{FPericulum\+Message}, Message\+Receiver and Message\+Sender are stamped automatically. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_u_messaging_controller_ae248ae2900dd48484696ca54dc67472a}{Broadcast\+Test\+Message}} (FGameplay\+Tag Message\+Channel, \doxymbox{\hyperlink{struct_f_periculum_test_message}{FPericulum\+Test\+Message}} \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+void \doxymbox{\hyperlink{class_u_messaging_controller_ae248ae2900dd48484696ca54dc67472a}{Broadcast\+Test\+Message}} (FGameplay\+Tag Message\+Channel, \doxymbox{\hyperlink{struct_f_periculum_test_message}{FPericulum\+Test\+Message}} \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
 \begin{DoxyCompactList}\small\item\em Broadcasts a simple test message on the provided channel. This is a Blueprint-\/friendly wrapper for testing the messaging system. \end{DoxyCompactList}\item 
 UObject \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_u_messaging_controller_ab381fc53956a3fe988a2900c3dd730c4}{Get\+Context\+Object}} () const
 \begin{DoxyCompactList}\small\item\em Returns the context object this controller was initialized with. This is the object that serves as the reference for instanced channels and Message\+Sender stamping. \end{DoxyCompactList}\item 
@@ -94,16 +94,16 @@ Broadcasts a message on the provided channel. If the message derives from \doxyl
 \DoxyCodeLine{00111\ \ \ \ \ \{}
 \DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_base\_of\_v<FPericulumMessage,\ FMessageType>)}
 \DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender.IsValid())}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender.IsValid())}
 \DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a98c1b4bb68deb4de082c6da6e2686e23}{ContextObject}};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a98c1b4bb68deb4de082c6da6e2686e23}{ContextObject}};}
 \DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.WorldTimeSeconds\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()\ ?\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()-\/>GetTimeSeconds()\ :\ 0.0;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.WorldTimeSeconds\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()\ ?\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()-\/>GetTimeSeconds()\ :\ 0.0;}
 \DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00120\ }
 \DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UGameplayMessageSubsystem*\ Subsystem\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_aea03a50e468c6d98d3476eccdabebc74}{GetMessageSubsystem}}())}
 \DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ Subsystem-\/>BroadcastMessage(MessageChannel,\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ Subsystem-\/>BroadcastMessage(MessageChannel,\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
 \DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00125\ \ \ \ \ \}}
 
@@ -143,14 +143,14 @@ Broadcasts a message on a per-\/actor instanced channel derived from Base\+Tag a
 \DoxyCodeLine{00148\ }
 \DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_base\_of\_v<FPericulumMessage,\ FMessageType>)}
 \DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageReceiver\ =\ TargetObject;}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender.IsValid())\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a98c1b4bb68deb4de082c6da6e2686e23}{ContextObject}};}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.WorldTimeSeconds\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()\ ?\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()-\/>GetTimeSeconds()\ :\ 0.0;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageReceiver\ =\ TargetObject;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender.IsValid())\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a98c1b4bb68deb4de082c6da6e2686e23}{ContextObject}};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.WorldTimeSeconds\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()\ ?\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()-\/>GetTimeSeconds()\ :\ 0.0;}
 \DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00155\ }
 \DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UGameplayMessageSubsystem*\ Subsystem\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_aea03a50e468c6d98d3476eccdabebc74}{GetMessageSubsystem}}())}
 \DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ Subsystem-\/>BroadcastMessage(MessageChannel,\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ Subsystem-\/>BroadcastMessage(MessageChannel,\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
 \DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00160\ \ \ \ \ \}}
 
@@ -177,9 +177,9 @@ Broadcasts a simple test message on the provided channel. This is a Blueprint-\/
 \DoxyCodeLine{00059\ \{}
 \DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (UGameplayMessageSubsystem*\ MessageSubsystem\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_aea03a50e468c6d98d3476eccdabebc74}{GetMessageSubsystem}}())}
 \DoxyCodeLine{00061\ \ \ \ \ \{}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a98c1b4bb68deb4de082c6da6e2686e23}{ContextObject}};}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.WorldTimeSeconds\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()\ ?\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()-\/>GetTimeSeconds()\ :\ 0.0;}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ MessageSubsystem-\/>BroadcastMessage(MessageChannel,\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a98c1b4bb68deb4de082c6da6e2686e23}{ContextObject}};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.WorldTimeSeconds\ =\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()\ ?\ \doxymbox{\hyperlink{class_u_messaging_controller_a7dd941f075e2a7e0812df59f53ec8e5a}{GetWorld}}()-\/>GetTimeSeconds()\ :\ 0.0;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ MessageSubsystem-\/>BroadcastMessage(MessageChannel,\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
 \DoxyCodeLine{00065\ \ \ \ \ \}}
 \DoxyCodeLine{00066\ }
 \DoxyCodeLine{00067\ \}}
@@ -396,13 +396,13 @@ Registers a listener on a channel that filters incoming messages to only those w
 \DoxyCodeLine{00246\ \ \ \ \ \{}
 \DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ TWeakObjectPtr<UObject>\ WeakFilter\ =\ SenderFilter;}
 \DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_controller_a212495ee93b341545f2f92c293b3a2c8}{ListenForMessage<FMessageType>}}(MessageChannel,}
-\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ [WeakFilter,\ Callback](FGameplayTag\ Tag,\ \textcolor{keyword}{const}\ FMessageType\&\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ [WeakFilter,\ Callback](FGameplayTag\ Tag,\ \textcolor{keyword}{const}\ FMessageType\&\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})}
 \DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_base\_of\_v<FPericulumMessage,\ FMessageType>)}
 \DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender.Get()\ !=\ WeakFilter.Get())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageSender.Get()\ !=\ WeakFilter.Get())\ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback(Tag,\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback(Tag,\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
 \DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
 \DoxyCodeLine{00257\ \ \ \ \ \}}
 
@@ -432,13 +432,13 @@ Registers a listener on a channel that filters incoming messages to only those w
 \DoxyCodeLine{00222\ \ \ \ \ \{}
 \DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ TWeakObjectPtr<UObject>\ WeakFilter\ =\ ReceiverFilter;}
 \DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_u_messaging_controller_a212495ee93b341545f2f92c293b3a2c8}{ListenForMessage<FMessageType>}}(MessageChannel,}
-\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ [WeakFilter,\ Callback](FGameplayTag\ Tag,\ \textcolor{keyword}{const}\ FMessageType\&\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ [WeakFilter,\ Callback](FGameplayTag\ Tag,\ \textcolor{keyword}{const}\ FMessageType\&\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})}
 \DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_base\_of\_v<FPericulumMessage,\ FMessageType>)}
 \DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageReceiver.Get()\ !=\ WeakFilter.Get())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}.MessageReceiver.Get()\ !=\ WeakFilter.Get())\ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback(Tag,\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback(Tag,\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
 \DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
 \DoxyCodeLine{00233\ \ \ \ \ \}}
 
@@ -472,12 +472,12 @@ A handle that can be used to unregister the listener.
 \DoxyCodeLine{00072\ \ \ \ \ \{}
 \DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ FGameplayMessageListenerHandle\ Handle\ =\ MessageSubsystem-\/>RegisterListener<FPericulumTestMessage>(}
 \DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ MessageChannel,}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ [Callback](FGameplayTag\ Tag,\ \textcolor{keyword}{const}\ FPericulumTestMessage\&\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ [Callback](FGameplayTag\ Tag,\ \textcolor{keyword}{const}\ FPericulumTestMessage\&\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})}
 \DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Execute\ the\ dynamic\ delegate}}
 \DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Callback.IsBound())}
 \DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback.Execute(Tag,\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback.Execute(Tag,\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
 \DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \},}
 \DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ MatchType);}

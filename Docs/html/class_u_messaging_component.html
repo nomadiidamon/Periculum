@@ -108,12 +108,12 @@ Inheritance diagram for UMessagingComponent:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a59bdfc1cd930f7fb71d261f0708e2f58" id="r_a59bdfc1cd930f7fb71d261f0708e2f58"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a59bdfc1cd930f7fb71d261f0708e2f58">BeginPlay</a> () override</td></tr>
 <tr class="memitem:acf1d5490309db0ec7a4af16670168f9b" id="r_acf1d5490309db0ec7a4af16670168f9b"><td class="memTemplParams" colspan="2">template&lt;typename FMessageType&gt; </td></tr>
-<tr class="memitem:acf1d5490309db0ec7a4af16670168f9b template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acf1d5490309db0ec7a4af16670168f9b">BroadcastMessage</a> (FGameplayTag MessageChannel, FMessageType <a class="el" href="_message_tags_8h.html#a02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>)</td></tr>
+<tr class="memitem:acf1d5490309db0ec7a4af16670168f9b template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acf1d5490309db0ec7a4af16670168f9b">BroadcastMessage</a> (FGameplayTag MessageChannel, FMessageType <a class="el" href="group___message_tags.html#ga02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>)</td></tr>
 <tr class="memdesc:acf1d5490309db0ec7a4af16670168f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts a message on the provided channel. MessageSender is stamped with this component's owner if not already set.  <br /></td></tr>
 <tr class="memitem:a7c043a1bcd525b4fa9ec2006a12c3229" id="r_a7c043a1bcd525b4fa9ec2006a12c3229"><td class="memTemplParams" colspan="2">template&lt;typename FMessageType&gt; </td></tr>
-<tr class="memitem:a7c043a1bcd525b4fa9ec2006a12c3229 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7c043a1bcd525b4fa9ec2006a12c3229">BroadcastMessageToObject</a> (FGameplayTag BaseTag, AActor *TargetObject, FMessageType <a class="el" href="_message_tags_8h.html#a02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>)</td></tr>
+<tr class="memitem:a7c043a1bcd525b4fa9ec2006a12c3229 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7c043a1bcd525b4fa9ec2006a12c3229">BroadcastMessageToObject</a> (FGameplayTag BaseTag, AActor *TargetObject, FMessageType <a class="el" href="group___message_tags.html#ga02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>)</td></tr>
 <tr class="memdesc:a7c043a1bcd525b4fa9ec2006a12c3229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts a message on the instanced channel for a specific target actor. Only listeners that called ListenForMessageFromContext with the same BaseTag on a controller whose ContextObject matches TargetObject will receive the message.  <br /></td></tr>
-<tr class="memitem:a2324b720eb6c94ece8855aa28c703988" id="r_a2324b720eb6c94ece8855aa28c703988"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2324b720eb6c94ece8855aa28c703988">BroadcastTestMessage</a> (FGameplayTag MessageChannel, <a class="el" href="struct_f_periculum_test_message.html">FPericulumTestMessage</a> <a class="el" href="_message_tags_8h.html#a02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>)</td></tr>
+<tr class="memitem:a2324b720eb6c94ece8855aa28c703988" id="r_a2324b720eb6c94ece8855aa28c703988"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2324b720eb6c94ece8855aa28c703988">BroadcastTestMessage</a> (FGameplayTag MessageChannel, <a class="el" href="struct_f_periculum_test_message.html">FPericulumTestMessage</a> <a class="el" href="group___message_tags.html#ga02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>)</td></tr>
 <tr class="memitem:a22628668ce527e160045513bf6fd67ef" id="r_a22628668ce527e160045513bf6fd67ef"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a22628668ce527e160045513bf6fd67ef">EndPlay</a> (const EEndPlayReason::Type EndPlayReason) override</td></tr>
 <tr class="memitem:a8321aadaab0c4542ea64596890555a07" id="r_a8321aadaab0c4542ea64596890555a07"><td class="memItemLeft"><a class="el" href="class_u_messaging_controller.html">UMessagingController</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a8321aadaab0c4542ea64596890555a07">GetMessagingController</a> () const</td></tr>
 <tr class="memdesc:a8321aadaab0c4542ea64596890555a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying messaging controller owned by this component.  <br /></td></tr>
@@ -241,9 +241,9 @@ template&lt;typename FMessageType&gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">   76</span>    {</div>
-<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>) <a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>-&gt;BroadcastMessage(MessageChannel, MoveTemp(<a class="code hl_variable" href="_message_tags_8h.html#a02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>));</div>
+<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>) <a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>-&gt;BroadcastMessage(MessageChannel, MoveTemp(<a class="code hl_variable" href="group___message_tags.html#ga02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>));</div>
 <div class="line"><span class="lineno">   78</span>    }</div>
-<div class="ttc" id="a_message_tags_8h_html_a02cbbf3e7d7f4f26a1b819e00f908b4a"><div class="ttname"><a href="_message_tags_8h.html#a02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a></div><div class="ttdeci">FGameplayTag Message</div><div class="ttdoc">This file defines a variety of Gameplay Tags used for deccoupled system messaging throughout the Peri...</div><div class="ttdef"><b>Definition</b> MessageTags.h:14</div></div>
+<div class="ttc" id="agroup___message_tags_html_ga02cbbf3e7d7f4f26a1b819e00f908b4a"><div class="ttname"><a href="group___message_tags.html#ga02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a></div><div class="ttdeci">FGameplayTag Message</div><div class="ttdef"><b>Definition</b> MessageTags.h:14</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -291,7 +291,7 @@ template&lt;typename FMessageType&gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">   90</span>    {</div>
-<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>) <a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>-&gt;BroadcastMessageToObject(BaseTag, TargetObject, MoveTemp(<a class="code hl_variable" href="_message_tags_8h.html#a02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>));</div>
+<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>) <a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>-&gt;BroadcastMessageToObject(BaseTag, TargetObject, MoveTemp(<a class="code hl_variable" href="group___message_tags.html#ga02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>));</div>
 <div class="line"><span class="lineno">   92</span>    }</div>
 </div><!-- fragment -->
 </div>
@@ -317,7 +317,7 @@ template&lt;typename FMessageType&gt; </div>
 <div class="fragment"><div class="line"><span class="lineno">   53</span>{</div>
 <div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>)</div>
 <div class="line"><span class="lineno">   55</span>    {</div>
-<div class="line"><span class="lineno">   56</span>        <a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>-&gt;BroadcastTestMessage(MessageChannel, <a class="code hl_variable" href="_message_tags_8h.html#a02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>);</div>
+<div class="line"><span class="lineno">   56</span>        <a class="code hl_variable" href="#a4338cb2e18e35fe026590bdfa58b1935">Controller</a>-&gt;BroadcastTestMessage(MessageChannel, <a class="code hl_variable" href="group___message_tags.html#ga02cbbf3e7d7f4f26a1b819e00f908b4a">Message</a>);</div>
 <div class="line"><span class="lineno">   57</span>    }</div>
 <div class="line"><span class="lineno">   58</span>}</div>
 </div><!-- fragment -->

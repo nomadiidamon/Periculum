@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['event_20tags_0',['Event Tags',['../group___event_tags.html',1,'']]],
-  ['events_1',['Events',['../group___actor_events.html',1,'Actor Events'],['../group___interaction_events.html',1,'Interaction Events'],['../group___player_events.html',1,'Player Events']]]
+  ['basic_20states_0',['AI Basic States',['../group___a_i_basic_states.html',1,'']]],
+  ['buff_20effects_1',['Buff Effects',['../group___buff_effects.html',1,'']]]
 ];

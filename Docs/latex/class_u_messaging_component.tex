@@ -20,11 +20,11 @@ Inheritance diagram for UMessaging\+Component:\+\begin{figure}[H]
 \item 
 virtual void \doxymbox{\hyperlink{class_u_messaging_component_a59bdfc1cd930f7fb71d261f0708e2f58}{Begin\+Play}} () override
 \item 
-{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_component_acf1d5490309db0ec7a4af16670168f9b}{Broadcast\+Message}} (FGameplay\+Tag Message\+Channel, FMessage\+Type \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_component_acf1d5490309db0ec7a4af16670168f9b}{Broadcast\+Message}} (FGameplay\+Tag Message\+Channel, FMessage\+Type \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
 \begin{DoxyCompactList}\small\item\em Broadcasts a message on the provided channel. Message\+Sender is stamped with this component\textquotesingle{}s owner if not already set. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_component_a7c043a1bcd525b4fa9ec2006a12c3229}{Broadcast\+Message\+To\+Object}} (FGameplay\+Tag Base\+Tag, AActor \texorpdfstring{$\ast$}{*}Target\+Object, FMessage\+Type \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+{\footnotesize template$<$typename FMessage\+Type$>$ }\\void \doxymbox{\hyperlink{class_u_messaging_component_a7c043a1bcd525b4fa9ec2006a12c3229}{Broadcast\+Message\+To\+Object}} (FGameplay\+Tag Base\+Tag, AActor \texorpdfstring{$\ast$}{*}Target\+Object, FMessage\+Type \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
 \begin{DoxyCompactList}\small\item\em Broadcasts a message on the instanced channel for a specific target actor. Only listeners that called Listen\+For\+Message\+From\+Context with the same Base\+Tag on a controller whose Context\+Object matches Target\+Object will receive the message. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{class_u_messaging_component_a2324b720eb6c94ece8855aa28c703988}{Broadcast\+Test\+Message}} (FGameplay\+Tag Message\+Channel, \doxymbox{\hyperlink{struct_f_periculum_test_message}{FPericulum\+Test\+Message}} \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
+void \doxymbox{\hyperlink{class_u_messaging_component_a2324b720eb6c94ece8855aa28c703988}{Broadcast\+Test\+Message}} (FGameplay\+Tag Message\+Channel, \doxymbox{\hyperlink{struct_f_periculum_test_message}{FPericulum\+Test\+Message}} \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}})
 \item 
 virtual void \doxymbox{\hyperlink{class_u_messaging_component_a22628668ce527e160045513bf6fd67ef}{End\+Play}} (const EEnd\+Play\+Reason::\+\+Type End\+Play\+Reason) override
 \item 
@@ -121,7 +121,7 @@ Broadcasts a message on the provided channel. Message\+Sender is stamped with th
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00076\ \ \ \ \ \{}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastMessage(MessageChannel,\ MoveTemp(\doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}));}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastMessage(MessageChannel,\ MoveTemp(\doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}));}
 \DoxyCodeLine{00078\ \ \ \ \ \}}
 
 \end{DoxyCode}
@@ -148,7 +148,7 @@ Broadcasts a message on the instanced channel for a specific target actor. Only 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00090\ \ \ \ \ \{}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastMessageToObject(BaseTag,\ TargetObject,\ MoveTemp(\doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}));}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})\ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastMessageToObject(BaseTag,\ TargetObject,\ MoveTemp(\doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}}));}
 \DoxyCodeLine{00092\ \ \ \ \ \}}
 
 \end{DoxyCode}
@@ -163,7 +163,7 @@ void UMessaging\+Component::\+\+Broadcast\+Test\+Message (\begin{DoxyParamCaptio
 \DoxyCodeLine{00053\ \{}
 \DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}})}
 \DoxyCodeLine{00055\ \ \ \ \ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastTestMessage(MessageChannel,\ \doxymbox{\hyperlink{_message_tags_8h_a02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_u_messaging_component_a4338cb2e18e35fe026590bdfa58b1935}{Controller}}-\/>BroadcastTestMessage(MessageChannel,\ \doxymbox{\hyperlink{group___message_tags_ga02cbbf3e7d7f4f26a1b819e00f908b4a}{Message}});}
 \DoxyCodeLine{00057\ \ \ \ \ \}}
 \DoxyCodeLine{00058\ \}}
 

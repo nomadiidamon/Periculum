@@ -9,8 +9,7 @@ var indexSectionsWithContent =
   6: "abcehilmnorsu",
   7: "u",
   8: "flp",
-  9: "aeipt",
-  10: "lt"
+  9: "abcdeghilmnoprstuw"
 };
 
 var indexSectionNames =
@@ -24,8 +23,7 @@ var indexSectionNames =
   6: "enumvalues",
   7: "related",
   8: "defines",
-  9: "groups",
-  10: "pages"
+  9: "groups"
 };
 
 var indexSectionLabels =
@@ -39,7 +37,6 @@ var indexSectionLabels =
   6: "Enumerator",
   7: "Friends",
   8: "Macros",
-  9: "Modules",
-  10: "Pages"
+  9: "Modules"
 };
 

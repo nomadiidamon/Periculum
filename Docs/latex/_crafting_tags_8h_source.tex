@@ -4,71 +4,131 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{/**}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ This\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ used\ in\ relation\ to\ crafting\ throughout\ the\ Periculum\ project.\ }}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{comment}{///\ Crafting\ Tags}}
-\DoxyCodeLine{00015\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting);}
+\DoxyCodeLine{00003\ \textcolor{comment}{///\ @file\ CraftingTags.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{///\ @brief\ This\ header\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ used\ in\ relation\ to\ crafting\ throughout\ the\ Periculum\ project.}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{///\ @defgroup\ CraftingTags\ Crafting\ Tags}}
+\DoxyCodeLine{00012\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{///\ Basic\ crafting\ tag\ for\ general\ use.}}
+\DoxyCodeLine{00014\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting);}
+\DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{comment}{///\ Crafting\ Station\ Tags}}
-\DoxyCodeLine{00018\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Station);}
-\DoxyCodeLine{00019\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Station\_Smith);}
-\DoxyCodeLine{00020\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Station\_Chemist);}
-\DoxyCodeLine{00021\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Station\_Mage);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{comment}{///\ Crafting\ Recipe\ Tags}}
-\DoxyCodeLine{00024\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe);}
-\DoxyCodeLine{00025\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_Weapon);}
-\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_Armor);}
-\DoxyCodeLine{00027\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_Ability);}
-\DoxyCodeLine{00028\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_Consumable);}
-\DoxyCodeLine{00029\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_MetalAlloy);}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{comment}{///\ Crafting\ Resource\ Tags}}
-\DoxyCodeLine{00032\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource);}
-\DoxyCodeLine{00033\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Wood);}
-\DoxyCodeLine{00034\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Cloth);}
-\DoxyCodeLine{00035\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Leather);}
-\DoxyCodeLine{00036\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Clay);}
-\DoxyCodeLine{00037\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal);}
-\DoxyCodeLine{00038\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Gem);}
-\DoxyCodeLine{00039\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Herb);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{comment}{///\ Crafting\ Resource\ Tags\ -\/\ Metal\ ores}}
-\DoxyCodeLine{00042\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore);}
-\DoxyCodeLine{00043\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Iron);}
-\DoxyCodeLine{00044\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Aluminum);}
-\DoxyCodeLine{00045\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Copper);}
-\DoxyCodeLine{00046\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Zinc);}
-\DoxyCodeLine{00047\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Tin);}
-\DoxyCodeLine{00048\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Lead);}
-\DoxyCodeLine{00049\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Cobalt);}
-\DoxyCodeLine{00050\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Silver);}
-\DoxyCodeLine{00051\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Gold);}
-\DoxyCodeLine{00052\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Platinum);}
-\DoxyCodeLine{00053\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Mercury);}
-\DoxyCodeLine{00054\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Palladium);}
-\DoxyCodeLine{00055\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Neodymium);}
-\DoxyCodeLine{00056\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Titanium);}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \textcolor{comment}{///\ Crafting\ Resource\ Tags\ -\/\ Metal\ Alloys}}
-\DoxyCodeLine{00059\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy);}
-\DoxyCodeLine{00060\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Bronze);}
-\DoxyCodeLine{00061\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Brass);}
-\DoxyCodeLine{00062\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_CastIron);}
-\DoxyCodeLine{00063\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Steel);}
-\DoxyCodeLine{00064\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Steel\_Stainless);}
-\DoxyCodeLine{00065\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Electrum);}
-\DoxyCodeLine{00066\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_GunMetal);}
-\DoxyCodeLine{00067\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_SterlingSilver);}
-\DoxyCodeLine{00068\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_WhiteGold);}
+\DoxyCodeLine{00017\ \textcolor{comment}{///\ @defgroup\ CraftingStations\ Crafting\ Station\ Tags}}
+\DoxyCodeLine{00018\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{///\ Represents\ a\ crafting\ station.}}
+\DoxyCodeLine{00020\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Station);}
+\DoxyCodeLine{00021\ \textcolor{comment}{///\ Represents\ a\ smith\ crafting\ station.}}
+\DoxyCodeLine{00022\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Station\_Smith);}
+\DoxyCodeLine{00023\ \textcolor{comment}{///\ Represents\ a\ chemist\ crafting\ station.}}
+\DoxyCodeLine{00024\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Station\_Chemist);}
+\DoxyCodeLine{00025\ \textcolor{comment}{///\ Represents\ a\ mage\ crafting\ station.}}
+\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Station\_Mage);}
+\DoxyCodeLine{00027\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{///\ @defgroup\ CraftingRecipes\ Crafting\ Recipe\ Tags}}
+\DoxyCodeLine{00031\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{///\ Represents\ a\ crafting\ recipe.}}
+\DoxyCodeLine{00033\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe);}
+\DoxyCodeLine{00034\ \textcolor{comment}{///\ Represents\ a\ weapon\ crafting\ recipe.}}
+\DoxyCodeLine{00035\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_Weapon);}
+\DoxyCodeLine{00036\ \textcolor{comment}{///\ Represents\ an\ armor\ crafting\ recipe.}}
+\DoxyCodeLine{00037\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_Armor);}
+\DoxyCodeLine{00038\ \textcolor{comment}{///\ Represents\ an\ ability\ crafting\ recipe.}}
+\DoxyCodeLine{00039\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_Ability);}
+\DoxyCodeLine{00040\ \textcolor{comment}{///\ Represents\ a\ consumable\ crafting\ recipe.}}
+\DoxyCodeLine{00041\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_Consumable);}
+\DoxyCodeLine{00042\ \textcolor{comment}{///\ Represents\ a\ metal\ alloy\ crafting\ recipe.}}
+\DoxyCodeLine{00043\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Recipe\_MetalAlloy);}
+\DoxyCodeLine{00044\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{///\ @defgroup\ CraftingResources\ Crafting\ Resource\ Tags}}
+\DoxyCodeLine{00048\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00049\ \textcolor{comment}{///\ Represents\ a\ crafting\ resource.}}
+\DoxyCodeLine{00050\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource);}
+\DoxyCodeLine{00051\ \textcolor{comment}{///\ Represents\ a\ wood\ crafting\ resource.}}
+\DoxyCodeLine{00052\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Wood);}
+\DoxyCodeLine{00053\ \textcolor{comment}{///\ Represents\ a\ cloth\ crafting\ resource.}}
+\DoxyCodeLine{00054\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Cloth);}
+\DoxyCodeLine{00055\ \textcolor{comment}{///\ Represents\ a\ leather\ crafting\ resource.}}
+\DoxyCodeLine{00056\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Leather);}
+\DoxyCodeLine{00057\ \textcolor{comment}{///\ Represents\ a\ clay\ crafting\ resource.}}
+\DoxyCodeLine{00058\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Clay);}
+\DoxyCodeLine{00059\ \textcolor{comment}{///\ Represents\ a\ metal\ crafting\ resource.}}
+\DoxyCodeLine{00060\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal);}
+\DoxyCodeLine{00061\ \textcolor{comment}{///\ Represents\ a\ gem\ crafting\ resource.}}
+\DoxyCodeLine{00062\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Gem);}
+\DoxyCodeLine{00063\ \textcolor{comment}{///\ Represents\ a\ herb\ crafting\ resource.}}
+\DoxyCodeLine{00064\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Herb);}
+\DoxyCodeLine{00065\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{///\ @defgroup\ MetalOres\ Crafting\ Resource\ Tags\ -\/\ Metal\ Ores}}
+\DoxyCodeLine{00069\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00070\ \textcolor{comment}{///\ Represents\ a\ metal\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00071\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore);}
+\DoxyCodeLine{00072\ \textcolor{comment}{///\ Represents\ an\ iron\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00073\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Iron);}
+\DoxyCodeLine{00074\ \textcolor{comment}{///\ Represents\ an\ aluminum\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00075\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Aluminum);}
+\DoxyCodeLine{00076\ \textcolor{comment}{///\ Represents\ a\ copper\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00077\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Copper);}
+\DoxyCodeLine{00078\ \textcolor{comment}{///\ Represents\ a\ zinc\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00079\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Zinc);}
+\DoxyCodeLine{00080\ \textcolor{comment}{///\ Represents\ a\ tin\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00081\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Tin);}
+\DoxyCodeLine{00082\ \textcolor{comment}{///\ Represents\ a\ lead\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00083\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Lead);}
+\DoxyCodeLine{00084\ \textcolor{comment}{///\ Represents\ a\ cobalt\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00085\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Cobalt);}
+\DoxyCodeLine{00086\ \textcolor{comment}{///\ Represents\ a\ silver\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00087\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Silver);}
+\DoxyCodeLine{00088\ \textcolor{comment}{///\ Represents\ a\ gold\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00089\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Gold);}
+\DoxyCodeLine{00090\ \textcolor{comment}{///\ Represents\ a\ platinum\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00091\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Platinum);}
+\DoxyCodeLine{00092\ \textcolor{comment}{///\ Represents\ a\ mercury\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00093\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Mercury);}
+\DoxyCodeLine{00094\ \textcolor{comment}{///\ Represents\ a\ palladium\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00095\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Palladium);}
+\DoxyCodeLine{00096\ \textcolor{comment}{///\ Represents\ a\ neodymium\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00097\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Neodymium);}
+\DoxyCodeLine{00098\ \textcolor{comment}{///\ Represents\ a\ titanium\ ore\ crafting\ resource.}}
+\DoxyCodeLine{00099\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Ore\_Titanium);}
+\DoxyCodeLine{00100\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{comment}{///\ @defgroup\ MetalAlloys\ Crafting\ Resource\ Tags\ -\/\ Metal\ Alloys}}
+\DoxyCodeLine{00104\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00105\ \textcolor{comment}{///\ Represents\ a\ metal\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00106\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy);}
+\DoxyCodeLine{00107\ \textcolor{comment}{///\ Represents\ a\ bronze\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00108\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Bronze);}
+\DoxyCodeLine{00109\ \textcolor{comment}{///\ Represents\ a\ brass\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00110\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Brass);}
+\DoxyCodeLine{00111\ \textcolor{comment}{///\ Represents\ a\ cast\ iron\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00112\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_CastIron);}
+\DoxyCodeLine{00113\ \textcolor{comment}{///\ Represents\ a\ steel\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00114\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Steel);}
+\DoxyCodeLine{00115\ \textcolor{comment}{///\ Represents\ a\ stainless\ steel\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00116\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Steel\_Stainless);}
+\DoxyCodeLine{00117\ \textcolor{comment}{///\ Represents\ an\ electrum\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00118\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_Electrum);}
+\DoxyCodeLine{00119\ \textcolor{comment}{///\ Represents\ a\ gun\ metal\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00120\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_GunMetal);}
+\DoxyCodeLine{00121\ \textcolor{comment}{///\ Represents\ a\ sterling\ silver\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00122\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_SterlingSilver);}
+\DoxyCodeLine{00123\ \textcolor{comment}{///\ Represents\ a\ white\ gold\ alloy\ crafting\ resource.}}
+\DoxyCodeLine{00124\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Crafting\_Resource\_Metal\_Alloy\_WhiteGold);}
+\DoxyCodeLine{00125\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{comment}{///\ @\}}}
 
 \end{DoxyCode}

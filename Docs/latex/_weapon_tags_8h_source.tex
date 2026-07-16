@@ -4,89 +4,177 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{/**}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ This\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ relating\ to\ weapons\ and\ their\ various\ classifications.\ }}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00003\ \textcolor{comment}{///\ @file\ WeaponTags.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{///\ @brief\ This\ header\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ used\ in\ relation\ to\ weapons\ and\ their\ various\ classifications\ throughout\ the\ Periculum\ project.\ These\ tags\ facilitate\ the\ categorization\ and\ management\ of\ different\ weapon\ types,\ states,\ conditions,\ rarities,\ and\ parts.}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
+\DoxyCodeLine{00010\ }
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{comment}{///\ Weapon\ Tags}}
-\DoxyCodeLine{00014\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon);}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{comment}{///\ Weapon\ States}}
-\DoxyCodeLine{00017\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State);}
-\DoxyCodeLine{00018\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Equipped);}
-\DoxyCodeLine{00019\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Stowed);}
-\DoxyCodeLine{00020\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Attacking);}
-\DoxyCodeLine{00021\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Firing);}
-\DoxyCodeLine{00022\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Reloading);}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{comment}{///\ Weapon\ Condition}}
-\DoxyCodeLine{00025\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition);}
-\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Pristine);}
-\DoxyCodeLine{00027\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Damaged);}
-\DoxyCodeLine{00028\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Irreparable);}
-\DoxyCodeLine{00029\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Overheated);}
-\DoxyCodeLine{00030\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Jammed);}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{comment}{///\ Weapon\ Rarity}}
-\DoxyCodeLine{00033\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Common);}
-\DoxyCodeLine{00034\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Uncommon);}
-\DoxyCodeLine{00035\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Rare);}
-\DoxyCodeLine{00036\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Epic);}
-\DoxyCodeLine{00037\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Legendary);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{comment}{///\ Weapon\ Parts}}
-\DoxyCodeLine{00040\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part);}
-\DoxyCodeLine{00041\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged);}
-\DoxyCodeLine{00042\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{comment}{///\ Ranged\ Weapon\ Parts}}
-\DoxyCodeLine{00045\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Barrel);}
-\DoxyCodeLine{00046\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Scope);}
-\DoxyCodeLine{00047\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Stock);}
-\DoxyCodeLine{00048\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Magazine);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{comment}{///\ Melee\ Weapon\ Parts}}
-\DoxyCodeLine{00051\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Blade);}
-\DoxyCodeLine{00052\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Hilt);}
-\DoxyCodeLine{00053\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Crossguard);}
-\DoxyCodeLine{00054\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Pommel);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{comment}{///\ Weapon\ Types}}
-\DoxyCodeLine{00057\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type);}
-\DoxyCodeLine{00058\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged);}
-\DoxyCodeLine{00059\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee);}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{comment}{///\ One\ Handed\ Ranged\ Weapons}}
-\DoxyCodeLine{00062\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H);}
-\DoxyCodeLine{00063\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H\_Pistol);}
-\DoxyCodeLine{00064\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H\_ThrowingSpear);}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \textcolor{comment}{///\ Two\ Handed\ Ranged\ Weapons}}
-\DoxyCodeLine{00067\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H);}
-\DoxyCodeLine{00068\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_Rifle);}
-\DoxyCodeLine{00069\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_Crossbow);}
-\DoxyCodeLine{00070\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_BowAndArrow);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{comment}{///\ One\ Handed\ Melee\ Weapons}}
-\DoxyCodeLine{00073\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H);}
-\DoxyCodeLine{00074\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Sword);}
-\DoxyCodeLine{00075\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Axe);}
-\DoxyCodeLine{00076\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Club);}
-\DoxyCodeLine{00077\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Shield);}
+\DoxyCodeLine{00013\ \textcolor{comment}{///\ @defgroup\ WeaponTags\ Weapon\ Tags}}
+\DoxyCodeLine{00014\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{///\ Basic\ weapon\ tag\ for\ general\ use.}}
+\DoxyCodeLine{00016\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{///\ @defgroup\ WeaponStates\ Weapon\ States}}
+\DoxyCodeLine{00020\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{///\ Represents\ a\ weapon\ state.}}
+\DoxyCodeLine{00022\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State);}
+\DoxyCodeLine{00023\ \textcolor{comment}{///\ Represents\ an\ equipped\ weapon\ state.}}
+\DoxyCodeLine{00024\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Equipped);}
+\DoxyCodeLine{00025\ \textcolor{comment}{///\ Represents\ a\ stowed\ weapon\ state.}}
+\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Stowed);}
+\DoxyCodeLine{00027\ \textcolor{comment}{///\ Represents\ an\ attacking\ weapon\ state.}}
+\DoxyCodeLine{00028\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Attacking);}
+\DoxyCodeLine{00029\ \textcolor{comment}{///\ Represents\ a\ firing\ weapon\ state.}}
+\DoxyCodeLine{00030\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Firing);}
+\DoxyCodeLine{00031\ \textcolor{comment}{///\ Represents\ a\ reloading\ weapon\ state.}}
+\DoxyCodeLine{00032\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_State\_Reloading);}
+\DoxyCodeLine{00033\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{///\ @defgroup\ WeaponConditions\ Weapon\ Conditions}}
+\DoxyCodeLine{00037\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00038\ \textcolor{comment}{///\ Represents\ a\ weapon\ condition.}}
+\DoxyCodeLine{00039\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition);}
+\DoxyCodeLine{00040\ \textcolor{comment}{///\ Represents\ a\ pristine\ weapon\ condition.}}
+\DoxyCodeLine{00041\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Pristine);}
+\DoxyCodeLine{00042\ \textcolor{comment}{///\ Represents\ a\ damaged\ weapon\ condition.}}
+\DoxyCodeLine{00043\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Damaged);}
+\DoxyCodeLine{00044\ \textcolor{comment}{///\ Represents\ an\ irreparable\ weapon\ condition.}}
+\DoxyCodeLine{00045\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Irreparable);}
+\DoxyCodeLine{00046\ \textcolor{comment}{///\ Represents\ an\ overheated\ weapon\ condition.}}
+\DoxyCodeLine{00047\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Overheated);}
+\DoxyCodeLine{00048\ \textcolor{comment}{///\ Represents\ a\ jammed\ weapon\ condition.}}
+\DoxyCodeLine{00049\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Condition\_Jammed);}
+\DoxyCodeLine{00050\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{///\ @defgroup\ WeaponRarities\ Weapon\ Rarities}}
+\DoxyCodeLine{00054\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00055\ \textcolor{comment}{///\ Represents\ a\ common\ weapon\ rarity.}}
+\DoxyCodeLine{00056\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Common);}
+\DoxyCodeLine{00057\ \textcolor{comment}{///\ Represents\ an\ uncommon\ weapon\ rarity.}}
+\DoxyCodeLine{00058\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Uncommon);}
+\DoxyCodeLine{00059\ \textcolor{comment}{///\ Represents\ a\ rare\ weapon\ rarity.}}
+\DoxyCodeLine{00060\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Rare);}
+\DoxyCodeLine{00061\ \textcolor{comment}{///\ Represents\ an\ epic\ weapon\ rarity.}}
+\DoxyCodeLine{00062\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Epic);}
+\DoxyCodeLine{00063\ \textcolor{comment}{///\ Represents\ a\ legendary\ weapon\ rarity.}}
+\DoxyCodeLine{00064\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Rarity\_Legendary);}
+\DoxyCodeLine{00065\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{///\ @defgroup\ WeaponParts\ Weapon\ Parts}}
+\DoxyCodeLine{00069\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00070\ \textcolor{comment}{///\ Represents\ a\ weapon\ part.}}
+\DoxyCodeLine{00071\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part);}
+\DoxyCodeLine{00072\ \textcolor{comment}{///\ Represents\ a\ ranged\ weapon\ part.}}
+\DoxyCodeLine{00073\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged);}
+\DoxyCodeLine{00074\ \textcolor{comment}{///\ Represents\ a\ melee\ weapon\ part.}}
+\DoxyCodeLine{00075\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee);}
+\DoxyCodeLine{00076\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00077\ }
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \textcolor{comment}{///\ Two\ Handed\ Melee\ Weapons}}
-\DoxyCodeLine{00080\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H);}
-\DoxyCodeLine{00081\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Sword);}
-\DoxyCodeLine{00082\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Axe);}
-\DoxyCodeLine{00083\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Club);}
-\DoxyCodeLine{00084\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Shield);}
-\DoxyCodeLine{00085\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Spear);}
-\DoxyCodeLine{00086\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Halberd);}
+\DoxyCodeLine{00079\ \textcolor{comment}{///\ @defgroup\ RangedWeaponParts\ Ranged\ Weapon\ Parts}}
+\DoxyCodeLine{00080\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00081\ \textcolor{comment}{///\ Represents\ a\ ranged\ weapon\ barrel\ part.}}
+\DoxyCodeLine{00082\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Barrel);}
+\DoxyCodeLine{00083\ \textcolor{comment}{///\ Represents\ a\ ranged\ weapon\ scope\ part.}}
+\DoxyCodeLine{00084\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Scope);}
+\DoxyCodeLine{00085\ \textcolor{comment}{///\ Represents\ a\ ranged\ weapon\ stock\ part.}}
+\DoxyCodeLine{00086\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Stock);}
+\DoxyCodeLine{00087\ \textcolor{comment}{///\ Represents\ a\ ranged\ weapon\ magazine\ part.}}
+\DoxyCodeLine{00088\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Ranged\_Magazine);}
+\DoxyCodeLine{00089\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{///\ @defgroup\ MeleeWeaponParts\ Melee\ Weapon\ Parts}}
+\DoxyCodeLine{00093\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00094\ \textcolor{comment}{///\ Represents\ a\ melee\ weapon\ blade\ part.}}
+\DoxyCodeLine{00095\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Blade);}
+\DoxyCodeLine{00096\ \textcolor{comment}{///\ Represents\ a\ melee\ weapon\ hilt\ part.}}
+\DoxyCodeLine{00097\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Hilt);}
+\DoxyCodeLine{00098\ \textcolor{comment}{///\ Represents\ a\ melee\ weapon\ crossguard\ part.}}
+\DoxyCodeLine{00099\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Crossguard);}
+\DoxyCodeLine{00100\ \textcolor{comment}{///\ Represents\ a\ melee\ weapon\ pommel\ part.}}
+\DoxyCodeLine{00101\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Part\_Melee\_Pommel);}
+\DoxyCodeLine{00102\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{comment}{///\ @defgroup\ WeaponTypes\ Weapon\ Types}}
+\DoxyCodeLine{00106\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00107\ \textcolor{comment}{///\ Represents\ a\ weapon\ type.}}
+\DoxyCodeLine{00108\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type);}
+\DoxyCodeLine{00109\ \textcolor{comment}{///\ Represents\ a\ ranged\ weapon\ type.}}
+\DoxyCodeLine{00110\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged);}
+\DoxyCodeLine{00111\ \textcolor{comment}{///\ Represents\ a\ melee\ weapon\ type.}}
+\DoxyCodeLine{00112\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee);}
+\DoxyCodeLine{00113\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{comment}{///\ @defgroup\ OneHandedRangedWeapons\ One\ Handed\ Ranged\ Weapons}}
+\DoxyCodeLine{00117\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00118\ \textcolor{comment}{///\ Represents\ a\ one-\/handed\ ranged\ weapon\ type.}}
+\DoxyCodeLine{00119\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H);}
+\DoxyCodeLine{00120\ \textcolor{comment}{///\ Represents\ a\ one-\/handed\ pistol\ weapon\ type.}}
+\DoxyCodeLine{00121\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H\_Pistol);}
+\DoxyCodeLine{00122\ \textcolor{comment}{///\ Represents\ a\ one-\/handed\ throwing\ spear\ weapon\ type.}}
+\DoxyCodeLine{00123\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_1H\_ThrowingSpear);}
+\DoxyCodeLine{00124\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{comment}{///\ @defgroup\ TwoHandedRangedWeapons\ Two\ Handed\ Ranged\ Weapons}}
+\DoxyCodeLine{00128\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00129\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ ranged\ weapon\ type.}}
+\DoxyCodeLine{00130\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H);}
+\DoxyCodeLine{00131\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ rifle\ weapon\ type.}}
+\DoxyCodeLine{00132\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_Rifle);}
+\DoxyCodeLine{00133\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ crossbow\ weapon\ type.}}
+\DoxyCodeLine{00134\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_Crossbow);}
+\DoxyCodeLine{00135\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ bow\ and\ arrow\ weapon\ type.}}
+\DoxyCodeLine{00136\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Ranged\_2H\_BowAndArrow);}
+\DoxyCodeLine{00137\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{comment}{///\ @defgroup\ OneHandedMeleeWeapons\ One\ Handed\ Melee\ Weapons}}
+\DoxyCodeLine{00141\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00142\ \textcolor{comment}{///\ Represents\ a\ one-\/handed\ melee\ weapon\ type.}}
+\DoxyCodeLine{00143\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H);}
+\DoxyCodeLine{00144\ \textcolor{comment}{///\ Represents\ a\ one-\/handed\ sword\ weapon\ type.}}
+\DoxyCodeLine{00145\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Sword);}
+\DoxyCodeLine{00146\ \textcolor{comment}{///\ Represents\ a\ one-\/handed\ axe\ weapon\ type.}}
+\DoxyCodeLine{00147\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Axe);}
+\DoxyCodeLine{00148\ \textcolor{comment}{///\ Represents\ a\ one-\/handed\ club\ weapon\ type.}}
+\DoxyCodeLine{00149\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Club);}
+\DoxyCodeLine{00150\ \textcolor{comment}{///\ Represents\ a\ one-\/handed\ shield\ weapon\ type.}}
+\DoxyCodeLine{00151\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_1H\_Shield);}
+\DoxyCodeLine{00152\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{comment}{///\ @defgroup\ TwoHandedMeleeWeapons\ Two\ Handed\ Melee\ Weapons}}
+\DoxyCodeLine{00156\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00157\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ melee\ weapon\ type.}}
+\DoxyCodeLine{00158\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H);}
+\DoxyCodeLine{00159\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ sword\ weapon\ type.}}
+\DoxyCodeLine{00160\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Sword);}
+\DoxyCodeLine{00161\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ axe\ weapon\ type.}}
+\DoxyCodeLine{00162\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Axe);}
+\DoxyCodeLine{00163\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ club\ weapon\ type.}}
+\DoxyCodeLine{00164\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Club);}
+\DoxyCodeLine{00165\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ shield\ weapon\ type.}}
+\DoxyCodeLine{00166\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Shield);}
+\DoxyCodeLine{00167\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ spear\ weapon\ type.}}
+\DoxyCodeLine{00168\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Spear);}
+\DoxyCodeLine{00169\ \textcolor{comment}{///\ Represents\ a\ two-\/handed\ halberd\ weapon\ type.}}
+\DoxyCodeLine{00170\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Weapon\_Type\_Melee\_2H\_Halberd);}
+\DoxyCodeLine{00171\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{comment}{///\ @\}}}
 
 \end{DoxyCode}

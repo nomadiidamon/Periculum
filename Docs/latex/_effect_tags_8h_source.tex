@@ -4,35 +4,68 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{/**}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ This\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ relating\ to\ GameplayEffects\ for\ GAS\ used\ throughout\ the\ Periculum\ project.\ }}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{comment}{//\ Gameplay\ Effects}}
+\DoxyCodeLine{00003\ \textcolor{comment}{///\ @file\ EffectTags.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{///\ @brief\ This\ header\ file\ defines\ a\ variety\ of\ Gameplay\ Tags\ relating\ to\ GameplayEffects\ for\ GAS\ used\ throughout\ the\ Periculum\ project.}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{"{}NativeGameplayTags.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{///\ @defgroup\ EffectTags\ Effect\ Tags}}
+\DoxyCodeLine{00012\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{///\ Basic\ effect\ tag\ for\ general\ use.}}
 \DoxyCodeLine{00014\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect);}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl);}
-\DoxyCodeLine{00017\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl\_Stunned);}
-\DoxyCodeLine{00018\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl\_Paralyzed);}
-\DoxyCodeLine{00019\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl\_Frozen);}
-\DoxyCodeLine{00020\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl\_Confused);}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_DamageOverTime);}
-\DoxyCodeLine{00023\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_DamageOverTime\_Poisoned);}
-\DoxyCodeLine{00024\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_DamageOverTime\_Burning);}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Buff);}
-\DoxyCodeLine{00027\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Buff\_Invulnerable);}
-\DoxyCodeLine{00028\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Buff\_Hidden);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Debuff);}
-\DoxyCodeLine{00031\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Debuff\_Weakened);}
-\DoxyCodeLine{00032\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Debuff\_Slowed);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{///\ @defgroup\ CrowdControlEffects\ Crowd\ Control\ Effects}}
+\DoxyCodeLine{00018\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{///\ Represents\ a\ crowd\ control\ effect.}}
+\DoxyCodeLine{00020\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl);}
+\DoxyCodeLine{00021\ \textcolor{comment}{///\ Represents\ a\ stunned\ crowd\ control\ effect.}}
+\DoxyCodeLine{00022\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl\_Stunned);}
+\DoxyCodeLine{00023\ \textcolor{comment}{///\ Represents\ a\ paralyzed\ crowd\ control\ effect.}}
+\DoxyCodeLine{00024\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl\_Paralyzed);}
+\DoxyCodeLine{00025\ \textcolor{comment}{///\ Represents\ a\ frozen\ crowd\ control\ effect.}}
+\DoxyCodeLine{00026\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl\_Frozen);}
+\DoxyCodeLine{00027\ \textcolor{comment}{///\ Represents\ a\ confused\ crowd\ control\ effect.}}
+\DoxyCodeLine{00028\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_CrowdControl\_Confused);}
+\DoxyCodeLine{00029\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{///\ @defgroup\ DamageOverTimeEffects\ Damage\ Over\ Time\ Effects}}
+\DoxyCodeLine{00033\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00034\ \textcolor{comment}{///\ Represents\ a\ damage\ over\ time\ effect.}}
+\DoxyCodeLine{00035\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_DamageOverTime);}
+\DoxyCodeLine{00036\ \textcolor{comment}{///\ Represents\ a\ poisoned\ damage\ over\ time\ effect.}}
+\DoxyCodeLine{00037\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_DamageOverTime\_Poisoned);}
+\DoxyCodeLine{00038\ \textcolor{comment}{///\ Represents\ a\ burning\ damage\ over\ time\ effect.}}
+\DoxyCodeLine{00039\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_DamageOverTime\_Burning);}
+\DoxyCodeLine{00040\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{///\ @defgroup\ BuffEffects\ Buff\ Effects}}
+\DoxyCodeLine{00044\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00045\ \textcolor{comment}{///\ Represents\ a\ buff\ effect.}}
+\DoxyCodeLine{00046\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Buff);}
+\DoxyCodeLine{00047\ \textcolor{comment}{///\ Represents\ an\ invulnerable\ buff\ effect.}}
+\DoxyCodeLine{00048\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Buff\_Invulnerable);}
+\DoxyCodeLine{00049\ \textcolor{comment}{///\ Represents\ a\ hidden\ buff\ effect.}}
+\DoxyCodeLine{00050\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Buff\_Hidden);}
+\DoxyCodeLine{00051\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{///\ @defgroup\ DebuffEffects\ Debuff\ Effects}}
+\DoxyCodeLine{00055\ \textcolor{comment}{///\ @\{}}
+\DoxyCodeLine{00056\ \textcolor{comment}{///\ Represents\ a\ debuff\ effect.}}
+\DoxyCodeLine{00057\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Debuff);}
+\DoxyCodeLine{00058\ \textcolor{comment}{///\ Represents\ a\ weakened\ debuff\ effect.}}
+\DoxyCodeLine{00059\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Debuff\_Weakened);}
+\DoxyCodeLine{00060\ \textcolor{comment}{///\ Represents\ a\ slowed\ debuff\ effect.}}
+\DoxyCodeLine{00061\ UE\_DECLARE\_GAMEPLAY\_TAG\_EXTERN(Effect\_Debuff\_Slowed);}
+\DoxyCodeLine{00062\ \textcolor{comment}{///\ @\}}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{///\ @\}}}
 
 \end{DoxyCode}
