@@ -9,6 +9,8 @@
 #include "Interfaces/TraceableInterface.h"
 #include "TracePolicy.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTracePolicyCompleted, FTracePolicyResult, Result);
+
 /**
  * An abstract base class for trace policies. A trace policy defines a single way of performing a trace, and can be combined with other policies to form a stack of trace behaviors.
  */
@@ -35,6 +37,12 @@ public:
 	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TracePolicy", meta = (ClampMin = "0", ClampMax = "100"))
 	int32 PriorityScalar = 0;
+
+	/// <summary>
+	/// Dynamic multicast delegate that is broadcast when the trace policy has completed its execution. This allows other components or Blueprints to respond to the results of the trace policy.
+	/// </summary>
+	UPROPERTY(BlueprintAssignable, Category = "TracePolicy")
+	FTracePolicyCompleted OnTracePolicyCompleted;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "TracePolicy")
 	bool CanApply(UObject* Target) const;

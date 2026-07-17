@@ -46,5 +46,10 @@ FTracePolicyResult ULineTracePolicy::Apply_Implementation(UObject* Target) const
 		DrawDebugLine(World, Start, End, Result.bHit ? FColor::Red : FColor::Green, false, 1.0f);
 	}
 
+	if (OnTracePolicyCompleted.IsBound())
+	{
+		OnTracePolicyCompleted.Broadcast(Result);
+	}
+
 	return Result;
 }

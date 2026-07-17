@@ -1,7 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#pragma once
+/// @file TraceComponent.h
+/// @brief An actor component that performs traces based on a trace profile and its associated policies. It can be configured to automatically perform traces at regular intervals or manually triggered. The component broadcasts the results of each trace through a dynamic multicast delegate, allowing other components or Blueprints to respond to trace results.
 
+#pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Interfaces/TraceableInterface.h"
@@ -50,6 +52,15 @@ public:
 	/// <returns>The result of the trace performed by the matching policy. Will be empty if no matching policy is found.</returns>
 	UFUNCTION(BlueprintCallable)
 	FTracePolicyResult PerformTraceByTag(FName Tag);
+
+	/// <summary>
+	/// Adds a new runtime policy to the trace component. This allows for dynamic modification of the trace behavior at runtime.
+	/// The new policy is added to the RuntimePolicies array and will be considered in subsequent traces.
+	/// </summary>
+	/// <param name="NewPolicy">The new trace policy to add.</param>
+	/// <returns>True if the policy was added successfully, false otherwise.</returns>
+	UFUNCTION(BlueprintCallable)
+	bool AddRuntimePolicy(UTracePolicy* NewPolicy);
 
 public:
 	/// <summary>

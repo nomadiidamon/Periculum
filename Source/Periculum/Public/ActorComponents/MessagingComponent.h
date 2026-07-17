@@ -1,6 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-#pragma once
 
+/// @file MessagingComponent.h
+/// @brief An actor component that provides gameplay message broadcasting and listening to its owning actor. Owns a UMessagingController which manages all handle lifetimes.
+
+#pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "../Messages/PericulumMessage.h"

@@ -12,5 +12,11 @@ FTracePolicyResult UTracePolicy::Apply_Implementation(UObject* Target) const
 {
 	FTracePolicyResult Result;
 	Result.PolicyTag = PolicyTag;
+
+	if (OnTracePolicyCompleted.IsBound())
+	{
+		OnTracePolicyCompleted.Broadcast(Result);
+	}
+
 	return Result;
 }

@@ -2,6 +2,8 @@
 #include "Actors/Boid.h"
 
 #include "ActorComponents/FlockingComponent.h"
+#include "ActorComponents/MessagingComponent.h"
+
 #include "SceneComponents/BoxSpawnerComponent.h"
 #include "SceneComponents/CapsuleSpawnerComponent.h"
 #include "SceneComponents/SphereSpawnerComponent.h"
@@ -10,7 +12,12 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
 
+#include "DataAssets/BoidFlockSettings.h"
+
 #include "Defines/PericulumLog.h"
+
+#include "GameFramework/Character.h"
+#include "EngineUtils.h"
 
 ABoidFlock::ABoidFlock()
 {
@@ -23,6 +30,8 @@ ABoidFlock::ABoidFlock()
 	else {
 		ActorToSpawn = BoidClass;
 	}
+
+	MessagingComponent = CreateDefaultSubobject<UMessagingComponent>(TEXT("MessagingComponent"));
 }
 
 void ABoidFlock::BeginPlay()
@@ -31,35 +40,37 @@ void ABoidFlock::BeginPlay()
 
 	ActorToSpawn = BoidClass;
 
+	if (!FlockSettings)
+	{
+		PERICULUM_LOG(Periculum_Game, Warning, "FlockSettings is not set in BoidFlock. Please set it to a valid UBoidFlockSettings instance to enable flocking behavior.");
+	}
+
 	if (ActorToSpawn == nullptr)
 	{
 		PERICULUM_LOG(Periculum_Game, Warning, "ActorToSpawn is not set in BoidFlock. Please set it to a valid Boid class to enable spawning.");
 	}
 
-	LastFlockSettings = FlockSettings;
-
 	if (!OnSpawnableActorSpawned.IsAlreadyBound(this, &ABoidFlock::RegisterBoid))
 	{
 		OnSpawnableActorSpawned.AddDynamic(this, &ABoidFlock::RegisterBoid);
 	}
-	if (!OnFlockSettingsChanged.IsAlreadyBound(this, &ABoidFlock::UpdateBoidSettings))
+
+	for (TActorIterator<ACharacter> It(GetWorld()); It; ++It)
 	{
-		OnFlockSettingsChanged.AddDynamic(this, &ABoidFlock::UpdateBoidSettings);
+		ACharacter* Character = *It;
+
+		if (Character)
+		{
+			PlayerCharacter = Character;
+			FlockSettings->FlockAttractionPoint = PlayerCharacter->GetActorLocation();
+		}
 	}
+
 }
 
 void ABoidFlock::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	if (LastFlockSettings != FlockSettings)
-	{
-		LastFlockSettings = FlockSettings;
-		if (OnFlockSettingsChanged.IsBound())
-		{
-			OnFlockSettingsChanged.Broadcast(FlockSettings);
-		}
-	}
 
 	FVector AverageLocation = FVector::ZeroVector;
 
@@ -76,7 +87,12 @@ void ABoidFlock::Tick(float DeltaTime)
 		AverageLocation /= Boids.Num();
 	}
 
-	FlockSettings.FlockCenter = AverageLocation;
+	FlockSettings->FlockCenter = AverageLocation;
+	
+	if (PlayerCharacter)
+	{
+		FlockSettings->FlockAttractionPoint = PlayerCharacter->GetActorLocation();
+	}
 }
 
 
@@ -88,7 +104,6 @@ void ABoidFlock::RegisterBoid(AActor* Boid)
 		if (UFlockingComponent* FlockingComp = BoidActor->GetFlockingComponent())
 		{
 			FlockingComp->SetFlockManager(this);
-			FlockingComp->UpdateFlockSettings(FlockSettings);
 		}
 	}
 }
@@ -119,19 +134,4 @@ TArray<AActor*> ABoidFlock::GetNeighboringBoids(AActor* Boid, float Radius) cons
 	return Neighbors;
 }
 
-void ABoidFlock::UpdateBoidSettings(const FFlockSettings& NewSettings)
-{
-	for (AActor* Boid : Boids)
-	{
-		if (ABoid* BoidActor = Cast<ABoid>(Boid))
-		{
-			BoidActor->bDrawDebugRadius = NewSettings.bDrawDebugRadiusAverage;
-			BoidActor->bDrawDebugSightLine = NewSettings.bDrawDebugSightLine;
-			if (UFlockingComponent* FlockingComp = BoidActor->GetFlockingComponent())
-			{
-				FlockingComp->UpdateFlockSettings(NewSettings);
-			}
-		}
-	}
-}
 

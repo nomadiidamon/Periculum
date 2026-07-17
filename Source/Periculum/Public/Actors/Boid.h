@@ -1,14 +1,22 @@
-#pragma once
+// Fill out your copyright notice in the Description page of Project Settings.
 
+/// @file Boid.h
+/// @brief ABoid class represents an individual boid in a flocking simulation. It contains a FlockingComponent that handles the flocking behavior and a StaticMeshComponent for visual representation.
+
+#pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Boid.generated.h"
 
-class UFlockingComponent;
 class UStaticMeshComponent;
 class USkeletalMeshComponent;
 class USphereComponent;
-struct FFlockSettings;
+
+class UFlockingComponent;
+class UTraceComponent;
+class UMessagingComponent;
+
+class UBoidFlockSettings;
 
 /**
  * ABoid class represents an individual boid in a flocking simulation.
@@ -37,16 +45,28 @@ public:
 
 public:	
 	/// <summary>
-	/// The FlockingComponent responsible for handling the flocking behavior of this Boid.
-	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	UFlockingComponent* FlockingComponent;
-
-	/// <summary>
 	/// The StaticMeshComponent used for visual representation of the Boid.
 	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	UStaticMeshComponent* StaticMeshComponent;
+	TObjectPtr<UStaticMeshComponent> StaticMeshComponent;
+
+	/// <summary>
+	/// The FlockingComponent responsible for handling the flocking behavior of this Boid.
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	TObjectPtr<UFlockingComponent> FlockingComponent;
+
+	/// <summary>
+	/// The TraceComponent used for line tracing and collision detection in the Boid's flocking behavior.
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	TObjectPtr<UTraceComponent> TraceComponent;
+
+	/// <summary>
+	/// The MessagingComponent used for communication between Boids and the FlockManager.
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	TObjectPtr<UMessagingComponent> MessagingComponent;
 
 	/// <summary>
 	/// Bool to determine whether to draw debug radius for the Boid's flocking behavior.
@@ -60,11 +80,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	bool bDrawDebugSightLine = false;
 
-public:
-	/// <summary>
-	/// A function to update the flock settings of the Boid's FlockingComponent.
-	/// </summary>
-	/// <param name="NewSettings">The new flock settings to apply.</param>
-	void UpdateFlockSettings(const FFlockSettings& NewSettings);
+
+protected:
+	UFUNCTION()
+	void HandleObstacleDetection(FTracePolicyResult Result);
 
 };

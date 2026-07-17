@@ -1,16 +1,20 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#pragma once
+/// @file BoidFlock.h
+/// @brief ABoidFlock class is responsible for managing a flock of boids, including spawning, registering, and coordinating their behavior based on flocking rules and settings.
 
+#pragma once
 #include "CoreMinimal.h"
 #include "BaseActors/BaseSpawner.h"
 #include "ActorComponents/FlockingComponent.h"
 #include "BoidFlock.generated.h"
 
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnFlockSettingsChanged, const FFlockSettings&, NewSettings);
-
 class ABoid;
+
+class UMessagingComponent;
+
+class UBoidFlockSettings;
 
 /**
  * ABoidFlock class is responsible for managing a flock of boids.
@@ -23,16 +27,8 @@ class PERICULUM_API ABoidFlock : public ABaseSpawner
 
 public:
 	ABoidFlock();
-
 	virtual void BeginPlay() override;
-	
 	virtual void Tick(float DeltaTime) override;
-
-public:
-	/// <summary>
-	/// Dynamic multicast delegate that is triggered when the flock settings are changed.
-	/// </summary>
-	FOnFlockSettingsChanged OnFlockSettingsChanged;
 
 public:
 	/// <summary>
@@ -42,16 +38,16 @@ public:
 	TSubclassOf<AActor> BoidClass;
 
 	/// <summary>
-	/// Property that holds configuration settings for flocking behavior, exposed to the editor and Blueprints.
+	/// The messaging component used for communication between the flock and its boids. This component is responsible for broadcasting messages to the boids and receiving messages from them, allowing for coordinated flocking behavior.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
-	FFlockSettings FlockSettings;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock")
+	TObjectPtr<UMessagingComponent> MessagingComponent;
 
 	/// <summary>
-	/// The last known flock settings, used to detect changes and trigger updates to the boids.
+	/// The settings that control the flocking behavior of the boids in this flock. This should be set to a valid instance of UBoidFlockSettings that contains parameters for cohesion, separation, alignment, and other behaviors.
 	/// </summary>
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
-	FFlockSettings LastFlockSettings;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
+	TObjectPtr<UBoidFlockSettings> FlockSettings;
 
 public:
 	/// <summary>
@@ -83,10 +79,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock")
 	TArray<AActor*> Boids;
 
-	/// <summary>
-	/// Updates the flock settings for all registered boids in the flock. This function is called when the flock settings are changed, and it propagates the new settings to each boid's flocking component to ensure consistent behavior across the flock.
-	/// </summary>
-	/// <param name="NewSettings"></param>
-	UFUNCTION()
-	void UpdateBoidSettings(const FFlockSettings& NewSettings);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock")
+	TObjectPtr<ACharacter> PlayerCharacter;
 };

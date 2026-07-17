@@ -79,6 +79,24 @@ FTracePolicyResult UTraceComponent::PerformTraceByTag(FName Tag)
 	return EmptyResult;
 }
 
+bool UTraceComponent::AddRuntimePolicy(UTracePolicy* NewPolicy)
+{
+	if (!NewPolicy)
+	{
+		return false;
+	}
+	for (UTracePolicy* ExistingPolicy : RuntimePolicies)
+	{
+		if (ExistingPolicy && ExistingPolicy->PolicyTag == NewPolicy->PolicyTag)
+		{
+			return false; // Policy with the same tag already exists
+		}
+	}
+	RuntimePolicies.Add(NewPolicy);
+	return true;
+
+}
+
 void UTraceComponent::BeginPlay()
 {
 	Super::BeginPlay();

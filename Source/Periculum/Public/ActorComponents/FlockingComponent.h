@@ -1,5 +1,9 @@
-#pragma once
+// Fill out your copyright notice in the Description page of Project Settings.
 
+/// @file FlockingComponent.h
+/// @brief Component that implements flocking behavior for boids, allowing them to move and interact as a cohesive group based on configurable settings.
+
+#pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "FlockingComponent.generated.h"
@@ -8,88 +12,62 @@ class ABoidFlock;
 class USphereComponent;
 
 /**
- * Struct to hold flocking settings for boids
- * TODO: Convert to a data asset for easier tweaking and sharing between different flocks
- */
+* FBoidSettings struct defines the parameters that control the flocking behavior of boids, including cohesion, separation, alignment, and other relevant properties.
+*/
 USTRUCT(BlueprintType)
-struct FFlockSettings
+struct FBoidSettings 
 {
 	GENERATED_BODY()
-public:
-	/// Cohesion, Separation, Alignment weights and radii, the higher the weight, the more influence that behavior has on the boid's movement
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "100.0"))
-	float CohesionWeight = 1.0f;
+
+	/// <summary>
+	/// The radius within which the boid will steer towards the average position of neighboring boids to maintain cohesion. This value is used to determine how far the boid will look for other boids to stay together as a group, promoting flocking behavior.
+	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "50.0", ClampMax = "2000.0"))
 	float CohesionRadius = 450.0f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "100.0"))
-	float SeparationWeight = 2.25f;
+	/// <summary>
+	/// The radius within which the boid will steer away from neighboring boids to avoid crowding. This value is used to determine how far the boid will look for other boids to maintain a comfortable distance, preventing collisions and promoting separation within the flock.
+	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "50.0", ClampMax = "2000.0"))
 	float SeparationRadius = 300.0f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "100.0"))
-	float AlignmentWeight = 1.0f;	
+	/// <summary>
+	/// The radius within which the boid will align its velocity with neighboring boids. This value is used to determine how far the boid will look for other boids to match its direction and speed, promoting synchronized movement within the flock.
+	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "50.0", ClampMax = "2000.0"))
 	float AlignmentRadius = 850.0f;
 
-	/// Speed, Wander strength, and other tuning settings for the boid's movement
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "200.0"))
-	float MaxSpeed = 200.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
-	float MinSpeed = 20.0f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
-	float MaxWanderStrength = 200.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "50.0"))
-	float MinWanderStrength = 20.0f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "200.0"))
-	float MaxForce = 75.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
-	float TurnSpeed = 2.0f;
-
+	/// <summary>
+	/// The point in space that represents the center of the flock. This is updated by the flock manager and is used to maintain cohesion among the boids, ensuring they stay together as a group.
+	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
 	FVector FlockCenter = FVector::ZeroVector;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
-	float FlockCenterStrength = 20.0f;
 
+	/// <summary>
+	/// The point in space that the boid is attracted to. This vector can be used to influence the boid's movement towards a specific location, such as a target or goal within the flocking simulation.
+	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
-	FVector FlockAttractionPoint = FVector::ZeroVector;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
-	float FlockAttractionPointStrength = 20.0f;
+	FVector AttractionPoint = FVector::ZeroVector;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
-	bool bDrawDebugRadiusAverage = false;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior")
-	bool bDrawDebugSightLine = false;
+	/// <summary>
+	/// The current velocity of the boid. This vector is updated each tick based on the calculated steering forces from cohesion, separation, alignment, and other behaviors.
+	/// It represents the direction and speed at which the boid is moving.
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	FVector Velocity = FVector::ZeroVector;
 
-	bool operator==(const FFlockSettings& Other) const
-	{
-		return FMath::IsNearlyEqual(CohesionWeight, Other.CohesionWeight) &&
-			FMath::IsNearlyEqual(SeparationWeight, Other.SeparationWeight) &&
-			FMath::IsNearlyEqual(AlignmentWeight, Other.AlignmentWeight) &&
-			FMath::IsNearlyEqual(CohesionRadius, Other.CohesionRadius) &&
-			FMath::IsNearlyEqual(SeparationRadius, Other.SeparationRadius) &&
-			FMath::IsNearlyEqual(AlignmentRadius, Other.AlignmentRadius) &&
-			FMath::IsNearlyEqual(MaxSpeed, Other.MaxSpeed) &&
-			FMath::IsNearlyEqual(MinSpeed, Other.MinSpeed) &&
-			FMath::IsNearlyEqual(MaxWanderStrength, Other.MaxWanderStrength)&&
-			FMath::IsNearlyEqual(MinWanderStrength, Other.MinWanderStrength)&&
-			FMath::IsNearlyEqual(MaxForce, Other.MaxForce)&&
-			FMath::IsNearlyEqual(TurnSpeed, Other.TurnSpeed)&&
-			FlockCenter.Equals(Other.FlockCenter)&&
-			FMath::IsNearlyEqual(FlockCenterStrength, Other.FlockCenterStrength)&&
-			FlockAttractionPoint.Equals(Other.FlockAttractionPoint)&&
-			FMath::IsNearlyEqual(FlockAttractionPointStrength, Other.FlockAttractionPointStrength)&&
-			bDrawDebugRadiusAverage == Other.bDrawDebugRadiusAverage&&
-			bDrawDebugSightLine == Other.bDrawDebugSightLine;
-	}
+	/// <summary>
+	/// The current speed of the boid.
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	float CurrentSpeed = 50.f;
 
+	/// <summary>
+	/// The strength of the avoidance force applied to the boid when it detects an obstacle or another boid within its avoidance radius. This value determines how strongly the boid will steer away from potential collisions, helping to maintain separation and prevent overcrowding within the flock.
+	/// </summary>
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	float AvoidanceStrength = 100.f;
 };
-
-/// TODO: Create a separate BoidSetting for boids, that is updated/set based on the FlockSettings, so that each boid can have its own settings, but still be influenced by the flock's settings. This will allow for more diverse and dynamic flocking behavior, as individual boids can have unique characteristics while still adhering to the overall flocking rules.
 
 
 /**
@@ -130,23 +108,10 @@ public:
 	TArray<TObjectPtr<AActor>> OverlappingActors;
 
 	/// <summary>
-	/// The current velocity of the boid. This vector is updated each tick based on the calculated steering forces from cohesion, separation, alignment, and other behaviors.
-	/// It represents the direction and speed at which the boid is moving.
+	/// The settings that control the flocking behavior of this boid. These settings include parameters for cohesion, separation, alignment, and other behaviors that influence how the boid interacts with its neighbors and moves as part of the flock.
 	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	FVector Velocity;
-
-	/// <summary>
-	/// The current speed of the boid. This value is used to control the magnitude of the Velocity vector and is clamped between the minimum and maximum speed defined in the FlockSettings.
-	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	float CurrentSpeed = 50.f;
-
-	/// <summary>
-	/// The current flock settings that define the behavior of the boid. This struct contains parameters for cohesion, separation, alignment, speed, wander strength, and other tuning settings that influence how the boid moves and interacts with its neighbors.
-	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	FFlockSettings FlockSettings;
+	FBoidSettings BoidSettings;
 
 public:
 	/// <summary>
@@ -155,6 +120,16 @@ public:
 	/// </summary>
 	/// <param name="Manager">The ABoidFlock instance that manages the flocking behavior of this boid.</param>
 	void SetFlockManager(ABoidFlock* Manager) { FlockManager = Manager; }
+
+	/// <summary>
+	/// This function should be called from the owning Boid/BoidFlock to direct the Flocking component to avoid an obstacle.
+	/// It calculates the avoidance direction based on the location and normal of the obstacle, as well as the current velocity of the boid, and applies it to steer the boid away from potential collisions.
+	/// </summary>
+	/// <param name="ObstacleLocation">The location of the obstacle.</param>
+	/// <param name="ObstacleNormal">The normal vector of the obstacle's surface.</param>
+	/// <param name="CurrentVelocity">The current velocity of the boid.</param>
+	void AvoidObstacle(FVector ObstacleLocation, FVector ObstacleNormal, FVector CurrentVelocity);
+
 
 	/// <summary>
 	/// Calculates the cohesion vector for the boid based on the positions of its neighboring boids. 
@@ -222,14 +197,6 @@ public:
 	/// </summary>
 	/// <param name="CurrentVelocity">The current velocity of the boid.</param>
 	void CalculateVelocity(FVector CurrentVelocity);
-
-	/// <summary>
-	/// Updates the flock settings for this boid based on the new settings provided by the flock manager. 
-	/// This function is called when the flock settings are changed, and it updates the boid's internal settings to match the new configuration.
-	/// </summary>
-	/// <param name="NewSettings">The new flock settings for the boid.</param>
-	UFUNCTION()
-	void UpdateFlockSettings(const struct FFlockSettings& NewSettings);
 
 	/// <summary>
 	/// Draws visual/debug bounds for components used in overlap detection.

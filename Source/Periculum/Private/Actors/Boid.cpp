@@ -1,10 +1,17 @@
 #include "Actors/Boid.h"
+#include "Actors/BoidFlock.h"
 
 #include "ActorComponents/FlockingComponent.h"
+#include "ActorComponents/TraceComponent.h"
+#include "ActorComponents/MessagingComponent.h"
 
 #include "Components/StaticMeshComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/SphereComponent.h"
+
+#include "TracePolicies/SphereTracePolicy.h"
+
+#include "DataAssets/BoidFlockSettings.h"
 
 #include "Defines/PericulumLog.h"
 
@@ -17,7 +24,7 @@ ABoid::ABoid()
 	FlockingComponent = CreateDefaultSubobject<UFlockingComponent>(TEXT("FlockingComponent"));
 
 	USphereComponent* OverlapSphere = CreateDefaultSubobject<USphereComponent>(TEXT("OverlappingSphereComponent"));
-	OverlapSphere->SetSphereRadius(FlockingComponent->FlockSettings.AlignmentRadius);
+	OverlapSphere->SetSphereRadius(FlockingComponent->BoidSettings.AlignmentRadius);
 	OverlapSphere->SetupAttachment(RootComponent);
 	OverlapSphere->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	OverlapSphere->SetCollisionObjectType(ECollisionChannel::ECC_Pawn);
@@ -29,6 +36,10 @@ ABoid::ABoid()
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	StaticMeshComponent->SetupAttachment(RootComponent);
+
+	TraceComponent = CreateDefaultSubobject<UTraceComponent>(TEXT("TraceComponent"));
+
+	MessagingComponent = CreateDefaultSubobject<UMessagingComponent>(TEXT("MessagingComponent"));
 }
 
 void ABoid::BeginPlay()
@@ -49,18 +60,35 @@ void ABoid::BeginPlay()
 
 	if (FlockingComponent && FlockingComponent->FlockManager)
 	{
-		FlockingComponent->Velocity = GetActorForwardVector() * FMath::RandRange(FlockingComponent->FlockSettings.MinSpeed, FlockingComponent->FlockSettings.MaxSpeed);
+		float minSpeed = FlockingComponent->FlockManager->FlockSettings->MinSpeed;
+		float maxSpeed = FlockingComponent->FlockManager->FlockSettings->MaxSpeed;
+		FlockingComponent->BoidSettings.Velocity = GetActorForwardVector() * FMath::RandRange(minSpeed, maxSpeed);
 	}
 
 	if (FlockingComponent && FlockingComponent->OverlappingSphereComponent)
 	{
-		if (!FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.IsAlreadyBound(FlockingComponent, &UFlockingComponent::OnOverlapBegin))
+		if (!FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.IsAlreadyBound(FlockingComponent.Get(), &UFlockingComponent::OnOverlapBegin))
 		{
-			FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.AddDynamic(FlockingComponent, &UFlockingComponent::OnOverlapBegin);
+			FlockingComponent->OverlappingSphereComponent->OnComponentBeginOverlap.AddDynamic(FlockingComponent.Get(), &UFlockingComponent::OnOverlapBegin);
 		}
-		if (!FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.IsAlreadyBound(FlockingComponent, &UFlockingComponent::OnOverlapEnd))
+		if (!FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.IsAlreadyBound(FlockingComponent.Get(), &UFlockingComponent::OnOverlapEnd))
 		{
-			FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.AddDynamic(FlockingComponent, &UFlockingComponent::OnOverlapEnd);
+			FlockingComponent->OverlappingSphereComponent->OnComponentEndOverlap.AddDynamic(FlockingComponent.Get(), &UFlockingComponent::OnOverlapEnd);
+		}
+	}
+
+	if (TraceComponent) {
+
+		{ // Create a SphereTracePolicy for obstacle detection
+			USphereTracePolicy* ObstacleTracePolicy = NewObject<USphereTracePolicy>(this, USphereTracePolicy::StaticClass());
+			ObstacleTracePolicy->StartOffset = FVector::ZeroVector;
+			ObstacleTracePolicy->EndOffset = FVector(500.0f, 0.0f, 0.0f);
+			ObstacleTracePolicy->Radius = 100.0f;
+			ObstacleTracePolicy->TraceChannel = ECollisionChannel::ECC_WorldDynamic;
+			ObstacleTracePolicy->bMultiTrace = true;
+			ObstacleTracePolicy->bDrawDebug = false;
+			ObstacleTracePolicy->OnTracePolicyCompleted.AddDynamic(this, &ABoid::HandleObstacleDetection);
+			TraceComponent->AddRuntimePolicy(ObstacleTracePolicy);
 		}
 	}
 }
@@ -69,10 +97,7 @@ void ABoid::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (FlockingComponent) {
-
-		bDrawDebugRadius = FlockingComponent->FlockSettings.bDrawDebugRadiusAverage;
-		bDrawDebugSightLine = FlockingComponent->FlockSettings.bDrawDebugSightLine;
+	if (FlockingComponent && FlockingComponent->FlockManager) {
 
 		if (bDrawDebugRadius)
 		{
@@ -80,7 +105,24 @@ void ABoid::Tick(float DeltaTime)
 		}
 		if (bDrawDebugSightLine)
 		{
-			DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + FlockingComponent->Velocity.GetSafeNormal() * 500.f, FColor::Green, false, -1.f, 0, 2.f);
+			DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + FlockingComponent->BoidSettings.Velocity.GetSafeNormal() * 500.f, FColor::Green, false, -1.f, 0, 2.f);
+		}
+	}
+}
+
+void ABoid::HandleObstacleDetection(FTracePolicyResult Result)
+{
+	if (Result.bHit)
+	{
+		for (const FHitResult& Hit : Result.Hits)
+		{
+			if (FlockingComponent)
+			{
+				FlockingComponent->AvoidObstacle(Hit.ImpactPoint, Hit.ImpactNormal, FlockingComponent->BoidSettings.Velocity);
+			}
+			else {
+				PERICULUM_LOG(Periculum_Game, Warning, "FlockingComponent is not set on %s", *GetName());
+			}
 		}
 	}
 }

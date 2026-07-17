@@ -47,5 +47,10 @@ FTracePolicyResult USphereTracePolicy::Apply_Implementation(UObject* Target) con
 		DrawDebugSphere(World, End, Radius, 16, Result.bHit ? FColor::Red : FColor::Green, false, 1.0f);
 	}
 
+	if (OnTracePolicyCompleted.IsBound())
+	{
+		OnTracePolicyCompleted.Broadcast(Result);
+	}
+
 	return Result;
 }
