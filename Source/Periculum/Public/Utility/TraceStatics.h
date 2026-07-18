@@ -5,7 +5,12 @@
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "DataAssets/TraceProfile.h"
+#include "../TracePolicies/CameraTracePolicy.h"
 #include "TraceStatics.generated.h"
+
+class UTracePolicy;
+class USphereTracePolicy;
+class UCameraComponent;
 
 /**
  * 
@@ -45,4 +50,10 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Trace")
 	static bool ActorIsTraceable(AActor* Target);
+
+	UFUNCTION(BlueprintCallable, Category = "Trace")
+	static USphereTracePolicy* MakeSphereTracePolicy(FVector StartOffset, FVector EndOffset, float Radius, ECollisionChannel TraceChannel, bool bMultiTrace, bool bDrawDebug, FName PolicyName, EPolicyStackPriority StackPriority, int32 PriorityScalar);
+
+	UFUNCTION(BlueprintCallable, Category = "Trace")
+	static UCameraTracePolicy* MakeCameraTracePolicy(ECameraTraceType TraceType, UCameraComponent* CameraComponent, FVector StartOffset, FVector EndOffset, float SphereRadius, float CapsuleRadius, float CapsuleHalfHeight, FVector BoxHalfSize, ECollisionChannel TraceChannel, bool bMultiTrace, bool bDrawDebug, FName PolicyName, EPolicyStackPriority StackPriority, int32 PriorityScalar);
 };

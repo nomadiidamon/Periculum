@@ -94,7 +94,6 @@ bool UTraceComponent::AddRuntimePolicy(UTracePolicy* NewPolicy)
 	}
 	RuntimePolicies.Add(NewPolicy);
 	return true;
-
 }
 
 void UTraceComponent::BeginPlay()

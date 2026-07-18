@@ -68,19 +68,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	TObjectPtr<UMessagingComponent> MessagingComponent;
 
-	/// <summary>
-	/// Bool to determine whether to draw debug radius for the Boid's flocking behavior.
-	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	bool bDrawDebugRadius = false;
-
-	/// <summary>
-	/// Bool to determine whether to draw debug sight line for the Boid's flocking behavior.
-	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
-	bool bDrawDebugSightLine = false;
-
-
 protected:
 	UFUNCTION()
 	void HandleObstacleDetection(FTracePolicyResult Result);

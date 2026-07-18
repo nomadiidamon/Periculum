@@ -2,7 +2,14 @@
 
 
 #include "Utility/TraceStatics.h"
+
+#include "Camera/CameraComponent.h"
+
 #include "ActorComponents/TraceComponent.h"
+
+#include "TracePolicies/SphereTracePolicy.h"
+#include "TracePolicies/CameraTracePolicy.h"
+
 
 FTraceResult UTraceStatics::PerformTrace(AActor* Target)
 {
@@ -139,4 +146,41 @@ bool UTraceStatics::ActorIsTraceable(AActor* Target)
 	}
 	
 	return Target->FindComponentByClass<UTraceComponent>() != nullptr;
+}
+
+USphereTracePolicy* UTraceStatics::MakeSphereTracePolicy(FVector StartOffset, FVector EndOffset, float Radius, ECollisionChannel TraceChannel, bool bMultiTrace, bool bDrawDebug, FName PolicyName, EPolicyStackPriority StackPriority, int32 PriorityScalar)
+{
+	USphereTracePolicy* NewPolicy = NewObject<USphereTracePolicy>();
+	NewPolicy->StartOffset = StartOffset;
+	NewPolicy->EndOffset = EndOffset;
+	NewPolicy->Radius = Radius;
+	NewPolicy->TraceChannel = TraceChannel;
+	NewPolicy->bMultiTrace = bMultiTrace;
+	NewPolicy->bDrawDebug = bDrawDebug;
+	NewPolicy->PolicyTag = PolicyName;
+	NewPolicy->PolicyStackPriority = StackPriority;
+	NewPolicy->PriorityScalar = PriorityScalar;
+
+	return NewPolicy;
+}
+
+UCameraTracePolicy* UTraceStatics::MakeCameraTracePolicy(ECameraTraceType TraceType, UCameraComponent* CameraComponent, FVector StartOffset, FVector EndOffset, float SphereRadius, float CapsuleRadius, float CapsuleHalfHeight, FVector BoxHalfSize, ECollisionChannel TraceChannel, bool bMultiTrace, bool bDrawDebug, FName PolicyName, EPolicyStackPriority StackPriority, int32 PriorityScalar)
+{
+	UCameraTracePolicy* NewPolicy = NewObject<UCameraTracePolicy>();
+	NewPolicy->CameraTraceType = TraceType;
+	NewPolicy->CameraComponent = CameraComponent;
+	NewPolicy->StartOffset = StartOffset;
+	NewPolicy->EndOffset = EndOffset;
+	NewPolicy->SphereRadius = SphereRadius;
+	NewPolicy->CapsuleRadius = CapsuleRadius;
+	NewPolicy->CapsuleHalfHeight = CapsuleHalfHeight;
+	NewPolicy->BoxHalfExtent = FVector3f(BoxHalfSize.X, BoxHalfSize.Y, BoxHalfSize.Z);
+	NewPolicy->TraceChannel = TraceChannel;
+	NewPolicy->bMultiTrace = bMultiTrace;
+	NewPolicy->bDrawDebug = bDrawDebug;
+	NewPolicy->PolicyTag = PolicyName;
+	NewPolicy->PolicyStackPriority = StackPriority;
+	NewPolicy->PriorityScalar = PriorityScalar;
+
+	return NewPolicy;
 }

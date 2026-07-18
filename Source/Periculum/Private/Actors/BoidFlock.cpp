@@ -1,16 +1,7 @@
 #include "Actors/BoidFlock.h"
-#include "Actors/Boid.h"
 
 #include "ActorComponents/FlockingComponent.h"
 #include "ActorComponents/MessagingComponent.h"
-
-#include "SceneComponents/BoxSpawnerComponent.h"
-#include "SceneComponents/CapsuleSpawnerComponent.h"
-#include "SceneComponents/SphereSpawnerComponent.h"
-
-#include "Components/BoxComponent.h"
-#include "Components/CapsuleComponent.h"
-#include "Components/SphereComponent.h"
 
 #include "DataAssets/BoidFlockSettings.h"
 
@@ -74,17 +65,19 @@ void ABoidFlock::Tick(float DeltaTime)
 
 	FVector AverageLocation = FVector::ZeroVector;
 
+	int32 ValidBoidCount = 0;
 	for (AActor* Boid : Boids)
 	{
-		if (Boid)
+		if (IsValid(Boid))
 		{
 			AverageLocation += Boid->GetActorLocation();
+			ValidBoidCount++;
 		}
 	}
 
-	if (Boids.Num() > 0)
+	if (ValidBoidCount > 0)
 	{
-		AverageLocation /= Boids.Num();
+		AverageLocation /= ValidBoidCount;
 	}
 
 	FlockSettings->FlockCenter = AverageLocation;
@@ -98,13 +91,16 @@ void ABoidFlock::Tick(float DeltaTime)
 
 void ABoidFlock::RegisterBoid(AActor* Boid)
 {
-	Boids.AddUnique(Boid);
-	if (ABoid* BoidActor = Cast<ABoid>(Boid))
+	if (!Boid)
 	{
-		if (UFlockingComponent* FlockingComp = BoidActor->GetFlockingComponent())
-		{
-			FlockingComp->SetFlockManager(this);
-		}
+		PERICULUM_LOG(Periculum_Game, Warning, "Attempted to register a null Boid in ABoidFlock.");
+		return;
+	}
+
+	Boids.AddUnique(Boid);
+	if (UFlockingComponent* FlockingComp = Boid->FindComponentByClass<UFlockingComponent>())
+	{
+		FlockingComp->SetFlockManager(this);
 	}
 }
 

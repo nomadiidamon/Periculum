@@ -46,42 +46,42 @@ public:
 	/// The maximum speed that a boid can achieve. 
 	/// This value is used to limit the boid's velocity, ensuring that it does not exceed a certain threshold.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "200.0"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "10000.0"))
 	float MaxSpeed = 200.0f;
 
 	/// <summary>
 	/// The minimum speed that a boid can achieve.
 	/// This value is used to ensure that the boid maintains a certain level of movement, preventing it from coming to a complete stop.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "5000.0"))
 	float MinSpeed = 20.0f;
 
 	/// <summary>
 	/// The maximum strength of the wander behavior applied to the boids.
 	/// This value determines how much random movement is introduced to the boid's behavior, allowing for more natural and unpredictable movement patterns.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "100.0"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "10000.0"))
 	float MaxWanderStrength = 200.0f;
 
 	/// <summary>
 	/// The minimum strength of the wander behavior applied to the boids.
 	/// This value determines the lower limit of random movement introduced to the boid's behavior, ensuring that there is always some level of unpredictability in its movement patterns.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "10.0", ClampMax = "50.0"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "5000.0"))
 	float MinWanderStrength = 20.0f;
 
 	/// <summary>
 	/// The maximum force that can be applied to a boid when steering.
 	/// This value is used to limit the amount of force that can be applied to change the boid's velocity, ensuring that it does not accelerate too quickly or unrealistically.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "200.0"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "1000.0"))
 	float MaxForce = 75.0f;
 
 	/// <summary>
 	/// The speed at which a boid can turn to align with its neighbors or change direction.
-	/// This 
+	/// This value determines how quickly a boid can adjust its orientation, allowing for more responsive and dynamic movement.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10.0"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "1000.0"))
 	float TurnSpeed = 2.0f;
 
 	/// <summary>
@@ -94,7 +94,7 @@ public:
 	/// The strength of the attraction force towards the flock center. This value determines how strongly a boid will steer towards the average position of all boids in the flock, helping to keep the flock together.
 	/// A higher value results in stronger attraction, while a lower value allows for more independent movement.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10000.0"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "100000.0"))
 	float FlockCenterStrength = 2.0f;
 
 	/// <summary>
@@ -107,7 +107,7 @@ public:
 	/// The strength of the attraction force towards the flock attraction point. This value determines how strongly a boid will steer towards the specified attraction point, allowing for targeted movement within the flocking simulation.
 	/// A higher value results in stronger attraction, while a lower value allows for more independent movement.
 	/// </summary>
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "10000.0"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flock|Behavior", meta = (ClampMin = "0.0", ClampMax = "100000.0"))
 	float FlockAttractionPointStrength = 2.0f;
 
 	bool operator==(const UBoidFlockSettings& Other) const

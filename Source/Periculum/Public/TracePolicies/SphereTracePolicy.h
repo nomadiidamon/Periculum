@@ -9,7 +9,7 @@
 /**
  * Performs a sphere sweep from the owning actor, using local-space start/end offsets.
  */
-UCLASS(EditInlineNew)
+UCLASS(EditInlineNew, BlueprintType)
 class PERICULUM_API USphereTracePolicy : public UTracePolicy
 {
 	GENERATED_BODY()

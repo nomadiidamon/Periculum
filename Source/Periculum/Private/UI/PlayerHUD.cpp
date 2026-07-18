@@ -3,6 +3,9 @@
 #include "UI/HealthBar.h"
 #include "UI/Crosshair.h"
 
+#include "Components/Image.h"
+#include "Engine/Texture2D.h"
+
 #include "Slate/SGameLayerManager.h"
 
 #include "Defines/PericulumLog.h"
@@ -15,10 +18,15 @@ void UPlayerHUD::NativeConstruct()
 	{
 		PERICULUM_LOG(Periculum_UI, Warning, TEXT("PlayerHealthBar is not bound in PlayerHUD"));
 	}
-	if (!Crosshair)
+	if (!HUDCrosshair)
 	{
 		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Crosshair is not bound in PlayerHUD"));
 	}
+	else {
+		HUDCrosshair->CrosshairImage->SetBrushFromTexture(CrosshairTextures[CrosshairState]);
+	}
+
+
 	if (bFadeInAndOut)
 	{
 		if (!FadeInAnimation)
@@ -36,6 +44,25 @@ void UPlayerHUD::NativePreConstruct()
 {
 	Super::NativePreConstruct();
 
+	if (!HUDCrosshair)
+	{
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Crosshair is not valid in PlayerHUD. Please check the widget blueprint."));
+		return;
+	}
+
+	if (!HUDCrosshair->CrosshairImage)
+	{
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("CrosshairImage is not valid in PlayerHUD. Please check the widget blueprint."));
+		return;
+	}
+
+	if (!CrosshairTextures.Contains(CrosshairState))
+	{
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("CrosshairTextures does not contain the current CrosshairState in PlayerHUD."));
+		return;
+	}
+	HUDCrosshair->CrosshairImage->SetBrushFromTexture(CrosshairTextures[CrosshairState]);
+
 }
 
 void UPlayerHUD::NativeDestruct()
@@ -47,24 +74,29 @@ void UPlayerHUD::NativeDestruct()
 void UPlayerHUD::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 {
 	Super::NativeTick(MyGeometry, InDeltaTime);
-	if (!Crosshair || !Crosshair->ValidCrosshair())
+	if (!HUDCrosshair)
 	{
 		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Crosshair is not valid in PlayerHUD. Please check the widget blueprint."));
 		return;
 	}
 
+	if (!IsValid(GetOwningPlayer())) {
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Owning player is not valid in PlayerHUD."));
+		return;
+	}
+
 	FVector2D PixelPosition, ViewportPosition;
-	FVector2D AbsoluteCoordinates = Crosshair->GetAbsoluteCoordinates();
+	FVector2D AbsoluteCoordinates = HUDCrosshair->GetAbsoluteCoordinates();
 	AbsoluteToViewport(this->GetOwningPlayer(), AbsoluteCoordinates, PixelPosition, ViewportPosition);
 
 	FVector WorldPosition, WorldDirection;
 	if (!DeprojectScreenToWorld(this->GetOwningPlayer(),
-		PixelPosition + (TransformVector(Crosshair->GetCachedGeometry().GetAccumulatedRenderTransform(),
-			Crosshair->GetCachedGeometry().GetLocalSize()) * 0.5f), WorldPosition, WorldDirection))
+		PixelPosition + (TransformVector(HUDCrosshair->GetCachedGeometry().GetAccumulatedRenderTransform(),
+			HUDCrosshair->GetCachedGeometry().GetLocalSize()) * 0.5f), WorldPosition, WorldDirection))
 	{
 		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Failed to deproject screen to world in PlayerHUD."));
 	}
-
+	CrossHairWorldLocation = WorldPosition + WorldDirection;
 	CrosshairWorldHitLocation = WorldPosition + WorldDirection * 100000.f;
 	FHitResult hit;
 	if (GetWorld()->LineTraceSingleByObjectType(hit, WorldPosition, CrosshairWorldHitLocation,
@@ -76,28 +108,28 @@ void UPlayerHUD::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 		{
 			if (hit.GetActor()->Tags.Contains(FName(TEXT("Ally"))))
 			{
-				Crosshair->SetCrosshairState(ECrosshairState::Ally);
+				SetCrosshairState(ECrosshairState::Ally);
 				PERICULUM_LOG(Periculum_UI, Log, TEXT("Crosshair hit ally at location: %s"), *CrosshairWorldHitLocation.ToString());
 			}
 			else if (hit.GetActor()->Tags.Contains(FName(TEXT("Enemy"))))
 			{
-				Crosshair->SetCrosshairState(ECrosshairState::Enemy);
+				SetCrosshairState(ECrosshairState::Enemy);
 				PERICULUM_LOG(Periculum_UI, Log, TEXT("Crosshair hit enemy at location: %s"), *CrosshairWorldHitLocation.ToString());
 			}
 			else 
 			{
-				Crosshair->SetCrosshairState(ECrosshairState::Hit);
+				SetCrosshairState(ECrosshairState::Hit);
 			}
 
 		}
 		else if (hit.Component->GetCollisionObjectType() == ECC_WorldStatic || hit.Component->GetCollisionObjectType() == ECC_WorldDynamic)
 		{
-			Crosshair->SetCrosshairState(ECrosshairState::Default);
+			SetCrosshairState(ECrosshairState::Default);
 			PERICULUM_LOG(Periculum_UI, Log, TEXT("Crosshair hit world at location: %s"), *CrosshairWorldHitLocation.ToString());
 		}
 	}
 	else {
-		Crosshair->SetCrosshairState(ECrosshairState::Default);
+		SetCrosshairState(ECrosshairState::Default);
 	}
 
 }
@@ -173,4 +205,21 @@ bool UPlayerHUD::DeprojectScreenToWorld(APlayerController const* Player, const F
 	WorldPosition = FVector::ZeroVector;
 	WorldDirection = FVector::ZeroVector;
 	return false;
+}
+
+void UPlayerHUD::SetCrosshairState(ECrosshairState NewState)
+{
+	if (!HUDCrosshair)
+	{
+		PERICULUM_LOG(Periculum_UI, Warning, TEXT("Crosshair is null. Cannot set crosshair state."));
+		return;
+	}
+
+	HUDCrosshair->SetVisibility(ESlateVisibility::Hidden);
+
+	UTexture2D* crosshairTexture = CrosshairTextures.Contains(NewState) ? CrosshairTextures[NewState] : nullptr;
+
+	HUDCrosshair->CrosshairImage->SetBrushFromTexture(crosshairTexture);
+
+	HUDCrosshair->SetVisibility(ESlateVisibility::Visible);
 }

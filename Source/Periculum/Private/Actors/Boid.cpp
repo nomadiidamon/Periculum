@@ -6,7 +6,6 @@
 #include "ActorComponents/MessagingComponent.h"
 
 #include "Components/StaticMeshComponent.h"
-#include "Components/SkeletalMeshComponent.h"
 #include "Components/SphereComponent.h"
 
 #include "TracePolicies/SphereTracePolicy.h"
@@ -17,7 +16,7 @@
 
 ABoid::ABoid()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 
@@ -97,17 +96,6 @@ void ABoid::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (FlockingComponent && FlockingComponent->FlockManager) {
-
-		if (bDrawDebugRadius)
-		{
-			FlockingComponent->DrawOverlapComponentBounds();
-		}
-		if (bDrawDebugSightLine)
-		{
-			DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + FlockingComponent->BoidSettings.Velocity.GetSafeNormal() * 500.f, FColor::Green, false, -1.f, 0, 2.f);
-		}
-	}
 }
 
 void ABoid::HandleObstacleDetection(FTracePolicyResult Result)
