@@ -9,13 +9,20 @@ AModularCharacter::AModularCharacter()
 
 void AModularCharacter::PreInitializeComponents()
 {
-	Super::PreInitializeComponents();
+	UGameInstance* GameInstance = GetGameInstance();
+	if (!IsValid(GameInstance))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AModularCharacter::PreInitializeComponents - GameInstance is not valid."));
+		return;
+	}
 
-	if (UGameFrameworkComponentManager* Manager =
-		GetGameInstance()->GetSubsystem<UGameFrameworkComponentManager>())
+	UGameFrameworkComponentManager* Manager = GameInstance->GetSubsystem<UGameFrameworkComponentManager>();
+	if (IsValid(Manager))
 	{
 		Manager->AddReceiver(this);
 	}
+
+	Super::PreInitializeComponents();
 }
 
 void AModularCharacter::BeginPlay()

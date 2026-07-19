@@ -6,9 +6,6 @@
 #include "PlayerHUD.generated.h"
 
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCrosshairEvent);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCrosshairCharacterEvent, bool, bIsAlly);
-
 class UHealthBar;
 class UCrosshair;
 
@@ -29,12 +26,6 @@ protected:
 public:
 	virtual void SetVisibility(ESlateVisibility InVisibility) override;
 
-	UFUNCTION()
-	void AbsoluteToViewport(UObject* WorldContextObject, FVector2D AbsoluteDesktopCoordinate, FVector2D& PixelPosition, FVector2D& ViewportPosition) const;
-
-	UFUNCTION(BlueprintCallable)
-	bool DeprojectScreenToWorld(APlayerController const* Player, const FVector2D& ScreenPosition, FVector& WorldPosition, FVector& WorldDirection) const;
-
 public:
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	TObjectPtr<UHealthBar> PlayerHealthBar;
@@ -48,14 +39,8 @@ public:
 	UPROPERTY(EditAnywhere, Category = "HUD")
 	TMap<ECrosshairState, UTexture2D*> CrosshairTextures;
 
-	UPROPERTY(BlueprintAssignable)
-	FOnCrosshairEvent OnCrosshairHit;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnCrosshairCharacterEvent OnCrosshairHitAlly;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnCrosshairCharacterEvent OnCrosshairHitEnemy;
+	UPROPERTY(EditAnywhere, Category = "HUD")
+	FLinearColor OriginalCrosshairColor = FLinearColor::White;
 
 	UFUNCTION(BlueprintCallable)
 	void SetCrosshairState(ECrosshairState NewState);

@@ -8,10 +8,10 @@
 
 
 class UImage;
-/**
- * 
- */
 
+/**
+ * Enum class representing the different states of the crosshair.
+ */
 UENUM(BlueprintType) 
 enum class ECrosshairState : uint8
 {
@@ -23,6 +23,9 @@ enum class ECrosshairState : uint8
 };
 
 
+/**
+ * Custom Widget class for displaying a crosshair on the screen. This widget can be used to represent the player's aiming reticle and can change its appearance based on different states (e.g., default, hit, ally, enemy).
+ */
 UCLASS()
 class PERICULUM_API UCrosshair : public UUserWidget
 {

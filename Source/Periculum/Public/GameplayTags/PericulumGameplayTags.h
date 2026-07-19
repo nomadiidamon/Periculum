@@ -14,3 +14,16 @@
 #include "InteractionTags.h"
 #include "MessageTags.h"
 #include "WeaponTags.h"
+
+
+/// @defgroup ActorTags Actor Tags
+/// @{
+/// Basic actor tag for general use.
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Actor);
+/// Represents an actor that is an ally of the player.
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Actor_Ally);
+/// Represents an actor that is an enemy of the player.
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Actor_Enemy);
+/// Represents an actor that is neutral to the player.
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Actor_Neutral);
+/// @}

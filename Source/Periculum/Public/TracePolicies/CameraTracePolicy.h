@@ -9,7 +9,9 @@
 #include "Camera/CameraComponent.h"
 #include "CameraTracePolicy.generated.h"
 
-
+/**
+ * Enumeration of the different types of camera traces that can be performed.
+ */
 UENUM(BlueprintType)
 enum class ECameraTraceType : uint8
 {

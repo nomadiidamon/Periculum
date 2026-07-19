@@ -4,6 +4,7 @@
 #include "ActorComponents/FlockingComponent.h"
 #include "ActorComponents/TraceComponent.h"
 #include "ActorComponents/MessagingComponent.h"
+#include "ActorComponents/TagContainerComponent.h"
 
 #include "Components/StaticMeshComponent.h"
 #include "Components/SphereComponent.h"
@@ -39,6 +40,19 @@ ABoid::ABoid()
 	TraceComponent = CreateDefaultSubobject<UTraceComponent>(TEXT("TraceComponent"));
 
 	MessagingComponent = CreateDefaultSubobject<UMessagingComponent>(TEXT("MessagingComponent"));
+
+	TagContainer = CreateDefaultSubobject<UTagContainerComponent>(TEXT("TagContainer"));
+
+	CollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("CollisionComponent"));
+	CollisionComponent->SetupAttachment(RootComponent);
+	CollisionComponent->SetSphereRadius(100.0f);
+	CollisionComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	CollisionComponent->SetCollisionObjectType(ECollisionChannel::ECC_Pawn);
+	CollisionComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	CollisionComponent->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Block);
+	CollisionComponent->SetCollisionResponseToChannel(ECollisionChannel::ECC_WorldStatic, ECollisionResponse::ECR_Block);
+	CollisionComponent->SetCollisionResponseToChannel(ECollisionChannel::ECC_WorldDynamic, ECollisionResponse::ECR_Block);
+	CollisionComponent->SetGenerateOverlapEvents(true);
 }
 
 void ABoid::BeginPlay()

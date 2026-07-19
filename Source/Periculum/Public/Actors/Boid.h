@@ -15,6 +15,7 @@ class USphereComponent;
 class UFlockingComponent;
 class UTraceComponent;
 class UMessagingComponent;
+class UTagContainerComponent;
 
 class UBoidFlockSettings;
 
@@ -43,12 +44,18 @@ public:
 	UFUNCTION()
 	UFlockingComponent* GetFlockingComponent() const { return FlockingComponent; }
 
+	UFUNCTION(BlueprintCallable, Category = "Components")
+	UTagContainerComponent* GetTagContainer() const { return TagContainer; }
+
 public:	
 	/// <summary>
 	/// The StaticMeshComponent used for visual representation of the Boid.
 	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	TObjectPtr<UStaticMeshComponent> StaticMeshComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	TObjectPtr<USphereComponent> CollisionComponent;
 
 	/// <summary>
 	/// The FlockingComponent responsible for handling the flocking behavior of this Boid.
@@ -67,6 +74,9 @@ public:
 	/// </summary>
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
 	TObjectPtr<UMessagingComponent> MessagingComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Flocking")
+	TObjectPtr<UTagContainerComponent> TagContainer;
 
 protected:
 	UFUNCTION()
