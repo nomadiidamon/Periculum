@@ -31,6 +31,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Validate source encoding
+        run: |
+          find Source Docs -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.md" \) -print0 | xargs -0 file -i
+
       - name: Find non UTF-8 characters in source
         run: |
           grep -rP -n "[^\x00-\x7F]" Source Docs || true
@@ -77,9 +81,9 @@ jobs:
       - name: Generate Doxygen documentation
         run: doxygen Doxyfile
 
-      - name: Find non UTF-8 characters
+      - name: Check generated LaTeX encoding
         run: |
-          grep -rP -n "[^\x00-\x7F]" Docs/latex || true
+          grep -rP -n --include="*.tex" "[^\x00-\x7F]" Docs/latex || true
 
       - name: Build PDF documentation
         run: |

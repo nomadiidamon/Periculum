@@ -211,7 +211,7 @@ public:
     /// <summary>
     /// Registers a listener on a channel that filters incoming messages to only those
     /// where MessageReceiver matches the provided object.
-    /// All messages on the channel are still delivered by the subsystem — filtering occurs in the callback.
+    /// All messages on the channel are still delivered by the subsystem. Filtering occurs in the callback.
     /// Requires FMessageType to derive from FPericulumMessage.
     /// </summary>
     /// <param name="MessageChannel">The gameplay tag channel to listen on.</param>
