@@ -18,7 +18,7 @@ DECLARE_DYNAMIC_DELEGATE_TwoParams(FOnGameplayMessageReceived, FGameplayTag, Mes
 /**
  * A UObject controller that manages all gameplay message subscriptions and broadcasts for a given context object.
  * Owns all listener handles and cleans them up automatically when StopListeningToAll is called.
- * Intended to be owned by a UMessagingComponent or a UUserWidget — the owner provides world context and GC rooting.
+ * Intended to be owned by a UMessagingComponent or a UUserWidget - the owner provides world context and GC rooting.
  */
 
 UCLASS(BlueprintType)
@@ -75,29 +75,29 @@ public:
     /// <param name="Actor">The actor whose identity is used to generate the instanced channel tag.</param>
     static FGameplayTag GetActorChannel(FGameplayTag BaseTag, const AActor* Actor);
 
-	/// <summary>
-	/// Broadcasts a simple test message on the provided channel. This is a Blueprint-friendly wrapper for testing the messaging system.
-	/// </summary>
-	/// <param name="MessageChannel">The channel to broadcast the message on.</param>
-	/// <param name="Message">The message to broadcast.</param>
-	UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
-	void BroadcastTestMessage(FGameplayTag MessageChannel, FPericulumTestMessage Message);
+    /// <summary>
+    /// Broadcasts a simple test message on the provided channel. This is a Blueprint-friendly wrapper for testing the messaging system.
+    /// </summary>
+    /// <param name="MessageChannel">The channel to broadcast the message on.</param>
+    /// <param name="Message">The message to broadcast.</param>
+    UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
+    void BroadcastTestMessage(FGameplayTag MessageChannel, FPericulumTestMessage Message);
 
-	/// <summary>
-	/// Registers a listener for test messages on the provided channel. This is a Blueprint-friendly wrapper for testing the messaging system.
-	/// </summary>
-	/// <param name="MessageChannel">The channel to listen for messages on.</param>
-	/// <param name="MatchType">The matching rules to apply when filtering messages.</param>
-	/// <param name="Callback">The function to call when a matching message is received. CANNOT be a Multicast delegate.</param>
-	/// <returns>A handle that can be used to unregister the listener.</returns>
-	UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
-	FGameplayMessageListenerHandle ListenForTestMessage(FGameplayTag MessageChannel, EGameplayMessageMatch MatchType, const FOnGameplayMessageReceived& Callback);
-
-
+    /// <summary>
+    /// Registers a listener for test messages on the provided channel. This is a Blueprint-friendly wrapper for testing the messaging system.
+    /// </summary>
+    /// <param name="MessageChannel">The channel to listen for messages on.</param>
+    /// <param name="MatchType">The matching rules to apply when filtering messages.</param>
+    /// <param name="Callback">The function to call when a matching message is received. CANNOT be a Multicast delegate.</param>
+    /// <returns>A handle that can be used to unregister the listener.</returns>
+    UFUNCTION(BlueprintCallable, Category = "Periculum|Messaging")
+    FGameplayMessageListenerHandle ListenForTestMessage(FGameplayTag MessageChannel, EGameplayMessageMatch MatchType, const FOnGameplayMessageReceived& Callback);
 
 
 
-	// --- Templated functions below cannot be UFUNCTIONs, but are the primary interface for sending and receiving messages. ---
+
+
+    // --- Templated functions below cannot be UFUNCTIONs, but are the primary interface for sending and receiving messages. ---
 
     /// <summary>
     /// Broadcasts a message on the provided channel.
@@ -139,7 +139,7 @@ public:
         if (!TargetObject)
         {
             UE_LOG(LogTemp, Warning,
-                TEXT("UMessagingController::BroadcastMessageToObject — TargetObject is null. No message was sent."));
+                TEXT("UMessagingController::BroadcastMessageToObject - TargetObject is null. No message was sent."));
             return;
         }
 
@@ -173,7 +173,7 @@ public:
         if (!Subsystem)
         {
             UE_LOG(LogTemp, Warning,
-                TEXT("UMessagingController::ListenForMessage — subsystem unavailable. No listener was registered."));
+                TEXT("UMessagingController::ListenForMessage - subsystem unavailable. No listener was registered."));
             return FGameplayMessageListenerHandle();
         }
 
@@ -197,7 +197,7 @@ public:
         if (!ContextActor)
         {
             UE_LOG(LogTemp, Warning,
-                TEXT("UMessagingController::ListenForMessageFromContext — ContextObject is null or not an AActor. "
+                TEXT("UMessagingController::ListenForMessageFromContext - ContextObject is null or not an AActor. "
                     "Instanced channels require an AActor as the ContextObject. No listener was registered."));
             return FGameplayMessageListenerHandle();
         }
@@ -235,7 +235,7 @@ public:
     /// <summary>
     /// Registers a listener on a channel that filters incoming messages to only those
     /// where MessageSender matches the provided object.
-    /// All messages on the channel are still delivered by the subsystem — filtering occurs in the callback.
+    /// All messages on the channel are still delivered by the subsystem - filtering occurs in the callback.
     /// Requires FMessageType to derive from FPericulumMessage.
     /// </summary>
     /// <param name="MessageChannel">The gameplay tag channel to listen on.</param>

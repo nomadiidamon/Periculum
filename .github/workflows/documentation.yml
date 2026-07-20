@@ -35,10 +35,6 @@ jobs:
         run: |
           find Source Docs -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.md" \) -print0 | xargs -0 file -i
 
-      - name: Find non UTF-8 characters in source
-        run: |
-          grep -rP -n "[^\x00-\x7F]" Source Docs || true
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
