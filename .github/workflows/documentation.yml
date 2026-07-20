@@ -33,7 +33,13 @@ jobs:
 
       - name: Validate source encoding
         run: |
-          find Source Docs -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.md" \) -print0 | xargs -0 file -i
+          BAD_FILES=$(find Source Docs -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.md" \) -print0 | xargs -0 file -i | grep -v "charset=us-ascii\|charset=utf-8" || true)
+
+          if [ -n "$BAD_FILES" ]; then
+            echo "Files with non UTF-8 encoding detected:"
+            echo "$BAD_FILES"
+            exit 1
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -67,12 +73,19 @@ jobs:
           echo "Version: $PROJECT_VERSION"
           echo "PDF: $PDF_NAME"
 
-      - name: Install Doxygen and TeX Live
+      - name: Install Doxygen
         run: |
           sudo apt-get update
+          sudo apt-get install -y doxygen
+
+      - name: Install TeX Live
+        run: |
           sudo apt-get install -y \
-            doxygen \
-            texlive-full
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            latexmk
 
       - name: Generate Doxygen documentation
         run: doxygen Doxyfile
