@@ -85,8 +85,14 @@ jobs:
             texlive-latex-extra \
             texlive-fonts-recommended \
             texlive-fonts-extra \
+            texlive-font-utils \
             texlive-extra-utils \
             latexmk
+
+      - name: Verify LaTeX tools
+        run: |
+          pdflatex --version
+          repstopdf --version
 
       - name: Generate Doxygen documentation
         run: doxygen Doxyfile
