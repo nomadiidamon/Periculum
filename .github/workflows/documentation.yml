@@ -31,6 +31,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Find non UTF-8 characters in source
+        run: |
+          grep -rP -n "[^\x00-\x7F]" Source Docs || true
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -46,7 +50,6 @@ jobs:
             echo "PROJECT_NAME missing from Doxyfile. Using repository name: $PROJECT_NAME"
           fi
 
-          # Remove characters that are unsafe in filenames
           SAFE_PROJECT_NAME=$(echo "$PROJECT_NAME" | sed 's/[^a-zA-Z0-9._-]/_/g')
 
           if [ -z "$PROJECT_VERSION" ]; then
@@ -73,6 +76,10 @@ jobs:
 
       - name: Generate Doxygen documentation
         run: doxygen Doxyfile
+
+      - name: Find non UTF-8 characters
+        run: |
+          grep -rP -n "[^\x00-\x7F]" Docs/latex || true
 
       - name: Build PDF documentation
         run: |

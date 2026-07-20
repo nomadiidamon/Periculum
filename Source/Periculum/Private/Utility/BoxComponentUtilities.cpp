@@ -26,7 +26,7 @@ FVector BoxComponentUtilities::GetRandomPointOnBoxSurface(const UBoxComponent* B
 
 	FVector LocalPoint;
 
-	// ---------------- ±Z faces ----------------
+	// ---------------- +/- Z faces ----------------
 	if (Pick < XY * 2.f)
 	{
 		float X = RandomStream.FRandRange(-Extent.X, Extent.X);
@@ -36,7 +36,7 @@ FVector BoxComponentUtilities::GetRandomPointOnBoxSurface(const UBoxComponent* B
 
 		LocalPoint = FVector(X, Y, Sign * Extent.Z);
 	}
-	// ---------------- ±Y faces ----------------
+	// ---------------- +/- Y faces ----------------
 	else if (Pick < XY * 2.f + XZ * 2.f)
 	{
 		float X = RandomStream.FRandRange(-Extent.X, Extent.X);
@@ -46,7 +46,7 @@ FVector BoxComponentUtilities::GetRandomPointOnBoxSurface(const UBoxComponent* B
 
 		LocalPoint = FVector(X, Sign * Extent.Y, Z);
 	}
-	// ---------------- ±X faces ----------------
+	// ---------------- +/- X faces ----------------
 	else
 	{
 		float Y = RandomStream.FRandRange(-Extent.Y, Extent.Y);
