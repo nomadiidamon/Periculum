@@ -85,6 +85,7 @@ jobs:
             texlive-latex-extra \
             texlive-fonts-recommended \
             texlive-fonts-extra \
+            texlive-extra-utils \
             latexmk
 
       - name: Generate Doxygen documentation
