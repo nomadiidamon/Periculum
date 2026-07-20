@@ -28,7 +28,7 @@ public:
 
 protected:
 	/// <summary>
-	/// Overrides the base implementation to initialize and bind input handlers on the object’s input component. Use this to register input actions and axis mappings.Sets up the input component for the player controller. This is where you can bind input actions and axes to functions that will handle them.
+	/// Overrides the base implementation to initialize and bind input handlers on the object's input component. Use this to register input actions and axis mappings.Sets up the input component for the player controller. This is where you can bind input actions and axes to functions that will handle them.
 	/// </summary>
 	virtual void SetupInputComponent() override;
 	
