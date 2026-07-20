@@ -1,3 +1,4 @@
+# Unreal Engine and Visual Studio files
 Binaries
 DerivedDataCache
 Intermediate
@@ -12,3 +13,8 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+
+# Doxygen generated files
+Docs/html/
+Docs/latex/
+Docs/*-v*.pdf
