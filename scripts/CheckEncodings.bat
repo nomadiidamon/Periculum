@@ -81,4 +81,4 @@ echo.
 echo Complete.
 
 popd
-pause
+if "%~1" NEQ "nopause" pause
