@@ -18,3 +18,10 @@ Saved
 Docs/html/
 Docs/latex/
 Docs/*-v*.pdf
+
+# Python virtual environment for repo tools
+tools/.venv/
+
+# Python cache files
+__pycache__/
+*.pyc

@@ -1,0 +1,70 @@
+name: Check File Encoding
+
+on:
+  push:
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  encoding-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check text file encodings
+        shell: bash
+        run: |
+          SEARCH_DIRS=""
+
+          [ -d "Source" ] && SEARCH_DIRS="$SEARCH_DIRS Source"
+          [ -d "Docs" ] && SEARCH_DIRS="$SEARCH_DIRS Docs"
+
+          if [ -z "$SEARCH_DIRS" ]; then
+            echo "No source/documentation folders found. Skipping."
+            exit 0
+          fi
+
+          BAD_FILES=$(find $SEARCH_DIRS \
+            -type f \
+            \( \
+              -name "*.h" \
+              -o -name "*.hpp" \
+              -o -name "*.cpp" \
+              -o -name "*.c" \
+              -o -name "*.md" \
+              -o -name "*.txt" \
+            \) \
+            -print0 | \
+            xargs -0 -r file -i | \
+            grep -vE "charset=(utf-8|us-ascii)" || true)
+
+          if [ -n "$BAD_FILES" ]; then
+            echo "The following files are not UTF-8 compatible:"
+            echo ""
+            echo "$BAD_FILES"
+            echo ""
+            echo "Convert these files to UTF-8 before committing."
+            exit 1
+          fi
+
+          echo "All checked files are UTF-8 compatible."
+
+      - name: Check Doxygen configuration encoding
+        shell: bash
+        run: |
+          if [ -f "Doxyfile" ]; then
+            DOXYFILE_ENCODING=$(file -i Doxyfile)
+
+            echo "$DOXYFILE_ENCODING"
+
+            if ! echo "$DOXYFILE_ENCODING" | grep -qE "charset=(utf-8|us-ascii)"; then
+              echo "Doxyfile is not UTF-8 compatible."
+              exit 1
+            fi
+          else
+            echo "No Doxyfile found. Skipping."
+          fi
