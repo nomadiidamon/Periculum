@@ -1,0 +1,33 @@
+#!/bin/sh
+
+echo "Checking final newline..."
+
+FILES=$(git diff --cached --name-only --diff-filter=ACMR)
+
+FAILED=0
+
+for file in $FILES; do
+    if [ -f "$file" ]; then
+
+        # Skip binary files
+        if file "$file" | grep -q "text"; then
+
+            if [ "$(tail -c 1 "$file" | wc -l)" -eq 0 ]; then
+                echo "ERROR: Missing final newline in:"
+                echo "  $file"
+                FAILED=1
+            fi
+
+        fi
+    fi
+done
+
+if [ $FAILED -ne 0 ]; then
+    echo
+    echo "Add a newline at the end of the files above."
+    exit 1
+fi
+
+echo "Final newline check passed."
+
+exit 0

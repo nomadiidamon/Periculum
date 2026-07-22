@@ -1,0 +1,32 @@
+#!/bin/sh
+
+echo "Checking for trailing whitespace..."
+
+FILES=$(git diff --cached --name-only --diff-filter=ACMR)
+
+FAILED=0
+
+for file in $FILES; do
+    if [ -f "$file" ]; then
+        if grep -n '[[:blank:]]$' "$file" >/dev/null; then
+            echo "ERROR: Trailing whitespace found in:"
+            echo "  $file"
+
+            grep -n '[[:blank:]]$' "$file" | while read line; do
+                echo "    $line"
+            done
+
+            FAILED=1
+        fi
+    fi
+done
+
+if [ $FAILED -ne 0 ]; then
+    echo
+    echo "Remove trailing whitespace before committing."
+    exit 1
+fi
+
+echo "No trailing whitespace found."
+
+exit 0

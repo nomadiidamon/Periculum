@@ -1,37 +1,26 @@
 #!/bin/sh
 
-echo "Checking file encodings..."
+HOOK_DIR="$(dirname "$0")/../../scripts/hooks/pre-commit.d"
 
-FILES=$(git diff --cached --name-only --diff-filter=ACM | \
-  grep -Ei '\.(h|hpp|cpp|c|md|txt|doxy)$' || true)
+echo "Running pre-commit hooks..."
+echo
 
-if [ -z "$FILES" ]; then
-    echo "No text files to check."
-    exit 0
-fi
+for script in "$HOOK_DIR"/*; do
+    if [ -f "$script" ]; then
+        echo "-> $(basename "$script")"
 
-BAD_FILES=""
+        "$script"
+        STATUS=$?
 
-for FILE in $FILES; do
-    if [ -f "$FILE" ]; then
-        RESULT=$(file -i "$FILE")
-
-        echo "$RESULT" | grep -qE "charset=(utf-8|us-ascii)"
-
-        if [ $? -ne 0 ]; then
-            BAD_FILES="$BAD_FILES\n$RESULT"
+        if [ $STATUS -ne 0 ]; then
+            echo
+            echo "Pre-commit hook failed: $(basename "$script")"
+            exit $STATUS
         fi
     fi
 done
 
-if [ -n "$BAD_FILES" ]; then
-    echo ""
-    echo "ERROR: The following files are not UTF-8 compatible:"
-    echo -e "$BAD_FILES"
-    echo ""
-    echo "Convert these files to UTF-8 before committing."
-    exit 1
-fi
+echo
+echo "All pre-commit hooks passed."
 
-echo "Encoding check passed."
 exit 0

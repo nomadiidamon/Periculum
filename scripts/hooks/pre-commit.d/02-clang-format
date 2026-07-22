@@ -1,0 +1,27 @@
+#!/bin/sh
+
+echo "Checking clang-format..."
+
+FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(c|cc|cpp|cxx|h|hpp|hxx)$')
+
+FAILED=0
+
+for file in $FILES; do
+    if [ -f "$file" ]; then
+        if ! clang-format -style=file --dry-run --Werror "$file" >/dev/null 2>&1; then
+            echo "ERROR: clang-format issue found in:"
+            echo "  $file"
+            FAILED=1
+        fi
+    fi
+done
+
+if [ $FAILED -ne 0 ]; then
+    echo
+    echo "Run clang-format on the files above before committing."
+    exit 1
+fi
+
+echo "clang-format check passed."
+
+exit 0
