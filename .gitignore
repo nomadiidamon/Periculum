@@ -25,3 +25,6 @@ tools/.venv/
 # Python cache files
 __pycache__/
 *.pyc
+
+# Clang tooling
+compile_commands.json

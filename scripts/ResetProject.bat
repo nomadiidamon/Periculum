@@ -33,6 +33,11 @@ for %%F in (*.sln) do (
     del /Q "%%F"
 )
 
+if exist "compile_commands.json" (
+    echo Removing compile_commands.json...
+    del /Q "compile_commands.json"
+)
+
 echo.
 echo Project reset complete.
 

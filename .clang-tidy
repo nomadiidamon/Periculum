@@ -1,0 +1,14 @@
+Checks: >
+  bugprone-*,
+  performance-*,
+  -bugprone-throwing-static-initialization,
+  -bugprone-narrowing-conversions
+
+WarningsAsErrors: >
+  bugprone-assignment-in-if-condition
+
+HeaderFilterRegex: '^(?!.*(Engine|Plugins|Intermediate|ThirdParty)).*Source/Periculum/.*'
+
+FormatStyle: file
+
+SystemHeaders: false

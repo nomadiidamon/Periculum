@@ -4,6 +4,9 @@ echo "Checking clang-format..."
 
 FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(c|cc|cpp|cxx|h|hpp|hxx)$')
 
+echo "Files being checked:"
+echo "$FILES"
+
 FAILED=0
 
 for file in $FILES; do
