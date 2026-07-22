@@ -1,5 +1,5 @@
 @echo off
-setlocal
+setlocal EnableDelayedExpansion
 
 set SCRIPT_DIR=%~dp0
 pushd "%SCRIPT_DIR%\.."
@@ -16,20 +16,35 @@ if not exist ".git" (
 )
 
 set HOOKS=pre-commit
+set INSTALL_FAILED=0
 
 for %%H in (%HOOKS%) do (
 
-    if exist ".git\hooks\%%H" (
+	set SOURCE_FILE=scripts\hooks\%%H
+	set DEST_FILE=.git\hooks\%%H
+
+    if exist "!DEST_FILE!" (
         echo Updating %%H...
     ) else (
         echo Installing %%H...
     )
 
-    copy /Y "scripts\%%H" ".git\hooks\%%H" >nul
+    copy /Y "!SOURCE_FILE!" "!DEST_FILE!" >nul
+	
+	if errorlevel 1 (
+		echo [FAILED] Could not copy %%H.
+		set INSTALL_FAILED=1
+	) else (
+		echo [OK] Copied %%H.
+	)
+	
 )
 
-echo.
-echo Git hooks are installed.
+if "%INSTALL_FAILED%"=="0" (
+    echo Git hooks are installed.
+) else (
+    echo ERROR: One or more Git hooks failed to install.
+)
 
 echo.
 echo.
